@@ -428,7 +428,7 @@
     Die
     \marginpar{Dimensionsbegriff}
     Annahme ist mehr als fraglich und hängt wesentlich vom zugrunde gelegten Dimensionsbegriff ab.
-    Zu untersuchen ist also zunächst einmal, welche Dimensionsbegriffe für die hier definierten euklidischen Entitäten überhaupt anwendbar sind und welche in geeigneter Weise den theorieinternen Dimensionsbegriff wiederspiegeln.
+    Zu untersuchen ist also zunächst einmal, welche Dimensionsbegriffe für die hier definierten euklidischen Entitäten überhaupt anwendbar sind und welche in geeigneter Weise den theorieimmanenten Vorstellungen von Dimension entsprechen.
     Klar ist: nicht alle euklidischen Entitäten haben Mannigfaltigkeiten als Rand.
     Man nehme beispielsweise den Doppelkegel $K := \{(x,y,z) \in \R^3 \mid x^2+y^2 < z^2\}$, dessen Rand an der Spitze $(0,0,0)$ nicht homöomorph zu $\R^2$ und somit keine Mannigfaltigkeit ist.
     Ist jedoch der Rand einer euklidischen Entität eine Untermannigfaltigkeit des $\R^3$, so sollte die Dimension nach dem gewählten Dimensionsbegriff mit der Dimension dieser Untermannigfaltigkeit übereinstimmen.
@@ -450,9 +450,18 @@
     der anderen Seite steht die Frage, ob die \strukt ein Modell von $\theoryBSO$ ist. Dafür müssen die $\theoryBSO$-Axiome auf ihre Gültigkeit in der \strukt untersucht werden wie in \ref{sec:analyse} für das starke Ergänzungsprinzip (A8) auf Raumregionen ausgeführt und für andere Raumentitäten \textcolor{red}{skizziert} wurde.
     Falls das nicht der Fall ist, könnte man überlegen, ob sich die Interpretation im Rahmen der Grundidee reparieren lässt, beispielsweise indem man die euklidischen Entitäten oder die Objektäquivalenz anders definiert.
     
-    Vielleicht
+    Lange Zeit
+    \marginpar{eine Familie von Interpretationen für $\theoryBSO$}
+    wurde hatte ich den Ansatz verfolgt, eine ganze Interpretationsfamilie für $\theoryBSO$ zu definieren.
+    Diese Idee findet sich auch jetzt noch im Aufbau der Arbeit wieder.
+    In Kapitel \ref{chap:bso-grundideen} wird die \strukt weitgehend eingeführt, ohne jedoch die euklidischen Entitäten und die Objektäquivalenz formal zu definieren.
+    Diese Freiheitsgrade können als Parameter einer Familie von Interpretationen betrachtet werden.
+    Von dieser Idee bin ich letztendlich abgekommen, da es für mich schwierig zu fassen war, in welchen Grenzen sich die Objektäquivalenz und der zugrundegelegte Randbegriff bewegen sollten.
+    Sie spiegelt jedoch die Flexibilität der \strukt wieder, die neuen Erkenntnissen relativ einfach angepasst werden kann, ohne dass ihre Grundidee aufgegeben wird.
+
+    Die
     \marginpar{Konsistenzbeweis für $\theoryBS$}
-    die grundlegendste Frage zum vorgestellten Ansatz wäre,
+    vielleicht grundlegendsteFrage zum vorgestellten Ansatz wäre aber aus meiner Sicht,
     ob sich ein beliebiges (oder falls vorhanden ein konkretes) Modell für $\theoryBSO$ durch Abschlussbildung unter mereologischer Summenbildung zu einen Modell für $\theoryBS$ erweitern lässt.
 % 
 % 
@@ -479,61 +488,61 @@
 %   Falls nein:
 %     - Lässt sich das im Rahmen der Grundidee reparieren, beispielsweise indem man die euklidischen Entitäten oder die Objektäquivalenz anders definiert?
 %     
-    
-    \section{Entstehungsgeschichte}
-    
-    Auch die Notationen haben sich entwickelt. Darauf möchte ich hier nicht eingehen.
-    Hier verwende ich wo vorhanden neue Notationen, um eine einfachere Verglichbarkeit zu ermöglichen.
-    
-    1. Ansatz:
-    Noch keine euklidischen Entitäten.
-    Keine einfachen Mengen
-    Kein äußerer Rand
-    Keine lokale Gleichheit
-    
-    BSO nicht definiert
-    herangehensweise: Interpretation einführen und schauen, welche Axiome gelten
-    Klar: existenz der mereologischen Summe nicht garantiert
-    
-    schon: Repräsentanten, $\oc$-Operator und Objektäquivalenz
-    \footnote{Tatsächlich wurde der Begriff der euklidischen Entität erst in der letzten Version eingeführt. Als Konzept ohne Namen gibt es euklidische Entitäten aber schon länger.}
-    Repräsentanten sind Tupel aus offenen Mengen im $\R^3$.
-    Auch Raumregionen sind Äquivalenzklassen der Objektäquivalenz.
-    Konkret: Ein Körperrepräsentant ist eine nichtleere, offene beschränkte Menge im $\R^3$.
-    Zwei Körperrepräsentanten $A$ und $B$ sind Objektäquivalent falls $\oc(A) = \oc(B)$ gilt.
-    Zur Definition der Repräsentanten wurden zwei Randoperatoren eingeführt:
-    \begin{dfn}[Randoperatoren] 
-    		Seien $A, B \in \offen $. \\
-    		Der \textbf{Randoperator $\partial_A : \offen \to 2^{\mathbb{R}^3}$ im $\partial A$} ist für $X \in \offen$ definiert durch \\ $\partial_A(X) := \{x \in \partial A \mid \forall \epsilon > 0 : \exists y, z \in (\partial A \cap U_\epsilon (x)) : y \in X \land z \notin X\} $. \\
-    		Der \textbf{Randoperator $\partial_{A} : \offen \to 2^{\mathbb{R}^3}$ im $\partial_A(B)$} ist für $X \in \offen$ definiert durch \\ $\partial_{AB}(X) := \{x \in \partial_A(B) \mid \forall \epsilon > 0 : \exists y, z \in (\partial_A(B) \cap U_\epsilon (x)) : y \in X \land z \notin X\} $.
-    	\end{dfn}
-    	
-    	\begin{dfn}[Repräsentanten]
-    		$X \subseteq \mathbb{R}^3$ ist ein \textbf{Körperrepräsentant}, wenn $X$ offen, nichtleer und beschränkt ist. \\
-    		Seien $A$, $B$, $C$ und $D$ Körperrepräsentanten. \\
-    		$(A, B)$ ist ein \textbf{Flächenrepräsentant}, wenn $\partial {\oc(A)} \cap \oc(B) \neq \varnothing$ ist. \\
-    		$(A, B, C)$ ist ein \textbf{Linienrepräsentant}, wenn $\partial_{\oc(A)}(\oc(B)) \cap \oc(C) \neq \varnothing$ ist. \\
-    		$(A, B, C, D)$ ist ein \textbf{Punktrepräsentant}, wenn $\partial_{\oc(A) \oc (B)}(\oc (C)) \cap \oc(D) \neq \varnothing$ ist. \\	
-    	\end{dfn}
-    	
-    	\todo[inline]{Bild}
-    	
-    	\begin{dfn}[Koinzidenz]
-    		2 Körperrepräsentanten $A_1$ und $A_2$ sind koinzident, falls $A_1^* = A_2^*$ ist. \\
-    		2 Flächenrepräsentanten $(A_1, B_1)$ und $(A_2, B_2)$ sind koinzident, falls $\partial A_1^* \cap B_1^* = \partial A_2^* \cap B_2^*$ ist.\\
-    		2 Linienrepräsentanten $(A_1, B_1, C_1)$ und $(A_2, B_2, C_2)$ sind koinzident, falls $\partial_{A_1^*}(B_1^*) \cap C_1^* = \partial_{A_2^*}(B_2^*) \cap C_2^*$ ist.\\
-    		2 Punktrepräsentanten $(A_1, B_1, C_1, D_1)$ und $(A_2, B_2, C_2, D_2)$ sind koinzident, falls $\partial_{A_1^*B_1^*}(C_1^*) \cap D_1^*  = \partial_{A_2^*B_2^*}(C_2^*) \cap D_2^*$ ist.\\	
-    	\end{dfn}
-    	
-    	\begin{dfn}[Objektäquivalenz]
-    		2 Körperrepräsentanten $A_1$ und $A_2$ sind objektäquivalent, falls $A_1^* = A_2^*$ ist. \\
-    		2 Flächenrepräsentanten $(A_1, B_1)$ und $(A_2, B_2)$ sind objektäquivalent, falls sie koinzident sind und eine offene Menge $U \subseteq \mathbb{R}^3$ existiert, s.d. $\partial A_1^* \cap B_1^* \subseteq U*$ und $A_1^* \cap U = A_2^* \cap U$ gelten.\\
-    		2 Linienrepräsentanten $(A_1, B_1, C_1)$ und $(A_2, B_2, C_2)$ sind objektäquivalent, falls sie koinzident sind und eine offene Menge $U \subseteq \mathbb{R}^3$ existiert, s.d. $\partial_{A_1^*}(B_1^*) \cap C_1^* \subseteq U*$ und $A_1^* \cap U = A_2^* \cap U$ und $B_1^* \cap U = B_2^* \cap U$ gelten.\\
-    		2 Punktrepräsentanten $(A_1, B_1, C_1, D_1)$ und $(A_2, B_2, C_2, D_2)$ sind objektäquivalent, falls sie koinzident sind und eine offene Menge $U \subseteq \mathbb{R}^3$ existiert, s.d. $\partial_{A_1^*B_1^*}(C_1^*) \cap D_1^* \subseteq U*$ und $A_1^* \cap U = A_2^* \cap U$, $B_1^* \cap U = B_2^* \cap U$ und $C_1^* \cap U = C_2^* \cap U$ gelten.
-    	\end{dfn}
-    	
-    	Probleme: Kompliziert, da viel mehr Mengen zugelassen sind, die dann durch die Objektäquivalenz zusammengefasst werden -> Mehr Möglichkeiten für pathologische Beispiele
-    	
-    	Vermutung: Äquivalente Ansätze über Einbettungen
-    	
-    	
+%     
+%     \section{Entstehungsgeschichte}
+%     
+%     Auch die Notationen haben sich entwickelt. Darauf möchte ich hier nicht eingehen.
+%     Hier verwende ich wo vorhanden neue Notationen, um eine einfachere Verglichbarkeit zu ermöglichen.
+%     
+%     1. Ansatz:
+%     Noch keine euklidischen Entitäten.
+%     Keine einfachen Mengen
+%     Kein äußerer Rand
+%     Keine lokale Gleichheit
+%     
+%     BSO nicht definiert
+%     herangehensweise: Interpretation einführen und schauen, welche Axiome gelten
+%     Klar: existenz der mereologischen Summe nicht garantiert
+%     
+%     schon: Repräsentanten, $\oc$-Operator und Objektäquivalenz
+%     \footnote{Tatsächlich wurde der Begriff der euklidischen Entität erst in der letzten Version eingeführt. Als Konzept ohne Namen gibt es euklidische Entitäten aber schon länger.}
+%     Repräsentanten sind Tupel aus offenen Mengen im $\R^3$.
+%     Auch Raumregionen sind Äquivalenzklassen der Objektäquivalenz.
+%     Konkret: Ein Körperrepräsentant ist eine nichtleere, offene beschränkte Menge im $\R^3$.
+%     Zwei Körperrepräsentanten $A$ und $B$ sind Objektäquivalent falls $\oc(A) = \oc(B)$ gilt.
+%     Zur Definition der Repräsentanten wurden zwei Randoperatoren eingeführt:
+%     \begin{dfn}[Randoperatoren] 
+%     		Seien $A, B \in \offen $. \\
+%     		Der \textbf{Randoperator $\partial_A : \offen \to 2^{\mathbb{R}^3}$ im $\partial A$} ist für $X \in \offen$ definiert durch \\ $\partial_A(X) := \{x \in \partial A \mid \forall \epsilon > 0 : \exists y, z \in (\partial A \cap U_\epsilon (x)) : y \in X \land z \notin X\} $. \\
+%     		Der \textbf{Randoperator $\partial_{A} : \offen \to 2^{\mathbb{R}^3}$ im $\partial_A(B)$} ist für $X \in \offen$ definiert durch \\ $\partial_{AB}(X) := \{x \in \partial_A(B) \mid \forall \epsilon > 0 : \exists y, z \in (\partial_A(B) \cap U_\epsilon (x)) : y \in X \land z \notin X\} $.
+%     	\end{dfn}
+%     	
+%     	\begin{dfn}[Repräsentanten]
+%     		$X \subseteq \mathbb{R}^3$ ist ein \textbf{Körperrepräsentant}, wenn $X$ offen, nichtleer und beschränkt ist. \\
+%     		Seien $A$, $B$, $C$ und $D$ Körperrepräsentanten. \\
+%     		$(A, B)$ ist ein \textbf{Flächenrepräsentant}, wenn $\partial {\oc(A)} \cap \oc(B) \neq \varnothing$ ist. \\
+%     		$(A, B, C)$ ist ein \textbf{Linienrepräsentant}, wenn $\partial_{\oc(A)}(\oc(B)) \cap \oc(C) \neq \varnothing$ ist. \\
+%     		$(A, B, C, D)$ ist ein \textbf{Punktrepräsentant}, wenn $\partial_{\oc(A) \oc (B)}(\oc (C)) \cap \oc(D) \neq \varnothing$ ist. \\	
+%     	\end{dfn}
+%     	
+%     	\todo[inline]{Bild}
+%     	
+%     	\begin{dfn}[Koinzidenz]
+%     		2 Körperrepräsentanten $A_1$ und $A_2$ sind koinzident, falls $A_1^* = A_2^*$ ist. \\
+%     		2 Flächenrepräsentanten $(A_1, B_1)$ und $(A_2, B_2)$ sind koinzident, falls $\partial A_1^* \cap B_1^* = \partial A_2^* \cap B_2^*$ ist.\\
+%     		2 Linienrepräsentanten $(A_1, B_1, C_1)$ und $(A_2, B_2, C_2)$ sind koinzident, falls $\partial_{A_1^*}(B_1^*) \cap C_1^* = \partial_{A_2^*}(B_2^*) \cap C_2^*$ ist.\\
+%     		2 Punktrepräsentanten $(A_1, B_1, C_1, D_1)$ und $(A_2, B_2, C_2, D_2)$ sind koinzident, falls $\partial_{A_1^*B_1^*}(C_1^*) \cap D_1^*  = \partial_{A_2^*B_2^*}(C_2^*) \cap D_2^*$ ist.\\	
+%     	\end{dfn}
+%     	
+%     	\begin{dfn}[Objektäquivalenz]
+%     		2 Körperrepräsentanten $A_1$ und $A_2$ sind objektäquivalent, falls $A_1^* = A_2^*$ ist. \\
+%     		2 Flächenrepräsentanten $(A_1, B_1)$ und $(A_2, B_2)$ sind objektäquivalent, falls sie koinzident sind und eine offene Menge $U \subseteq \mathbb{R}^3$ existiert, s.d. $\partial A_1^* \cap B_1^* \subseteq U*$ und $A_1^* \cap U = A_2^* \cap U$ gelten.\\
+%     		2 Linienrepräsentanten $(A_1, B_1, C_1)$ und $(A_2, B_2, C_2)$ sind objektäquivalent, falls sie koinzident sind und eine offene Menge $U \subseteq \mathbb{R}^3$ existiert, s.d. $\partial_{A_1^*}(B_1^*) \cap C_1^* \subseteq U*$ und $A_1^* \cap U = A_2^* \cap U$ und $B_1^* \cap U = B_2^* \cap U$ gelten.\\
+%     		2 Punktrepräsentanten $(A_1, B_1, C_1, D_1)$ und $(A_2, B_2, C_2, D_2)$ sind objektäquivalent, falls sie koinzident sind und eine offene Menge $U \subseteq \mathbb{R}^3$ existiert, s.d. $\partial_{A_1^*B_1^*}(C_1^*) \cap D_1^* \subseteq U*$ und $A_1^* \cap U = A_2^* \cap U$, $B_1^* \cap U = B_2^* \cap U$ und $C_1^* \cap U = C_2^* \cap U$ gelten.
+%     	\end{dfn}
+%     	
+%     	Probleme: Kompliziert, da viel mehr Mengen zugelassen sind, die dann durch die Objektäquivalenz zusammengefasst werden -> Mehr Möglichkeiten für pathologische Beispiele
+%     	
+%     	Vermutung: Äquivalente Ansätze über Einbettungen
+%     	
+%     	
