@@ -1,0 +1,473 @@
+%%%%%%%%%%%%%%%%
+% Identification
+% $Id: time-abbrevs.sty,v 1.6 2014/11/07 22:35:19 loebe Exp $
+%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{space-abbrevs}[2016/02/11 Package for abbreviations in the file fois2016-space.tex]
+
+
+% Initialization
+\usepackage{ifthen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% AXIOMS and DEFINITIONS, numbered
+
+% counters for enumerating axioms
+% CenumAxLast?-counters are for storing last values,
+%   which allows for continuous counting through the document
+\newcounter{CenumAxA}      %axiom
+\newcounter{CenumAxB}      %basic symbol
+\newcounter{CenumAxC}      %consequence/corollary
+\newcounter{CenumAxD}      %definition
+\newcounter{CenumAxT}      %theorem
+\setcounter{CenumAxA}{1}
+\setcounter{CenumAxB}{1}
+\setcounter{CenumAxC}{1}
+\setcounter{CenumAxD}{1}
+\setcounter{CenumAxT}{1}
+\newcounter{CenumAxLastA}
+\newcounter{CenumAxLastB}
+\newcounter{CenumAxLastC}
+\newcounter{CenumAxLastD}
+\newcounter{CenumAxLastT}
+\setcounter{CenumAxLastA}{0}
+\setcounter{CenumAxLastB}{0}
+\setcounter{CenumAxLastC}{0}
+\setcounter{CenumAxLastD}{0}
+\setcounter{CenumAxLastT}{0}
+
+% new for consistency proof and interpretation into IP
+%\newcounter{CenumAxCD}      %interpretation of BTC symbol
+%\newcounter{CenumAxIA}      %interpretation of axiom
+%\newcounter{CenumAxID}      %interpretation of definition
+%\newcounter{CenumAxIP}      %System IP (Vila)
+%\newcounter{CenumAxTr}      %translation/interpretation of IP formula
+%\setcounter{CenumAxCD}{1}
+%\setcounter{CenumAxIA}{1}
+%\setcounter{CenumAxID}{1}
+%\setcounter{CenumAxIP}{1}
+%\setcounter{CenumAxTr}{1}
+%\newcounter{CenumAxLastCD}
+%\newcounter{CenumAxLastIA}
+%\newcounter{CenumAxLastID}
+%\newcounter{CenumAxLastIP}
+%\newcounter{CenumAxLastTr}
+%\setcounter{CenumAxLastCD}{0}
+%\setcounter{CenumAxLastIA}{0}
+%\setcounter{CenumAxLastID}{0}
+%\setcounter{CenumAxLastIP}{0}
+%\setcounter{CenumAxLastTr}{0}
+
+\newcommand{\resetCenumAx}[2][0]{%
+\setcounter{CenumAx#2}{1}
+\addtocounter{CenumAx#2}{#1}
+\setcounter{CenumAxLast#2}{0}
+\addtocounter{CenumAxLast#2}{#1}
+}
+
+
+
+%length \itemWidth for storing the length of an item in an enumAx-List
+\newlength{\itemWidth}
+\setlength{\itemWidth}{\linewidth}
+
+%command for storing the type of formula within one enumAx-block
+% (A is just a default)
+% careful: used for counter construction, cf. CenumAx?
+\newcommand{\enumAxType}{A}
+\newcommand{\backupCenumAx}[1][A]{\setcounter{CenumAxLast#1}{\value{CenumAx#1}}}
+
+% list environment for annotated formulas
+%
+% usage examples: 1. some basic symbols
+%                 2. some axioms
+%                    (contains labels, and itemTP -> note explicit mathmode)
+%                 
+%\begin{enumAx}[B]
+%   \itemT{x+y}{abstract mereological sum}
+%   \itemT{x \Lintsect y}{abstract intersection}
+%   \itemT{c(x)}{abstract complement}
+%   \itemT{x-y}{abstract relative complement}
+%\end{enumAx}
+%
+%\begin{enumAx}
+%   \itemT{\label{ax:MmrAppliedToDabsPP} (\MEntCM(x) \Land \MEntCM(y) \Limp
+%          \Gpp(x, y)) \Liff (\MEntCM(x) \Land \MEntCM(y) \Limp \Gp (x, y)) \Land
+%          (\MEntCM(x) \Land \MEntCM(y) \Limp x \neq y)}{}
+%   \itemTP{\label{ax:MmrAppliedToDoverlap} $(\MEntCM(x) \Land \MEntCM(y) \Limp
+%          \Go(x, y)) \Liff$\\
+%                  \hspace*{\fill}$\exists z ( \MEntCM(z) \Land (\MEntCM(z) \Land
+%             \MEntCM(x) \Limp \Gp(z, x)) \Land (\MEntCM(z) \Land \MEntCM(y) \Limp
+%             \Gp(z, y))\:)$}{}
+%\end{enumAx}
+%
+%
+%\newcommand{\axSecConjecture}{\textit{Conjecture}:\hspace*{1em}}
+%\newcommand{\axSecProblem}{\textit{Problem}:\hspace*{1em}}
+%\newcommand{\axSecRemark}{\textit{Remark}:\hspace*{1em}}
+
+% initialize optional commands
+\newenvironment{enumAx}[1][A]{}{}
+\newcommand{\itemT}{}
+\newcommand{\itemTP}{}
+\newcommand{\itemTA}{}
+\newcommand{\GSymbolFont}{}
+
+% AXIOMS & DEFINITIONS ends %%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Declaration of options
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTION manAxiomStyle STARTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{manAxiomStyle}{%
+\renewenvironment{enumAx}[1][A]%
+   {%\renewcommand{\baselinestretch}{1.5}\selectfont
+    \renewcommand{\enumAxType}{#1}
+    \begin{list}{#1\arabic{CenumAx#1}.}%
+      {\usecounter{CenumAx#1}\addtocounter{CenumAx#1}{\value{CenumAxLast#1}}%
+       \setlength{\topsep}{0.5ex}
+      %\setlength{\labelsep}{1ex}%\setlength{\leftmargin}{1em}\setlength{\listparindent}{0mm}%
+       \setlength{\itemsep}{0.20\baselineskip}%  n06.12.2013: intermediate use of 0.50\baselineskip for double line spacing
+       \setlength{\itemWidth}{\linewidth-\leftmargin-\rightmargin}%
+      }%
+    \small
+   }%
+   {\backupCenumAx[\enumAxType]%
+    \end{list}%
+    \setlength{\itemWidth}{\linewidth}%
+    %\renewcommand{\baselinestretch}{2}\selectfont
+   }
+
+% %itemT executes \item, then puts up tabular structure: arg2 first col, arg3 sec. col
+% % arg1 optional as standard for item
+% \renewcommand{\itemT}[3][]{\ifthenelse{\equal{#1}{}}{\item}{\item[#1]}%
+%    \begin{tabular*}{.98\itemWidth}{@{}l@{\hspace{1em}\extracolsep\fill}r@{}}%
+%       $#2$ & \ifthenelse{\equal{#3}{}}{}{(#3)}
+%    \end{tabular*}
+% }
+% revised itemT (without tables)
+\renewcommand{\itemT}[3][]{%
+   \ifthenelse{\equal{#1}{}}{\item}{\item[#1]}%
+   \parbox[t]{.994\itemWidth}{$#2$\hspace{1em}\hspace{\fill}\ifthenelse{\equal{#3}{}}{}{(#3)}}
+}
+
+%itemTP executes \item, then puts up parbox: arg2 first, followed by arg3 in parentheses
+\renewcommand{\itemTP}[3][]{%
+   \ifthenelse{\equal{#1}{}}{\item}{\item[#1]}%
+   \parbox[t]{.994\itemWidth}{#2\hspace*{1em}\hspace{\fill}\ifthenelse{\equal{#3}{}}{}{(#3)}}
+}
+%itemTA executes \itemT as above and adds a new command for a copy
+% args: 1.) type letter, 2.) internal label, 3.) formula, 4.) explanation
+% example: \itemTA{B}{Babspartof}{\Gp(x, y)}{abstract part-of}
+\renewcommand{\itemTA}[4]{\itemT{\label{#2} #3}{#4}%
+    \expandafter\gdef\csname itemCopy#2\endcsname{\itemT[#1\ref{#2}.]{#3}{#4}}%
+}
+%
+%
+} %OPTION manAxiomStyle ENDS HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTION simpleAxiomStyle STARTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{simpleAxiomStyle}{%
+\renewenvironment{enumAx}[1][A]%
+   {\begin{enumerate}%
+    \setlength{\itemWidth}{\linewidth}%
+   }%
+   {\end{enumerate}%
+   }
+
+%itemT executes \item with arg2 in mathmode
+\renewcommand{\itemT}[3][]{\item $#2$}
+
+%itemTP executes \item, then puts up parbox with arg2
+\renewcommand{\itemTP}[3][]{\item 
+   \parbox[t]{\itemWidth}{#2}
+}
+%itemTA NOT AVAILABLE IN THIS STYLE!
+% executes \itemT as above and adds a new command for a copy
+% args: 1.) type letter, 2.) internal label, 3.) formula, 4.) explanation
+% example: \itemTA{B}{Babspartof}{\Gp(x, y)}{abstract part-of}
+%\newcommand{\itemTA}[4]{\itemT{\label{#2} #3}{#4}%
+%    \expandafter\gdef\csname itemCopy#2\endcsname{\itemT[#1\ref{#2}.]{#3}{#4}}%
+%}
+%
+%
+} %OPTION simpleAxiomStyle ENDS HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTION uniformSymbols STARTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{uniformSymbols}{%
+%
+\renewcommand{\GSymbolFont}[1]{#1}
+%
+} %OPTION uniformSymbols ENDS HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTION mboxSymbols STARTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{mboxSymbols}{%
+%
+\renewcommand{\GSymbolFont}[1]{\mbox{#1}}
+%
+} %OPTION mboxSymbols ENDS HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OPTION mboxSymbols STARTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareOption{italicSymbols}{%
+%
+\renewcommand{\GSymbolFont}[1]{\ensuremath{\mathit{#1}}}
+%
+} %OPTION mboxSymbols ENDS HERE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+% Execution of options
+\ExecuteOptions{manAxiomStyle,uniformSymbols}
+
+\ProcessOptions
+
+% Loading external packages
+%\RequirePackage{ngerman}                    %Umlaute
+\RequirePackage{calc}                        %Arithmetik (fuer Laengen, Zaehlerberechnungen)
+%\RequirePackage{latexsym}                    %Box and Diamond for Modal Logic Symbols
+\RequirePackage{amsmath}                     %Mathematikerweiterungen
+\RequirePackage{amssymb}                     %Mathematikerweiterungen
+\RequirePackage{xspace}                      %für die Nutzung von Mathebefehlen im Text
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN PART %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%
+% referencable Axiom IDs etc.
+% 
+%\newcommand{\aid}[1]{\ensuremath{\makebox[2.5em]{\mbox{}^{[#1]}}}}
+%%\renewcommand{\aid}[1]{\ensuremath{\makebox[2.5em]{\mbox{}^{[#1]}}}}
+%\renewcommand{\aid}[1]{\makebox[0pt][r]{\raisebox{1.5ex}[0pt][0pt]{\tiny \ensuremath{#1}}}}
+%\renewcommand{\aid}[1]{}
+\newcommand{\aid}[1]{}
+\newcommand{\amark}[1][+]{\makebox[-.5ex][r]{\raisebox{1.2ex}[0pt][0pt]{\small \ensuremath{#1}}}\makebox[.5ex]{}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% THEORETICAL SIGNS and SYMBOLS
+
+% LOGICAL SIGNS
+\newcommand{\Land}{\ensuremath{\wedge}}
+\newcommand{\LAnd}{\ensuremath{\bigwedge}}
+\newcommand{\Lor}{\ensuremath{\vee}}
+\newcommand{\Lnot}{\ensuremath{\neg}}
+\newcommand{\Limp}{\ensuremath{\rightarrow}}
+\newcommand{\Liff}{\ensuremath{\leftrightarrow}}
+\newcommand{\Lxor}{\ensuremath{\stackrel{.}{\vee}}}
+\newcommand{\LexistsUnique}{\ensuremath{\exists !}}
+
+% SET-THEORETIC SIGNS
+\newcommand{\Lintsect}{\ensuremath{\cap}}
+\newcommand{\Lunion}{\ensuremath{\cup}}
+\newcommand{\Ldiff}{\ensuremath{\setminus}}
+
+
+%definitions
+%\newcommand{\Ldef}{\ensuremath{=_{df}}} 
+\newcommand{\Ldef}{\ensuremath{:=}} 
+\newcommand{\Liffdef}{\ensuremath{\Liff_{df}}} 
+\newcommand{\LM}[1]{\ensuremath{\mathcal{#1}}}
+\newcommand{\LMod}{\ensuremath{M\!od}}
+
+
+
+% SIGNS FOR SETS OF NUMBERS
+%\newcommand{\N}{\ensuremath{\mathbb{N}}}
+\newcommand{\LN}{\ensuremath{I\!\!N}}
+\newcommand{\LR}{\ensuremath{I\!\!R}}
+
+% GFO SYMBOLS
+\newcommand{\AuxD}{D\hspace*{-0.25ex}}
+
+
+
+\newcommand{\GC}{\ensuremath{\GSymbolFont{C}}}
+\newcommand{\GCrossdDBn}{\ensuremath{\GSymbolFont{Cross\Gd DB_{n}}}}
+\newcommand{\GCrossoneDBn}{\ensuremath{\GSymbolFont{Cross1DB_{n}}}}
+\newcommand{\GCrosstwoDBn}{\ensuremath{\GSymbolFont{Cross2DB_{n}}}}
+\newcommand{\GCrosszeroDBn}{\ensuremath{\GSymbolFont{Cross0DB_{n}}}}
+\newcommand{\Gc}{\ensuremath{\GSymbolFont{c}}}
+\newcommand{\Gcrossonedbn}{\ensuremath{\GSymbolFont{cross1db_{n}}}}
+\newcommand{\Gcrosstwodbn}{\ensuremath{\GSymbolFont{cross2db_{n}}}}
+%\newcommand{\Gcrosszerodb}{\ensuremath{\GSymbolFont{cross0db}}}
+\newcommand{\Gcrosszerodbn}{\ensuremath{\GSymbolFont{cross0db_{n}}}}
+
+\newcommand{\Gd}{\boldsymbol{\mathsf{d}}}
+\newcommand{\Gone}{\boldsymbol{\mathsf{1}}}
+\newcommand{\Gtwo}{\boldsymbol{\mathsf{2}}}
+\newcommand{\Gthree}{\boldsymbol{\mathsf{3}}}
+\newcommand{\GdD}{\ensuremath{\GSymbolFont{\Gd D}}}
+\newcommand{\GdDB}{\ensuremath{\GSymbolFont{\Gd\AuxD B}}}
+\newcommand{\GdDC}{\ensuremath{\GSymbolFont{\Gd\AuxD C}}}
+\newcommand{\GdDE}{\ensuremath{\GSymbolFont{\Gd\AuxD E}}}
+\newcommand{\Gddb}{\ensuremath{\GSymbolFont{\Gd db}}}
+\newcommand{\Gddhypp}{\ensuremath{\GSymbolFont{\Gd dhypp}}}
+\newcommand{\Gdmdhypp}{\ensuremath{\GSymbolFont{\Gdm dhypp}}}
+\newcommand{\Gdircomp}{\ensuremath{\GSymbolFont{dircomp}}}
+\newcommand{\Gddircomp}{\ensuremath{\GSymbolFont{\Gd dircomp}}}
+\newcommand{\dircomp}{\ensuremath{\GSymbolFont{\Gdp dircomp}}}
+\newcommand{\Gdp}{\boldsymbol{\mathsf{(d+1)}}}
+\newcommand{\Gdm}{\boldsymbol{\mathsf{(d-1)}}}
+
+\newcommand{\GExOrd}{\ensuremath{\GSymbolFont{ExOrd}}}
+\newcommand{\Gequ}{\ensuremath{\GSymbolFont{equ}}}
+\newcommand{\Geqdim}{\ensuremath{\GSymbolFont{eqdim}}}
+\newcommand{\Gexc}{\ensuremath{\GSymbolFont{exc}}}
+
+\newcommand{\GGrSB}{\ensuremath{\GSymbolFont{Gr\hspace*{-0.25ex}SB}}}
+\newcommand{\Ggrsb}{\ensuremath{\GSymbolFont{gr\hspace*{-0.25ex}sb}}}
+
+\newcommand{\Ghypp}{\ensuremath{\GSymbolFont{hypp}}}
+
+\newcommand{\GiCCDd}{\ensuremath{\GSymbolFont{i}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GiCCDone}{\ensuremath{\GSymbolFont{i}_{1}\GSymbolFont{CC}}}
+\newcommand{\GiCCDtwo}{\ensuremath{\GSymbolFont{i}_{2}\GSymbolFont{CC}}}
+\newcommand{\GiCCDzero}{\ensuremath{\GSymbolFont{i}_{0}\GSymbolFont{CC}}}
+\newcommand{\Ginpart}{\ensuremath{\GSymbolFont{inpart}}}
+\newcommand{\Gintersect}{\ensuremath{\GSymbolFont{intsect}}}
+\newcommand{\Gintersectn}{\ensuremath{\GSymbolFont{intsect_{n}}}}
+
+\newcommand{\GLDE}{\ensuremath{\GSymbolFont{LDE}}}
+
+\newcommand{\Gcont}{\ensuremath{\GSymbolFont{cont}}}
+\newcommand{\Gstrictsb}{\ensuremath{\GSymbolFont{strictsb}}}
+\newcommand{\Gweaksb}{\ensuremath{\GSymbolFont{weaksb}}}
+
+%\newcommand{\GkCCDd}{\ensuremath{\GSymbolFont{k}_{\Gd}\GSymbolFont{CC}}}
+%\newcommand{\GkCCDone}{\ensuremath{\GSymbolFont{k}_{1}\GSymbolFont{CC}}}
+%\newcommand{\GkCCDtwo}{\ensuremath{\GSymbolFont{k}_{2}\GSymbolFont{CC}}}
+\newcommand{\GkCCDzero}{\ensuremath{\GSymbolFont{k}_{0}\GSymbolFont{CC}}}
+
+%\newcommand{\GlCCDd}{\ensuremath{\GSymbolFont{l}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GlCCDone}{\ensuremath{\GSymbolFont{l}_{1}\GSymbolFont{CC}}}
+%\newcommand{\GlCCDtwo}{\ensuremath{\GSymbolFont{l}_{2}\GSymbolFont{CC}}}
+%\newcommand{\GlCCDzero}{\ensuremath{\GSymbolFont{l}_{0}\GSymbolFont{CC}}}
+
+\newcommand{\GnCCDd}{\ensuremath{\GSymbolFont{n}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GnCCDone}{\ensuremath{\GSymbolFont{n}_{1}\GSymbolFont{CC}}}
+\newcommand{\GnCCDtwo}{\ensuremath{\GSymbolFont{n}_{2}\GSymbolFont{CC}}}
+\newcommand{\GnCCDzero}{\ensuremath{\GSymbolFont{n}_{0}\GSymbolFont{CC}}}
+%\newcommand{\GnminusiCCDd}{\ensuremath{\GSymbolFont{(n-i)}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GnminusiCCDone}{\ensuremath{\GSymbolFont{(n-i)}_{1}\GSymbolFont{CC}}}
+%\newcommand{\GnminusiCCDtwo}{\ensuremath{\GSymbolFont{(n-i)}_{2}\GSymbolFont{CC}}}
+\newcommand{\GnminusiCCDzero}{\ensuremath{\GSymbolFont{(n-i)}_{0}\GSymbolFont{CC}}}
+
+
+\newcommand{\GOrd}{\ensuremath{\GSymbolFont{Ord}}}
+\newcommand{\GoneCCDd}{\ensuremath{\GSymbolFont{1}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GoneCCDone}{\ensuremath{\GSymbolFont{1}_{1}\GSymbolFont{CC}}}
+\newcommand{\GoneCCDtwo}{\ensuremath{\GSymbolFont{1}_{2}\GSymbolFont{CC}}}
+\newcommand{\GoneCCDzero}{\ensuremath{\GSymbolFont{1}_{0}\GSymbolFont{CC}}}
+\newcommand{\GoneD}{\ensuremath{\GSymbolFont{1D}}}
+\newcommand{\GoneDB}{\ensuremath{\GSymbolFont{1\AuxD B}}}
+\newcommand{\GoneDC}{\ensuremath{\GSymbolFont{1DC}}}
+\newcommand{\GoneDE}{\ensuremath{\GSymbolFont{1\AuxD E}}}
+\newcommand{\Gonedb}{\ensuremath{\GSymbolFont{1db}}}
+\newcommand{\Gonecont}{\ensuremath{\GSymbolFont{1cont}}}
+\newcommand{\Gonedircomp}{\ensuremath{\GSymbolFont{1dircomp}}}
+\newcommand{\Gonedhypp}{\ensuremath{\GSymbolFont{1dhypp}}}
+
+\newcommand{\Gpartition}{\ensuremath{\GSymbolFont{partition}}}
+\newcommand{\Gpartitioni}{\ensuremath{\GSymbolFont{partition_{i}}}}
+\newcommand{\Gpartitionn}{\ensuremath{\GSymbolFont{partition_{n}}}}
+
+\newcommand{\GReg}{\ensuremath{\GSymbolFont{SReg}}}
+\newcommand{\Grelcompl}{\ensuremath{\GSymbolFont{rcompl}}}
+\newcommand{\Grelcompln}{\ensuremath{\GSymbolFont{rcompl_{n}}}}
+
+\newcommand{\GSB}{\ensuremath{\GSymbolFont{S\hspace*{-0.25ex}B}}}
+\newcommand{\GSReg}{\ensuremath{\GSymbolFont{S\hspace*{-0.25ex}Reg}}}
+\newcommand{\Gsb}{\ensuremath{\GSymbolFont{sb}}}
+\newcommand{\Gscoinc}{\ensuremath{\GSymbolFont{scoinc}}}
+\newcommand{\Gsov}{\ensuremath{\GSymbolFont{sov}}}
+\newcommand{\Gspart}{\ensuremath{\GSymbolFont{spart}}}
+\newcommand{\Gsppart}{\ensuremath{\GSymbolFont{sppart}}}
+\newcommand{\Gsum}{\ensuremath{\GSymbolFont{sum}}}
+\newcommand{\Gsumi}{\ensuremath{\GSymbolFont{sum_{i}}}}
+\newcommand{\Gsumn}{\ensuremath{\GSymbolFont{sum_{n}}}}
+
+\newcommand{\GTop}{\ensuremath{\GSymbolFont{Top}}}
+\newcommand{\Gtangpart}{\ensuremath{\GSymbolFont{tangpart}}}
+\newcommand{\GtwoD}{\ensuremath{\GSymbolFont{2D}}}
+\newcommand{\GtwoDB}{\ensuremath{\GSymbolFont{2\AuxD B}}}
+\newcommand{\GtwoDC}{\ensuremath{\GSymbolFont{2DC}}}
+\newcommand{\GtwoDE}{\ensuremath{\GSymbolFont{2\AuxD E}}}
+\newcommand{\Gtwodb}{\ensuremath{\GSymbolFont{2db}}}
+\newcommand{\Gtwodhypp}{\ensuremath{\GSymbolFont{2dhypp}}}
+
+\newcommand{\GzeroD}{\ensuremath{\GSymbolFont{0D}}}
+\newcommand{\GzeroDB}{\ensuremath{\GSymbolFont{0\AuxD B}}}
+\newcommand{\GzeroDC}{\ensuremath{\GSymbolFont{0DC}}}
+\newcommand{\GzeroDE}{\ensuremath{\GSymbolFont{0\AuxD E}}}
+\newcommand{\Gzerocont}{\ensuremath{\GSymbolFont{0cont}}}
+\newcommand{\Gzerodb}{\ensuremath{\GSymbolFont{0db}}}
+\newcommand{\Gzerodhypp}{\ensuremath{\GSymbolFont{0dhypp}}}
+
+
+
+%MISC
+\newcommand{\bs}{\backslash}
+\newcommand{\gap}{\\[0.1ex]\mbox{}}
+\newcommand{\m}[1]{\ensuremath{\mathcal{#1}}}
+%\newcommand{\MS}{\ensuremath{\mathrel{.}}}
+\newcommand{\MS}{\ensuremath{\,.\,}}
+\newcommand{\theoryBS}{\ensuremath{\mathcal{BS}}\xspace}
+\newcommand{\theoryBSone}{\ensuremath{\mathcal{BS}_{\text{v}1}}\xspace}
+\newcommand{\theoryBT}{\ensuremath{\mathcal{BT}}}
+\newcommand{\theoryBTC}{\ensuremath{\mathcal{BT}^{\mathcal{C}}}}
+\newcommand{\trel}[1]{\textit{#1}}
+
+
+
+% THEORETICAL SIGNS and SYMBOLS ends %%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%BEGINNING THE DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+%\AtBeginDocument{%
+%
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%CLOSING THE DOCUMENT
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+%\AtEndDocument{%
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

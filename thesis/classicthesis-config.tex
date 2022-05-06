@@ -1,0 +1,726 @@
+% ****************************************************************************************************
+% classicthesis-config.tex
+% formerly known as loadpackages.sty, classicthesis-ldpkg.sty, and classicthesis-preamble.sty
+% Use it at the beginning of your ClassicThesis.tex, or as a LaTeX Preamble
+% in your ClassicThesis.{tex,lyx} with \input{classicthesis-config}
+% ****************************************************************************************************
+% If you like the classicthesis, then I would appreciate a postcard.
+% My address can be found in the file ClassicThesis.pdf. A collection
+% of the postcards I received so far is available online at
+% http://postcards.miede.de
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 0. Set the encoding of your files. UTF-8 is the only sensible encoding nowadays. If you can't read
+% äöüßáéçèê∂åëæƒÏ€ then change the encoding setting in your editor, not the line below. If your editor
+% does not support utf8 use another editor!
+% ****************************************************************************************************
+\PassOptionsToPackage{utf8}{inputenc}
+  \usepackage{inputenc}
+
+\PassOptionsToPackage{T1}{fontenc} % T2A for cyrillics
+  \usepackage{fontenc}
+
+
+% ****************************************************************************************************
+% 1. Configure classicthesis for your needs here, e.g., remove "drafting" below
+% in order to deactivate the time-stamp on the pages
+% (see ClassicThesis.pdf for more information):
+% ****************************************************************************************************
+\PassOptionsToPackage{
+  drafting=true,    % print version information on the bottom of the pages
+  tocaligned=false, % the left column of the toc will be aligned (no indentation)
+  dottedtoc=false,  % page numbers in ToC flushed right
+  eulerchapternumbers=true, % use AMS Euler for chapter font (otherwise Palatino)
+  linedheaders=false,       % chaper headers will have line above and beneath
+  floatperchapter=true,     % numbering per chapter for all floats (i.e., Figure 1.1)
+  eulermath=false,  % use awesome Euler fonts for mathematical formulae (only with pdfLaTeX)
+  beramono=true,    % toggle a nice monospaced font (w/ bold)
+  palatino=true,    % deactivate standard font for loading another one, see the last section at the end of this file for suggestions
+  style=classicthesis % classicthesis, arsclassica
+}{classicthesis}
+
+
+% ****************************************************************************************************
+% 2. Personal data and user ad-hoc commands (insert your own data here)
+% ****************************************************************************************************
+\newcommand{\myTitle}{Zur Theorie der ordinären Entitäten des Brentanoraumes\xspace}
+% \newcommand{\mySubtitle}{Ein topologischer Interpretationsansatz\xspace}
+\newcommand{\mySubtitle}{Ein repräsentantenbasierter Interpretationsansatz\xspace}
+\newcommand{\myDegree}{Bachelor of science\xspace}
+\newcommand{\myName}{Bärbel Hanle\xspace}
+\newcommand{\mybirthday}{06.02.1982}
+\newcommand{\mybirthtown}{Stuttgart}
+\newcommand{\mybirthcountry}{Deutschland}
+\newcommand{\myProf}{Dr. Frank Loebe\xspace}
+\newcommand{\myOtherProf}{Dr. habil. Ringo Baumann\xspace}
+\newcommand{\mySupervisor}{\xspace}
+\newcommand{\myFaculty}{Institut für Mathematik und Informatik\xspace}
+\newcommand{\myDepartment}{\xspace}
+\newcommand{\myUni}{Universität Leipzig\xspace}
+\newcommand{\myLocation}{Leipzig\xspace}
+\newcommand{\myTime}{10.05.2022\xspace} 
+\newcommand{\myVersion}{\classicthesis}
+
+% ********************************************************************
+% Setup, finetuning, and useful commands
+% ********************************************************************
+\providecommand{\mLyX}{L\kern-.1667em\lower.25em\hbox{Y}\kelastrn-.125emX\@}
+\newcommand{\ie}{i.\,e.}
+\newcommand{\Ie}{I.\,e.}
+\newcommand{\eg}{e.\,g.}
+\newcommand{\Eg}{E.\,g.}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 3. Loading some handy packages
+% ****************************************************************************************************
+% ********************************************************************
+% Packages with options that might require adjustments
+% ********************************************************************
+\PassOptionsToPackage{american,ngerman}{babel} % change this to your language(s), main language last
+% Spanish languages need extra options in order to work with this template
+%\PassOptionsToPackage{spanish,es-lcroman}{babel}
+    \usepackage{babel}
+
+\usepackage{csquotes}
+\PassOptionsToPackage{%
+  %backend=biber,bibencoding=utf8, %instead of bibtex
+  backend=bibtex8,bibencoding=ascii,%
+  language=auto,%
+  style=authoryear,dashed=false%
+  %style=authoryear-comp, % Author 1999, 2010
+  %bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
+  sorting=nyt, % name, year, title
+  maxbibnames=10, % default: 3, et al.
+  %backref=true,%
+  natbib=true % natbib compatibility mode (\citep and \citet still work)
+}{biblatex}
+    \usepackage{biblatex}
+
+\PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
+  \usepackage{amsmath}
+
+% ********************************************************************
+% General useful packages
+% ********************************************************************
+\usepackage{graphicx} %
+\usepackage{scrhack} % fix warnings when using KOMA with listings package
+\usepackage{xspace} % to get the spacing after macros right
+
+%\usepackage{textcase}
+\PassOptionsToPackage{printonlyused,smaller}{acronym}
+  \usepackage{acronym} % nice macros for handling all acronyms in the thesis
+  %\renewcommand{\bflabel}[1]{{#1}\hfill} % fix the list of acronyms --> no longer working
+  %\renewcommand*{\acsfont}[1]{\textsc{#1}}
+  %\renewcommand*{\aclabelfont}[1]{\acsfont{#1}}
+  %\def\bflabel#1{{#1\hfill}}
+  \def\bflabel#1{{\acsfont{#1}\hfill}}
+  \def\aclabelfont#1{\acsfont{#1}}
+  
+  %\renewcommand{\acsfont}[1]{{\scshape \MakeTextLowercase{#1}}}
+  
+\PassOptionsToPackage{activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10,final}{microtype}%final-even in draft mode
+\usepackage[]{microtype}
+% ****************************************************************************************************
+%\usepackage{pgfplots} % External TikZ/PGF support (thanks to Andreas Nautsch)
+%\usetikzlibrary{external}
+%\tikzexternalize[mode=list and make, prefix=ext-tikz/]
+% ****************************************************************************************************
+
+% ****************************************************************************************************
+% 4. Setup floats: tables, (sub)figures, and captions
+% ****************************************************************************************************
+\usepackage{tabularx} % better tables
+  \setlength{\extrarowheight}{3pt} % increase table row height
+\newcommand{\tableheadline}[1]{\multicolumn{1}{l}{\spacedlowsmallcaps{#1}}}
+\newcommand{\myfloatalign}{\centering} % to be used with each float for alignment
+\usepackage{subfig}
+% ****************************************************************************************************
+
+
+% ****************************************************************************************************
+% 5. Setup code listings
+% ****************************************************************************************************
+\usepackage{listings}
+%\lstset{emph={trueIndex,root},emphstyle=\color{BlueViolet}}%\underbar} % for special keywords
+\lstset{language=[LaTeX]Tex,%C++,
+  morekeywords={PassOptionsToPackage,selectlanguage},
+  keywordstyle=\color{RoyalBlue},%\bfseries,
+  basicstyle=\small\ttfamily,
+  %identifierstyle=\color{NavyBlue},
+  commentstyle=\color{Green}\ttfamily,
+  stringstyle=\rmfamily,
+  numbers=none,%left,%
+  numberstyle=\scriptsize,%\tiny
+  stepnumber=5,
+  numbersep=8pt,
+  showstringspaces=false,
+  breaklines=true,
+  %frameround=ftff,
+  %frame=single,
+  belowcaptionskip=.75\baselineskip
+  %frame=L
+}
+% ****************************************************************************************************
+
+
+
+
+% ****************************************************************************************************
+% 6. Last calls before the bar closes
+% ****************************************************************************************************
+% ********************************************************************
+% Her Majesty herself
+% ********************************************************************
+\usepackage[dottedtoc]{classicthesis}
+
+
+% ********************************************************************
+% Fine-tune hyperreferences (hyperref should be called last)
+% ********************************************************************
+\hypersetup{%
+  %draft, % hyperref's draft mode, for printing see below
+  colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
+  % uncomment the following line if you want to have black links (e.g., for printing)
+  %colorlinks=false, linktocpage=false, pdfstartpage=3, pdfstartview=FitV, pdfborder={0 0 0},%
+  breaklinks=true, pageanchor=true,%
+  pdfpagemode=UseNone, %
+  % pdfpagemode=UseOutlines,%
+  plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+  hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
+  urlcolor=CTurl, linkcolor=CTlink, citecolor=CTcitation, %pagecolor=RoyalBlue,%
+  %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
+  pdftitle={\myTitle},%
+  pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},%
+  pdfsubject={},%
+  pdfkeywords={},%
+  pdfcreator={pdfLaTeX},%
+  pdfproducer={LaTeX with hyperref and classicthesis}%
+}
+
+%**************************************************************************
+% Eigene Pakete
+%**************************************************************************
+\usepackage{amssymb} % für \varnothing
+\usepackage{stmaryrd} % Widerspruchsblitz
+\usepackage{amsthm} % Für Theoremumgebungen
+  \usepackage{zref-perpage} % FL: zref-perpage is there for 
+    % fixing a MikTeX problem with zref, which is loaded by mdframed;
+	  % cf. https://github.com/ho-tex/zref/issues/14
+\usepackage[framemethod=tikz]{mdframed} % Rand für Theoreme
+\usepackage{multirow}
+\usepackage{makecell} % Zeilenumburuch innerhalb einer Zelle
+\usepackage{longtable} % Tabelle über mehrere Seiten´
+\usepackage{subcaption}
+% \usepackage[labelformat=parens,labelsep=quad,skip=3pt]{caption}
+%\usepackage{graphicx}
+
+%\usepackage{textcase}
+
+
+
+% ********************************************************************
+% Setup autoreferences (hyperref and babel)
+% ********************************************************************
+% There are some issues regarding autorefnames
+% http://www.tex.ac.uk/cgi-bin/texfaq2html?label=latexwords
+% you have to redefine the macros for the
+% language you use, e.g., american, ngerman
+% (as chosen when loading babel/AtBeginDocument)
+% ********************************************************************
+\makeatletter
+\@ifpackageloaded{babel}%
+  {%
+    \addto\extrasamerican{%
+		  \renewcommand*{\figurename}{Fig.}%
+      \renewcommand*{\figureautorefname}{Figure}%
+      \renewcommand*{\tableautorefname}{Table}%
+      \renewcommand*{\partautorefname}{Part}%
+      \renewcommand*{\chapterautorefname}{Chapter}%
+      \renewcommand*{\sectionautorefname}{Section}%
+      \renewcommand*{\subsectionautorefname}{Section}%
+      \renewcommand*{\subsubsectionautorefname}{Section}%
+    }%
+    \addto\extrasngerman{%
+		  \renewcommand*{\figurename}{Abb.}%
+      \renewcommand*{\paragraphautorefname}{Absatz}%
+      \renewcommand*{\subparagraphautorefname}{Unterabsatz}%
+      \renewcommand*{\footnoteautorefname}{Fu\"snote}%
+      \renewcommand*{\FancyVerbLineautorefname}{Zeile}%
+      \renewcommand*{\theoremautorefname}{Theorem}%
+      \renewcommand*{\appendixautorefname}{Anhang}%
+      \renewcommand*{\equationautorefname}{Gleichung}%
+      \renewcommand*{\itemautorefname}{Punkt}%
+    }%
+      % Fix to getting autorefs for subfigures right (thanks to Belinda Vogt for changing the definition)
+      \providecommand{\subfigureautorefname}{\figureautorefname}%
+    }{\relax}
+\makeatother
+
+
+% ********************************************************************
+% Development Stuff
+% ********************************************************************
+\listfiles
+%\PassOptionsToPackage{l2tabu,orthodox,abort}{nag}
+%  \usepackage{nag}
+%\PassOptionsToPackage{warning, all}{onlyamsmath}
+%  \usepackage{onlyamsmath}
+
+
+% ****************************************************************************************************
+% 7. Further adjustments (experimental)
+% ****************************************************************************************************
+% ********************************************************************
+% Changing the text area
+% ********************************************************************
+%\areaset[current]{312pt}{761pt} % 686 (factor 2.2) + 33 head + 42 head \the\footskip
+%\setlength{\marginparwidth}{7em}%
+%\setlength{\marginparsep}{2em}%
+
+% ********************************************************************
+% Using different fonts
+% ********************************************************************
+%\usepackage[oldstylenums]{kpfonts} % oldstyle notextcomp
+% \usepackage[osf]{libertine}
+%\usepackage[light,condensed,math]{iwona}
+%\renewcommand{\sfdefault}{iwona}
+%\usepackage{lmodern} % <-- no osf support :-(
+%\usepackage{cfr-lm} %
+%\usepackage[urw-garamond]{mathdesign} <-- no osf support :-(
+%\usepackage[default,osfigures]{opensans} % scale=0.95
+%\usepackage[sfdefault]{FiraSans}
+% \usepackage[opticals,mathlf]{MinionPro} % onlytext
+% ********************************************************************
+%\usepackage[largesc,osf]{newpxtext}
+%\linespread{1.05} % a bit more for Palatino
+% Used to fix these:
+% https://bitbucket.org/amiede/classicthesis/issues/139/italics-in-pallatino-capitals-chapter
+% https://bitbucket.org/amiede/classicthesis/issues/45/problema-testatine-su-classicthesis-style
+% ********************************************************************
+% ****************************************************************************************************
+
+% ****** Custom
+%\usepackage[disable]{todonotes}
+\usepackage{todonotes}
+\usepackage{cleveref}
+
+%***************************************************************************
+% Umgebungen
+%***************************************************************************
+\theoremstyle{definition}
+
+\newtheorem{dfn}{Def}[section]
+\newtheorem{nota}[dfn]{Notation}
+\newtheorem{konv}[dfn]{Konvention}
+
+\newtheorem{satz}[dfn]{Satz}
+\newtheorem{kor}[dfn]{Kor}
+\newtheorem{hyp}[dfn]{Hyp}
+
+\newtheorem{bsp}[dfn]{Bsp}
+\newtheorem{gegenbsp}[dfn]{Gegenbeispiel}
+\newtheorem{bem}[dfn]{Bem}
+\newtheorem*{erin}{Erinnerung}
+\newtheorem*{bew}{Bew}
+
+\mdfdefinestyle{grey}{
+    skipabove=5pt,
+    skipbelow=5pt,
+    innerbottommargin=12pt,
+    %innerleftmargin=20pt
+    innerrightmargin=20pt
+    leftmargin=5pt,
+    rightmargin=5pt,
+    %linewidth=0.2pt,
+    roundcorner=2pt,
+    backgroundcolor=black!5,
+    hidealllines=true,
+    needspace=60pt,
+		aftersingleframe={\noindent},
+}
+
+\mdfdefinestyle{white}{
+    skipabove=5pt,
+    skipbelow=5pt,
+    innerbottommargin=12pt,
+    %innerleftmargin=20pt
+    innerrightmargin=20pt
+    leftmargin=5pt,
+    rightmargin=5pt,
+    %linewidth=0.2pt,
+    roundcorner=2pt,
+    %backgroundcolor=black!5,
+    %hidealllines=true
+}
+
+\mdfdefinestyle{beweis}{
+    skipabove=0pt,
+    skipbelow=5pt,
+    innerbottommargin=12pt,
+    %innerleftmargin=20pt
+    innerrightmargin=20pt
+    leftmargin=5pt,
+    rightmargin=5pt,
+    %linewidth=0.2pt,
+    roundcorner=2pt,
+    %backgroundcolor=black!5,
+    %hidealllines=true
+    linecolor=black!10
+%     rightline=false
+%     bottomline=false
+%     topline=false
+}
+
+\surroundwithmdframed[style=grey]{dfn}
+\surroundwithmdframed[style=grey]{nota}
+\surroundwithmdframed[style=grey]{konv}
+\surroundwithmdframed[style=grey]{satz}
+\surroundwithmdframed[style=grey]{kor}
+\surroundwithmdframed[style=grey]{hyp}
+\surroundwithmdframed[style=white]{bsp}
+\surroundwithmdframed[style=white]{gegenbsp}
+\surroundwithmdframed[style=white]{bem}
+\surroundwithmdframed[style=white]{erin}
+\surroundwithmdframed[style=beweis]{bew}
+
+
+
+
+\DeclareRobustCommand{\BSO}{\mathcal{BS^O}}
+
+%--------------------------------------------
+
+\newcommand{\thmemph}{\textbf}
+\newcommand{\textemph}{\spacedlowsmallcaps}
+%\renewcommand{\marginpar}[2][]{} % marginpars verstecken
+
+
+
+%*****************************************************************************
+% BS-Kommandos
+%********************************************************************************
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % OPTION uniformSymbols STARTS
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \DeclareOption{uniformSymbols}{%
+% %
+% \newcommand{\GSymbolFont}[1]{#1}
+% %
+% } %OPTION uniformSymbols ENDS HERE
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % OPTION mboxSymbols STARTS
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \DeclareOption{mboxSymbols}{%
+% %
+% \renewcommand{\GSymbolFont}[1]{\mbox{#1}}
+% %
+% } %OPTION mboxSymbols ENDS HERE
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% % OPTION mboxSymbols STARTS
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \DeclareOption{italicSymbols}{%
+% %
+% \renewcommand{\GSymbolFont}[1]{\ensuremath{\mathit{#1}}}
+% %
+% } %OPTION mboxSymbols ENDS HERE
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% 
+% % Execution of options
+% \ExecuteOptions{manAxiomStyle,uniformSymbols}
+
+\newcommand{\GSymbolFont}[1]{\ensuremath{\mathit{#1}}}
+\newcommand{\AuxD}{D\hspace*{-0.25ex}}
+
+
+\newcommand{\GC}{\ensuremath{\GSymbolFont{C}}}
+\newcommand{\GCrossdDBn}{\ensuremath{\GSymbolFont{Cross\Gd DB_{n}}}}
+\newcommand{\GCrossoneDBn}{\ensuremath{\GSymbolFont{Cross1DB_{n}}}}
+\newcommand{\GCrosstwoDBn}{\ensuremath{\GSymbolFont{Cross2DB_{n}}}}
+\newcommand{\GCrosszeroDBn}{\ensuremath{\GSymbolFont{Cross0DB_{n}}}}
+\newcommand{\Gc}{\ensuremath{\GSymbolFont{c}}}
+\newcommand{\Gcrossonedbn}{\ensuremath{\GSymbolFont{cross1db_{n}}}}
+\newcommand{\Gcrosstwodbn}{\ensuremath{\GSymbolFont{cross2db_{n}}}}
+%\newcommand{\Gcrosszerodb}{\ensuremath{\GSymbolFont{cross0db}}}
+\newcommand{\Gcrosszerodbn}{\ensuremath{\GSymbolFont{cross0db_{n}}}}
+
+\newcommand{\Gd}{\boldsymbol{\mathsf{d}}}
+\newcommand{\Gone}{\boldsymbol{\mathsf{1}}}
+\newcommand{\Gtwo}{\boldsymbol{\mathsf{2}}}
+\newcommand{\Gthree}{\boldsymbol{\mathsf{3}}}
+\newcommand{\GdD}{\ensuremath{\GSymbolFont{\Gd D}}}
+\newcommand{\GdDB}{\ensuremath{\GSymbolFont{\Gd\AuxD B}}}
+\newcommand{\GdDC}{\ensuremath{\GSymbolFont{\Gd\AuxD C}}}
+\newcommand{\GdDE}{\ensuremath{\GSymbolFont{\Gd\AuxD E}}}
+\newcommand{\Gddb}{\ensuremath{\GSymbolFont{\Gd db}}}
+\newcommand{\Gddhypp}{\ensuremath{\GSymbolFont{\Gd dhypp}}}
+\newcommand{\Gdmdhypp}{\ensuremath{\GSymbolFont{\Gdm dhypp}}}
+\newcommand{\Gdircomp}{\ensuremath{\GSymbolFont{dircomp}}}
+\newcommand{\Gddircomp}{\ensuremath{\GSymbolFont{\Gd dircomp}}}
+\newcommand{\dircomp}{\ensuremath{\GSymbolFont{\Gdp dircomp}}}
+\newcommand{\Gdp}{\boldsymbol{\mathsf{(d+1)}}}
+\newcommand{\Gdm}{\boldsymbol{\mathsf{(d-1)}}}
+
+\newcommand{\GExOrd}{\ensuremath{\GSymbolFont{ExOrd}}}
+\newcommand{\Gequ}{\ensuremath{\GSymbolFont{equ}}}
+\newcommand{\Geqdim}{\ensuremath{\GSymbolFont{eqdim}}}
+\newcommand{\Gexc}{\ensuremath{\GSymbolFont{exc}}}
+
+\newcommand{\GGrSB}{\ensuremath{\GSymbolFont{Gr\hspace*{-0.25ex}SB}}}
+\newcommand{\Ggrsb}{\ensuremath{\GSymbolFont{gr\hspace*{-0.25ex}sb}}}
+
+\newcommand{\Ghypp}{\ensuremath{\GSymbolFont{hypp}}}
+
+\newcommand{\GiCCDd}{\ensuremath{\GSymbolFont{i}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GiCCDone}{\ensuremath{\GSymbolFont{i}_{1}\GSymbolFont{CC}}}
+\newcommand{\GiCCDtwo}{\ensuremath{\GSymbolFont{i}_{2}\GSymbolFont{CC}}}
+\newcommand{\GiCCDzero}{\ensuremath{\GSymbolFont{i}_{0}\GSymbolFont{CC}}}
+\newcommand{\Ginpart}{\ensuremath{\GSymbolFont{inpart}}}
+\newcommand{\Gintersect}{\ensuremath{\GSymbolFont{intsect}}}
+\newcommand{\Gintersectn}{\ensuremath{\GSymbolFont{intsect_{n}}}}
+
+\newcommand{\GLDE}{\ensuremath{\GSymbolFont{LDE}}}
+
+\newcommand{\Gcont}{\ensuremath{\GSymbolFont{cont}}}
+\newcommand{\Gstrictsb}{\ensuremath{\GSymbolFont{strictsb}}}
+\newcommand{\Gweaksb}{\ensuremath{\GSymbolFont{weaksb}}}
+
+%\newcommand{\GkCCDd}{\ensuremath{\GSymbolFont{k}_{\Gd}\GSymbolFont{CC}}}
+%\newcommand{\GkCCDone}{\ensuremath{\GSymbolFont{k}_{1}\GSymbolFont{CC}}}
+%\newcommand{\GkCCDtwo}{\ensuremath{\GSymbolFont{k}_{2}\GSymbolFont{CC}}}
+\newcommand{\GkCCDzero}{\ensuremath{\GSymbolFont{k}_{0}\GSymbolFont{CC}}}
+
+%\newcommand{\GlCCDd}{\ensuremath{\GSymbolFont{l}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GlCCDone}{\ensuremath{\GSymbolFont{l}_{1}\GSymbolFont{CC}}}
+%\newcommand{\GlCCDtwo}{\ensuremath{\GSymbolFont{l}_{2}\GSymbolFont{CC}}}
+%\newcommand{\GlCCDzero}{\ensuremath{\GSymbolFont{l}_{0}\GSymbolFont{CC}}}
+
+\newcommand{\GnCCDd}{\ensuremath{\GSymbolFont{n}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GnCCDone}{\ensuremath{\GSymbolFont{n}_{1}\GSymbolFont{CC}}}
+\newcommand{\GnCCDtwo}{\ensuremath{\GSymbolFont{n}_{2}\GSymbolFont{CC}}}
+\newcommand{\GnCCDzero}{\ensuremath{\GSymbolFont{n}_{0}\GSymbolFont{CC}}}
+%\newcommand{\GnminusiCCDd}{\ensuremath{\GSymbolFont{(n-i)}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GnminusiCCDone}{\ensuremath{\GSymbolFont{(n-i)}_{1}\GSymbolFont{CC}}}
+%\newcommand{\GnminusiCCDtwo}{\ensuremath{\GSymbolFont{(n-i)}_{2}\GSymbolFont{CC}}}
+\newcommand{\GnminusiCCDzero}{\ensuremath{\GSymbolFont{(n-i)}_{0}\GSymbolFont{CC}}}
+
+
+\newcommand{\GOrd}{\ensuremath{\GSymbolFont{Ord}}}
+\newcommand{\GoneCCDd}{\ensuremath{\GSymbolFont{1}_{\Gd}\GSymbolFont{CC}}}
+\newcommand{\GoneCCDone}{\ensuremath{\GSymbolFont{1}_{1}\GSymbolFont{CC}}}
+\newcommand{\GoneCCDtwo}{\ensuremath{\GSymbolFont{1}_{2}\GSymbolFont{CC}}}
+\newcommand{\GoneCCDzero}{\ensuremath{\GSymbolFont{1}_{0}\GSymbolFont{CC}}}
+\newcommand{\GoneD}{\ensuremath{\GSymbolFont{1D}}}
+\newcommand{\GoneDB}{\ensuremath{\GSymbolFont{1\AuxD B}}}
+\newcommand{\GoneDC}{\ensuremath{\GSymbolFont{1DC}}}
+\newcommand{\GoneDE}{\ensuremath{\GSymbolFont{1\AuxD E}}}
+\newcommand{\Gonedb}{\ensuremath{\GSymbolFont{1db}}}
+\newcommand{\Gonecont}{\ensuremath{\GSymbolFont{1cont}}}
+\newcommand{\Gonedircomp}{\ensuremath{\GSymbolFont{1dircomp}}}
+\newcommand{\Gonedhypp}{\ensuremath{\GSymbolFont{1dhypp}}}
+
+\newcommand{\Gpartition}{\ensuremath{\GSymbolFont{partition}}}
+\newcommand{\Gpartitioni}{\ensuremath{\GSymbolFont{partition_{i}}}}
+\newcommand{\Gpartitionn}{\ensuremath{\GSymbolFont{partition_{n}}}}
+
+\newcommand{\GReg}{\ensuremath{\GSymbolFont{SReg}}}
+\newcommand{\Grelcompl}{\ensuremath{\GSymbolFont{rcompl}}}
+\newcommand{\Grelcompln}{\ensuremath{\GSymbolFont{rcompl_{n}}}}
+
+\newcommand{\GSB}{\ensuremath{\GSymbolFont{S\hspace*{-0.25ex}B}}}
+\newcommand{\GSReg}{\ensuremath{\GSymbolFont{S\hspace*{-0.25ex}Reg}}}
+\newcommand{\Gsb}{\ensuremath{\GSymbolFont{sb}}}
+\newcommand{\Gscoinc}{\ensuremath{\GSymbolFont{scoinc}}}
+\newcommand{\Gsov}{\ensuremath{\GSymbolFont{sov}}}
+\newcommand{\Gspart}{\ensuremath{\GSymbolFont{spart}}}
+\newcommand{\Gsppart}{\ensuremath{\GSymbolFont{sppart}}}
+\newcommand{\Gsum}{\ensuremath{\GSymbolFont{sum}}}
+\newcommand{\Gsumi}{\ensuremath{\GSymbolFont{sum_{i}}}}
+\newcommand{\Gsumn}{\ensuremath{\GSymbolFont{sum_{n}}}}
+
+\newcommand{\GTop}{\ensuremath{\GSymbolFont{Top}}}
+\newcommand{\Gtangpart}{\ensuremath{\GSymbolFont{tangpart}}}
+\newcommand{\GtwoD}{\ensuremath{\GSymbolFont{2D}}}
+\newcommand{\GtwoDB}{\ensuremath{\GSymbolFont{2\AuxD B}}}
+\newcommand{\GtwoDC}{\ensuremath{\GSymbolFont{2DC}}}
+\newcommand{\GtwoDE}{\ensuremath{\GSymbolFont{2\AuxD E}}}
+\newcommand{\Gtwodb}{\ensuremath{\GSymbolFont{2db}}}
+\newcommand{\Gtwodhypp}{\ensuremath{\GSymbolFont{2dhypp}}}
+
+\newcommand{\GzeroD}{\ensuremath{\GSymbolFont{0D}}}
+\newcommand{\GzeroDB}{\ensuremath{\GSymbolFont{0\AuxD B}}}
+\newcommand{\GzeroDC}{\ensuremath{\GSymbolFont{0DC}}}
+\newcommand{\GzeroDE}{\ensuremath{\GSymbolFont{0\AuxD E}}}
+\newcommand{\Gzerocont}{\ensuremath{\GSymbolFont{0cont}}}
+\newcommand{\Gzerodb}{\ensuremath{\GSymbolFont{0db}}}
+\newcommand{\Gzerodhypp}{\ensuremath{\GSymbolFont{0dhypp}}}
+
+
+
+%MISC
+\newcommand{\bs}{\backslash}
+\newcommand{\gap}{\\[0.1ex]\mbox{}}
+\newcommand{\m}[1]{\ensuremath{\mathcal{#1}}}
+%\newcommand{\MS}{\ensuremath{\mathrel{.}}}
+\newcommand{\MS}{\ensuremath{\,.\,}}
+\newcommand{\theoryBS}{\ensuremath{\mathcal{BS}}\xspace}
+\newcommand{\theoryBSone}{\ensuremath{\mathcal{BS}_{\text{v}1}}\xspace}
+\newcommand{\theoryBT}{\ensuremath{\mathcal{BT}}}
+\newcommand{\theoryBTC}{\ensuremath{\mathcal{BT}^{\mathcal{C}}}}
+\newcommand{\theoryBTR}{\ensuremath{\mathcal{BT}^{\mathcal{R}}}}
+\newcommand{\trel}[1]{\textit{#1}}
+
+%********************************************************
+% Eigene Kommandos
+%********************************************************
+
+\newcommand{\theoryBSO}{\ensuremath{\mathcal{BS}^{\mathcal{O}}}}
+%\newcommand{\strukt}{\ensuremath{{\mathcal{R}\text{-Struktur}}}}
+\newcommand{\strukt}{$\mathcal{R}$-Struktur\xspace}
+\newcommand{\rep}{\ensuremath{\mathcal{R}}}
+\newcommand{\univ}{\ensuremath{\mathcal{U}}}
+\newcommand{\R}{\ensuremath{\mathbb{R}}}
+\newcommand{\N}{\ensuremath{\mathbb{N}}}
+
+\newcommand{\offen}{\ensuremath{\mathcal{O}}}
+\newcommand{\abg}{\ensuremath{\mathcal{C}}}
+\newcommand{\einf}{\ensuremath{\mathcal{S}}}
+\newcommand{\CO}{\ensuremath{\mathcal{CO}}}
+\newcommand{\OC}{\ensuremath{\mathcal{OC}}}
+
+\newcommand{\cl}{\ensuremath{\text{cl}}}
+\newcommand{\op}{\ensuremath{\text{op}}}
+\newcommand{\co}{\ensuremath{\text{co}}}
+\newcommand{\oc}{\ensuremath{\text{oc}}}
+\newcommand{\HP}{\ensuremath{\text{HP}}}
+\newcommand{\rand}{\ensuremath{\partial}}
+\newcommand{\ball}{\ensuremath{B}}
+
+\newcommand{\Gdim}{\ensuremath{\text{dim}}}
+\newcommand{\Gmaxcon}{\ensuremath{\GSymbolFont{maxcon}}}
+\newcommand{\Gloczerodc}{\ensuremath{\GSymbolFont{loc0dc}}}
+\newcommand{\Gloconedc}{\ensuremath{\GSymbolFont{loc1dc}}}
+
+\newcommand{\deshalb}{\ensuremath{\rightarrow}}
+
+%***************************************************************
+% Struktursymbole
+%***************************************************************
+
+\newcommand{\SdDB}{\ensuremath{\GSymbolFont{\Gd\AuxD B}^\mathcal{O}}}
+\newcommand{\SdDC}{\ensuremath{\GSymbolFont{\Gd\AuxD C}^\mathcal{O}}}
+\newcommand{\SdDE}{\ensuremath{\GSymbolFont{\Gd\AuxD E}^\mathcal{O}}}
+\newcommand{\Sddb}{\ensuremath{\GSymbolFont{\Gd db}^\mathcal{O}}}
+\newcommand{\Sddhypp}{\ensuremath{\GSymbolFont{\Gd dhypp}^\mathcal{O}}}
+\newcommand{\Sdmdhypp}{\ensuremath{\GSymbolFont{\Gdm dhypp}^\mathcal{O}}}
+\newcommand{\Sdircomp}{\ensuremath{\GSymbolFont{dircomp}^\mathcal{O}}}
+\newcommand{\Sddircomp}{\ensuremath{\GSymbolFont{\Gd dircomp}^\mathcal{O}}}
+
+\newcommand{\SExOrd}{\ensuremath{\GSymbolFont{ExOrd}^\mathcal{O}}}
+\newcommand{\Sequ}{\ensuremath{\GSymbolFont{equ}^\mathcal{O}}}
+\newcommand{\Seqdim}{\ensuremath{\GSymbolFont{eqdim}^\mathcal{O}}}
+\newcommand{\Sexc}{\ensuremath{\GSymbolFont{exc}^\mathcal{O}}}
+
+\newcommand{\SGrSB}{\ensuremath{\GSymbolFont{Gr\hspace*{-0.25ex}SB}^\mathcal{O}}}
+\newcommand{\Sgrsb}{\ensuremath{\GSymbolFont{gr\hspace*{-0.25ex}sb}^\mathcal{O}}}
+
+\newcommand{\Shypp}{\ensuremath{\GSymbolFont{hypp}^\mathcal{O}}}
+
+\newcommand{\SiCCDd}{\ensuremath{\GSymbolFont{i}_{\Gd}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SiCCDone}{\ensuremath{\GSymbolFont{i}_{1}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SiCCDtwo}{\ensuremath{\GSymbolFont{i}_{2}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SiCCDzero}{\ensuremath{\GSymbolFont{i}_{0}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\Sinpart}{\ensuremath{\GSymbolFont{inpart}^\mathcal{O}}}
+\newcommand{\Sintersect}{\ensuremath{\GSymbolFont{intsect}^\mathcal{O}}}
+\newcommand{\Sintersectn}{\ensuremath{\GSymbolFont{intsect_{n}}^\mathcal{O}}}
+
+\newcommand{\SLDE}{\ensuremath{\GSymbolFont{LDE}^\mathcal{O}}}
+
+\newcommand{\Scont}{\ensuremath{\GSymbolFont{cont}^\mathcal{O}}}
+\newcommand{\Sstrictsb}{\ensuremath{\GSymbolFont{strictsb}^\mathcal{O}}}
+\newcommand{\Sweaksb}{\ensuremath{\GSymbolFont{weaksb}^\mathcal{O}}}
+
+%\newcommand{\SkCCDd}{\ensuremath{\GSymbolFont{k}_{\Gd}\GSymbolFont{CC}^\mathcal{O}}}
+%\newcommand{\SkCCDone}{\ensuremath{\GSymbolFont{k}_{1}\GSymbolFont{CC}^\mathcal{O}}}
+%\newcommand{\SkCCDtwo}{\ensuremath{\GSymbolFont{k}_{2}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SkCCDzero}{\ensuremath{\GSymbolFont{k}_{0}\GSymbolFont{CC}^\mathcal{O}}}
+
+%\newcommand{\SlCCDd}{\ensuremath{\GSymbolFont{l}_{\Gd}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SlCCDone}{\ensuremath{\GSymbolFont{l}_{1}\GSymbolFont{CC}^\mathcal{O}}}
+%\newcommand{\SlCCDtwo}{\ensuremath{\GSymbolFont{l}_{2}\GSymbolFont{CC}^\mathcal{O}}}
+%\newcommand{\SlCCDzero}{\ensuremath{\GSymbolFont{l}_{0}\GSymbolFont{CC}^\mathcal{O}}}
+
+\newcommand{\SnCCDd}{\ensuremath{\GSymbolFont{n}_{\Gd}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SnCCDone}{\ensuremath{\GSymbolFont{n}_{1}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SnCCDtwo}{\ensuremath{\GSymbolFont{n}_{2}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SnCCDzero}{\ensuremath{\GSymbolFont{n}_{0}\GSymbolFont{CC}^\mathcal{O}}}
+%\newcommand{\SnminusiCCDd}{\ensuremath{\GSymbolFont{(n-i)}_{\Gd}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SnminusiCCDone}{\ensuremath{\GSymbolFont{(n-i)}_{1}\GSymbolFont{CC}^\mathcal{O}}}
+%\newcommand{\SnminusiCCDtwo}{\ensuremath{\GSymbolFont{(n-i)}_{2}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SnminusiCCDzero}{\ensuremath{\GSymbolFont{(n-i)}_{0}\GSymbolFont{CC}^\mathcal{O}}}
+
+
+\newcommand{\SOrd}{\ensuremath{\GSymbolFont{Ord}^\mathcal{O}}}
+\newcommand{\SoneCCDd}{\ensuremath{\GSymbolFont{1}_{\Gd}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SoneCCDone}{\ensuremath{\GSymbolFont{1}_{1}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SoneCCDtwo}{\ensuremath{\GSymbolFont{1}_{2}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SoneCCDzero}{\ensuremath{\GSymbolFont{1}_{0}\GSymbolFont{CC}^\mathcal{O}}}
+\newcommand{\SoneD}{\ensuremath{\GSymbolFont{1D}^\mathcal{O}}}
+\newcommand{\SoneDB}{\ensuremath{\GSymbolFont{1\AuxD B}^\mathcal{O}}}
+\newcommand{\SoneDC}{\ensuremath{\GSymbolFont{1DC}^\mathcal{O}}}
+\newcommand{\SoneDE}{\ensuremath{\GSymbolFont{1\AuxD E}^\mathcal{O}}}
+\newcommand{\Sonedb}{\ensuremath{\GSymbolFont{1db}^\mathcal{O}}}
+\newcommand{\Sonecont}{\ensuremath{\GSymbolFont{1cont}^\mathcal{O}}}
+\newcommand{\Sonedircomp}{\ensuremath{\GSymbolFont{1dircomp}^\mathcal{O}}}
+\newcommand{\Sonedhypp}{\ensuremath{\GSymbolFont{1dhypp}^\mathcal{O}}}
+
+\newcommand{\Spartition}{\ensuremath{\GSymbolFont{partition}^\mathcal{O}}}
+\newcommand{\Spartitioni}{\ensuremath{\GSymbolFont{partition_{i}}^\mathcal{O}}}
+\newcommand{\Spartitionn}{\ensuremath{\GSymbolFont{partition_{n}}^\mathcal{O}}}
+
+\newcommand{\SReg}{\ensuremath{\GSymbolFont{SReg}^\mathcal{O}}}
+\newcommand{\Srelcompl}{\ensuremath{\GSymbolFont{rcompl}^\mathcal{O}}}
+\newcommand{\Srelcompln}{\ensuremath{\GSymbolFont{rcompl_{n}}^\mathcal{O}}}
+
+\newcommand{\SSB}{\ensuremath{\GSymbolFont{S\hspace*{-0.25ex}B}^\mathcal{O}}}
+\newcommand{\SSReg}{\ensuremath{\GSymbolFont{S\hspace*{-0.25ex}Reg}^\mathcal{O}}}
+\newcommand{\Ssb}{\ensuremath{\GSymbolFont{sb}^\mathcal{O}}}
+\newcommand{\Sscoinc}{\ensuremath{\GSymbolFont{scoinc}^\mathcal{O}}}
+\newcommand{\Ssov}{\ensuremath{\GSymbolFont{sov}^\mathcal{O}}}
+\newcommand{\Sspart}{\ensuremath{\GSymbolFont{spart}^\mathcal{O}}}
+\newcommand{\Ssppart}{\ensuremath{\GSymbolFont{sppart}^\mathcal{O}}}
+\newcommand{\Ssum}{\ensuremath{\GSymbolFont{sum}^\mathcal{O}}}
+\newcommand{\Ssumi}{\ensuremath{\GSymbolFont{sum_{i}}^\mathcal{O}}}
+\newcommand{\Ssumn}{\ensuremath{\GSymbolFont{sum_{n}}^\mathcal{O}}}
+
+\newcommand{\STop}{\ensuremath{\GSymbolFont{Top}^\mathcal{O}}}
+\newcommand{\Stangpart}{\ensuremath{\GSymbolFont{tangpart}^\mathcal{O}}}
+\newcommand{\StwoD}{\ensuremath{\GSymbolFont{2D}^\mathcal{O}}}
+\newcommand{\StwoDB}{\ensuremath{\GSymbolFont{2\AuxD B}^\mathcal{O}}}
+\newcommand{\StwoDC}{\ensuremath{\GSymbolFont{2DC}^\mathcal{O}}}
+\newcommand{\StwoDE}{\ensuremath{\GSymbolFont{2\AuxD E}^\mathcal{O}}}
+\newcommand{\Stwodb}{\ensuremath{\GSymbolFont{2db}^\mathcal{O}}}
+\newcommand{\Stwodhypp}{\ensuremath{\GSymbolFont{2dhypp}^\mathcal{O}}}
+
+\newcommand{\SzeroD}{\ensuremath{\GSymbolFont{0D}^\mathcal{O}}}
+\newcommand{\SzeroDB}{\ensuremath{\GSymbolFont{0\AuxD B}^\mathcal{O}}}
+\newcommand{\SzeroDC}{\ensuremath{\GSymbolFont{0DC}^\mathcal{O}}}
+\newcommand{\SzeroDE}{\ensuremath{\GSymbolFont{0\AuxD E}^\mathcal{O}}}
+\newcommand{\Szerocont}{\ensuremath{\GSymbolFont{0cont}^\mathcal{O}}}
+\newcommand{\Szerodb}{\ensuremath{\GSymbolFont{0db}^\mathcal{O}}}
+\newcommand{\Szerodhypp}{\ensuremath{\GSymbolFont{0dhypp}^\mathcal{O}}}
+
+\newcommand{\Smaxcon}{\ensuremath{\GSymbolFont{maxcon}^\mathcal{O}}}
+\newcommand{\Sloczerodc}{\ensuremath{\GSymbolFont{loc0dc}^\mathcal{O}}}
+\newcommand{\Sloconedc}{\ensuremath{\GSymbolFont{loc1dc}^\mathcal{O}}}

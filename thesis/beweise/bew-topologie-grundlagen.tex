@@ -1,0 +1,838 @@
+% Beweise topologische Grundlagen
+\chapter{Beweise}
+\section{Zu Kapitel \ref{chap:topologie-grundlagen} (Grundlagen der Topologie)}
+
+\subsection{Zu Abschnitt \ref{sec:allg-top-raeume} (Allgemeine topologische Räume)}
+
+% --- satz:cl --------------------------------------------------------------------
+
+\subsubsection{zu Satz \ref{satz:cl}.\ref{satz:cl.1}}\label{anh:cl.1}
+    Zu zeigen ist: 
+    \begin{enumerate}
+        \item Aus $\mathcal{M}_A^C := \{ U \in \offen \mid U \cap A = \varnothing\}$ und $U_A^C := \bigcup\limits_{U \in \mathcal{M}_A^C} U$ folgt $\cl(A) = X \setminus U_A^C$. \label{anh:cl.1.1}
+        \item $A \subseteq \cl(A)$ \label{anh:cl.1.2}
+        \item Es gibt keine kleinere in $X$ abgeschlossene Obermenge von $A$ als $\cl(A)$ \label{anh:cl.1.3}
+    \end{enumerate}
+
+    \noindent	
+    \textbf{Zu \ref{anh:cl.1.1}:}
+        \begin{align*}
+            \cl(A) &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \deshalb U \cap A \neq \varnothing \:) \} &\\
+            &= \{x \in X \mid \forall\: U \in \offen : (\: U \cap A = \varnothing \deshalb x \notin U \:) \} &\\
+            &= \{x \in X \mid \forall\: U \in \mathcal{M}_A^C : x \notin U \} &\\
+        %	&= \{x \in X \mid x \notin \bigcup\limits_{U \in \mathcal{M}_A^C} U \} &\\
+            &= \{x \in X \mid x \notin U_A^C \} &= X \setminus U_A^C
+        \end{align*}
+
+    \noindent	
+    \textbf{Zu \ref{anh:cl.1.2}:} 
+        Sei $x \in A$. Dann gilt $\forall\: U \in \offen : (\: x \in U \deshalb U \cap A \neq \varnothing \:)$ und somit $x \in \cl(A)$
+
+    \noindent
+    \textbf{Zu \ref{anh:cl.1.3}:}
+        Sei $V \in \abg$ mit $A \subseteq V$. Sei $W := X \setminus V$. Dann gelten $W \in \offen$ und $W \cap A = \varnothing$. Damit ist $W \in \mathcal{M}_A^C$ und somit $W \subseteq U_A^C$. Also gilt $ V = X \setminus W \supseteq X \setminus U_A^C = \cl(A)$
+        
+
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.2}} \label{anh:cl.2}
+    Zu Zeigen ist: $\cl(A) = A \cup \rand(A)$.\\
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\subseteq}$\grqq:}
+
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in \cl(A)$ \\
+            & & 2. & Angen. $x \notin A \cup \rand(A)$ \\
+            2 & $\deshalb$ & 3. & $x \notin \rand(A)$ \\
+            3 & $\deshalb$ & 4. & $\exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:))$ \\
+            4 & $\deshalb$ & 5. & Sei $U \in \offen$ mit $x \in U$ und $U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing$ \\
+            2 & $\deshalb$ & 6. & $x \notin A$ \\
+            5, 6 & $\deshalb$ & 7. & $x \in U \setminus A$ \\
+            7 & $\deshalb$ & 9. & $U \cap A = \varnothing$ \\
+            1 & $\deshalb$ & 10. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:)$ \\
+            10, 5 & $\deshalb$ & 11. & $U \cap A \neq \varnothing$ \\
+            9, 10 & $\deshalb$ & 12. & $\lightning$ 
+        \end{longtable}	
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\supseteq}$\grqq:}
+
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in A \cup \rand(A)$ \\
+            & & 2. & Angen. $x \notin \cl(A)$ \\
+            2 & $\deshalb$ & 3. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \cap A = \varnothing \:)$ \\
+            3 & $\deshalb$ & 4. & Sei $U \in \offen$ mit $x \in U$ und $U \cap A = \varnothing$ \\
+            4 & $\deshalb$ & 5. & $x \notin A$ \\
+            1, 5 & $\deshalb$ & 6. & $x \in \rand(A)$ \\
+            6 & $\deshalb$ & 7. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:)$ \\
+            7, 4 & $\deshalb$ & 8. & $U \cap A \neq \varnothing$ \\
+            4, 8 & $\deshalb$ & 9. & $\lightning$ 
+        \end{longtable}	
+
+
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.3}} 
+    Zu zeigen ist: $\cl(A \cap B) \subseteq \cl(A) \cap \cl(B)$ \\
+    \begin{align*}
+        &cl(A \cap B) \\
+        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \cap B \neq \varnothing \:) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to (U \cap A) \cap (U \cap B) \neq \varnothing \:) \}\\
+        &\subseteq \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:\land\: U \cap B \neq \varnothing \:) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : ((\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: (\: x \in U \to U \cap B \neq \varnothing \:)) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: \forall\: U \in \offen :  (\: x \in U \to U \cap B \neq \varnothing \:) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \} \cap \{x \in X \mid \forall\: U \in \offen :  (\: x \in U \to U \cap B \neq \varnothing \:) \}\\
+        &= \cl(A) \cap \cl(B)
+    \end{align*}
+
+
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.4}}
+    Zu Zeigen ist: $\cl(A \cup B) = \cl(A) \cup \cl(B)$.\\
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\subseteq}$\grqq:}\\
+        Da ${\cl(A),\cl(B) \in \abg}$ sind, ist auch ${\cl(A) \cup \cl(B) \in \abg}$ (Satz \ref{satz:CX}) und somit ${\cl(\cl(A) \cup \cl(B))= \cl(A) \cup \cl(B)}$ (Korollar \ref{kor:cl}.\ref{kor:cl.3}). Wegen ${A \subseteq \cl(A)}$ und ${B \subseteq \cl(B)}$ (ebenfalls Satz \ref{satz:CX}) gilt dann
+        \begin{align*}
+            \cl(A \cup B) \subseteq \cl(\cl(A) \cup \cl(B)) = \cl(A) \cup \cl(B).
+        \end{align*}
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\supseteq}$\grqq:}
+
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in \cl(A) \cup \cl(B)$ \\
+            & & 2. & Angen. $x \notin \cl(A \cup B)$ \\
+            2 & $\deshalb$ & 3. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \cap (A \cup B) = \varnothing \:)$ \\
+            3 & $\deshalb$ & 4. & Sei $U \in \offen$ mit $x \in U$ und $U \cap (A \cup B) = \varnothing$ \\
+            4 & $\deshalb$ & 5. & $(U \cap A) \cup (A \cap B) = \varnothing$ \\
+            1 & $\deshalb$ & 6. & $x \in \cl(A) \:\lor\: x \in \cl(B)$ \\
+            6 & $\deshalb$ & 7. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \:\lor\: \forall\: U \in \offen : (\: x \in U \to U \cap B \neq \varnothing \:)$ \\
+            7 & $\deshalb$ & 8. & $\forall\: U \in \offen : ((\: x \in U \to U \cap A \neq \varnothing \:) \:\lor\: (\: x \in U \to U \cap B \neq \varnothing \:))$ \\
+            8 & $\deshalb$ & 9. & $\forall\: U \in \offen : (\: x \in U \to (\: U \cap A \neq \varnothing \:\lor\: U \cap B \neq \varnothing \:))$ \\
+            9, 4 & $\deshalb$ & 10. & $U \cap A \neq \varnothing \:\lor\: U \cap B \neq \varnothing$ \\
+            10 & $\deshalb$ & 11. & $(U \cap A) \cup (U \cap B) \neq \varnothing$ \\
+            5, 11 & $\deshalb$ & 12. & $\lightning$ 
+        \end{longtable}	
+        
+        
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.5}} 
+    Zu zeigen ist: $\cl(X \setminus A) = X \setminus \op(A)$ \\
+    \begin{align*}
+        \cl(X \setminus A)
+        &= \{x \in X \mid \forall\: U \in \offen(x) : U \setminus A \neq \varnothing \}\\
+        &= \{x \in X \mid \forall\: U \in \offen(x) : U \nsubseteq A \}\\
+        &= \{x \in X \mid \neg \exists\: U \in \offen(x) : U \subseteq A \}\\
+        &= X \setminus \op(A)
+    \end{align*}
+
+
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.6}}
+    Zu Zeigen ist: $\cl(A \setminus B) \subseteq \cl(A) \setminus \op(B)$.\\
+
+    \begin{longtable}{r c c l}
+        & & 1. & Sei $x \in \cl(A \setminus B)$ \\
+        1. & $\deshalb$ & 2. & $\forall\: U \in \offen : (\: x \in U \to U \cap (A \setminus B) \neq \varnothing \:)$ \\
+        2 & $\deshalb$ & 3. & $\forall\: U \in \offen : (\: x \in U \to (U \cap A) \cap (U \setminus B) \neq \varnothing \:)$ \\
+        3 & $\deshalb$ & 4. & $\forall\: U \in \offen : (\: x \in U \to (U \cap A) \neq \varnothing \:\land\: (U \setminus B) \neq \varnothing \:)$ \\
+        4 & $\deshalb$ & 5. & $\forall\: U \in \offen : ( (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: (\: x \in U \to U \setminus B \neq \varnothing \:))$ \\
+        5 & $\deshalb$ & 6. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: \forall\: U \in \offen : (\: x \in U \to U \setminus B \neq \varnothing \:)$ \\
+        6 & $\deshalb$ & 7. & $x \in \cl(A)$ und $\neg \exists\: U \in \offen : (\: x \in U \:\land\: U \setminus B = \varnothing \:)$ \\
+        7 & $\deshalb$ & 8. & $x \in \cl(A)$ und $\neg \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq B \:)$ \\
+        8 & $\deshalb$ & 9. & $x \in \cl(A)$ und $x \notin \op(B)$ \\
+        9 & $\deshalb$ & 10. & $x \in \cl(A) \setminus \op(B)$ \\
+    \end{longtable}
+
+
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.7}} 
+    Zu zeigen ist: $\cl(A) \setminus \cl(B) \subseteq \cl(A \setminus B)$
+
+    \begin{longtable}{r c c l}
+        & & 1. & Sei $x \in \cl(A) \setminus \cl(B)$ \\
+        & & 2. & Angen. $x \notin \cl(A \setminus B)$ \\
+        2 & $\deshalb$ & 3. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \cap (A \setminus B) = \varnothing \:)$ \\
+        3 & $\deshalb$ & 4. & Sei $U_0 \in \offen$ mit $x \in U_0$ und $U_0 \cap (A \setminus B) = \varnothing$ \\
+        1 & $\deshalb$ & 5. & $x \notin \cl(B)$ \\
+        5 & $\deshalb$ & 6. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \cap B = \varnothing \:)$ \\
+        6 & $\deshalb$ & 7. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \cap B = \varnothing$ \\
+        1 & $\deshalb$ & 8. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:)$ \\
+        4, 7 & $\deshalb$ & 9. & Sei $U_2 := U_0 \cap U_1$ \\
+        9, 4, 7 & $\deshalb$ & 10. & $x \in U_2 \in \offen$ \\
+        10, 8 & $\deshalb$ & 11. & $U_2 \cap A \neq \varnothing$ \\
+        11 & $\deshalb$ & 12. & Sei $y \in U_2 \cap A$ \\
+        12 & $\deshalb$ & 13. & $y \in U_2$ \\
+        13, 9 & $\deshalb$ & 14. & $y \in U_1$ \\
+        14, 7 & $\deshalb$ & 15. & $y \notin B$ \\
+        12 & $\deshalb$ & 16. & $y \in A$ \\
+        16, 15 & $\deshalb$ & 17. & $y \in A \setminus B$ \\
+        13, 9 & $\deshalb$ & 18. & $y \in U_0$ \\
+        18, 17 & $\deshalb$ & 19. & $y \in U_0 \cap (A \setminus B)$ \\
+        19, 4 & $\deshalb$ & 20. & $\lightning$
+    \end{longtable}
+
+
+\subsubsection{Zu Satz \ref{satz:cl}.\ref{satz:cl.8}} \label{anh:cl.8}
+    Zu zeigen: Aus ${A \subseteq B}$ folgt ${\cl(A) \subseteq \cl(B)}$.\\
+    Gelte ${A \subseteq B}$ und sei ${x \notin \cl(B)}$. Dann gibt es ein ${U \in \offen}$ mit ${x \in U}$ und ${U \cap B = \varnothing}$. Da für so ein $U$ gilt ${U \cap A \subseteq U \cap B}$, ist dann natürlich auch ${U \cap A = \varnothing}$. Somit gilt: ${\exists\: U \in \offen : (\: x \in U \:\land\: U \cap A = \varnothing \:)}$. Also ist ${x \notin \cl(A)}$.
+
+    
+% --- satz:op -----------------------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:op}.\ref{satz:op.2}}\label{anh:op.2}
+    Zu zeigen ist: $\op(A) = A \setminus \rand(A)$.\\
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\subseteq}$\grqq:}
+
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in \op(A)$ \\
+            & & 2. & Angen. $x \notin A \setminus \rand(A)$ \\
+            1 & $\deshalb$ & 3. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \:)$ \\
+            3 & $\deshalb$ & 4. & Sei $U \in \offen$ mit $x \in U$ und $U \subseteq A$. \\
+            4 & $\deshalb$ & 5. & $x \in A$ \\
+            2, 5 & $\deshalb$ & 6. & $x \in \rand(A)$ \\
+            6 & $\deshalb$ & 7. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:)$ \\
+            7, 4 & $\deshalb$ & 8. & $U \setminus A \neq \varnothing$ \\
+            4, 8 & $\deshalb$ & 9. & $\lightning$ 
+        \end{longtable}	
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\supseteq}$\grqq:}
+
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in A \setminus \rand(A)$ \\
+            & & 2. & Angen. $x \notin \op(A)$ \\
+            1 & $\deshalb$ & 3. & $x \notin \rand(A)$ \\
+            3 & $\deshalb$ & 4. & $\exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:))$ \\
+            4 & $\deshalb$ & 5. & Sei $U \in \offen$ mit $x \in U$ und $U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing$ \\
+            2 & $\deshalb$ & 6. & $\forall\: U \in \offen : (\: x \in U \to U \setminus A \neq \varnothing \:)$ \\
+            5, 6 & $\deshalb$ & 7. & $U \setminus A \neq \varnothing$ \\
+            7, 4 & $\deshalb$ & 8. & $U \cap A = \varnothing$ \\
+            1 & $\deshalb$ & 9. & $x \in A$ \\
+            5, 9 & $\deshalb$ & 10. & $x \in U \cap A$ \\	
+            8, 10 & $\deshalb$ & 12. & $\lightning$ 
+        \end{longtable}
+
+
+\subsubsection{Zum Beweis von Satz \ref{satz:op}.\ref{satz:op.1}}\label{anh:op.1}
+    Zu zeigen ist: Aus ${\mathcal{M}_A := \{U \in \offen \mid U \subseteq A\}}$ folgt $\op(A) = \bigcup\limits_{U \in \mathcal{M}_A} U$.\\
+
+    \noindent
+    \textbf{"$\boldsymbol{\subseteq}$":} 
+    Sei $x \in \op(A)$. Dann gibt es ein ${U \in \offen}$ mit $x \in U$ und ${U \subseteq A}$. Also ist ${U \in \mathcal{M}_A}$ und somit ${x \in U \subseteq \bigcup\limits_{U \in \mathcal{M}_A} U}$.
+
+    \noindent
+    \textbf{"$\boldsymbol{\supseteq}$":}
+    Sei $x \in \bigcup\limits_{U \in \mathcal{M}_A} U$. Sei $U \in \mathcal{M}_A$ mit $x \in U$. Dann gelten: $U \in \offen$ und $U \subseteq A$. Also ist $x \in \op(A)$.
+
+
+\subsubsection{Zu Satz \ref{satz:op}.\ref{satz:op.3}}\label{anh:op.3}
+    Zu zeigen ist: $\op(A \cap B) = \op(A) \cap \op(B)$.\\
+
+    \noindent
+    \textbf{"$\boldsymbol{\subseteq}$":}
+        \begin{align*}
+            \op(A \cap B) 
+            &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A \cap B \:)\}\\
+            &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A \:\land\: U \subseteq B \:)\}\\
+            &\subseteq \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:) \:\land\: \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:)\}\\
+            &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)\} \cap \{ x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:)\}\\
+            &= \op(A) \cap \op(B)
+        \end{align*}
+
+    \noindent
+    \textbf{"$\boldsymbol{\supseteq}$":}
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in \op(A) \cap \op(B)$ \\
+            1 & $\deshalb$ & 2. & $x \in \op(A)$ \\
+            2 & $\deshalb$ & 3. & $\exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)$ \\
+            3 & $\deshalb$ & 4. & Sei $U_A \in \offen$ mit $x \in U_A$ und $U_A \subseteq A$ \\
+            1 & $\deshalb$ & 5. & $x \in \op(B)$ \\
+            5 & $\deshalb$ & 6. & $\exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B\:)$ \\
+            6 & $\deshalb$ & 7. & Sei $U_B \in \offen$ mit $x \in U_B$ und $U_B \subseteq B$ \\
+            4, 7 & $\deshalb$ & 8. & Sei $U := U_A \cap U_B$ \\
+            4, 7, 8 & $\deshalb$ & 9. & $x \in U$ \\
+            4, 7, 8 & $\deshalb$ & 10. & $U \subseteq A \cap B$ \\
+            9, 10 & $\deshalb$ & 11. & $x \in \op(A \cap B)$ \\
+        \end{longtable}
+
+
+\subsubsection{Zu Satz \ref{satz:op}.\ref{satz:op.4}}\label{anh:op.4}
+    Zu zeigen ist: $\op(A) \cup \op(B) \subseteq \op(A \cup B)$
+    \begin{align*}
+        &\op(A) \cup \op(B) \\
+        &= \{x \in X \mid x \in \op(A) \:\lor\: x \in \op(B)\} \\
+        &= \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \:) \:\lor\: \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq B \:) \} \\
+        &= \{x \in X \mid \exists\: U \in \offen : ((\: x \in U \:\land\: U \subseteq A \:) \:\lor\: (\: x \in U \:\land\: U \subseteq B \:)) \} \\
+        &= \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: (\: U \subseteq A \:\lor\: U \subseteq B \:)) \} \\
+        &\subseteq \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \cup B \:) \} \\
+        &= \op(A \cup B)
+    \end{align*}
+    
+    
+\subsubsection{Zu Satz \ref{satz:op}.\ref{satz:op.5}} 
+    Zu zeigen ist: $\op(X \setminus A) = X \setminus \cl(A)$ \\
+    \begin{align*}
+        \op(X \setminus A)
+        &= \{x \in X \mid \exists\: U \in \offen(x) : U \subseteq X \setminus A \}\\
+        &= \{x \in X \mid \exists\: U \in \offen(x) : U \cap A = \varnothing\}\\
+        &= \{x \in X \mid \neg \forall\: U \in \offen(x) : U \cap A \neq \varnothing \}\\
+        &= X \setminus \cl(A)
+    \end{align*}
+
+
+\subsubsection{Zu Satz \ref{satz:op}.\ref{satz:op.6}}\label{anh:op.5}	
+    Zu zeigen ist: $\op(A \setminus B) = \op(A) \setminus \cl(B)$\\
+
+    \noindent
+    \textbf{"$\boldsymbol{\subseteq}$":}
+        \begin{longtable}{r r c r l}
+            & & & 1. & Sei $x \in \op(A \setminus B) $ \\
+            & & & 2. & Angen. $x \notin \op(A) \setminus \cl(B)$ \\
+            & 1 & $\deshalb$ & 3. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \setminus B \:)$ \\
+            & 3 & $\deshalb$ & 4. & Sei $U \in \offen$ mit $x \in U$ und $U \subseteq A \setminus B$ \\
+            & 4 & $\deshalb$ & 5. & $\varnothing = U \setminus (A \setminus B) = (U \setminus A) \cup (U \cap B)$ \\
+            & 5 & $\deshalb$ & 6. & $U \setminus A = \varnothing$ \\
+            & 6 & $\deshalb$ & 7. & $U \cap B = \varnothing$ \\
+            & 2 & $\deshalb$ & 8. & $x \notin \op(A) \:\lor\: x \in \cl(B)$ \\
+            \hline
+            Fall 1: & 8 & $\deshalb$ & 1.9. & $x \notin \op(A)$ \\
+            & 1.9. & $\deshalb$ & 1.10. & $\neg \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \:)$ \\
+            & 1.10 & $\deshalb$ & 1.11. & $\forall\: U \in \offen : (\: x \in U \to U \setminus A \neq \varnothing \:)$ \\
+            & 1.11, 4 & $\deshalb$ & 1.12. & $U \setminus A \neq \varnothing$ \\
+            & 1.12, 6 & $\deshalb$ & 1.13. & $\lightning$ \\
+            \hline
+            Fall 2: 
+            & 8 & $\deshalb$ & 2.9. & $x \in \cl(B)$ \\
+            & 2.9 & $\deshalb$ & 2.10 & $\forall\: U \in \offen : (\: x \in U \to U \cap B \neq \varnothing \:)$ \\
+            & 2.10, 4 & $\deshalb$ & 2.11 & $U \cap B \neq \varnothing$ \\
+            & 2.11, 7 & $\deshalb$ & 2.12 & $\lightning$ \\
+        \end{longtable}
+
+    \noindent
+    \textbf{"$\boldsymbol{\supseteq}$":}
+
+        \begin{longtable}{r c c l}
+            & & 1. & Sei $x \in \op(A) \setminus \cl(B)$ \\
+            & & 2. & Angen. $x \notin \op(A \setminus B))$ \\
+            1 & $\deshalb$ & 3. & $x \in \op(A)$ \\
+            3 & $\deshalb$ & 4. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \:)$ \\
+            4 & $\deshalb$ & 5. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \subseteq A$ \\
+            1 & $\deshalb$ & 6. & $x \notin \cl(B)$ \\
+            6 & $\deshalb$ & 7. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \cap B = \varnothing \:)$ \\
+            7 & $\deshalb$ & 8. & Sei $U_2 \in \offen$ mit $x \in U_2$ und $U_2 \cap B = \varnothing$ \\
+            8, 5 & $\deshalb$ & 9. & Sei $U_0 := U_1 \cap U_2 \in \offen$ \\
+            9, 5, 8 & $\deshalb$ & 10. & $x \in U_0$ \\
+            2 & $\deshalb$ & 11. & $\forall\: U \in \offen : (\: U \setminus (A \setminus B) \neq \varnothing \:)$ \\
+            11, 9, 10 & $\deshalb$ & 12. & $U_0 \setminus (A \setminus B) \neq \varnothing$ \\
+            12 & $\deshalb$ & 13. & Sei $y \in U_0 \setminus (A \setminus B)$ \\
+            13 & $\deshalb$ & 14. & $y \in U_0$ \\
+            14, 9 & $\deshalb$ & 15. & $y \in U_1$ \\
+            15, 5 & $\deshalb$ & 16. & $y \in A$ \\
+            14, 9 & $\deshalb$ & 17. & $y \in U_2$ \\
+            17, 7 & $\deshalb$ & 18. & $y \notin B$ \\
+            16, 18 & $\deshalb$ & 19. & $y \in A \setminus B$ \\
+            19, 13 & $\deshalb$ & 20. & $\lightning$ \\
+        \end{longtable}
+        
+
+% --- satz:rand ---------------------------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:rand}.\ref{satz:rand.1}} \label{anh:rand.1}
+    Zu zeigen ist: $\rand(\rand(A)) \subseteq \rand(A))$ \\
+    Sei $x \in \rand(\rand(A))$. Dann gilt nach Definition des Randoperators (Def \ref{def:rand})
+    \begin{align} \label{anh:rand.1.1}
+        \forall\: U \in \offen: (\: x \in U \to (\: U \cap \rand(A) \neq \varnothing \:\land\: U \setminus \rand(A) \neq \varnothing \:))
+    \end{align}
+    Angenommen $x \notin \rand(A)$. %Dann gilt wiederum nach der Definition des Randoperators 	
+    \begin{align*} %\label{anh:rand.1.2}
+        \exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:))
+    \end{align*}
+    Sei also $U_0 \in \offen$ mit $x \in U_0$ und
+    \begin{align} \label{anh:rand.1.3}
+        U_0 \cap A = \varnothing \:\lor\: U_0 \setminus A = \varnothing
+    \end{align}
+    nach (\ref{anh:rand.1.1}) gilt jetzt $U_0 \cap \rand(A) \neq \varnothing$. Sei also $y \in U_0 \cap \rand(A)$.
+    %Dann gilt wieder nach Definition des Randoperators
+    \begin{align*} %\label{anh:rand.1.4}
+        \forall\: U \in \offen: (\: y \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing))
+    \end{align*}
+    Also
+    \begin{align*}
+        U_0 \cap A \neq \varnothing \:\land\: U_0 \setminus A \neq \varnothing
+    \end{align*}
+    was (\ref{anh:rand.1.3}) widerspricht.
+
+	
+\subsubsection{Zu Satz \ref{satz:rand}.\ref{satz:rand.2}}\label{anh:rand.2}
+    Zu zeigen ist: $\rand(A) = \cl(A) \setminus \op(A)$
+    \begin{align*}
+    \cl(A) \setminus \op(A) &= &&\cl(A) \cap (X \setminus \op(A))\\
+                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap A \neq \varnothing \:)\}\\ 
+                        &  &&\cap \{x \in X \mid \neg \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)\}\\
+                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap A \neq \varnothing\:) \:\land\: \forall\: U \in \offen:(\: x \in U \to \neg(U \subseteq A) \:) \}\\
+                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: (\: x \in U \to U \setminus A \neq \varnothing \:) \:) \}\\
+                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:) \}\\
+                        &= &&\rand(A)
+    \end{align*}
+
+
+\subsubsection{Zu Satz \ref{satz:rand}.\ref{satz:rand.3}}\label{anh:rand.3}
+    Zu zeigen ist: $(\rand(A) \cap \op(B)) \cup (\rand(B) \cap \op(A)) \subseteq \rand(A \cap B)$.\\ \ \\
+    Ich zeige:
+    \begin{enumerate}
+    \item\label{anh:rand.3.1} $\rand(A) \cap \op(B) \subseteq \rand(A \cap B) \quad$ und
+    \item\label{anh:rand.3.2} $\rand(B) \cap \op(A) \subseteq \rand(A \cap B)$
+    \end{enumerate}
+
+    \noindent
+    \textbf{Zu \ref{anh:rand.3.1}: }
+        \begin{longtable}{r c r l}
+                    &          &  1. & Sei $x \in \rand(A) \cap \op(B)$ \\
+                    &          &  2. & Angen. $x \notin \rand(A \cap B)$ \\
+            1          & $\deshalb$ &  3. & $x \in \op(B)$ \\
+            3          & $\deshalb$ &  4. & $\exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:) $ \\
+            4          & $\deshalb$ &  5. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \subseteq B$ \\
+            2          & $\deshalb$ &  6. & $\exists\: U \in \offen: (\: x \in U \:\land\: (\: U \cap A \cap B = \varnothing \:\lor\: U \setminus (A \cap B) = \varnothing \:) \:)$ \\
+            6          & $\deshalb$ &  7. & Sei $U_2 \in \offen$ mit $x \in U_2$ und $U_2 \cap A \cap B = \varnothing \:\lor\: U_2 \setminus (A \cap B) = \varnothing$ \\
+            5, 7       & $\deshalb$ &  8. & Sei $U := U_1 \cap U_2$ \\
+            5, 7, 8    & $\deshalb$ &  9. & $x \in U \in \offen$ \\
+            1          & $\deshalb$ & 10. & $x \in \rand(A)$ \\
+            10         & $\deshalb$ & 11. & $\forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:) $ \\
+            9, 11      & $\deshalb$ & 12. & $U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing$ \\
+            12         & $\deshalb$ & 13. & Sei $y \in U \setminus A$ \\
+            13, 8      & $\deshalb$ & 14. & $y \in U_2$ \\
+            13         & $\deshalb$ & 15. & $y \notin A \supseteq A \cap B$ \\
+            14, 15     & $\deshalb$ & 16. & $y \in U_2 \setminus (A \cap B)$ \\
+            7, 16      & $\deshalb$ & 17. & $U_2 \cap A \cap B = \varnothing$ \\
+            11         & $\deshalb$ & 18. & Sei $z \in U \cap A$ \\
+            8, 18      & $\deshalb$ & 19. & $z \in U_1$ \\
+            5, 19      & $\deshalb$ & 20. & $z \in B$ \\
+            8, 18      & $\deshalb$ & 21. & $z \in U_2$ \\
+            18, 20, 21 & $\deshalb$ & 22. & $z \in U_2 \cap A \cap B$ \\
+            17, 22     & $\deshalb$ & 23. & $\lightning$
+        \end{longtable}
+
+    \noindent
+    \textbf{Zu \ref{anh:rand.3.1}: } analog
+
+\subsubsection{Zu Satz \ref{satz:rand}.\ref{satz:rand.4}}\label{anh:rand.4}
+    Zu zeigen ist: $\rand(A \cap B) \subseteq (\rand(A) \cap \cl(B)) \cup (\rand(B) \cap \cl(A))$.\\ \ \\
+
+    \noindent
+    \textbf{Vorüberlegung: } Für beliebige $A, B \subseteq X$ gilt:
+        \begin{align*}
+            \rand(A) \cap \cl(B) &&& \\ 
+            &=&& \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:)\}\\
+            &&&\cap \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap B \neq \varnothing \:)\}\\
+            &=&& \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:\land\: U \cap B \neq \varnothing \:) \:)\}
+        \end{align*}
+
+    \begin{longtable}{r c r l}
+        & & 1. & Sei $x \in \rand(A \cap B)$ \\
+        & & 2. & Angen. $x \notin (\rand(A) \cap \cl(B)) \cup (\rand(B) \cap \cl(A))$ \\
+        2 & $\deshalb$ & 3. & $x \notin \rand(A) \cap \cl(B)$ \\
+        3, Vorüberlegung & $\deshalb$ & 4. & $\exists\: U \in \offen: (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:\lor\: U \cap B = \varnothing \:) \:) $ \\
+        4 & $\deshalb$ & 5. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \cap A = \varnothing \:\lor\: U_1 \setminus A = \varnothing \:\lor\: U_1 \cap B = \varnothing$ \\
+        2 & $\deshalb$ & 6. & $x \notin \rand(B) \cap \cl(A)$ \\
+        6, Vorüberlegung & $\deshalb$ & 7. & $\exists\: U \in \offen: (\: x \in U \:\land\: (\: U \cap B = \varnothing \:\lor\: U \setminus B = \varnothing \:\lor\: U \cap A = \varnothing \:) \:)$ \\
+        7 & $\deshalb$ & 8. & Sei $U_2 \in \offen$ mit $x \in U_2$ und $U_2 \cap B = \varnothing \:\lor\: U_2 \setminus B = \varnothing \:\lor\: U_2 \cap A = \varnothing$\\
+        5, 8 & $\deshalb$ & 9. & Sei $U := U_1 \cap U_2$ \\
+        1 & $\deshalb$ & 10. & $\forall\: U \in \offen: (\: x \in U \to U \cap A \cap B \neq \varnothing \:\land\: U \setminus (A \cap B) \neq \varnothing \:) \:) $ \\
+        5, 8, 9 & $\deshalb$ & 11. & $x \in U \in \offen$ \\
+        10, 11 & $\deshalb$ & 12. & $U \cap A \cap B \neq \varnothing$ und $U \setminus (A \cap B) \neq \varnothing$ \\
+        9, 12 & $\deshalb$ & 13. & $U_1 \cap U_2 \cap A \cap B \neq \varnothing$ \\
+        13 & $\deshalb$ & 14. & $U_1 \cap A \neq \varnothing$ \\
+        13 & $\deshalb$ & 15. & $U_1 \cap B \neq \varnothing$ \\
+        5, 14, 15 & $\deshalb$ & 16. & $U_1 \setminus A = \varnothing$ \\
+        9, 16 & $\deshalb$ & 17. & $U \setminus A = (U_1 \cap U_2) \setminus A \subseteq U_1 \setminus A = \varnothing$ \\
+        13 & $\deshalb$ & 18. & $U_2 \cap A \neq \varnothing$ \\
+        13 & $\deshalb$ & 19. & $U_2 \cap B \neq \varnothing$ \\
+        8, 18, 19 & $\deshalb$ & 20. & $U_2 \setminus B = \varnothing$ \\
+        9, 20 & $\deshalb$ & 21. & $U \setminus B = (U_1 \cap U_2) \setminus B \subseteq U_2 \setminus B = \varnothing $ \\
+        17, 21 & $\deshalb$ & 22. & $\varnothing = (U \setminus A) \cup (U \setminus B) = U \setminus (A \cap B) $ \\
+        12, 22 & $\deshalb$ & 23. & $\lightning$
+    \end{longtable}
+
+
+\subsubsection{Zu Satz \ref{satz:rand}.\ref{satz:rand.7}}\label{anh:rand.7}
+    Zu zeigen ist: $\rand(A \setminus B) \subseteq (\rand(A) \setminus \op(B)) \cup (\rand(B) \cap \cl(A))$
+
+    \begin{longtable}{r r c r l}
+        & & & 1. & Sei $x \in \rand(A \setminus B) $ \\
+        & & & 2. & Angen. $x \notin (\rand(A) \setminus \op(B)) \cup (\rand(B) \cap \cl(A))$ \\
+        & 1 & $\deshalb$ & 3. & $\forall\: U \in \offen : (\: x \in U \to (\: U \cap (A \setminus B) \neq \varnothing \:\land\: U \setminus (A \setminus B) \neq \varnothing \:))$ \\
+        & 2 & $\deshalb$ & 4. & $x \notin \rand(A) \setminus \op(B)$ \\
+        & 4 & $\deshalb$ & 5. & $x \notin \rand(A) \:\lor\: x \in \op(B)$ \\
+        \hline
+        Fall 1: & & & 1.1. & $x \in \op(B)$ \\
+        &  & $\deshalb$ & 1.2. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq B \:)$ \\
+        & 1.2 & $\deshalb$ & 1.3. & Sei $U \in \offen$ mit $x \in U$ und $U \subseteq B$  \\
+        & 3, 1.3 & $\deshalb$ & 1.4. & $U \cap (A \setminus B) \neq \varnothing$ \\
+        & 1.4 & $\deshalb$ & 1.5. & $U \setminus B \neq \varnothing$ \\
+        & 1.5, 1.3 & $\deshalb$ & 1.6. & $\lightning$ \\
+        \hline
+        Fall 2: & & & 2.1. & $x \notin \op(B)$ \\
+        & 5, 2.1 & $\deshalb$ & 2.2. & $x \notin \rand(A)$ \\
+        & 2.2 & $\deshalb$ & 2.3. & $\exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:))$ \\
+        & 2.3 & $\deshalb$ & 2.4. & Sei $U_0 \in \offen$ mit $x \in U_0$ und $U_0 \cap A = \varnothing \:\lor\: U_0 \setminus A = \varnothing$ \\
+        & 3, 2.4 & $\deshalb$ & 2.5. & $U_0 \cap (A \setminus B) \neq \varnothing$ \\
+        & 2.5 & $\deshalb$ & 2.6. & $U_0 \cap A \neq \varnothing$ \\
+        & 2.6, 2.4 & $\deshalb$ & 2.7. & $U_0 \setminus A = \varnothing$ \\
+        & 2.4, 2.7 & $\deshalb$ & 2.8. & $x \in A$ \\
+        & 2.8 & $\deshalb$ & 2.9. & $x \in \cl(A)$ \\
+        & 2 & $\deshalb$ & 2.10. & $x \notin \rand(B) \cap \cl(A)$ \\
+        & 2.10, 2.9 & $\deshalb$ & 2.11. & $x \notin \rand(B)$ \\
+        & 2.11 & $\deshalb$ & 2.12. & $\exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap B = \varnothing \:\lor\: U \setminus B = \varnothing \:))$ \\
+        & 2.12 & $\deshalb$ & 2.13. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \cap B = \varnothing \:\lor\: U_1 \setminus B = \varnothing$ \\
+        & 2.11, 2.1 & $\deshalb$ & 2.14. & $x \notin \cl(B) \subseteq B$ \\
+        & 2.13, 2.14 & $\deshalb$ & 2.15. & $x \in U_1 \setminus B$ \\
+        & 2.15 & $\deshalb$ & 2.16. & $U_1 \setminus B \neq \varnothing$ \\
+        & 2.16, 2.13 & $\deshalb$ & 2.17. & $U_1 \cap B = \varnothing$ \\
+        & 2.13, 2.4 & $\deshalb$ & 2.18. & Sei $U_2 := U_0 \cap U_1 \in \offen$ \\
+        & 2.13, 2.4, 2.18 & $\deshalb$ & 2.19. & $x \in U_2$ \\
+        & 3, 2.18, 2.19 & $\deshalb$ & 2.20. & $U_2 \setminus (A \setminus B) \neq \varnothing$ \\
+        & 2.18 & $\deshalb$ & 2.23. & $U_2 \subseteq U_0$ \\
+        & 2.23, 2.7 & $\deshalb$ & 2.24. & $U_2 \setminus A = \varnothing$ \\
+        & 2.18 & $\deshalb$ & 2.25. & $U_2 \subseteq U_1$ \\
+        & 2.17, 2.25 & $\deshalb$ & 2.26. & $U_2 \cap B = \varnothing$ \\
+        & 2.24, 2.26 & $\deshalb$ & 2.27. & $\varnothing = (U_2 \setminus A) \cup (U_2 \cap B) = U_2 \setminus (A \setminus B)$ \\
+        & 2.17, 2.20 & $\deshalb$ & 2.28. & $\lightning$ \\
+    \end{longtable}
+    
+    
+% --- bsp:standardbsp-rand-hp -----------------------------------------------------
+
+\subsubsection{Zu Bsp.~\ref{bsp:standardbsp-rand-hp}}\label{anh:standardbsp-rand-hp}
+    Zu zeigen ist: Für $\rand A = \{\frac{1}{2^n} \mid n \in \N\} \cup \{0\}$ ist $0$ der einzige Häufungspunkt.\\ \ \\
+    %
+    Sei $x \in \R$.\\ \ \\
+        \textbf{Fall 1:} $x < 0$.\\
+            Dann ist $U := (2x,\frac{x}{2})$ eine offene Umgebung von $x$ in $\R$ mit $\varnothing = U \cap \rand A \subseteq U \cap (\rand A \setminus \{x\})$.
+            Also ist $x$ keine Häufungspunkt von $\rand A$.\\ \ \\
+        \textbf{Fall 2:} $x = 0$.\\
+            Sei $U \in \offen({0})$. Dann gibt es nach Definition der Standardtopologie ein offenes Intervall $(a,b)$ mit $a < 0 < b$ und $(a,b) \subseteq U$.\\ 
+            Sei $N \in \N$ mit $\frac{1}{2^N} < b$. 
+            Dann ist $0 \neq N \in \rand A \cap (a,b) \subseteq \rand A \cap U$ und somit $U \cap (\rand A \setminus \{0\}) \neq \varnothing$. 
+            Also ist $0 = x$ ein Häufungspunkt von $\rand A$.\\ \ \\
+        \textbf{Fall 3:} $0 < x \leq \frac{1}{2}$, $x \in \rand A$.\\
+            Sei $N \in \N$ mit $x = 2^{-N}$. Dann ist $(2^{-N-1}, 2^{-N+1})$ eine offene Umgebung von $x$ in $\R$, die nur $x$ als Punkt in $\rand A$ enthält.
+            Somit ist $x$ kein Häufungspunkt von $\rand A$.\\ \ \\
+        \textbf{Fall 4:} $0 < x \leq \frac{1}{2}$, $x \notin \rand A$.\\
+            Sei $N$ die kleinste natürliche Zahlr für die $\frac{1}{2^N} < x$ ist. Dann ist $(2^{-N}, 2^{-N+1})$ eine offene Umgebung von $x$ in $\R$, die keine Randpunkte von $A$ enthält.
+            Somit ist $x$ kein Häufungspunkt von $\rand A$.\\ \ \\
+        \textbf{Fall 5:} $x > \frac{1}{2}$.\\
+            Dann ist $U := (\frac{x}{2}+\frac{1}{4},2x)$ eine offene Umgebung von $x$ in $\R$ mit $\varnothing = U \cap \rand A \subseteq U \cap (\rand A \setminus \{x\})$.
+            Also ist $x$ keine Häufungspunkt von $\rand A$.
+    
+
+% --- satz:cl-op-hp ---------------------------------------------------------------
+    
+\subsubsection{Zu Satz \ref{satz:cl-op-hp}}\label{anh:cl-op-hp}
+    Zu zeigen sind:
+    \begin{enumerate}
+        \item \label{anh:cl-op-hp.1} $\cl(A) = A \cup \HP(A)$
+        \item \label{anh:cl-op-hp.2} $\op(A) = A \setminus \HP(X \setminus A)$
+    \end{enumerate}
+    
+    \noindent
+    \textbf{Zu \ref{anh:cl-op-hp.1}: }\\
+    \textbf{``$\boldsymbol{\subseteq}$``:}
+        Wenn $x$ nicht aus $A \cup \HP(A)$ ist, dann ist $x \notin \HP(A)$ und somit gibt es ein $U \in \offen(x)$ mit $U \cap (A \setminus \{x\}) = \varnothing$.
+        Da $x$auch nicht in $A$ ist, ist $A \setminus \{x\} = A$ und somit $U \cap A = \varnothing$. Also ist $x$ nicht in $\cl(A)$.\\
+    \textbf{``$\boldsymbol{\supseteq}$``:}
+        Wenn $x$ nicht in $\cl(A)$ ist, dann gibt es ein $U \in \offen(x)$ mit $U \cap A = \varnothing$ und dann ist erst recht $U \cap (A \setminus \{x\}) = \varnothing$. Also ist $x$ kein Häufungspunkt von $A$.\\ \ \\
+    
+    \noindent
+    \textbf{Zu \ref{anh:cl-op-hp.2}: }\\
+    \textbf{``$\boldsymbol{\subseteq}$``:}
+        Wenn $x$ in $\op(A)$ ist, so gibt es ein $U \in \offen(x)$ mit $U \subseteq A$.
+        Dann gilt $U \cap ((X \setminus A) \setminus \{x\}) \subseteq U \cap (X \setminus A) = U \setminus A = \varnothing$.
+        Somit ist $x$ kein Häufungspunkt von $X \setminus A$ und da $x \in \op(A) \subseteq A$ ist, ist $x \in A \setminus \HP(X \setminus A)$.\\
+    \textbf{``$\boldsymbol{\supseteq}$``:}
+        Wenn $x \in A \setminus \HP(X \setminus A)$ ist, so ist $x$ kein Häufungspunkt von $X \setminus A$ und es gibt ein $U \in \offen(x)$ mit $\varnothing = U \cap ((X \setminus A) \setminus \{x\}) = U \setminus (X \setminus (A \cup \{x\}))$ und da $x \in A$ ist, gilt $U \setminus A = U \setminus (A \cup \{x\}) = U \setminus (X \setminus (A \cup \{x\})) = \varnothing$. Somit ist $U \subseteq A$ und $x \in \op(A)$.
+
+    
+
+% --- satz:AdB=AdC ----------------------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:AdB=AdC}}\label{anh:AdB=AdC}
+    Zu zeigen ist: Aus $A \in \offen_X$ und $A \cap B = A \cap C$ folgt $A \cap \rand_X(B) = A \cap \rand_X(C)$\\
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\subseteq}$\grqq:}
+
+    \begin{longtable}{r c c l}
+        & & 1. & Sei $A \in \offen_X$ \\
+        & & 2. & Gelte $A \cap B = A \cap C$ \\
+        & & 3. & Sei $x \in A \cap \rand_X(B)$ \\
+        & & 4. & Angen. $x \notin A \cap \rand_X(C)$ \\
+        3 & $\deshalb$ & 5. & $x \in A$ \\
+        4, 5 & $\deshalb$ & 6. & $x \notin \rand_X(C)$ \\
+        6 & $\deshalb$ & 7. & $\exists\: U \in \offen_X (\: x \in U \:\land\: (\: U \cap C = \varnothing \:\lor\: U \setminus C = \varnothing \:))$ \\
+        7 & $\deshalb$ & 8. & Sei $U_0 \in \offen_X$ mit $x \in U_0$ und $U_0 \cap C = \varnothing \:\lor\: U_0 \setminus C = \varnothing$ \\
+        1, 8 & $\deshalb$ & 9. & Sei $U_1 := U_0 \cap A$ \\
+        1, 8, 9 & $\deshalb$ & 10. & $U_1 \in \offen_X$ \\
+        3, 8, 9 & $\deshalb$ & 11. & $x \in U_1$ \\
+        2 & $\deshalb$ & 12. & $x \in \rand_X(B)$ \\
+        12 & $\deshalb$ & 13. & $\forall\: U \in \offen (\: x \in U \to U \cap B \neq \varnothing \:\land\: U \setminus B \neq \varnothing \:)$ \\
+        10, 11, 13 & $\deshalb$ & 14. & $U_1 \cap B \neq \varnothing \:\land\: U_1 \setminus B \neq \varnothing$ \\
+        9, 2 & $\deshalb$ & 15. & $U_1 \cap B = U_0 \cap A \cap B = U_0 \cap A \cap C = U_1 \cap C$ \\
+        9, 2 & $\deshalb$ & 16. & $U_1 \setminus B = U_1 \setminus (U_1 \cap B) = U_1 \setminus (U_0 \cap A \cap B)$ \\
+        & & & $= U_1 \setminus (U_0 \cap A \cap C) = U_1 \setminus (U_1 \cap C) = U_1 \setminus C $ \\
+        14, 15, 16 & $\deshalb$ & 17. & $U_1 \cap C \neq \varnothing \:\land\: U_1 \setminus C \neq \varnothing$ \\ 
+        9 & $\deshalb$ & 18. & $U_1 \subseteq U_0$ \\
+        17, 18 & $\deshalb$ & 19. & $U_0 \cap C \neq \varnothing \:\land\: U_0 \setminus C \neq \varnothing$ \\
+        8, 19 & $\deshalb$ & 20. & $\lightning$ 
+    \end{longtable}
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\supseteq}$\grqq:} analog
+    
+    
+    
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\subsection{Zu Abschnitt \ref{sec:teilraum-top} (Teilraumtopologie)}
+
+
+% --- satz:trAbg ------------------------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:trAbg}}\label{anh:trAbg}
+Zu zeigen ist
+\begin{enumerate}
+	\item $B \in \abg_A \Rightarrow \exists\: B' \in \abg_X : B = B' \cap A$ \label{anh:trAbg.1}
+	\item $\exists\: B' \in \abg_X : B = B' \cap A \Rightarrow B \in \abg_A$ \label{anh:trAbg.2}
+\end{enumerate}
+
+\noindent
+\textbf{Zu \ref{anh:trAbg.1}:} \\
+Sei $B \in C_A$. Dann gibt es ein $C \in \offen_A$ mit $B = A \setminus C$. Dann gibt es ein $D \in \offen$ mit $C = D \cap A$. Sei $B' := X \setminus D$. Dann gelten 
+\begin{align*}
+	&B' \in \abg_X \quad \textnormal{und} \\
+	&B' \cap A = (X \setminus D) \cap A = (X \cap A) \setminus (D \cap A) = A \setminus C = B
+\end{align*}
+
+\noindent
+\textbf{Zu \ref{anh:trAbg.2}:} \\
+Sei $B' \in \abg_X$ mit $B = B' \cap A$. Dann ist $X \setminus B' \in \offen_X$ und damit 
+\begin{align*}
+	A \setminus B = (X \cap A) \setminus (B' \cap A) =(X \setminus B') \cap A \in \offen_A.
+\end{align*}
+Also ist $B \in \abg_A$. \\
+
+
+% --- satz:dAB<clB -----------------------------------------------------------------
+	
+\subsubsection{Zu Satz \ref{satz:dAB<clB}}\label{anh:dAB<clB}
+Zu zeigen ist: $\rand_A(B) \subseteq \cl_X(B)$
+\\
+
+\begin{longtable}{r c c l}
+	& & 1. & Sei $x \in \rand_A(B)$ \\
+	& & 2. & Angen. $x \notin \cl_X(B)$ \\
+	2 & $\deshalb$ & 3. & $\exists\: U \in \offen_X : (\: x \in U \:\land\: U \cap B = \varnothing$ \\
+	3 & $\deshalb$ & 4. & Sei $U_0 \in \offen_X$ mit $x \in U_0$ und $U_0 \cap B = \varnothing$ \\
+	4 & $\deshalb$ & 5. & $U_0 \cap A \in \offen_A$ \\
+	6 & $\deshalb$ & 6. & $x \in A$ \\
+	4, 6 & $\deshalb$ & 7. & $x \in U_0 \cap A$ \\
+	1 & $\deshalb$ & 8. & $\forall\: V \in \offen_A : (\: x \in V \to V \cap B \neq \varnothing \:\land\: V \setminus B \neq \varnothing \:)$ \\
+	4, 7, 8 & $\deshalb$ & 9. & $U_0 \cap A \cap B \neq \varnothing$ \\
+	9 & $\deshalb$ & 10. & $U_0 \cap B \neq \varnothing$ \\
+	4, 10 & $\deshalb$ & 11. & $\lightning$ \\
+\end{longtable}
+
+
+% --- satz:clA1-teil-clA2 -----------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:clA1-teil-clA2}}\label{anh:clA1-teil-clA2}
+    Zu zeigen ist: Aus ${B \subseteq A_1 \cap A_2}$ und ${\cl_{A_1}(B) \subseteq A_2}$ folgt ${\cl_{A_1}(B) \subseteq \cl_{A_2}(B)}$.
+    %
+    \begin{longtable}{r c c l}
+        & & 1. & Sei $x \in \cl_{A_1}(B) \subseteq A_2$ \\
+        & & 2. & Angen. $x \notin \cl_{A_2}(B))$ \\
+        1 & $\deshalb$ & 3. & $\exists\: V \in \offen_{A_2}(x) : V \cap B = \varnothing$\\
+        3 & $\deshalb$ & 4. & Sei $V_2 \in \offen_{A_2}(x)$ mit $V_2 \cap B = \varnothing$ \\
+        4 & $\deshalb$ & 5. & Sei $U \in \offen_X$ mit $V_2 = U \cap A_2$ \\
+        5 & $\deshalb$ & 6. & Sei $V_1 := U \cap A_1$ \\
+        4, 5 & $\deshalb$ & 7. & $x \in U$ \\
+        1 & $\deshalb$ & 8. & $x \in A_1$ \\
+        7, 8 & $\deshalb$ & 9. & $x \in V_1 \in \offen_{A_1}$ \\
+        1 & $\deshalb$ & 10. & $\forall\: V \in \offen_{A_1}(x): V \cap B \neq \varnothing$ \\
+        9, 10 & $\deshalb$ & 11. & $V_1 \cap B \neq \varnothing$ \\
+        4, 11, $B \subseteq A_2$ & $\to$ & 12. & $\varnothing \neq V_1 \cap B \subseteq U \cap A_2 \cap B = V_2 \cap B = \varnothing$ \\
+        12 & $\deshalb$ & 13. & $\lightning$
+    \end{longtable}
+
+% --- satz:cl-dA1-dA2 ---------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:cl-dA1-dA2}}\label{anh:cl-dA1-dA2}
+    Zu zeigen ist: Aus $B \subseteq \rand A_1 \cap \rand A_2$ folgt $\cl_{\rand A_1}(B) \subseteq \rand A_2$
+
+    \begin{longtable}{r c c l}
+        & & 0. & $B \subseteq \rand A_1 \cap \rand A_2$\\
+        & & 1. & $x \in \cl_{\rand A_1}(B)$ \\
+        & & 2. & Angen. $x \notin \rand A_2$ \\
+        2 & $\deshalb$ & 3. & $\exists\: U \in \offen_X(x) : (\: U \cap A_2 = \varnothing \:\lor\: U \setminus A_2 = \varnothing \:)$ \\
+        3 & $\deshalb$ & 4. & Sei $U \in \offen(x)$ mit $U \cap A_2 = \varnothing$ oder $U \setminus A_2 = \varnothing$ \\
+        4 & $\deshalb$ & 5. & Sei $V := U \cap \rand A_1 \in \offen_{\rand A_1}$ \\
+        1 & $\deshalb$ & 6. & $x \in \rand A_1$ \\
+        5, 6 & $\deshalb$ & 7. & $V \in \offen_{\rand A_1}(x)$ \\
+        1 & $\deshalb$ & 8. & $\forall\: V \in \offen_{\rand A_1}: V \cap B \neq \varnothing$ \\
+        8 & $\deshalb$ & 9. & $V \cap B \neq \varnothing$ \\
+        0, 5, 9 & $\deshalb$ & 10. & Sei $y \in V \cap B \subseteq U \cap \rand A_2$ \\
+        10 & $\deshalb$ & 11. & $U \in \offen(y)$ \\
+        10 & $\deshalb$ & 12. & $y \in \rand A_2$ \\
+        12 & $\deshalb$ & 13. & $\forall\: U \in \offen(y) : (\: U \cap A_2 \neq \varnothing \:\land\: U \setminus A_2 \neq \varnothing \:)$ \\
+        11, 13 & $\deshalb$ & 14. & $U \cap A_2 \neq \varnothing \:\land\: U \setminus A_2 \neq \varnothing$ \\
+        3, 14 & $\deshalb$ & 15. & $\lightning$
+    \end{longtable}
+    
+    
+
+% --- satz:cl-rand-A1-A2 ----------------------------------------------------
+%\subsubsection{Zu Satz \ref{satz:cl-rand-A1-A2}}\label{anh:cl-rand-A1-A2}
+%    Zu zeigen ist: Aus ${B \subseteq \rand A_1 \cap \rand A_2}$ folgt ${\cl_{\rand A_1}(B) = \cl_{\rand A_2}(B)}$.\\ \ \\
+    %
+%    \glqq $\boldsymbol{\subseteq}$\grqq :
+    %
+%    \begin{longtable}{r c c l}
+%        & & 0. & $B \subseteq \rand A_1 \cap \rand A_2$\\
+%        & & 1. & Sei $x \in \cl_{\rand A_1}(B)$ \\
+%        & & 2. & Angen. $x \notin \cl_{\rand A_2}(B))$ \\
+%        0, 1, \ref{satz:cl-dA1-dA2} & $\to$ & 3. & $x \in \rand A_2$\\
+%        2, 3 & $\deshalb$ & 4. & $\exists\: V \in \offen_{\rand A_2}(x) : V \cap B = \varnothing$ \\
+%        4 & $\deshalb$ & 5. & Sei $V_2 \in \offen_{\rand A_2}(x)$ mit $V_2 \cap B = \varnothing$ \\
+%        5 & $\deshalb$ & 6. & $\exists\: U \in \offen: V = U \cap \rand A_2$ \\
+%        6 & $\deshalb$ & 7. & Sei $U \in \offen$ mit $V = U \cap \rand A_2$ \\
+%        7 & $\deshalb$ & 8. & Sei $V_1 := U \cap \rand A_1 \in \offen_{\rand A_1}$ \\
+%        5, 7 & $\deshalb$ & 9. & $x \in V_2 \subseteq U$ \\
+%        1 & $\deshalb$ & 10. & $x \in \rand A_1$ \\
+%        9, 10 & $\deshalb$ & 11. & $x \in V_1 \in \offen_{\rand A_1}$ \\
+%        11 & $\deshalb$ & 12. & $V_1 \in \offen_{\rand A_1}(x)$ \\
+%        1 & $\deshalb$ & 13. & $\forall\: V \in \offen_{\rand A_1}(x) : V \cap B \neq \varnothing$ \\
+%        0 & $\deshalb$ & 14. &  $B = B \cap \rand A_2$\\
+%        12, 13, 14 & $\deshalb$ & 15. & $\varnothing \neq V_1 \cap B \subseteq U \cap B = U \cap \rand A_2 \cap B = V_2 \cap B = \varnothing$ \\
+%        15 & $\deshalb$ & 16. & $\lightning$ \\
+%    \end{longtable}
+    %
+%    \glqq $\boldsymbol{\supseteq}$\grqq : analog
+
+% --- satz:da1=da2 -------------------------------------------------------------
+
+
+\subsubsection{Zu Satz \ref{satz:da1=da2}}\label{anh:da1=da2}
+    Zu zeigen ist: Aus $B \subseteq A_1 \cap A_2$ und  $\exists\: U \in \offen_X : (\: cl_X(B) \subseteq U \:\land\: U \cap A_1 = U \cap A_2 \:)$ folgt $\rand_{A_1}(B) = \rand_{A_2}(B)$ \\
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\subseteq}$\grqq:}
+
+    \begin{longtable}{r c c l}
+        & & 1. & Sei $U_0 \in \offen_X$ mit $cl_X(B) \subseteq U_0$ und $U_0 \cap A_1 = U_0 \cap A_2$ \\
+        & & 2. & Sei $x \in \rand_{A_1}(B)$ \\
+        & & 3. & Angen. $x \notin \rand_{A_2}(B)$ \\
+        3 & $\deshalb$ & 4. & $\exists\: V \in O_{A_2} : (\: x \in V \:\land\: (\: V \cap B = \varnothing \:\lor\: V \setminus B = \varnothing \:))$ \\
+        4 & $\deshalb$ & 5. & Sei $V_2 \in \offen_{A_2}$ mit $x \in V_2$ und $V_2 \cap B = \varnothing \:\lor\: V_2 \setminus B = \varnothing$\\
+        6 & $\deshalb$ & 7. & $\exists\: U \in \offen_X : V_2 = U \cap A_2$ \\
+        7 & $\deshalb$ & 8. & Sei $U_2 \in \offen_X$ mit $V_2 = U_2 \cap A_2$ \\
+        1, 8 & $\deshalb$ & 9. & $U_0 \cap U_2 \in \offen_X$ \\
+        9 & $\deshalb$ & 10. & $U_0 \cap U_2 \cap A_1 \in \offen_{A_1}$ \\
+        4, 8 & $\deshalb$ & 11. & $x \in U_2$\\
+        1, Satz \ref{satz:dAB<clB} & $\deshalb$ & 12. & $\rand_{A_1}(B) \subseteq cl_X(B) \subseteq U_0$ \\
+        2, 12 & $\deshalb$ & 13. & $x \in U_0$ \\
+        5, 7 & $\deshalb$ & 14. & $x \in A_2$ \\
+        13, 14, 1 & $\deshalb$ & 15. &  $x \in U_0 \cap A_2 = U_0 \cap A_1$ \\
+        15, 11 & $\deshalb$ & 16. & $x \in U_0 \cap U_2 \cap A_1$ \\
+        2 & $\deshalb$ & 17. & $\forall\: V \in \offen_{A_1} : (\: x \in V \to (\: V \cap B \neq \varnothing \:\land\: V \setminus B \neq \varnothing$ \:)) \\
+        17, 10, 16 & $\deshalb$ & 18. & $U_0 \cap U_2 \cap A_1 \cap B \neq \varnothing$ \\
+        17, 10, 16 & $\deshalb$ & 19. & $(U_0 \cap U_2 \cap A_1) \setminus B \neq \varnothing$ \\
+        18 & $\deshalb$ & 20. & Sei $y \in U_0 \cap U_2 \cap A_1 \cap B$ \\
+        20, 1 & $\deshalb$ & 21. & $y \in U_0 \cap A_1 = U_0 \cap A_2$ \\
+        20, 21, 8 & $\deshalb$ & 22. & $y \in U_2 \cap A_2 = V_2$ \\
+        22, 20 & $\deshalb$ & 23. & $y \in V_2 \cap B$ \\
+        23 & $\deshalb$ & 24. & $V_2 \cap B \neq \varnothing$ \\
+        5, 24 & $\deshalb$ & 25. & $V_2 \setminus B = \varnothing$ \\
+        19 & $\deshalb$ & 26. & Sei $z \in (U_0 \cap U_2 \cap A_1) \setminus B$ \\
+        26, 1 & $\deshalb$ & 27. & $z \in U_0 \cap A_1 = U_0 \cap A_2$ \\
+        26, 27, 8 & $\deshalb$ & 28. & $z \in U_2 \cap A_2 = V_2$ \\
+        26, 28 & $\deshalb$ & 29. & $z \in V_2 \setminus B$ \\
+        29 & $\deshalb$ & 30. & $V_2 \setminus B \neq \varnothing$ \\
+        25, 30 & $\deshalb$ & 31. & $\lightning$ \\
+    \end{longtable}
+
+    \noindent
+    \textbf{\glqq$\boldsymbol{\supseteq}$\grqq:} analog
+
+
+\subsubsection{Zu Korollar \ref{kor:da1=da2}}\label{anh:kor.da1=da2}
+    Zu zeigen ist: Aus $B \subseteq A_1 \cap A_2$ und  $\exists\: U \in \offen_X : (\: \cl_X(B) \subseteq U \:\land\: U \cap A_1 = U \cap A_2 \:)$ folgen
+    \begin{enumerate}
+        \item \label{anh:kor.da1=da2.1} $\cl_{A_1}(B) = \cl_{A_2}(B)$
+        \item \label{anh:kor.da1=da2.2} $\op_{A_1}(B) = \op_{A_2}(B)$
+        %\item \label{anh:kor.da1=da2.3} $co_{A_1}(B) = co_{A_2}(B)$
+        %\item \label{anh:kor.da1=da2.4} $oc_{A_1}(B) = oc_{A_2}(B)$
+    \end{enumerate} 
+    \vspace{8pt}
+
+    \noindent
+    \textbf{Zu \ref{anh:kor.da1=da2.1}:} $\cl_{A_1}(B) = B \cup \rand_{A_1}(B) = B \cup \rand_{A_2}(B) = \cl_{A_2}(B)$ \\
+
+    \noindent
+    \textbf{Zu \ref{anh:kor.da1=da2.2}:} $\op_{A_1}(B) = B \setminus \rand_{A_1}(B) = B \setminus \rand_{A_2}(B) = \op_{A_2}(B)$ \\
+
+%     \noindent
+%     \textbf{Zu \ref{anh:kor.da1=da2.3}:} 
+%     Sei $U_0 \in \offen$ mit $cl_X(B) \subseteq U_0$ und $U_0 \cap A_1 = U_0 \cap A_2$. 
+%     Aus \ref{anh:kor.da1=da2.2}. folgt dann $op_{A_1}(B) = op_{A_2}(B)$. \\
+%     Außerdem gelten $op_{A_1}(B) \subseteq B \subseteq A_1 \cap A_2$ und $op_{A_1}(B) \subseteq B \subseteq cl_X(B) \subseteq U_0$. Also ist Korollar \ref{kor:da1=da2}.\ref{kor:da1=da2.1} auch auf $op_{A_1}(B)$ anwendbar und somit gilt \\ 
+%     $co_{A_1}(B) = cl_{A_1}(op_{A_1}(B)) = cl_{A_2}(op_{A_1}(B)) = cl_{A_2}(op_{A_2}(B)) = co_{A_2}(B)$ \\
+% 
+%     \noindent
+%     \textbf{Zu \ref{anh:kor.da1=da2.4}:} \\
+%     Sei $U_0 \in \offen$ mit $cl_X(B) \subseteq U_0$ und $U_0 \cap A_1 = U_0 \cap A_2$. 
+%     Aus \ref{anh:kor.da1=da2.1}. folgt dann $cl_{A_1}(B) = cl_{A_2}(B)$. 
+%     Jetzt gilt 
+%     \begin{align*}
+%         cl_x(cl_{A_1}(B)) &\overset{\ref{satz:cl}.\ref{satz:cl.2}}{=} cl_X(B \cup \rand_{A_1}(B)) \\
+%         &\overset{\ref{satz:dAB<clB}}{\subseteq} cl_X(B \cup cl_X(B)) \\
+%         &\overset{\ref{satz:cl}.\ref{satz:cl.4}}{=} cl_X(B) \cup cl_X(cl_X(B)) \\
+%         &\overset{\ref{kor:cl}.\ref{kor:cl.4}}{=} cl_X(B) \cup cl_X(B) \\
+%         &= cl_X(B) \\
+%         &\subseteq U_0
+%     \end{align*}
+%     Außerdem sind $cl_{A_1}(B) \subseteq A_1$ und $cl_{A_1}(B) = cl_{A_2}(B) \subseteq A_2$ und damit $cl_{A_1} \subseteq A_1 \cap A_2$. \\
+%     Somit ist ist Korollar \ref{kor:da1=da2}.\ref{kor:da1=da2.2} auch auf $cl_{A_1}(B)$ anwendbar und es gilt \\
+%     $oc_{A_1}(B) = op_{A_1}(cl_{A_1}(B)) = op_{A_2}(cl_{A_1}(B)) = op_{A_2}(cl_{A_2}(B)) = oc_{A_2}(B)$
+    
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\subsection{Zu Abschnitt \ref{ssec:top-metr-raeume} (Topologie metrischer Raeume)}
+
+% \subsubsection{Zu Satz \ref{satz:dAabg}}\label{anh:dAabg}
+% Zu zeigen ist: $\rand (A) \in \abg_d$ also $\forall\: x \in X (\: \forall\: \varepsilon>0 : \ball_\varepsilon(x) \cap \rand (A) \neq \varnothing \to x \in \rand (A) \:)$ \\
+% 
+% \begin{longtable}{r c c l}
+% 	 & & 1. & Sei $x \in X$ s.d. $\forall\: \varepsilon >0 : \ball_\varepsilon(x) \cap \rand(A) \neq \varnothing$\\
+% 	 & & 2. & Angen. $x \notin \rand(A)$ \\
+% 	2 & $\deshalb$ & 3. & $\exists\: \varepsilon > 0 (\: \ball_\varepsilon(x) \cap A = \varnothing \:\lor\: \ball_\varepsilon(x) \setminus A = \varnothing \:)$ \\
+% 	3. & $\deshalb$ & 4. & Sei $\varepsilon_0 > 0$ mit $\ball_{\varepsilon_0}(x) \cap A = \varnothing \:\lor\: \ball_{\varepsilon_0}(x) \setminus A = \varnothing$ \\
+% 	1, 4 & $\deshalb$ & 5. & $\ball_{\varepsilon_0}(x) \cap \rand(A) \neq \varnothing$ \\
+% 	5 & $\deshalb$ & 6. & Sei $y \in \ball_{\varepsilon_0}(x) \cap \rand(A)$ \\
+% 	6 & $\deshalb$ & 7. & $y \in \ball_{\varepsilon_0}(x)$ \\
+% 	7 & $\deshalb$ & 8. & $d(x,y) < \varepsilon_0$ \\
+% 	8 & $\deshalb$ & 9. & Sei $\varepsilon_1 := \varepsilon_0 - d(x,y) > 0$ \\
+% 	9 & $\deshalb$ & 10. & $\ball_{\varepsilon_1}(y) \subseteq \ball_{\varepsilon_0}(x)$ \\
+% 	6 & $\deshalb$ & 11. & $y \in \rand (A)$ \\
+% 	11 & $\deshalb$ & 12. & $\forall\: \varepsilon > 0 (\: \ball_\varepsilon(y) \cap A \neq \varnothing \:\land\: \ball_\varepsilon(y) \setminus A \neq \varnothing \:)$ \\
+% 	9, 12 & $\deshalb$ & 13. & $\ball_{\varepsilon_1}(y) \cap A \neq \varnothing \:\land\: \ball_{\varepsilon_1}(y) \setminus A \neq \varnothing$ \\
+% 	10, 13 & $\deshalb$ & 14. & $\ball_{\varepsilon_0}(y) \cap A \neq \varnothing \:\land\: \ball_{\varepsilon_0}(y) \setminus A \neq \varnothing$ \\
+% 	4, 14 & $\deshalb$ & 15. & $\lightning$ \\
+% \end{longtable}
+% 

@@ -1,0 +1,275 @@
+\include{preamble-overview}
+
+\newcommand{\overviewnumber}{1}
+\newcommand{\overviewname}{$\theoryBS$}
+
+\begin{document}
+
+
+    \paragraph{Primitive Relationen}
+
+    \begin{enumAx}[B]
+        \itemT[B1.]{\GSReg(x)}{$x$ ist eine Raumregion}
+            
+        \itemT[B2.]{\Gsb(x, y)}{$x$ ist eine räumliche Grenze von $y$}
+                
+        \itemT[B3.]{\Gscoinc(x, y)}{$x$ und $y$ koinzidieren}
+
+        \itemT[B4.]{\Gspart(x, y)}{$x$ ist ein räumlicher Teil von $y$}
+            
+    \end{enumAx}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \paragraph{Definierte Relationen}
+
+    \begin{enumAx}[D]      
+        
+        \itemT[D1.]{\Gtwodb(x,y) := \GSReg(y) \wedge \Gsb(x,y)}
+                {$x$ ist eine 2-dim.\ Grenze von $y$} 
+            
+        \itemT[D2.]{\Gonedb(x,y) := \GtwoDB(y) \wedge \Gsb(x,y)}
+                {$x$ ist eine 1-dim.\ Grenze von $y$}
+                
+        \itemT[D3.]{\Gzerodb(x,y) := \GoneDB(y) \wedge \Gsb(x,y)}
+                {$x$ ist eine 0-dim.\ Grenze von $y$}             
+                
+        \itemT[D4.]{\GSB(x) := \exists y\ \Gsb(x,y)}
+                {$x$ ist eine räumliche Grenze}
+                
+        \itemT[D5.]{\GdDB(x) := \exists y\ \Gddb(x, y)}
+                {$x$ ist eine $\Gd$-dim.\ Grenze}
+                
+        \itemT[D6.]{\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))}
+                {$x$ ist die größte Grenze von $y$}  
+
+        \itemT[D7.]{\GLDE(x) := \exists y\ (\GSB(y) \wedge \Gspart(y, x))}
+                {$x$ ist eine niederdimensionale Raumentität}
+
+        \itemT[D8.]{\GdDE(x) := \exists y\ (\GdDB(y) \wedge \Gspart(y, x))}
+                {$x$ ist ein Flächen-/Linien-/Punktregion}
+                                                                                                
+        \itemTP[D9.]{$\Geqdim(x,y) := (\GSReg(x) \wedge \GSReg(y)) \vee \mbox{}$\hfill ($x$ und $y$ haben die selbe Dimension)\\
+                \mbox{}\hphantom{$\Geqdim(x,y) :=$}
+                $(\GtwoDE(x) \wedge \GtwoDE(y)) \vee
+                            (\GoneDE(x) \wedge \GoneDE(y)) \vee
+                            (\GzeroDE(x) \wedge \GzeroDE(y))$}{}
+
+        \itemT[D10.]{\Gsppart(x, y) := \Gspart(x, y) \land  x \neq y}
+                {$x$ ist ein echter Teil von $y$}
+
+        
+        \itemT[D11.]{\Gsov(x, y) := \exists z\  (\Gspart(z, x) \wedge \Gspart(z, y))}
+                {$x$ und $y$ überlappen}
+
+        
+        \itemTP[D12.]{$\Gsumn(x_{1},\ldots,x_{n},x) := \forall y\ (\Gsov(y,x) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(y,x_{i}))$\\ \mbox{}}
+                {$x$ ist die mereologische Summe von $x_{1}$,\ldots,$x_{n}, n \ge 2$}
+                
+        \itemTP[D13.]{$\Gintersectn(x_{1},\ldots,x_{n},x)  := \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(y,x_{i}))$\\ \mbox{}}
+                {$x$ ist der mereologische Schnitt von $x_{1}$,\ldots,$x_{n}, n \ge 2$}
+                
+        \itemTP[D14.]{$\Grelcompln(x_{1},\ldots,x_{n},x) := \mbox{}$\hfill
+                            ($x$ ist das rel. Kompl. von $x_{n}$ und $x_{1}$,\ldots,$x_{n-1}, n \ge 2$)\\
+                $\hspace*{1em}\bigwedge_{1\leq i < j \leq n} \Geqdim(x_i, x) \wedge
+                \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(y,x_{i}) \wedge \Gspart(y, x_{n}))$}
+                {}  
+
+                        
+        \itemTP[D15.]{$\Gpartitionn(x_{1},\ldots,x_{n},x) := \Gsumn(x_{1},\ldots,x_{n},x) \wedge \bigwedge_{1 \leq i < j \leq n} \neg\Gsov(x_i,x_j)$\\ \mbox{} \label{D_partitionn}}
+        {$x_{1}$,\ldots,$x_{n}$ zerlegen $x$, $n \ge 2$}			
+
+        \itemT[D16.]{\Gtwodhypp(x,y) := \exists z\ (\Gspart(z,y) \wedge \Gtwodb(x,z))}
+                {$x$ ist ein 2-dim.\ Hyperteil von $y$}
+        
+        \itemTP[D17.]{$\Gonedhypp(x,y) := \exists z\ ((\Gspart(z,y) \vee \Gtwodhypp(z,y)) \wedge  \Gonedb(x,z)) $\\ \mbox{}}
+                {$x$ ist ein 1-dim.\ Hyperteil von $y$} 
+        
+        \itemTP[D18.]{$\Gzerodhypp(x,y) := \exists z\ ((\Gspart(z,y) \vee \Gonedhypp(z,y)) \wedge  \Gzerodb(x,z)) $\\ \mbox{}}
+                {$x$ ist ein 0-dim.\ Hyperteil von $y$}                  
+                
+        \itemT[D19.]{\Ghypp(x,y) := \Gtwodhypp(x,y) \vee \Gonedhypp(x,y) \vee \Gzerodhypp(x,y)}
+                {$x$ ist ein Hyperteil von $y$}    
+
+        \itemTP[D20.]{$\Gtangpart(x,y) := (\Gspart(x,y) \vee \Ghypp(x,y))\ \ \wedge\ \ \mbox{}$
+                                        \hfill ($x$ ist ein tangentialer Teil von $y$)\\
+                        \hspace*{1em}$\exists x'zz'\ ((\Gspart(x',x) \vee \Ghypp(x',x)) \wedge \mbox{}$\\
+                                \hspace*{5.2em}$\Gsb(z,y) \wedge (\Gspart(z',z) \vee \Ghypp(z',z)) \wedge \Gscoinc(x',z'))$}
+                {}  
+
+        \itemT[D21.]{\Ginpart(x, y) := (\Gspart(x,y) \vee \Ghypp(x,y)) \land \neg \Gtangpart(x, y)}
+                {\mbox{$x$ ist ein innerer Teil von $y$}}
+
+        \itemTP[D22.]{$\GExOrd(x) := 
+                        \exists yz\ (\Gspart(y,x) \wedge \Gspart(z,x) \wedge
+                                                \neg\Gsov(y,z) \wedge \Gscoinc(y,z))$\\ \mbox{}}
+                {$x$ ist eine extraordinäre Raumentität}
+                
+        \itemT[D23.]{\GOrd(x) := \neg\GExOrd(x)}
+                    {$x$ ist eine ordinäre Raumentität}	
+
+        \itemTP[D24.]{$\GdDC(x) := \exists uv\ (\Gpartition(u,v,x)) \wedge  \mbox{}$
+                    \hfill($x$ ist $\Gd$-dim.\ zusammenhängend)
+                \hspace*{1em}$\forall yz\ (\Gpartition(y,z,x) \to 
+                        \exists y'z'(\Gddhypp(y',y) \wedge \Gddhypp(z',z) \wedge \Gscoinc(y',z')))$
+                        \label{D:dDC}}
+                    {}
+
+        \itemT[D25.]{\GC(x) := \GtwoDC(x) \vee \GoneDC(x) \vee \GzeroDC(x)}
+                    {$x$ ist zusammenhängend} 
+                    
+        \itemT[D26.]{\Gc(x,y) := \exists z\ (\Gsum(x,y,z) \wedge \GC(z))}
+                    {$x$ und $y$ sind zusammenhängend} 
+
+        \itemT[D27.]{\Gexc(x,y) := \Gc(x,y) \wedge \neg\Gsov(x,y)}
+                    {$x$ und $y$ sind extern zusammenhängend}
+
+        \itemT[D28.]{\GoneCCDd(x) := \GdDC(x)}
+                {$x$ hat eine $\Gd$-dim.\ zusammenhängende Komponente}
+
+        \itemTP[D29.]{$\GnCCDd(x) := \bigwedge_{i=1}^{n-1} \neg\GiCCDd(x) \wedge
+                    \exists x_{1}...x_{n}(\Gpartitionn(x_{1},...,x_{n},x) \wedge \bigwedge_{i=1}^{n} \GoneCCDd(x_{i}))$\\ \mbox{}
+                                \label{D:nCCDd}}
+                {$x$ hat $n$ $\Gd$-dim.\ zusammenhängende Komponenten}
+
+        \itemT[D30.]{\GTop(x) := \GSReg(x) \wedge \GOrd(x) \wedge \GtwoDC(x)}
+                    {$x$ ist ein Topoid} 
+                    
+        \itemT[D31.]{\GtwoD(x) := \GtwoDE(x) \wedge \GOrd(x) \wedge \GoneDC(x)}
+                    {$x$ ist eine Fläche}  
+                                
+        \itemT[D32.]{\GoneD(x) := \GoneDE(x) \wedge \GOrd(x) \wedge \GzeroDC(x)}
+                    {$x$ ist eine Linie}
+                                
+        \itemT[D33.]{\GzeroD(x) := \GzeroDE(x) \wedge \GOrd(x) \wedge \neg\exists y\ \Gsppart(y,x)}
+            {$x$ ist ein Punkt}              
+    \end{enumAx}
+
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \paragraph{Axiome}
+
+    \begin{enumAx} [A]
+
+        \itemT[A1.]{\exists x\ \GSReg(x)}{}
+                %{Existenz einer Raumregion}
+                            
+    \itemT[A2.]{\GLDE(x) \leftrightarrow \neg\GSReg(x)}{}
+                %{exhaustive and mutually exclusive}
+                
+    \itemT[A3.]{\neg\exists x\ (\ (\GtwoDE(x) \wedge \GoneDE(x)) \vee 
+                            (\GtwoDE(x) \wedge \GzeroDE(x)) \vee 
+                                                    (\GoneDE(x) \wedge \GzeroDE(x))\ )}
+                {}
+                
+%     \itemTP[A3.]{$\neg\exists x\ (\ (\GtwoDE(x) \wedge \GoneDE(x)) \vee 
+%                             (\GtwoDE(x) \wedge \GzeroDE(x)) \vee 
+%                                                     (\GoneDE(x) \wedge \GzeroDE(x))\ )$\\ \mbox{} }
+%                 {three mutually disjoint classes}
+
+    \itemT[A4.]{\Gspart(x,x)}{}
+        %{reflexivity} 
+                
+    \itemT[A5.]{\Gspart(x,y) \wedge \Gspart(y,x) \to x=y  }{}
+        %{antisymmetry} 
+                
+    \itemT[A6.]{\Gspart(x,y) \wedge \Gspart(y,z) \to \Gspart(x,z)}{}
+        %{transitivity} 
+                            
+    \itemT[A7.]{\Gspart(x,y) \to \Geqdim(x,y)}{}
+        %{domain restriction} 						
+                
+    \itemT[A8.]{\neg\Gspart(y,x) \to \exists z\ (\Gspart(z,y) \wedge \neg\Gsov(z,x))}{}
+        %{strong supplementation principle}
+
+    \itemT[A9.]{\neg\GzeroD(x) \to \exists y\ (\Gsppart(y,x) \wedge \Ginpart(y,x)) }{}
+        %{only points are atomic}
+                            
+    \itemT[A10.]{\exists y\ \Gsppart(x,y)}{}
+        %{extensibility}						
+
+    \itemT[A11.]{\GSReg(x) \to \exists y\ (\GTop(y) \wedge \Gspart(x,y))}{}
+                %{embedding topoid for space regions} 
+                
+    \itemT[A12.]{\GSReg(x) \to \exists y\ \Gsb(y,x)}{}
+                %{unrestricted existence of boundaries} 
+                
+    \itemT[A13.]{\GtwoDE(x) \to \exists y z\ (\Gsppart(y,x) \wedge \Gsb(z,y))}{}
+                %{restricted existence of boundaries} 
+                
+    \itemT[A14.]{\GoneDE(x) \to \exists y z\ ( \Gsppart(y,x) \wedge \Gsb(z,y))}{}
+                %{restricted existence of boundaries}   
+                                                
+    \itemT[A15.]{\GOrd(x) \wedge \exists y\ \Gsb(y,x) \to \exists z\ \Ggrsb(z,x)}{}
+                %{restricted existence of a greatest boundary}
+
+    \itemT[A16.]{\Geqdim(x,y) \to \exists z\ \Gsum(x,y,z)}{}
+                %{existence of sum}  
+                
+    \itemT[A17.]{\Gsov(x,y) \to \exists z\ \Gintersect(x,y,z)}{}
+                %{existence of mereological intersection} 
+                
+    \itemT[A18.]{\Geqdim(x,y) \wedge \neg\Gspart(y,x) \to \exists z\ \Grelcompl(x,y,z)}{}
+                %{existence of relative complement} 
+
+    \itemT[A19.]{\GSB(x) \to \Gscoinc(x,x)}{}
+                %{reflexivity} 
+                
+    \itemT[A20.]{\Gscoinc(x,y) \to \Gscoinc(y,x)}{}
+                %{symmetry} 
+                
+    \itemT[A21.]{\Gscoinc(x,y) \wedge \Gscoinc(y,z) \to \Gscoinc(x,z)}{}
+                %{transitivity}  
+                                                        
+    \itemT[A22.]{\Gscoinc(x,y) \to \Geqdim(x,y) \wedge \GSB(x) \wedge \GSB(y)}{}
+                %{domain}    													
+
+    \itemT[A23.]{\Gsb(x,y) \wedge \GOrd(y) \to \GOrd(x)}{}
+                %{ordinariness and spatial boundaries}  
+                                                    
+    \itemT[A24.]{\Gsb(y,z) \wedge \Gspart(x,y) \to \Gsb(x,z)}{}
+                %{parts of boundaries are boundaries} 
+                            
+    \itemT[A25.]{\forall xx'yy' \ (\Gtangpart(x,y) \wedge \Gsb(x',x) \wedge \Gsb(y',y) \wedge \Gscoinc(x',y') \to \Gsb(x',y))}{}
+                %{there are no new boundaries}  						
+                                
+    \itemT[A26.]{\Gsb(x,y) \to (\GtwoDB(x) \wedge \GSReg(y)) \vee (\GoneDB(x) \wedge \GtwoDE(y)) \vee (\GzeroDB(x) \wedge \GoneDE(y))}{}
+                %{domain of spatial boundary} 
+
+    \itemT[A27.]{\Gscoinc(x,y) \wedge \Gspart(x',x) \to \exists y' \ (\Gspart(y',y) \wedge \Gscoinc(x',y'))}{}
+                %{existence of coincident spatial parts} 
+                
+    \itemT[A28.]{\Gscoinc(x,y) \wedge \Ghypp(x',x) \to \exists y' \ (\Ghypp(y',y) \wedge \Gscoinc(x',y'))}{}
+                %{existence of coincident hyper parts}
+                            
+    \itemT[A29.]{\Gscoinc(x,y) \wedge \Gsb(x',x) \to \exists y' \ (\Gsb(y',y) \wedge \Gscoinc(x',y'))}{}
+                %{existence of coincident spatial boundaries}	
+
+    \itemT[A30.]{\Geqdim(x,y) \wedge \neg\Gsov(x,y) \wedge \Ghypp(x',x) \wedge \Ghypp(y',y) \to 
+            x' \neq y'}
+                {} 
+                
+    \itemT[A31.]{\Gsb(x,y) \wedge \Gsb(x,z) \Limp
+                \exists u (\Gsb(x,u) \land \Gsppart(u,y) \land \Gsppart(u,z))}{}
+        %{entities with a common boundary share a proper part at that boundary}	
+        
+    \itemT[A32'.]{\Gsb(x,y) \land \Gsb(u,v) \land \neg \Gsov(x,u) \Limp \exists y'v'\:(\: \Gspart(y',y) \land \Gsb(x,y') \land \Gspart(v',v) \land \Gsb(u,v') \land \neg \Gsov(y',v'))}{}
+%                             
+%     
+%     \textcolor{red}{
+%     \itemT[A32.]{\Gsb(x,y) \land \Gsb(u,v) \land x\neq u \Limp \exists y'v'\:(\: \Gspart(y',y) \land \Gsb(x,y') \land \Gspart(v',v) \land \Gsb(u,v') \land \neg \Gsov(y',v'))}
+%         {ursprüngliche Version}
+%     }
+%     
+%     \textcolor{green}{
+%     \itemT[A32'.]{\Gsb(x,y) \land \Gsb(u,v) \land \neg \Gsov(x,u) \Limp \exists y'v'\:(\: \Gspart(y',y) \land \Gsb(x,y') \land \Gspart(v',v) \land \Gsb(u,v') \land \neg \Gsov(y',v'))}
+%         {korrigierte Version}
+%     }
+                    
+    \itemT[A33.]{\GLDE(x) \land \GOrd(x) \Limp \GSB(x)}{}
+        %{ordinary lower-dimensional entities are spatial boundaries}	
+
+    \end{enumAx}
+ 
+\end{document}
+

@@ -1,0 +1,424 @@
+\section{Zu Kapitel \ref{chap:topologie-erweiterung} (Weitere topologische Begriffe)}
+
+
+\subsection{Zu Abschnitt \ref{sec:lokale-gleichheit} (Lokale Gleichheit)}
+
+
+\subsubsection{Zu Satz \ref{satz:lokale-gleichheit-aer}}\label{anh:lokale-gleichheit-aer}
+    Zu zeigen ist: Die lokale Gleichheit bzgl. eines Punktes ist eine Äquivalenzrelation.\\
+    Reflexivität und Symmetrie ergeben sich direkt aus der Definition.\\
+    Transitivität: Seien $p \in X$, $A, B, C \subseteq X$ mit $A =_p B$ und $B =_p C$.\\
+    Seien $U_1, U_2 \in \offen(p)$ mit $U_1 \cap A = U_2 \cap B$ und $U_2 \cap B = U_2 \cap C$. Setze $U := U_1 \cap U_2$. Dann ist $U \cap A = A \cap U_1 \cap U_2 = U_1 \cap B \cap U_2 = U_1 \cap U_2 \cap C = U \cap C$ und somit $A =_p C$.
+    
+
+\subsubsection{Zu Satz \ref{satz:rand-lokal-gleich}}\label{anh:rand-lokal-gleich}
+    Zu zeigen ist: Aus $A =_p B$ und $p \in \rand A$ folgt $p \in \rand B$.
+%
+    \begin{longtable}{r c c l}
+        & & 1. & $A =_p B$\\
+        & & 2. & $p \in \rand A$ \\
+        & & 3. & Sei $U \in \offen(p)$ beliebig \\
+        1 & $\deshalb$ & 4. & $\exists\: U \in \offen(p) : U \cap A = U \cap B$ \\
+        4 & $\deshalb$ & 5. & Sei $U_1 \in \offen(p)$ mit $U_1 \cap A = U_1 \cap B$ \\
+        3,5 & $\deshalb$ & 6. & Sei $U_2 := U \cap U_1 \in \offen(p)$ \\
+        2 & $\deshalb$ & 7. & $\forall\: U \in \offen(p): (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:)$ \\
+        5, 6,7 & $\deshalb$ & 8. & $\varnothing \neq U_2 \cap A = U \cap U_1 \cap A = U \cap U_1 \cap B$\\
+        8 & $\deshalb$ & 9. & $U \cap B \neq \varnothing$\\
+        6,7 & $\deshalb$ & 10. & $U_2 \setminus A \neq \varnothing$\\
+        10 & $\deshalb$ & 11. & Sei $x \in U_2 \setminus A = (U \cap U_1) \setminus A$\\
+        11 & $\deshalb$ & 12. & $x \notin A$\\
+        5,12 & $\deshalb$ & 13. & $x \notin U_1 \cap A = U_1 \cap B$\\
+        11 & $\deshalb$ & 14. & $x \in U_1$\\
+        13,14 & $\deshalb$ & 15. & $x \notin B$\\
+        11 & $\deshalb$ & 16. & $x \in U$\\
+        15,16 & $\deshalb$ & 17. & $x \in U \setminus B$\\
+        17 & $\deshalb$ & 18. & $U \setminus B \neq \varnothing$\\
+        3,9,18 & $\deshalb$ & 19. & $p \in \rand B$
+    \end{longtable}	
+
+
+
+\subsection{Zu Abschnitt \ref{sec:einf-mengen} (Einfache Mengen)}
+
+
+%\subsubsection{Zu Satz \ref{satz:alt-def-einf-1}}\label{anh:alt-def-einf-1}
+%    Zu zeigen sind:
+%    \begin{enumerate}
+%        \item \label{anh:alt-def-einf-1.1} $A$ einfach \\
+%            $\quad \Rightarrow \quad \forall\: a \in \rand A \forall\: U \in U(a) : (\: \exists\: V \in \offen : \varnothing \neq V \subseteq U \cap A \:\land\: \exists\: W \in \offen : \varnothing \neq W \subseteq U \setminus A \:)$
+%        \item \label{anh:alt-def-einf-1.2} $ \forall\: a \in \rand A \forall\: U \in U(a) : (\:    \exists\: V \in \offen : \varnothing \neq V \subseteq U \cap A \:\land\: \exists\: W \in \offen :    \varnothing \neq W \subseteq U \setminus A \:)$ \\
+%            $\quad \Rightarrow \quad A$ einfach
+%    \end{enumerate}
+%
+%    \noindent
+%    \textbf{Zu \ref{anh:alt-def-einf-1.1}: }\\
+%        Seien ${a \in \rand(A)}$ und $U$ eine offene Umgebung von $A$ in $X$.\\
+%        Dann gelten ${U \cap A \neq \varnothing}$ und ${U \setminus A \neq \varnothing}$\\
+%        Sei ${x \in U \cap A}$. Dann ist $U$ eine offene Umgebung von $x$ und $x \in A$. Da $A$ einfach ist, ist $A$ maximaldimensional und somit gibt es ein ${V \in \offen}$ mit ${\varnothing \neq V \subseteq U}$.\\
+%        Sei ${y \in U \setminus A}$. Dann ist $U$ eine offene Umgebung von $y$ und ${y \in X \setminus A}$.
+%        Da $A$ einfach ist, ist ${X \setminus A}$ maximaldimensional und somit gibt es ein ${W \in \offen}$ mit ${\varnothing \neq W \subseteq U}$\\ \
+%    
+%    \noindent
+%    \textbf{Zu \ref{anh:alt-def-einf-1.1}: }
+%        Zu zeigen:
+%        \begin{itemize}
+%            \item[(i)] $A$ ist maximaldimensional
+%            \item[(ii)] $X \setminus A$ ist maximaldimensional
+%        \end{itemize}
+%    \textbf{Zu (i):}
+%        Sei ${a \in A}$. Sei $U$ eine offene Umgebung von $a$ in $X$\\
+%        \textbf{Fall 1:} ${a \in \rand(A)}$\\
+%            Dann gibt es nach Voraussetzung ein ${V \in \offen}$ mit ${\varnothing \neq V \subseteq U \cap A}$\\
+%        \textbf{Fall 2:} ${a \notin \rand(A)}$\\
+%            Wegen ${a \in A \subseteq \cl(A)}$, ist dann ${a \in \op(A)}$ und somit gibt es eine offene Umgebung $V'$ von $a$ in $X$ mit ${V'\subseteq A}$. Für ${V := V' \cap U}$ gilt dann ${\varnothing \neq V \subseteq U \cap A}$.
+%        \\ \ \\
+%    \textbf{Zu (ii):}
+%        Sei ${a \in X \setminus A}$. Sei $U$ eine offene Umgebung von $a$ in $X$\\
+%        \textbf{Fall 1:} ${a \in \rand_X(A)}$\\
+%            Dann gibt es nach Voraussetzung ein ${W \in \offen}$ mit ${\varnothing \neq W \subseteq U \setminus A = U \cap (X \setminus A)}$\\
+%        \textbf{Fall 2:} ${a \notin \rand(A)}$\\
+%            Wegen ${a \in X \setminus A \subseteq \cl(X \setminus A)}$, ist dann ${a \in \op(X \setminus A)}$ und somit gibt es eine offene Umgebung $V'$ von $a$ in $X$ mit ${V'\subseteq X \setminus A}$. Für ${W := V' \cap U}$ gilt dann ${\varnothing \neq W \subseteq U \cap (X \setminus A)}$.
+
+
+\subsubsection{Zu Satz \ref{satz:alt-def-einf-1}}\label{anh:alt-def-einf-1}
+    Zu zeigen sind:
+    \begin{enumerate}
+        \item \label{anh:alt-def-einf-1.1} $A$ einfach. \\
+            $\quad \Rightarrow \quad \forall\: a \in \rand A\ \forall\: U \in \offen(a): (\: U \cap \op(A) \neq \varnothing \:\land\: U \setminus \cl(A) \neq \varnothing \:)$
+        \item \label{anh:alt-def-einf-1.2} $\forall\: a \in \rand A\ \forall\: U \in \offen(a): (\: U \cap \op(A) \neq \varnothing \:\land\: U \setminus \cl(A) \neq \varnothing \:)$ \\
+            $\quad \Rightarrow \quad A$ maximaldimensional.
+        \item \label{anh:alt-def-einf-1.3} $\forall\: a \in \rand A\ \forall\: U \in \offen(a): (\: U \cap \op(A) \neq \varnothing \:\land\: U \setminus \cl(A) \neq \varnothing \:)$ \\
+            $\quad \Rightarrow \quad X \setminus A$ maximaldimensional.
+    \end{enumerate}
+%
+    \noindent
+    \textbf{Zu \ref{anh:alt-def-einf-1.1}: }\\
+        Seien ${a \in \rand(A)}$ und $U \in \offen(a)$.\\
+        Dann gelten ${U \cap A \neq \varnothing}$ und ${U \setminus A \neq \varnothing}$\\
+        Sei ${x \in U \cap A}$. Dann ist $U$ eine offene Umgebung von $x$ und $x \in A$. Da $A$ einfach ist, ist $A$ maximaldimensional und somit gilt $U \cap \op(A) \neq \varnothing$.\\
+        Sei ${y \in U \setminus A}$. Dann ist $U$ eine offene Umgebung von $y$ und ${y \in X \setminus A}$.
+        Da $A$ einfach ist, ist ${X \setminus A}$ maximaldimensional und somit gilt $\varnothing \neq U \cap \op(X \setminus A) = U \setminus \cl(A)$.\\ \
+    
+    \noindent
+    \textbf{Zu \ref{anh:alt-def-einf-1.2}: }
+        Seien ${a \in A}$ und $U \in \offen(a)$.\\
+        \textbf{Fall 1:} ${a \in \rand(A)}$.
+            Dann gilt nach Voraussetzung $U \cap \op(A) \neq \varnothing$\\
+        \textbf{Fall 2:} ${a \notin \rand(A)}$.
+            Dann ist $a \in \op(A)$ und somit ist $U \cap \op(A) \neq \varnothing$.\\
+        Somit ist $A$ maximaldimensional.
+        \\ \ \\
+    \textbf{Zu \ref{anh:alt-def-einf-1.3}: }
+        Seien ${a \in X \setminus A}$ und $U \in \offen(a)$.\\
+        \textbf{Fall 1:} ${a \in \rand(A)}$.
+            Dann gilt nach Voraussetzung $\varnothing \neq U \setminus \cl(A) = U \cap \op(X \setminus A)$\\
+        \textbf{Fall 2:} ${a \notin \rand(A)}$.
+            Dann ist $a \in \op(X \setminus A)$ und somit ist $\varnothing \neq U \cap \op(X \setminus A)$.\\
+        Also ist auch $X \setminus A$ maximaldimensional.
+            
+            
+\subsubsection{Zu Satz \ref{satz:co}.\ref{satz:co.4} und Satz \ref{satz:oc}.\ref{satz:oc.4}}\label{anh:co.4-oc.4}
+    Zu zeigen sind:
+    \begin{enumerate}
+        \item $\co(\co(A)) = \co(A)$ \quad und
+        \item $\oc(\oc(A)) = \oc(A)$
+    \end{enumerate}
+    Aus \ref{satz:co}\ref{satz:co.2} und \ref{satz:oc}\ref{satz:oc.2} folgen
+    \begin{itemize}
+        \item[(i)] $\op(A) \subseteq \oc(\op(A)$ \quad und 
+        \item[(ii)] $\co(\cl(A)) \subseteq \cl(A)$
+    \end{itemize}
+    Damit gelten:
+    \begin{align*}
+        &\co(A) = \cl(\op(A)) \\
+        &\overset{(i)}{\subseteq} \cl(\oc(\op(A))) = \co(\co(A)) = \co(\cl(\op(A))) \\
+        &\overset{(ii)}{\subseteq} \cl(\op(A)) = \co(A)
+    \end{align*}
+    und
+    \begin{align*}
+        &\oc(A) = \op(\cl(A)) \\
+        &\overset{(i)}{\subseteq} \oc(\op(\cl(A))) = \oc(\oc(A)) = \op(\co(\cl(A)))\\
+        &\overset{(ii)}{\subseteq} \op(\cl(A))= \oc(A)
+    \end{align*}
+    Womit 1. und 2. bewiesen wären.
+
+
+\subsubsection{Zu \ref{satz:alt-def-einf-2}}\label{anh:alt-def-einf-2}
+    Zu zeigen sind:
+    \begin{enumerate}
+        \item \label{anh:alt-def-einf-2.1} $A$ einfach $\quad \Rightarrow \quad \oc(A) \subseteq A$.
+        \item \label{anh:alt-def-einf-2.2} $A$ einfach $\quad \Rightarrow \quad A \subseteq \co(A)$. 
+        \item \label{anh:alt-def-einf-2.3} $\oc(A) \subseteq A \subseteq \co(A) \quad \Rightarrow \quad A$ einfach.
+    \end{enumerate}
+%
+    \noindent
+    \textbf{Zu \ref{anh:alt-def-einf-2.1}:}
+    \begin{longtable}{r c c l}
+        & & 1. & Sei $p \in \oc(A) = \op(\cl(A))$\\
+        & & 2. & Angen. $p \notin A$ \\
+        1 & $\deshalb$ & 3. & $\exists\: U \in U(p) : U \subseteq \cl(A)$ \\
+        3 & $\deshalb$ & 4. & Sei $U \in U(p)$ mit $U \subseteq \cl(A)$ \\
+        2 & $\deshalb$ & 5. & $p \in X \setminus A$ \\
+        5 & $\deshalb$ & 6. & $\forall\: U \in \offen(p): U \setminus \cl(A) \neq \varnothing$ \\
+        6 & $\deshalb$ & 7. & $U \setminus \cl(A) \neq \varnothing$ \\
+        4, 7 & $\deshalb$ & 8. & $\lightning$
+    \end{longtable}	
+%
+    \noindent
+    \textbf{Zu \ref{anh:alt-def-einf-2.2}:}
+    Sei $p \in A$. Angenommen $p \notin \co(A) = \cl(\op(A))$. Dann gibt es eine offen Umgebung $U$ von $p$ mit $U \cap \op(A) = \varnothing$. Dann ist aber $A$ nicht maximaldimensional und somit auch nicht einfach. $\lightning$\\ \ \\
+%
+    \noindent
+    \textbf{Zu \ref{anh:alt-def-einf-2.3}:}
+    Seien ${x \in \rand A}$ und $U \in \offen(x)$.\\
+    Dann gelten $U \cap A \neq \varnothing$ und $U \setminus A \neq \varnothing$.\\
+    Sei $p \in U \cap A$. Dann ist $p \in A \subseteq \co(A) = \cl(\op(A))$ und $U$ ist eine Umgebung von $p$. Somit gilt $U \cap \op(A) \neq \varnothing$.\\
+    Sei $q \in U \setminus A$. Dann ist $q \notin A \supseteq \oc(A) = \op(\cl(A))$ und $U$ ist eine Umgebung von $q$. Also ist $U \setminus \cl(A) \neq \varnothing$
+    
+\subsubsection{Zu Satz \ref{kor:co-oc-abschluss}}\label{anh:co-oc-abschluss}
+    Zu zeigen sind:
+    \begin{enumerate}
+        \item \label{anh:co-oc-abschluss.1} Aus $\co(A) = A$ und $\co(B) = B$ folgt $\co(A \cup B) = A \cup B$.
+        \item \label{anh:co-oc-abschluss.2} Aus $\oc(A) = A$ und $\oc(B) = B$ folgt $\oc(A \cap B) = A \cap B$.
+    \end{enumerate}
+
+    \noindent
+    \textbf{Zu \ref{anh:co-oc-abschluss.1}:}
+    \\ \ \\
+    \textbf{"$\boldsymbol{\subseteq}$":}
+    \begin{longtable}{r c c l}
+        & & 1. & $\co(A) = A$ \\
+        & & 2. & $\co(B) = B$ \\
+        & & 3. & Angen. $\co(A \cup B) \nsubseteq A \cup B$ \\
+        3 & $\deshalb$ & 4. & Sei $x \in \co(A \cup B) \setminus (A \cup B)$ \\
+        1,4 & $\deshalb$ & 5. & $x \notin A \in \abg$  \\
+        5 & $\deshalb$ & 6. & $\exists\: U \in \offen(x) : U \cap A = \varnothing$  \\
+        6 & $\deshalb$ & 7. & Sei $U_1 \in \offen(x)$ mit $U_1 \cap A = \varnothing$  \\
+        1,4 & $\deshalb$ & 8. & $x \notin B \in \abg$  \\
+        5 & $\deshalb$ & 9. & $\exists\: U \in \offen(x) : U \cap B = \varnothing$  \\
+        6 & $\deshalb$ & 10. & Sei $U_2 \in \offen(x)$ mit $U_2 \cap B = \varnothing$  \\
+        7,10 & $\deshalb$ & 11. & Sei $U := U_1 \cap U_2 \in \offen(x)$ \\
+        4 & $\deshalb$ & 12. & $x \in \co(A \cup B) = \cl(\op(A \cup B))$  \\
+        11, 12 & $\deshalb$ & 13. & $U \cap (\op(A \cup B)) \neq \varnothing$  \\
+        7,11 & $\deshalb$ & 14. & $U \cap A = \varnothing$  \\
+        10,11 & $\deshalb$ & 15. & $U \cap B = \varnothing$  \\
+        13,14,15 & $\deshalb$ & 16. & $\varnothing \neq U \cap \op(A \cup B) \subseteq U \cap (A \cup B) = (U \cap A) \cup (U\cap B) = \varnothing$  \\
+        16 & $\deshalb$ & 17. & $\lightning$  \\
+    \end{longtable}
+    %
+    \textbf{"$\boldsymbol{\supseteq}$":}
+    \begin{align*}
+        \co(A \cup B) 
+           &= \cl(\op(A \cup B)) 
+           \overset{Satz \ref{satz:op}.\ref{satz:op.4}}{\supseteq} \cl(\op(A) \cup \op(B))
+           \overset{Satz \ref{satz:cl}.\ref{satz:cl.4}}{=} \cl(\op(A)) \cup \cl(\op(B))\\
+           &= \co(A) \cup \co(B)
+           = A \cup B
+    \end{align*}
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    \\ \ \\
+    \noindent
+    \textbf{Zu \ref{anh:co-oc-abschluss.2}:}
+    \\ \ \\
+    \textbf{"$\boldsymbol{\subseteq}$":}
+    \begin{align*}
+        \oc(A \cap B) 
+           &= \op(\cl(A \cap B)) 
+           \overset{Satz \ref{satz:cl}.\ref{satz:cl.3}}{\subseteq} \op(\cl(A) \cap \cl(B))
+           \overset{Satz \ref{satz:op}.\ref{satz:op.3}}{=} \op(\cl(A)) \cap \op(\cl(B))\\
+           &= \oc(A) \cap \oc(B)
+           = A \cap B
+    \end{align*}
+    \\ \ \\
+    \textbf{"$\boldsymbol{\supseteq}$":}
+    \begin{longtable}{r c c l}
+        & & 1. & $\oc(A) = A$ \\
+        & & 2. & $\oc(B) = B$ \\
+        & & 3. & Angen. $A \cap B \nsubseteq \oc(A \cap B)$ \\
+        3 & $\deshalb$ & 4. & Sei $x \in (A \cap B) \setminus \oc(A \cap B)$ \\
+        1,4 & $\deshalb$ & 5. & $x \in A \in \offen$  \\
+        5 & $\deshalb$ & 6. & $\exists\: U \in \offen(x) : U \subseteq A$  \\
+        6 & $\deshalb$ & 7. & Sei $U_1 \in \offen(x)$ mit $U_1 \subseteq A$  \\
+        1,4 & $\deshalb$ & 8. & $x \in B \in \offen$  \\
+        5 & $\deshalb$ & 9. & $\exists\: U \in \offen(x) : U \subseteq B$  \\
+        6 & $\deshalb$ & 10. & Sei $U_2 \in \offen(x)$ mit $U_2 \subseteq B$  \\
+        7,10 & $\deshalb$ & 11. & Sei $U := U_1 \cap U_2 \in \offen(x)$ \\
+        4 & $\deshalb$ & 12. & $x \notin \oc(A \cap B)$  \\
+        11, 12 & $\deshalb$ & 13. & $U \setminus \cl(A \cap B) \neq \varnothing$  \\
+        7,11 & $\deshalb$ & 14. & $U \setminus A = \varnothing$  \\
+        10,11 & $\deshalb$ & 15. & $U \setminus B = \varnothing$  \\
+        13,14,15 & $\deshalb$ & 16. & $\varnothing \neq U \setminus \cl(A \cap B) \subseteq U \setminus (A \cap B) = (U \setminus A) \cup (U \setminus B) = \varnothing$  \\
+        16 & $\deshalb$ & 17. & $\lightning$  \\
+    \end{longtable}
+    %
+    
+    
+
+    
+
+    
+
+%\subsubsection{Zu Satz \ref{kor:co-oc}}\label{anh:co-oc}
+%    Zu zeigen ist:
+%    \begin{enumerate}
+%        \item \label{anh:co-oc.1} $A \in \offen \quad \quad \Rightarrow \quad \quad \co(\cl(A)) = \cl(A)$
+%        \item \label{anh:co-oc.2} $A \in \abg_X \quad \quad \Rightarrow \quad \quad \oc(\op(A)) = \op(A)$
+%    \end{enumerate}	
+%
+%    \noindent
+%    \textbf{Zu \ref{anh:co-oc.1}:} 
+%        \\ \ \\
+%        \textbf{"$\boldsymbol{\subseteq}$":} Klar, da mit $\cl(A) \in \abg$ aus Satz \ref{satz:co}.\ref{satz:co.4} folgt $\co(\cl(A)) \subseteq \cl(A)$\\
+%        \\ \ \\
+%        \textbf{"$\boldsymbol{\supseteq}$":}
+%            \begin{longtable}{r c c l}
+%                & & 1. & $A \in \offen$ \\
+%                & & 2. & Sei $x \in \cl(A)$ \\
+%                & & 3. & Angen. $x \notin \co(cl_X(A)) = \cl(\op(\cl(A)))$ \\
+%                3 & $\deshalb$ & 4. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \cap \op(\cl(A)) = \varnothing \:)$  \\
+%                4 & $\deshalb$ & 5. & Sei $U_0 \in \offen$ mit $x \in U_0$ und $U_0 \cap \op(\cl(A)) = \varnothing$  \\
+%                2 & $\deshalb$ & 6. & $\forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:)$  \\
+%                6, 5 & $\deshalb$ & 7. & $U_0 \cap A \neq \varnothing$  \\
+%                7, 1, 5  & $\deshalb$ & 8. & Sei $y \in U_0 \cap A \in \offen$  \\
+%                8 & $\deshalb$ & 9. & $y \in U_0$  \\
+%                5, 9 & $\deshalb$ & 10. & $y \notin \op(\cl(A))$  \\
+%                10 & $\deshalb$ & 11. & $\forall\: U \in \offen : (\: x \in U \to U \setminus \cl(A) \neq \varnothing \:)$  \\
+%                11, 8 & $\deshalb$ & 12. & $(U_0 \cap A) \setminus \cl(A) \neq \varnothing$  \\
+%                & & 13. & $A \subseteq \cl(A)$  \\
+%                12, 13 & $\deshalb$ & 14. & $\varnothing \neq (U_0 \cap A) \setminus \cl(A) \subseteq (U_0 \cap A) \setminus A $  \\
+%                14 & $\deshalb$ & 15. & $\lightning$  \\
+%            \end{longtable}
+%
+%    \noindent
+%    \textbf{Zu \ref{anh:co-oc.2}:}
+%        \\ \ \\
+%        \textbf{"$\boldsymbol{\subseteq}$":} Klar, da mit $\cl(A) \in \abg$ aus Satz \ref{satz:co}.\ref{satz:co.4} folgt $\oc(\op(A)) = \op(\co(A)) \subseteq \op(A)$\\ \ \\
+%        \textbf{"$\boldsymbol{\supseteq}$":}
+%            \begin{longtable}{r c c l}
+%                & & 1. & Sei $x \in \op(A)$ \\
+%                & & 2. & Angen. $x \notin \oc(\op(A)) = \op(\co(A))$ \\
+%                1 & $\deshalb$ & 3. & $\exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq \op(A) \:)$  \\
+%                3 & $\deshalb$ & 4. & Sei $U \in \offen$ mit $x \in U$ und $U \subseteq \op(A)$ \\
+%                2 & $\deshalb$ & 5. & $\forall\: U \in \offen: (\: x \in U \to U \setminus \co(A) \neq \varnothing \:)$  \\
+%                4, 5 & $\deshalb$ & 6. & $U \setminus \co(A) \neq \varnothing$  \\
+%                \ref{kor:cl}.\ref{kor:cl.2}& $\deshalb$ & 7. & $\op(A) \subseteq \cl(\op(A)) = \co(A)$  \\
+%                6, 7 & $\deshalb$ & 8. & $\varnothing \neq U \setminus \co(A) \subseteq U \setminus \op(A) = \varnothing$  \\
+%                8 & $\deshalb$ & 9. & $\lightning$
+%            \end{longtable}
+            
+
+\subsubsection{Zu Satz \ref{satz:AohneB-abg}}\label{anh:AohneB-abg}
+    Zu zeigen ist: Aus $A \in \CO$, $B \in \abg$ und $A \setminus B \neq \varnothing$ folgt $\op(A \setminus B) \neq \varnothing$.\\
+    Sei $x \in A \setminus B$. Dann ist $x \notin B = \cl(B) = \cl(B)$ und somit gibt es ein ${U \in \offen(x)}$ mit ${U \cap B = \varnothing}$. Da $A$ maximaldimensional ist, gilt dann
+    $$\varnothing \neq U \cap \op(A) = (U \setminus B) \cap \op(A) = U \cap (\op(A) \setminus B) \subseteq \op(A) \setminus B = \op(A) \setminus \cl(B) = \op(A \setminus B).$$
+    
+
+\subsubsection{Zu Satz \ref{satz:AohneB-offen}}\label{anh:AohneB-offen}
+    Zu zeigen ist: Aus $A \in \offen$, $B \in \OC$ und $A \setminus B \neq \varnothing$ folgt $\op(A \setminus B) \neq \varnothing$.\\
+    Sei $x \in A \setminus B$. Dann ist $x \in A = \op(A)$ und somit gibt es ein ${U \in \offen(x)}$ mit ${U \subseteq A}$. 
+    Andererseits ist $x \notin B = \op(\cl(B))$ und somit ist $U \setminus \cl(B) \neq \varnothing$. 
+    Nun ist aber $U \setminus \cl(B) \subseteq A \setminus \cl(B) = \op(A) \setminus \cl(B) = \op(A \setminus B)$ und somit auch $\op(A \setminus B) \neq \varnothing$
+
+    
+\subsubsection{Zu Satz \ref{satz:opAohneBinOC}}\label{anh:opAohneBinOC}
+    Zu zeigen ist: Aus $A,B \in \OC$ folgt $\op(A \setminus B) \in \OC$\\ \ \\
+    Klar: $C := \op(A \setminus B)$ ist offen.\\
+    Zu zeigen: $C$ ist einfach.\\
+    Wir zeigen: $\oc(C) \subseteq C \subseteq \co(C)$ durch Anwendung der Rechenregeln für $\op$ und $\cl$ und Ausnutzen von $\oc(A) = A = \op(A)$ (analog für $B$).
+    \begin{align*}
+        \oc(C) 
+        &= \op(\cl(\op(A \setminus B))) 
+        %\overset{\ref{satz:op}}{=} \op(\cl(\op(A) \setminus \cl(B))) 
+        = \op(\cl(\op(A) \setminus \cl(B))) 
+        \\
+        &= \op(\cl(A \setminus \cl(B)))
+        %\overset{\ref{satz:cl}}{\subseteq} \op(\cl(A) \setminus \op(\cl(B)))
+        \subseteq \op(\cl(A) \setminus \op(\cl(B)))
+        \\
+        &= \op(\op(\cl(A) \setminus B))
+        = \op(\op(\cl(A)) \setminus \cl(B))
+        \\
+        &\subseteq \op(A \setminus B)
+        = C
+        \subseteq \cl(C)
+        = \cl(\op(A \setminus B))
+        \\
+        &= \cl(\op(\op(A \setminus B)))
+        = \co(C)
+    \end{align*}
+
+    
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsection{Zu Abschnitt \ref{sec:aeusserer-rand} (Äußerer Rand)}
+
+
+% --- satz:dco=doc -------------------------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:dco=doc}} \label{anh:doc=doc} 
+Zu zeigen ist
+\begin{enumerate}
+	\item $\Delta_X(A) \subseteq co_X(A) \setminus oc_X(A)$ \label{anh:dco=doc.1}
+	\item $co_X(A) \setminus oc_X(A) \subseteq \Delta_X(A)$ \label{anh:dco=doc.2}
+	\item $co_X(A) \setminus oc_X(A) \subseteq \rand_X \circ oc_X(A)$ \label{anh:dco=doc.3}
+	\item $\rand_X \circ oc_X(A) \subseteq co_X(A) \setminus oc_X(A)$\label{anh:dco=doc.4}
+\end{enumerate}
+
+\noindent
+\textbf{Zu \ref{anh:dco=doc.1}:}
+	\begin{align*}
+		\Delta_X(A) &= \rand_X(co_X(A)) &\\
+		&= cl_X(cl_X(op_X(A))) \setminus op_X(cl_X(op_X(A))) \\
+		&= co_X(A) \setminus oc_X(op_X(A)) &\subseteq co_X(A) \setminus oc_X(A)
+	\end{align*} 
+	Die letzte Gleichung gilt, da $A \subseteq op_X(A)$ und damit $oc_X(A) \subseteq oc_X(op_X(A))$ ist, gilt.
+	\footnote{Allerdings gilt nicht $oc_X(A) = oc_X(op_X(A))$. Für ein Gegenbeispiel siehe Bem \ref{bem:rand} }
+\\
+
+\noindent	
+\textbf{Zu \ref{anh:dco=doc.2}:}
+	Sei $x \in co_X(A) \setminus oc_X(A)$. Angenommen $x \notin \Delta_X(A) = \rand_X(co_X(A))$. \\
+	Dann gilt $\neg \forall\: U \in \offen_X: (\: (x \in U \to U \cap co_X(A) \neq \varnothing \:\land\: U \setminus co_X(A) \neq \varnothing \:)$. \\
+	Sei also $U_0 \in \offen_X$ mit $x \in U_0$ und 
+	\begin{align}
+		U_0 \cap co_X(A) = \varnothing \:\lor\: U_0 \setminus co_X(A) = \varnothing \label{anh:dco=doc.2.1}
+	\end{align}
+	Einerseits folgt aus $x \in co_X(A) = cl_X(op_X(A))$ dass $U_0 \cap op_X(A) \neq \varnothing$ ist und damit wegen $op_X(A) \subseteq cl_X(op_X(A)) = co_X(A)$ dass $U_0 \cap co_X(A) \neq \varnothing$ ist. Mit (\ref{anh:dco=doc.2.1}) gilt also
+	\begin{align}
+		U_0 \setminus co_X(A) = \varnothing \label{anh:dco=doc.2.2}
+	\end{align}
+	Andererseits ist $x \notin oc_X(A) = op_X(cl_X(A))$ und damit gilt $U_0 \setminus cl_X(A) \neq \varnothing$. \\
+	Da aber $co_X(A) =  cl_X(oc_X(A)) \subseteq cl_X(A)$ ist, gilt also $U_0 \setminus co_X(A) \neq \varnothing$ was (\ref{anh:dco=doc.2.2}) widerspricht. \\
+	
+\noindent	
+\textbf{Zu \ref{anh:dco=doc.3}:}
+	Sei $x \in co_X(A) \setminus oc_X(A)$. Angenommen $x \notin \rand_X(oc_X(A))$. \\
+	Dann gilt $\neg \forall\: U \in \offen_X: (\: (x \in U \to U \cap oc_X(A) \neq \varnothing \:\land\: U \setminus oc_X(A) \neq \varnothing \:)$. \\
+	Sei also $U_0 \in \offen_X$ mit $x \in U_0$ und 
+	\begin{align}
+		U_0 \cap oc_X(A) = \varnothing \:\lor\: U_0 \setminus oc_X(A) = \varnothing \label{anh:dco=doc.3.1}
+	\end{align}
+	Einerseits folgt aus $x \in co_X(A) = cl_X(op_X(A))$ dass $U_0 \cap op_X(A) \neq \varnothing$ ist und wegen $oc_X(A) = op_X(cl_X(A)) \supseteq op_X(A)$ muss dann $U_0 \cap oc_X(A) \neq \varnothing$ sein. Damit gilt nach (\ref{anh:dco=doc.3.1})
+	\begin{align}
+		U_0 \setminus oc_X(A) = \varnothing \label{anh:dco=doc.3.2}
+	\end{align}	
+	Andererseits ist $x \notin oc_X(A) = op_X(cl_X(A))$ und damit gilt $U_0 \setminus cl_X(A) \neq \varnothing$ wegen $oc_X(A) = op_X(cl_X(A)) \subseteq cl_X(A)$ gilt also $U_0 \setminus oc_X(A) \neq \varnothing$ was (\ref{anh:dco=doc.3.2}) widerspricht.\\
+	
+\noindent
+\textbf{Zu \ref{anh:dco=doc.4}:}
+	\begin{align*}
+		\rand_X(oc_X(A)) &= cl_X(oc(A)) \setminus op_X(oc_X(A)) &\\
+		&= cl_X(op_X(cl_X(A))) \setminus op_X(op_X(cl_X(A))) &\\
+		&\subseteq cl_X(op_X(A)) \setminus op_X(cl_X(A)) & = co_X(A) \setminus oc_X(A)
+	\end{align*}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
