@@ -134,11 +134,48 @@ In dieser Arbeit wähle ich einen anderen Ansatz, der eben diese Vorstellungen i
 
 
 \section{Konventionen}
-% Prädikatenlogische Notationen
-Die natürliche Zahlen beginnen bei 1.
-$\top$ steht für die Verum-Konstante, $\bot$ für Falsum
+In dieser Arbeit werden die in der formalen Logik üblichen Symbole verwendet. Neben Klammern, die die Struktur der Formeln klar machen, wären dies:
+\begin{itemize}
+    \item 
+        die ausgezeichneten Prädikatensymbole (in Infix-Schreibweise) $=$ für die Gleichheit und $\neq$ für deren Negation,
+    \item 
+        die Konnektoren (in abnehmender Bindungsstärke) $\neg$ für die Negation, $\land$ für die Konjunktion, $\lor$ für die Disjunktion, $\to$ für die Implikation und $\leftrightarrow$ für die Äquivalenz,
+    \item 
+        die Quantoren $\forall$ als Allquantor und $\exists$ als Existenzquantor.
+\end{itemize}
 
-Für eine Menge $X$ bezeichnet $2^X$ die Potenzmenge von $X$.
+Desweiteren verwende ich die in der Mathematik üblichen Symbole:
+\begin{itemize}
+    \item 
+        $\N$ für die natürlichen Zahlen, \textbf{die in dieser Arbeit bei $\boldsymbol{1}$ beginnen}, $\R$ für die Menge der reellen, $\R_0^+$ für die Menge der nichtnegativen reellen und $\mathbb{Q}$ für die Menge der komplexen Zahlen
+    \item 
+        $\text{e}$ als Eulersche Zahl, $\pi$ als Kreiszahl
+    \item 
+        $\varnothing$ für die leere Menge
+    \item
+        $\in$ als Elementsymbol
+    \item
+        $\subseteq$ als Teilmengen- und $\supseteq$ als Obermengenrelation, 
+    \item    
+        $\cap$ für den Schnitt (auch in den Varianten $\bigcap_{i=a}^{b}$ und $\bigcap_{m \in M}$), $\cup$ für die Vereinigung (auch in den Varianten $\bigcup_{i=a}^{b}$ und $\bigcup_{m \in M}$), $\setminus$ für das Komplement und $\times$ für das kartesische Produkt von Mengen
+    \item 
+        die metalogischen Symbole $\Rightarrow$ für die Folgerungsbeziehung und $\Leftrightarrow$ als Abkürzung für \glqq genau dann, wenn\grqq
+    \item 
+        $\lightning$ für den Widerspruchsblitz (als Abschluss eines Widerspruchbeweises)
+    \item
+        $(x_1, ... , x_n)$ als Tupel der Elemente $x_1$, ..., $x_n$ und $\{x_1, ... , x_n\}$ als Menge der Elemente $x_1$, ..., $x_n$.
+    \item
+        $\{x \in X \mid \varphi(x)\}$ ist die Menge der Elemente von $X$, die die Bedingung $\phi$ erfüllen.
+    \item
+        Für reelle Zahlen $a$ und $b$ sind $[a,b]$ das abgeschlossene und $(a,b)$ das offene Intervall%
+        \footnote{
+            $(a,b)$ könnte aber auch das Paar aus $a$ und $b$ sein.
+        }
+        in $\R$.
+    \item
+        Für eine Menge $M$ und eine Äquivalenzrelation $\sim$ bezeichnet $M / _{\sim}$ die Menge der Äquivalenzklassen von $\sim$ in $M$ (Quotientenraum).
+    \item
+        Für eine Menge $X$ bezeichnet $2^X$ die Potenzmenge von $X$.
+\end{itemize}
 
-%\ac{bso}
-
+Für das Komplement einer Menge verzichte ich explizit auf ein eigenes Symbol, da in dieser Arbeit oft Mengen als Teilmengen verschiedener Grundmengen verwende. $\{1\}$ beispielsweise kann als Teilmenge von $\N$ oder $\R$ gesehen werden, weshalb ich je nach Kontext $\N \setminus \{1\}$ oder $\R \setminus \{1\}$ für das Komplement schreibe.
