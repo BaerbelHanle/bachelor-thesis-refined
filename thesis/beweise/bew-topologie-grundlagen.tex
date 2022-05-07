@@ -76,9 +76,12 @@
         &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \cap B \neq \varnothing \:) \}\\
         &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to (U \cap A) \cap (U \cap B) \neq \varnothing \:) \}\\
         &\subseteq \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:\land\: U \cap B \neq \varnothing \:) \}\\
-        &= \{x \in X \mid \forall\: U \in \offen : ((\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: (\: x \in U \to U \cap B \neq \varnothing \:)) \}\\
-        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: \forall\: U \in \offen :  (\: x \in U \to U \cap B \neq \varnothing \:) \}\\
-        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \} \cap \{x \in X \mid \forall\: U \in \offen :  (\: x \in U \to U \cap B \neq \varnothing \:) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : \\
+        &\hphantom{XXXXXXX} ((\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: (\: x \in U \to U \cap B \neq \varnothing \:)) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: \\
+        &\hphantom{XXXXXXX} \forall\: U \in \offen :  (\: x \in U \to U \cap B \neq \varnothing \:) \}\\
+        &= \{x \in X \mid \forall\: U \in \offen : (\: x \in U \to U \cap A \neq \varnothing \:) \} \cap \\
+        &\hphantom{XXXXXXX} \{x \in X \mid \forall\: U \in \offen :  (\: x \in U \to U \cap B \neq \varnothing \:) \}\\
         &= \cl(A) \cap \cl(B)
     \end{align*}
 
@@ -231,8 +234,10 @@
             \op(A \cap B) 
             &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A \cap B \:)\}\\
             &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A \:\land\: U \subseteq B \:)\}\\
-            &\subseteq \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:) \:\land\: \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:)\}\\
-            &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)\} \cap \{ x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:)\}\\
+            &\subseteq \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:) \:\land\: \\
+            &\hphantom{XXXXXXX} \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:)\}\\
+            &= \{x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)\} \cap\\
+            &\hphantom{XXXXXXX} \{ x \in X \mid \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq B \:)\}\\
             &= \op(A) \cap \op(B)
         \end{align*}
 
@@ -258,7 +263,8 @@
     \begin{align*}
         &\op(A) \cup \op(B) \\
         &= \{x \in X \mid x \in \op(A) \:\lor\: x \in \op(B)\} \\
-        &= \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \:) \:\lor\: \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq B \:) \} \\
+        &= \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \:) \:\lor\:\\
+        &\hphantom{XXXXXXX} \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq B \:) \} \\
         &= \{x \in X \mid \exists\: U \in \offen : ((\: x \in U \:\land\: U \subseteq A \:) \:\lor\: (\: x \in U \:\land\: U \subseteq B \:)) \} \\
         &= \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: (\: U \subseteq A \:\lor\: U \subseteq B \:)) \} \\
         &\subseteq \{x \in X \mid \exists\: U \in \offen : (\: x \in U \:\land\: U \subseteq A \cup B \:) \} \\
@@ -364,12 +370,14 @@
     Zu zeigen ist: $\rand(A) = \cl(A) \setminus \op(A)$
     \begin{align*}
     \cl(A) \setminus \op(A) &= &&\cl(A) \cap (X \setminus \op(A))\\
-                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap A \neq \varnothing \:)\}\\ 
-                        &  &&\cap \{x \in X \mid \neg \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)\}\\
-                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap A \neq \varnothing\:) \:\land\: \forall\: U \in \offen:(\: x \in U \to \neg(U \subseteq A) \:) \}\\
-                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\: (\: x \in U \to U \setminus A \neq \varnothing \:) \:) \}\\
-                        &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:) \}\\
-                        &= &&\rand(A)
+                            &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap A \neq \varnothing \:)\}\\ 
+                            &  &&\cap \{x \in X \mid \neg \exists\: U \in \offen: (\: x \in U \:\land\: U \subseteq A\:)\}\\
+                            &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap A \neq \varnothing\:) \:\land\:\\ 
+                            &  &&\forall\: U \in \offen:(\: x \in U \to \neg(U \subseteq A) \:) \}\\
+                            &= &&\{x \in X \mid \forall\: U \in \offen: (\: (\: x \in U \to U \cap A \neq \varnothing \:) \:\land\:\\
+                            &  &&(\: x \in U \to U \setminus A \neq \varnothing \:) \:) \}\\
+                            &= &&\{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:) \}\\
+                            &= &&\rand(A)
     \end{align*}
 
 
@@ -416,25 +424,31 @@
     Zu zeigen ist: $\rand(A \cap B) \subseteq (\rand(A) \cap \cl(B)) \cup (\rand(B) \cap \cl(A))$.\\ \ \\
 
     \noindent
-    \textbf{Vorüberlegung: } Für beliebige $A, B \subseteq X$ gilt:
+    \textbf{Vorüberlegung (*): } Für beliebige $A, B \subseteq X$ gilt:
         \begin{align*}
-            \rand(A) \cap \cl(B) &&& \\ 
-            &=&& \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:)\}\\
-            &&&\cap \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap B \neq \varnothing \:)\}\\
-            &=&& \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:\land\: U \cap B \neq \varnothing \:) \:)\}
+            &\rand(A) \cap \cl(B) \\ 
+            &= \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\: U \setminus A \neq \varnothing \:) \:)\}\\
+            &\hphantom{XXXXXXX}\cap \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to U \cap B \neq \varnothing \:)\}\\
+            &= \{x \in X \mid \forall\: U \in \offen: (\: x \in U \to (\: U \cap A \neq \varnothing \:\land\:\\
+            &\hphantom{XXXXXXX} U \setminus A \neq \varnothing \:\land\: U \cap B \neq \varnothing \:) \:)\}
         \end{align*}
 
     \begin{longtable}{r c r l}
         & & 1. & Sei $x \in \rand(A \cap B)$ \\
         & & 2. & Angen. $x \notin (\rand(A) \cap \cl(B)) \cup (\rand(B) \cap \cl(A))$ \\
         2 & $\deshalb$ & 3. & $x \notin \rand(A) \cap \cl(B)$ \\
-        3, Vorüberlegung & $\deshalb$ & 4. & $\exists\: U \in \offen: (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:\lor\: U \cap B = \varnothing \:) \:) $ \\
-        4 & $\deshalb$ & 5. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \cap A = \varnothing \:\lor\: U_1 \setminus A = \varnothing \:\lor\: U_1 \cap B = \varnothing$ \\
+        3, * & $\deshalb$ & 4. & $\exists\: U \in \offen: (\: x \in U \:\land\:$\\
+                             &&& $(\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:\lor\: U \cap B = \varnothing \:) \:) $ \\
+        4 & $\deshalb$ & 5. & Sei $U_1 \in \offen$ mit $x \in U_1$ und\\
+                              &&& $U_1 \cap A = \varnothing \:\lor\: U_1 \setminus A = \varnothing \:\lor\: U_1 \cap B = \varnothing$ \\
         2 & $\deshalb$ & 6. & $x \notin \rand(B) \cap \cl(A)$ \\
-        6, Vorüberlegung & $\deshalb$ & 7. & $\exists\: U \in \offen: (\: x \in U \:\land\: (\: U \cap B = \varnothing \:\lor\: U \setminus B = \varnothing \:\lor\: U \cap A = \varnothing \:) \:)$ \\
-        7 & $\deshalb$ & 8. & Sei $U_2 \in \offen$ mit $x \in U_2$ und $U_2 \cap B = \varnothing \:\lor\: U_2 \setminus B = \varnothing \:\lor\: U_2 \cap A = \varnothing$\\
+        6, * & $\deshalb$ & 7. & $\exists\: U \in \offen: (\: x \in U \:\land\:$\\
+                             &&& $(\: U \cap B = \varnothing \:\lor\: U \setminus B = \varnothing \:\lor\: U \cap A = \varnothing \:) \:)$ \\
+        7 & $\deshalb$ & 8. & Sei $U_2 \in \offen$ mit $x \in U_2$ und\\
+                          &&& $U_2 \cap B = \varnothing \:\lor\: U_2 \setminus B = \varnothing \:\lor\: U_2 \cap A = \varnothing$\\
         5, 8 & $\deshalb$ & 9. & Sei $U := U_1 \cap U_2$ \\
-        1 & $\deshalb$ & 10. & $\forall\: U \in \offen: (\: x \in U \to U \cap A \cap B \neq \varnothing \:\land\: U \setminus (A \cap B) \neq \varnothing \:) \:) $ \\
+        1 & $\deshalb$ & 10. & $\forall\: U \in \offen: (\: x \in U \to$\\
+                           &&& $U \cap A \cap B \neq \varnothing \:\land\: U \setminus (A \cap B) \neq \varnothing \:) \:) $ \\
         5, 8, 9 & $\deshalb$ & 11. & $x \in U \in \offen$ \\
         10, 11 & $\deshalb$ & 12. & $U \cap A \cap B \neq \varnothing$ und $U \setminus (A \cap B) \neq \varnothing$ \\
         9, 12 & $\deshalb$ & 13. & $U_1 \cap U_2 \cap A \cap B \neq \varnothing$ \\
@@ -457,7 +471,8 @@
     \begin{longtable}{r r c r l}
         & & & 1. & Sei $x \in \rand(A \setminus B) $ \\
         & & & 2. & Angen. $x \notin (\rand(A) \setminus \op(B)) \cup (\rand(B) \cap \cl(A))$ \\
-        & 1 & $\deshalb$ & 3. & $\forall\: U \in \offen : (\: x \in U \to (\: U \cap (A \setminus B) \neq \varnothing \:\land\: U \setminus (A \setminus B) \neq \varnothing \:))$ \\
+        & 1 & $\deshalb$ & 3. & $\forall\: U \in \offen : (\: x \in U \to$\\
+                           &&&& $(\: U \cap (A \setminus B) \neq \varnothing \:\land\: U \setminus (A \setminus B) \neq \varnothing \:))$ \\
         & 2 & $\deshalb$ & 4. & $x \notin \rand(A) \setminus \op(B)$ \\
         & 4 & $\deshalb$ & 5. & $x \notin \rand(A) \:\lor\: x \in \op(B)$ \\
         \hline
@@ -471,7 +486,8 @@
         Fall 2: & & & 2.1. & $x \notin \op(B)$ \\
         & 5, 2.1 & $\deshalb$ & 2.2. & $x \notin \rand(A)$ \\
         & 2.2 & $\deshalb$ & 2.3. & $\exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap A = \varnothing \:\lor\: U \setminus A = \varnothing \:))$ \\
-        & 2.3 & $\deshalb$ & 2.4. & Sei $U_0 \in \offen$ mit $x \in U_0$ und $U_0 \cap A = \varnothing \:\lor\: U_0 \setminus A = \varnothing$ \\
+        & 2.3 & $\deshalb$ & 2.4. & Sei $U_0 \in \offen$ mit $x \in U_0$ und\\
+                               &&&& $U_0 \cap A = \varnothing \:\lor\: U_0 \setminus A = \varnothing$ \\
         & 3, 2.4 & $\deshalb$ & 2.5. & $U_0 \cap (A \setminus B) \neq \varnothing$ \\
         & 2.5 & $\deshalb$ & 2.6. & $U_0 \cap A \neq \varnothing$ \\
         & 2.6, 2.4 & $\deshalb$ & 2.7. & $U_0 \setminus A = \varnothing$ \\
@@ -480,7 +496,8 @@
         & 2 & $\deshalb$ & 2.10. & $x \notin \rand(B) \cap \cl(A)$ \\
         & 2.10, 2.9 & $\deshalb$ & 2.11. & $x \notin \rand(B)$ \\
         & 2.11 & $\deshalb$ & 2.12. & $\exists\: U \in \offen : (\: x \in U \:\land\: (\: U \cap B = \varnothing \:\lor\: U \setminus B = \varnothing \:))$ \\
-        & 2.12 & $\deshalb$ & 2.13. & Sei $U_1 \in \offen$ mit $x \in U_1$ und $U_1 \cap B = \varnothing \:\lor\: U_1 \setminus B = \varnothing$ \\
+        & 2.12 & $\deshalb$ & 2.13. & Sei $U_1 \in \offen$ mit $x \in U_1$ und\\
+                                 &&&& $U_1 \cap B = \varnothing \:\lor\: U_1 \setminus B = \varnothing$ \\
         & 2.11, 2.1 & $\deshalb$ & 2.14. & $x \notin \cl(B) \subseteq B$ \\
         & 2.13, 2.14 & $\deshalb$ & 2.15. & $x \in U_1 \setminus B$ \\
         & 2.15 & $\deshalb$ & 2.16. & $U_1 \setminus B \neq \varnothing$ \\
@@ -492,7 +509,8 @@
         & 2.23, 2.7 & $\deshalb$ & 2.24. & $U_2 \setminus A = \varnothing$ \\
         & 2.18 & $\deshalb$ & 2.25. & $U_2 \subseteq U_1$ \\
         & 2.17, 2.25 & $\deshalb$ & 2.26. & $U_2 \cap B = \varnothing$ \\
-        & 2.24, 2.26 & $\deshalb$ & 2.27. & $\varnothing = (U_2 \setminus A) \cup (U_2 \cap B) = U_2 \setminus (A \setminus B)$ \\
+        & 2.24, 2.26 & $\deshalb$ & 2.27. & $\varnothing = (U_2 \setminus A) \cup (U_2 \cap B)$\\
+                                       &&&& $= U_2 \setminus (A \setminus B)$ \\
         & 2.17, 2.20 & $\deshalb$ & 2.28. & $\lightning$ \\
     \end{longtable}
     
