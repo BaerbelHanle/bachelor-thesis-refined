@@ -230,9 +230,9 @@
     
 %     Zur Erinnerung möchte ich an dieser Stelle auf Übersichtblatt 3 hinweisen, auf dem alle Definitionen der \strukt zu finden sind.
 
-
-    \paragraph{Primitive Relationen:}\ \\
-    Durch Einsetzen der Definition der Objektäquivalenz aus \ref{sec:univ-2} von $\Gsb$ und $\Gspart$ aus \ref{sec:prim-rel-1} ergeben sich die zwei folgenden Sätze.
+\subsection{Untersuchung ausgewählter primitiver Relationen}
+%    \paragraph{Primitive Relationen:}\ \\
+    Durch Einsetzen der Definition der Objektäquivalenz aus \ref{sec:univ-2} von $\Gsb$ und $\Gspart$ aus \ref{sec:prim-rel-1} ergeben sich die zwei folgenden Sätze über die Relationen $\Gsb$ und $\Gspart$ in der \strukt.
 
     \begin{satz}[Die $\Gsb$-Relation in der \strukt]\ \vspace{0pt}
 
@@ -328,24 +328,28 @@
         \end{enumerate}
         
     \end{satz}
-    
+    %
+    %
+    Der folgende Satz besagt, das die \strukt Axiom A6 erfüllt.
+    %
     \begin{satz}\label{satz:spart-trans}
-        Die $\Gspart$-Relation ist transitiv.
+        Die $\Gspart$-Relation ist transitiv.\\
+        (Beweis: siehe Anhang \ref{anh:spart-trans}.)
     \end{satz}
-    
-    Beweis: siehe \ref{anh:spart-trans}.
-    
+
 % -------------------------------------------------------------------------------------
     
-%    \section{Untersuchung ausgewählter definierter Relationen und Axiome}
+\subsection{Untersuchung ausgewählter definierter Relationen}
 
-\paragraph{Definierte Relationen}
+%\paragraph{Definierte Relationen}
 
-    \begin{erin}
-        $\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))$
-    \end{erin}
+%     \begin{erin}
+%         $\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))$
+%     \end{erin}
 
-    \begin{hyp}[$\Ggrsb$]\ \vspace{0pt} 
+    Die größte räumliche Grenz sollte für Raumregionen der Oberfläche, für Flächenregionen der Umrisslinien und für Linienregionen allen ihren Endpunkten entsprechen.
+    %
+    \begin{satz}[$\Ggrsb$]\ \vspace{0pt} 
 
         \begin{itemize}
             \item Für jeden Flächenrepräsentanten $(A_1,B)$ und jede Raumregion $A_2$ gilt:
@@ -356,13 +360,14 @@
                 $$\Ggrsb([A_1,B_1,C_1,D],[A_2,B_2,C_2]) \quad \Rightarrow \quad D = \delta^2 C.$$
         \end{itemize}
 
-    \end{hyp}
-    
+    \end{satz}
+    %
     Ich führe hier exemplarisch den Beweis für 1.\ aus. 
     Die anderen Aussagen lassen sich analog beweisen.
-    
-    \begin{proof}
-        Aus $\Ggrsb([A_1,B_1],A_2)$ folgt $\Gsb([A_1,B_1],A_2)$ und damit $(A_1,B_1) \sim (A_2,B_1)$.
+    %
+    \begin{bew}
+        Aus $\Ggrsb([A_1,B_1],A_2)$ folgt $\Gsb([A_1,B_1],A_2)$ und damit\\
+        $(A_1,B_1) \sim (A_2,B_1)$.
         Insbesondere ist $(A_2,B_1)$ ein Flächenrepräsentant und damit $B_1 \subseteq \rand A_2$.
         Zu zeigen ist also noch: $\rand A_2 \subseteq B_1$.
 
@@ -374,47 +379,53 @@
         Somit ist $(A_2,B_2)$ ein Flächenrepräsentant.
 
         Nach Satz \ref{satz:sb-einfacher-fall} gilt $\Gsb([A_2,B_2],A_2)$.
-        Also müsste wegen $\Ggrsb([A_1,B_1],A_2)$ gelten: $\Gspart([A_2,B_2],[A_1,B_1])$.
+        Also müsste wegen\\
+        $\Ggrsb([A_1,B_1],A_2)$ gelten: $\Gspart([A_2,B_2],[A_1,B_1])$.
         Da $B_2$ nach Konstruktion keine Teilmenge von $B_1$ ist, kann das nicht gelten. $\lightning$
-    \end{proof}
-    
-    
-    \begin{erin}
-        $\Gsov(x,y) := \exists\: z\ (\Gspart(z,x) \wedge \Gspart(z,y))$
-    \end{erin}
-    
+    \end{bew}
+%    
+%    
+%     \begin{erin}
+%         $\Gsov(x,y) := \exists\: z\ (\Gspart(z,x) \wedge \Gspart(z,y))$
+%     \end{erin}
+%    
+    Zwei Raumregionen sollten überlappen, wenn sie einen nichtleeren Schnitt haben.
+    %
     \begin{satz}\label{satz:sov-raumreg}\ \\
         Für zwei Raumregionen $A_1$ und $A_2$ gilt: 
         $$\Gsov(A_1,A_2) \quad \Leftrightarrow \quad A_1 \cap A_2 \neq \varnothing$$
     \end{satz}
-    
-    \begin{proof}\ \\
-        ``$\Rightarrow$'':
+    %
+    \begin{bew}\ \\
+        ``$\boldsymbol{\Rightarrow}$'':
         Es gelte $\Gsov(A_1,A_2)$. 
         Sei $A_3 \in \univ^3$ mit $\Gspart(A_3,A_1)$ und $\Gspart(A_3,A_2)$.
-        Dann gelten $A_3 \subseteq A_1$ und $A_3 \subseteq A_2$ und somit $\varnothing \neq A_3 \subseteq A_1 \cap A_2$.
+        Dann gelten $A_3 \subseteq A_1$ und $A_3 \subseteq A_2$ und somit $\varnothing \neq A_3 \subseteq A_1 \cap A_2$.\\
 %         \begin{align*}
 %             \varnothing \neq A_3 \subseteq A_1 \cap A_2
 %         \end{align*}
-        ``$\Leftarrow$'':
+        ``$\boldsymbol{\Leftarrow}$'':
         Seien $A_1$ und $A_2$ Raumregionen mit $A_1 \cap A_2 \neq \varnothing$.
         Sei $A_3 := A_1 \cap A_2$.
         Dann ist $A_3$ nicht leer und nach Korollar \ref{kor:co-oc-abschluss} $A_3$ einfach offen.
         Weil $A_1$ beschränkt ist, gilt das auch für $A_3$.
         Somit ist $A_3$ ein Raumrepräsentant und es gelten $A_3 \subseteq A_1$ und $A_3 \subseteq A_2$, also $\Gspart(A_3,A_1)$ und $\Gspart(A_3,A_2)$ und somit $\Gsov(A_1,A_2)$.
-    \end{proof}
+    \end{bew}
 
 
-%\section{Untersuchung ausgewählter Axiome}
+\subsection{Untersuchung ausgewählter Axiome}
 
-\paragraph{Axiome}
-
+%\paragraph{Axiome}
+    In der \strukt soll das starke Ergänzungsprinzip gelten. 
+    Es ist leicht zu sehen, dass man hierfür jeweils nur gleichdimensionale Raumentitäten betrachten muss.
+    Ich zeige die Gültigkeit dieses Prinzips für Raumregionen.
+    %
     \begin{satz}[Das starke Ergänzungsprinzip für Raumregionen]
         Für $A_1,A_2 \in \univ^3$ gilt: 
         $$\neg \Gspart(A_1,A_2) \to \exists\: A \in  \univ^3: (\Gspart(A,A_1) \wedge \neg \Gsov(A,A_2)$$
     \end{satz}
-    
-    \begin{proof}
+    %
+    \begin{bew}
         Seien $A_1$ und $A_2$ Raumregionen mit $\neg \Gspart(A_1,A_2)$.
         Dann gilt $A_1 \nsubseteq A_2$ also $A_1 \setminus A_2 \neg \varnothing$
         Sei $A_3 := \op(A_1 \setminus A_2)$.
@@ -429,9 +440,10 @@
             = \varnothing
         \end{align*}
         Damit muss nach Satz \ref{satz:sov-raumreg} gelten $\neg \Gsov(A_3,A_2)$.
-    \end{proof}
-    
-    
+    \end{bew}
+    %
+    Ob dieses Prinzip in der \strukt auch für niederdimensionale Raumentitäten gilt, ist noch nicht klar.
+    %
     \begin{hyp}[Das starke Ergänzungsprinzip für Flächenregionen]
         Für Flächenregionen $(A_1,B_1)$ und $(A_2,B_2)$ gilt: 
         \begin{align*}
@@ -439,26 +451,30 @@
             &(\Gspart([A,B],[A_1,B_1]) \wedge \neg \Gsov([A,B],[A_2,B_2])
         \end{align*}
     \end{hyp}
+    %
+    Für den Beweis kann ich lediglich eine Skizze angeben, von der nicht gesichert ist, ob alle Argumente so durchführbar sind.
+    %
+    \begin{bewidee}
+        Seien $(A_1,B_1)$ und $(A_2,B_2)$ Flächenregionen mit $\neg \Gspart([A_1,B_1],[A_2,B_2])$.\\
     
-    Beweisidee: 
-    Seien $(A_1,B_1)$ und $(A_2,B_2)$ Flächenregionen mit $\neg \Gspart([A_1,B_1],[A_2,B_2])$
+        \thmemph{Fall 1}: $B_1 \nsubseteq B_2$. 
+            Wähle $A = A_1$ und $B = \op_{\rand A}(\cl_{\rand A}(B_1 \setminus B_2))$.
+            Klar ist: $A$ ist eine Raumregion und $B$ ist einfach offen in $\rand A$.
+            Wenn wir zeigen könnten, dass $B \neq \varnothing$ ist, so wäre $(A,B)$ eine Flächenregion und es würde gelten $\Gspart([A,B],[A_1,B_1])$.
+            Nun ist noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$\\
+        
+        \thmemph{Fall 2}: $B_1 \subseteq B_2$.
+            Dann gilt $A_1 \neq_{B_1} A_2$.
+            Wenn wir zeigen könnten, dass $B_1 \setminus B_2 \neq \varnothing$ gilt, so könnte man folgende Konstruktion durchführen:
+            Setze $A := \op(A_1 \setminus A_2)$, $B := \op_{\rand A}(\cl_{\rand A}(B_1 \cap \rand A))$
+            Dann ist $A$ einfach offen, nicht leer und beschränkt und somit eine Raumregion.
+            Klar ist: $B$ ist einfach offen in $\rand A$. 
+            Wenn wir zeigen könnten, dass $B \neq \varnothing$ ist, dann wäre $(A,B)$ ein Flächenrepräsentant und es würde gelten $\Gspart([A,B],[A_1,B_1])$.
+            Nun bleibt noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$.
+                
+    \end{bewidee}
+
     
-    Fall 1: $B_1 \nsubseteq B_2$. 
-        Wähle $A = A_1$ und $B = \op_{\rand A}(\cl_{\rand A}(B_1 \setminus B_2))$.
-        Klar: $A$ ist eine Raumregion, $B$ ist einfach offen in $\rand A$.
-        Noch zu zeigen $B \neq \varnothing$.
-        Dann ist $(A,B)$ eine Flächenregion und es gilt $\Gspart([A,B],[A_1,B_1])$.
-        Noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$
-    
-    Fall 2: $B_1 \subseteq B_2$.
-        Dann gilt $A_1 \neq_{B_1} A_2$.
-        Zu zeigen: Damit ist $B_1 \setminus B_2 \neq \varnothing$
-        Setze $A := \op(A_1 \setminus A_2)$, $B := \op_{\rand A}(\cl_{\rand A}(B_1 \cap \rand A))$
-        Dann ist $A$ einfach offen, nicht leer und beschränkt und somit eine Raumregion.
-        Klar: $B$ ist einfach offen in $\rand A$. Noch zu zeigen: $B \neq \varnothing$.
-        Dann ist $(A,B)$ ein Flächenrepräsentant und es gilt $\Gspart([A,B],[A_1,B_1])$.
-        Noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$.
-            
 
 
 
