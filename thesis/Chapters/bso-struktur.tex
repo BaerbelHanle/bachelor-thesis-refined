@@ -2,7 +2,7 @@
 \chapter{Formale Definition der \strukt}\label{chap:bso-struktur}
     In Kapitel \ref{chap:bso-grundideen} habe ich die \strukt als Interpretation von $\theoryBSO$ eingeführt, wobei die genauen Definitionen der Repräsentanten und der Objektäquivalenz offen gelassen wurden. 
     Mit Hilfe der im vorangegangenen Kapitel~\ref{chap:topologie-erweiterung} neu eingeführten topologischen Begriffe werden diese Lücken in Abschnitt \ref{sec:univ-2} geschlossen.
-    Der Abschnitt~\ref{sec:analyse} reißt die Fragen an, ob der vorgeschlagene Ansatz die Vorstellungen, die mit der Theorie verbunden sind adäquat wiederspiegelt und ob er ein Modell von $\theoryBSO$ ist, kann diese jedoch nicht abschließend beantworten.
+    Der Abschnitt~\ref{sec:analyse} reißt die Fragen an, ob der vorgeschlagene Ansatz die Vorstellungen, die mit der Theorie verbunden sind, adäquat widerspiegelt und ob er ein Modell von $\theoryBSO$ ist, kann diese jedoch nicht abschließend beantworten.
 % 
 %     Da im Rahmen dieser Arbeit weder ausführlich untersucht werden kann, ob der vorgeschlagene Ansatz die Vorstellungen, die mit der Theorie verbunden sind adäquat wiederspiegelt, noch, ob er ein Modell von $\theoryBSO$ ist, werden diese beiden Fragen in Abschnitt~\ref{sec:analyse} zumindest an einigen Beispielen untersucht
 
@@ -23,7 +23,7 @@
 
     Zur Erinnerung: Raumregionen sind Teilmengen des $\R^3$, die überall echt 3-dimensional sind und einen 2-dimensionalen Rand haben.%
     \marginpar{Raumregionen}
-    Mit Hilfe des in ~\ref{sec:einf-mengen} eingeführten Begriffs der einfach offenen Menge definiere ich nun:
+    Mit Hilfe des in Abschnitt~\ref{sec:einf-mengen} eingeführten Begriffs der einfach offenen Menge definiere ich nun:
     
     \begin{dfn}[Raumregion]\ \\
         Eine Teilmenge $A \subseteq \R^3$ heißt Raumregion, wenn
@@ -33,9 +33,9 @@
                   \footnote{Eine Teilmenge $A \subseteq \R^n$ ist beschränkt falls $\exists\: M \in \R : A \subseteq B_M(0)$.}
                   ist
         \end{enumerate}
-        Die Menge der Raumregionen bezeichnen wir mit $\univ^3$
+        Die Menge der Raumregionen bezeichnen wir mit $\univ^3$.
     \end{dfn}
-    Ob dieser Ansatz alle Vorstellung adäquat wiederspiegelt, die mit dem Begriff der Raumregion verbunden sind, ob also einfache Mengen alle gewünschten Eigenschaften besitzen, ist eine mathematisch anspruchsvolle Frage, die hier nicht abschließend geklärt werden kann. Sie wird in \ref{chap:diskussion} noch weiter ausgeführt.
+    Ob dieser Ansatz alle Vorstellungen adäquat widerspiegelt, die mit dem Begriff der Raumregion verbunden sind, ob also einfache Mengen alle gewünschten Eigenschaften besitzen, ist eine mathematisch anspruchsvolle Frage, die hier nicht abschließend geklärt werden kann. Sie wird in \ref{chap:diskussion} noch weiter ausgeführt.
     
     \begin{bsp}[$\varepsilon$-Bälle als Raumregionen]\ \\
         Für jedes $x \in \R^3$ und jedes $\varepsilon > 0$ ist $B_\varepsilon(x)$ eine Raumregion.
@@ -58,19 +58,19 @@
                     \item $A$ eine Raumregion und
                     \item $\varnothing \neq B \in \OC_{\rand A}$ ist.
                 \end{enumerate}
-                Die \spacedlowsmallcaps{Menge der Flächenrepräsentanten} bezeichnen wir mit $\rep^2$
+                Die \spacedlowsmallcaps{Menge der Flächenrepräsentanten} bezeichnen wir mit $\rep^2$.
             \item $(A,B,C)$ ist ein \spacedlowsmallcaps{Linienrepräsentant}, wenn 
                 \begin{enumerate}
                     \item $(A,B)$ ein Flächenrepräsentant und
                     \item $\varnothing \neq C \in \OC_{\delta B}$ ist.
                 \end{enumerate}
-                Die \spacedlowsmallcaps{Menge der Linienrepräsentanten} bezeichnen wir mit $\rep^1$
+                Die \spacedlowsmallcaps{Menge der Linienrepräsentanten} bezeichnen wir mit $\rep^1$.
             \item $(A,B,C,D)$ ist ein \spacedlowsmallcaps{Punktrepräsentant}, wenn 
                 \begin{enumerate}
                     \item $(A,B,C)$ ein Linienrepräsentant und
                     \item $D \subseteq \delta^2 C$ ist.
                 \end{enumerate}
-                Die \spacedlowsmallcaps{Menge der Punktrepräsentanten} bezeichnen wir mit $\rep^0$
+                Die \spacedlowsmallcaps{Menge der Punktrepräsentanten} bezeichnen wir mit $\rep^0$.
         \end{enumerate}
     %	
     \end{dfn}
@@ -102,7 +102,7 @@
                     \item $B_1 = B_2$ und
                     \item $A_1 =_{B_1} A_2$
                 \end{enumerate}
-                gelten
+                gelten.
             \item Zwei \spacedlowsmallcaps{Linienrepräsentanten} $(A_1,B_1,C_1)$ und \\
             $(A_2,B_2,C_2)$ sind \spacedlowsmallcaps{objektäquivalent}, wenn 
                 \begin{enumerate}
@@ -127,11 +127,13 @@
     
     \begin{satz}\ \\
         Die Objektäquivalenz ist eine Äquivalenzrelation auf\\
-        $\rep^2 \cap \rep^1 \cap \rep^0$.
+        $\rep^2 \cup \rep^1 \cup \rep^0$.
     \end{satz}
     
-    Beweis: Direkte Folgerung aus Korollar \ref{kor:lokale-gleichheit-aer} (die lokale Gleichheit bzgl. einer festen Menge ist eine Äquivalenzrelation) und der Äquivalenzrelationseigenschaft von \glqq = \grqq .
- 
+		\todo[inline]{FL: Im Satz habe ich 2x $\cap$ durch 2x $\cup$ ersetzt; den Beweis würde ich analog zu früheren in die Beweisumgebung setzen? Alternativ als Text ansetzen: ``Der Beweis ist eine direkte ...''}
+    \begin{bew}
+		Direkte Folgerung aus Korollar \ref{kor:lokale-gleichheit-aer} (die lokale Gleichheit bzgl. einer festen Menge ist eine Äquivalenzrelation) und der Äquivalenzrelationseigenschaft von \glqq = \grqq .
+    \end{bew}
  
     
 %-----------------------------------------------------------------------------
@@ -219,21 +221,21 @@
         \item Entspricht sie den Vorstellungen, die hinter dieser Theorie stehen?
     \end{enumerate}
 
-    Um die erste %\textcolor{red}{Frage} 
-    zu beantworten muss die Gültigkeit der $\theoryBSO$-Axiome in der \strukt überprüft werden.
+    Um die erste Frage %\textcolor{red}{Frage} 
+    zu beantworten, muss die Gültigkeit der $\theoryBSO$-Axiome in der \strukt überprüft werden.
     Für die zweite ist zu untersuchen, wie sich die im vorherigen Abschnitt getroffenen Entscheidungen auf die primitiven und vor allem definierten Relationen in $\theoryBSO$ auswirken.
 
-    Die Beantwortung dieser Fragen würde den Rahmen dieser Arbeit sprengen. 
-    Hier wird sie nur anhand weniger Beispiele angerissen.
+    Die vollumfängliche Untersuchung und Beantwortung dieser Fragen würde den Rahmen dieser Arbeit sprengen. 
+    Daher wird sie nur anhand weniger Beispiele begonnen.
     
-    An dieser Stelle sei noch auf Übersichtblatt 3 hingewiesen, auf dem alle Definitionen der \strukt zu finden sind.
+    An dieser Stelle sei noch auf Übersichtblatt 3 hingewiesen, auf dem alle Definitionen der \strukt vereint sind, die im Laufe der Arbeit entwickelt wurden und daher über deren Kapitel verteilt sind.
     
 %     Zur Erinnerung möchte ich an dieser Stelle auf Übersichtblatt 3 hinweisen, auf dem alle Definitionen der \strukt zu finden sind.
 
 % \subsection{Untersuchung ausgewählter primitiver Relationen}
 \subsection{Ausgewählte primitive Relationen}
 %    \paragraph{Primitive Relationen:}\ \\
-    Durch Einsetzen der Definition der Objektäquivalenz aus \ref{sec:univ-2} von $\Gsb$ und $\Gspart$ aus \ref{sec:prim-rel-1} ergeben sich die zwei folgenden Sätze über die Relationen $\Gsb$ und $\Gspart$ in der \strukt.
+    Durch Einsetzen der Definition der Objektäquivalenz aus \ref{sec:univ-2} von $\Gsb$ und $\Gspart$ aus \ref{sec:prim-rel-1} ergeben sich die zwei folgenden Sätze über die Relationen $\Gsb$ und $\Gspart$ in der \strukt, die eine unmittelbare Charakterisierung der beiden Relationen vermittels lokaler Gleichheit wiedergeben.
 
     \begin{satz}[Die $\Gsb$-Relation in der \strukt]\ \vspace{0pt}
 
@@ -331,12 +333,13 @@
     \end{satz}
     %
     %
-    Der folgende Satz besagt, das die \strukt Axiom A6 erfüllt.
-    %
-    \begin{satz}\label{satz:spart-trans}
-        Die $\Gspart$-Relation ist transitiv.\\
-        (Beweis: siehe Anhang \ref{anh:spart-trans}.)
-    \end{satz}
+		\todo[inline]{FL: Vorschlagshalber habe ich den Satz zur Transitivität von $\Gspart$ an den Anfang von 6.2.3 verlegt (hier im Quelltext nur auskommentiert). Bei Nichtgefallen bitte und leider zurückverlegen.}
+%    Der folgende Satz besagt, das die \strukt Axiom A6 erfüllt.
+%    %
+%    \begin{satz}\label{satz:spart-trans}
+%        Die $\Gspart$-Relation ist transitiv.\\
+%        (Beweis: siehe Anhang \ref{anh:spart-trans}.)
+%    \end{satz}
 
 % -------------------------------------------------------------------------------------
     
@@ -349,7 +352,9 @@
 %         $\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))$
 %     \end{erin}
 
-    Die größte räumliche Grenz sollte für Raumregionen der Oberfläche, für Flächenregionen der Umrisslinien und für Linienregionen allen ihren Endpunkten entsprechen.
+    Hier beschränke ich mich auf Entsprechungen zweier intuitiv gut zugänglicher Relationen im Rahmen der \strukt.
+
+    Die größte räumliche Grenze sollte für Raumregionen der Oberfläche, für Flächenregionen den Umrisslinien und für Linienregionen allen ihren Endpunkten entsprechen.
     %
     \begin{satz}[$\Ggrsb$]\ \vspace{0pt} 
 
@@ -364,6 +369,10 @@
 
     \end{satz}
     %
+		\todo[inline]{FL: Bitte im Satz prüfen:\\
+		1. bei Flächenrepräsentanten: $B$ statt $B_1$ rechts? Oder überall $B_1$?\\
+		2. bei Linienrepräsentanten: $B_1$ rechts korrekt? Oder eher $B_2$? (sonst keine Verbindung zum Flächenrepräsentant?)\\
+		3. bei Punktrepräsentanten: Index $2$ an $C$ rechts nötig?}
     Ich führe hier exemplarisch den Beweis für 1.\ aus. 
     Die anderen Aussagen lassen sich analog beweisen.
     %
@@ -391,7 +400,8 @@
 %         $\Gsov(x,y) := \exists\: z\ (\Gspart(z,x) \wedge \Gspart(z,y))$
 %     \end{erin}
 %    
-    Zwei Raumregionen sollten überlappen, wenn sie einen nichtleeren Schnitt haben.
+    Ferner sollten zwei Raumregionen überlappen, wenn sie einen nichtleeren Schnitt haben.
+		Auch dies lässt sich zeigen.
     %
     \begin{satz}\label{satz:sov-raumreg}\ \\
         Für zwei Raumregionen $A_1$ und $A_2$ gilt: 
@@ -418,10 +428,16 @@
 % \subsection{Untersuchung ausgewählter Axiome}
 \subsection{Ausgewählte Axiome}
 
+    Ich betrachte zunächst mit dem Axiom A6 von $\theoryBSO$ einen einfachen und nachweisbaren Fall. Dem folgenden Satz entsprechend erfüllt die \strukt dieses Axiom.     %
+    \begin{satz}\label{satz:spart-trans}
+        Die $\Gspart$-Relation ist transitiv.\\
+        (Beweis: siehe Anhang \ref{anh:spart-trans}.)
+    \end{satz}
+
 %\paragraph{Axiome}
-    In der \strukt soll das starke Ergänzungsprinzip gelten. 
+    Komplexer stellt sich die Analyse in Bezug auf Axiom A8, das starke Ergänzungsprinzip, dar, das ebenfalls in der \strukt gelten sollte. 
     Es ist leicht zu sehen, dass man hierfür jeweils nur gleichdimensionale Raumentitäten betrachten muss.
-    Ich zeige die Gültigkeit dieses Prinzips für Raumregionen.
+    Zunächst zeige ich die Gültigkeit dieses Prinzips für Raumregionen.
     %
     \begin{satz}[Das starke Ergänzungsprinzip für Raumregionen]
         Für $A_1,A_2 \in \univ^3$ gilt: 
@@ -445,7 +461,7 @@
         Damit muss nach Satz \ref{satz:sov-raumreg} gelten $\neg \Gsov(A_3,A_2)$.
     \end{bew}
     %
-    Ob dieses Prinzip in der \strukt auch für niederdimensionale Raumentitäten gilt, ist noch nicht klar.
+    Ob dieses Prinzip in der \strukt auch für niederdimensionale Raumentitäten gilt, ist jedoch noch nicht klar.
     %
     \begin{hyp}[Das starke Ergänzungsprinzip für Flächenregionen]
         Für Flächenregionen $(A_1,B_1)$ und $(A_2,B_2)$ gilt: 
@@ -476,7 +492,11 @@
             Nun bleibt noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$.
                 
     \end{bewidee}
-
+%
+Der Fall des starken Ergänzungsprinzips deutet exemplarisch die Aufwändigkeit an,
+die den Untersuchungen zur Erfüllung der Axiome von $\theoryBSO$ in der \strukt innewohnen kann.
+Er beschließt zudem die hierin durchgeführten Analysen der \strukt.
+\todo[inline]{FL: Hinzugefügte Abschlusssätze bitte prüfen.}
     
 
 
