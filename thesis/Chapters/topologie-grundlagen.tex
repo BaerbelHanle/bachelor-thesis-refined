@@ -622,12 +622,16 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
 %     (Beweis siehe \ref{anh:clA1-teil-clA2})
 
 
-    Für einen topologischen Raum $X$ und Teilmengen $A_1, A_2, B \subseteq X$ mit $B \subseteq A_1 \cap A_2$ muss nicht notwendigerweise gelten $\cl_{A_1}(B) \subseteq A_2$. 
-    %\footnote{
-    Man nehme beispielsweise $X = \{0,1\}, \offen_X = \{\varnothing, \{0,1\}\}, A_1 = X, A_2 = \{0\}, B = \{0\}$. Dann ist $\abg_X = \{\varnothing, \{0,1\}\}$ also $\abg_{A_1} = \{\varnothing, \{0,1\}\}$ und damit $\cl_{A_1} = \{0,1\} \nsubseteq B$.
+    Für einen topologischen Raum $X$ und Teilmengen $A_1, A_2, B \subseteq X$ mit $B \subseteq A_1 \cap A_2$ muss nicht notwendigerweise gelten $\cl_{A_1}(B) \subseteq A_2$.
+    %
+    \begin{gegenbsp}
+        Man nehme $X = \{0,1\}, \offen_X = \{\varnothing, \{0,1\}\}, A_1 = X, A_2 = \{0\}, B = \{0\}$. Dann ist $\abg_X = \{\varnothing, \{0,1\}\}$ also $\abg_{A_1} = \{\varnothing, \{0,1\}\}$ und damit $\cl_{A_1} = \{0,1\} \nsubseteq A_2$
+    \end{gegenbsp}
+    %
 		\todo[inline]{FL: müsste es nach ``damit'' heißen:
-		$\cl_{A_1}(B) = \{0,1\} \nsubseteq A_2$ ?}
-    %} 
+		$\cl_{A_1}(B) = \{0,1\} \nsubseteq A_2$ ?\\
+		-> BH: das ist richtig}
+    %
     Folgender Satz besagt jedoch, dass diese Aussage gilt, falls $A_1$ und $A_2$ Ränder von Mengen sind.
     %
     \begin{satz}\label{satz:cl-dA1-dA2}\ \\
@@ -755,14 +759,15 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \marginpar{$\varepsilon$-Umgebung}
     $\varepsilon$-Umgebung eines Punktes besteht aus allen Punkten, die ihm $\varepsilon$-nahe sind, also einen kleineren Abstand als $\varepsilon$ haben.
 		\todo[inline]{Zwei Quellen, in denen ich geschaut habe, nehmen dem Satz hierüber
-		entsprechend $d(x,y) < \varepsilon$ in der Definition, statt $\leq$ darin. ``(offene)'' Umgebung würde auch dazu passen. Ich bin mir dennoch nicht 100\% sicher, was Du haben willst, daher als Kommentar.}
+		entsprechend $d(x,y) < \varepsilon$ in der Definition, statt $\leq$ darin. ``(offene)'' Umgebung würde auch dazu passen. Ich bin mir dennoch nicht 100\% sicher, was Du haben willst, daher als Kommentar.\\
+		-> BH: <}
     %
     \begin{dfn}[$\varepsilon$-Umgebung]\label{def:eps-umg}\ \vspace{8pt}
 
         \noindent
         Seien (X,d) ein metrischer Raum, $x \in X$, $\varepsilon > 0$. Dann ist
         \begin{align*}
-            \ball_\varepsilon(x) := \{y \in X \mid d(x,y) \leq \varepsilon \}
+            \ball_\varepsilon(x) := \{y \in X \mid d(x,y) < \varepsilon \}
         \end{align*}
         die (offene) \thmemph{$\varepsilon$-Umgebung} von $x$.
         
@@ -883,9 +888,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \begin{bem}
         Die durch die Standardmetrik induzierte Topologie auf $\R$ stimmt mit der in Bsp.~\ref{bsp:standard-r} definierten Standardtopologie überein.
     \end{bem}
-    \todo[inline]{beweisen? FL: Wenn nicht schon geschehen: Nein, danke.}
-
-
+%
+%
     Der folgende Satz besagt, dass ein stetiger Weg, der in einer Menge beginnt und außerhalb von ihr endet, immer einen Randpunkt passieren muss. Er wird zum Beweis von Satz \ref{satz:r2} verwendet und lässt sich möglicherweise nutzen, um zu zeigen, dass gewisse Punkte äußere Randpunkte sind (zum Begriff des äußeren Randes siehe Abschnitt \ref{sec:aeusserer-rand}).
     %
     \begin{satz}\label{satz:weg} %verwendung: {satz:r2}
