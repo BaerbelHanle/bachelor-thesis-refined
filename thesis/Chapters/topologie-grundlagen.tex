@@ -38,16 +38,16 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         Wenn $A \in \offen$ ist, so sagen wir: $A$ ist \thmemph{offen} in $(X, \offen)$.
     %
     \end{dfn}
-    
+    %
     \begin{konv}\label{konv:top}
         Wenn wir schreiben \glqq Sei $X$ ein topologischer Raum\grqq , so ist der topologische Raum $(X, \offen_X)$ mit $X$ als Grundmenge und zugehöriger Topologie $\offen_X$ gemeint. Wenn keine Verwechslungsgefahr besteht, schreiben wir auch $\offen$ für $\offen_X$.
     \end{konv}
-    
+    %
     Aus
     \marginpar{Standardtopologie auf $\R$}
     der Schule ist für die reellen Zahlen der Begriff des offenen Intervalls bekannt. Diese bilden für sich genommen jedoch noch keine Topologie, da Vereinigungen offener Intervalle, die sich nicht überschneiden, keine offene Intervalle sind.
     Durch Abschlussbildung unter Vereinigung lässt sich jedoch mit ihrer Hilfe eine Topologie definieren, die sogenannte Standardtopologie auf $\R$.
-    
+    %
     \begin{bsp}[Standardtopologie auf $\R$]\label{bsp:standard-r}\ \\
         Auf $\R$ ist die Standardtopologie folgendermaßen definiert:\\
         Eine Menge $M \subseteq \R$ ist offen, wenn sie leer ist oder sich als Vereinigung offener Intervalle schreiben lässt.
@@ -61,7 +61,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \begin{dfn}[Offene Umgebung, $\offen_X(p)$]\label{def:umg} \ \\
         Sei $X$ ein topologischer Raum. Eine Menge $U \subseteq X$ heißt \thmemph{offene Umgebung} von $p$ in $X$, wenn $p \in U \in \offen_X$ gilt. Die \thmemph{Menge der offenen Umgebungen} von $p$ in $X$ notieren wir mit $\offen_X(p)$. Falls wir nur eine Topologie betrachten, schreiben wir auch $\offen(p)$ für $\offen_X(p)$.
     \end{dfn}
-
+%
     Abgeschlossene
 %     \marginpar{abgeschlossene Menge,\\$\abg_X$}
     \marginpar{abgeschlossene Menge}
@@ -83,7 +83,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         (Beweis trivial)
     \end{satz}
 %     (Beweis trivial)
-    
+%    
     Folgender Satz ist eine einfache Folgerung aus den Definitionen.
     \begin{satz}\label{satz:differenz}%verwendung: satz:rand-abg
         Sei $X$ ein topologischer Raum, $A\in \abg$ und $B \in \offen$. Dann gelten:
@@ -92,7 +92,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
             \item $B \setminus A \in \offen$
         \end{enumerate}    
     \end{satz}
-    
+%    
     \begin{bew}
         Mit $A \in \abg$ ist $X\setminus A \in \offen$ und somit gelten
         \begin{enumerate}
@@ -100,13 +100,13 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
             \item $B \setminus A = B \cap (X \setminus A) \in \offen$.
         \end{enumerate}
     \end{bew}
-
-
+%
+%
     Ein
 %     \marginpar{Randpunkt,\\Randoperator,\\Rand,\\$\rand_X$}
     \marginpar{Rand}
     Randpunkt einer Menge ist ein Punkt, für den in jeder offenen Umgebung sowohl Punkte im Inneren als auch außerhalb der Menge liegen. Der Randoperator ordnet jeder Menge die Menge ihrer Randpunkte zu.
-
+%
     \begin{dfn}[Randoperator] \label{def:rand} \ \\
         Sei $X$ ein topologischer Raum. Dann ist der \thmemph{Randoperator} $\rand_X : 2^X \rightarrow 2^X$ auf $X$ definiert durch:
     %	
@@ -116,13 +116,13 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \end{align*}
         
     \end{dfn}
-
-    
+%
+%
     \begin{konv}
         Statt $\rand_X(A)$ schreiben wir auch $\rand_X A$ und falls keine Verwechslungsgefahr besteht $\rand(A)$ bzw. $\rand A$.
     \end{konv}
-
-    
+%
+%
     Folgendes
     \marginpar{Standardbeispiel}
     Beispiel für den Rand einer Menge wird im Laufe der Arbeit immer wieder genutzt, um verschiedene Begriffe und Fälle zu verdeutlichen und 
@@ -130,7 +130,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     im nächsten Kapitel ausgiebiger untersucht.
     Deshalb nenne ich es Standardbeispiel.
     Dies ist natürlich nicht vergleichbar mit der bereits erwähnten Standardtopologie oder der weiter unten eingeführten Standardmetrik, die auch außerhalb der vorliegenden Arbeit eine Bedeutung haben.
-    
+%    
     \begin{bsp}[Standardbeispiel]\label{bsp:standardbsp}\ \\
         Sei $$A := \bigcup_{n \in \N} [2^{-2n}, 2^{-2n+1}]$$ aus dem mit der in Bsp.\ \ref{bsp:standard-r} definierten Standardtopologie versehenen Raum $\R$.
         Dann ist
@@ -145,20 +145,19 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
 % 		An $\rand A$ lässt sich letztlich auch ersehen, wie $\N$ hier ausgelegt wird,
 % 		daher muss m.E. auch kein Zusatzhinweis sein.
 % 		}
-    
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[width=0.6\textwidth]{abb/standardbsp.png}
         \caption{Zum Standardbeispiel}
         \label{fig:standardbsp}
     \end{figure}
-    
-    
+%        
     Der
 %     \marginpar{Abschlussoperator,\\Abschluss,\\$\abg_X$}
     \marginpar{Abschluss}
     Abschluss einer Menge besteht aus der Menge selbst und all ihren Randpunkten. Diese Punkte liegen in dem Sinne \glqq sehr nah\grqq\ an der Menge, dass sie sich nicht durch offene Umgebungen von der Menge trennen lassen.
-    
+%    
     \begin{dfn}[Abschlussoperator, Abschluss]\label{def:abschl} \ \\
         Sei $X$ ein topologischer Raum. Dann ist der \thmemph{Abschlussoperator} $\cl_X : 2^X \rightarrow 2^X$ auf $X$ definiert durch:
     %		
@@ -173,7 +172,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \begin{konv}
         Statt $\cl_X(A)$ schreiben wir auch $\cl(A)$ wenn klar ist, auf welche Topologie wir uns beziehen.
     \end{konv}
-    
+%    
     \begin{bem}[Abschluss einer Menge unter einem Operator]\ \\
         Dem aufmerksamen Leser ist vielleicht aufgefallen, dass der Begriff des Abschlusses einer Menge in dieser Arbeit überladen ist.
         In Beispiel \ref{bsp:standard-r} wurde die Standardtopologie auf $\R$ als Abschluss der Menge der offenen Intervalle unter Vereinigung eingeführt.
@@ -185,12 +184,12 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         Eine Menge $M \subseteq X$ ist \thmemph{abgeschlossen} unter $f$, falls für alle $m_1, ... , m_n \in M$ gilt: $f(m_1, ... m_n) \in M$.
         Der \thmemph{Abschluss} einer Menge $M$ unter einer Operation $f$ ist die kleinste unter $f$ abgeschlossene Menge, die $M$ enthält.
     \end{bem}
-
-
+%
+%
     Das
     \marginpar{Kern}
     Innere einer Menge besteht aus allen Punkten dieser Menge, die keine Randpunkte sind. Das bedeutet, diese Punkte haben offene Umgebungen, die komplett in der Menge liegen.
-
+%
     \begin{dfn}[Kernoperator, Inneres] \label{def:kern} \ \\
         Sei $X$ ein topologischer Raum. Dann ist der \thmemph{Kernoperator} $\op_X : 2^X \rightarrow 2^X$ auf $X$ definiert durch:
     %	
@@ -201,23 +200,23 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         $\op_X(A)$ heißt das \thmemph{Innere} oder der \thmemph{Kern} von $A$.
 
     \end{dfn}
-
+%
     \begin{konv}
         Statt $\op_X(A)$ schreiben wir auch $\op(A)$ wenn klar ist, auf welche Topologie wir uns beziehen.
     \end{konv}
-
+%
     \begin{figure}[ht]
         \centering
         \includegraphics[height=7cm]{abb/top-grundbegr.png}
         \caption{Grundbegriffe der Topologie}
         \label{fig:top-grundbegr}
     \end{figure}
-
-
+%
+%
     \begin{bem}
         Üblicherweise werden der Abschluss von $A$ mit $\bar A$, das Innere mit $A^\circ$ bezeichnet. Da diese Notationen jedoch keine Unterscheidung zwischen verschiedenen Topologien zulassen, sind sie für die vorliegende Arbeit unpraktisch.
     \end{bem}
-    
+%    
     \begin{bsp}[Abschluss und Kern am Standardbeispiel]\label{bsp:standardbsp-abschl-kern}\ \\
         Für die in Bsp.\ \ref{bsp:standardbsp} definierte Menge ${A = \bigcup_{n \in \N} [2^{-2n}, 2^{-2n+1}]}$ mit Rand\\${\rand A = \{\frac{1}{2^n} \mid n \in \N\} \cup \{0\}}$ sind Abschluss und Kern gegeben durch:
         \begin{align*}
@@ -229,7 +228,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
 %		NB: Da ich hier erneut den Exponenten der 2.\ Komponente angepasst habe, wäre
 %		ggf.\ die Arbeit nochmal an anderen Stellen des Standardbeispiels anzuschauen,
 %		ob der Exponent auftritt.}
-
+%
     Im
     \marginpar{Eigenschaften\\ von $\cl$, $\op$ und $\rand$}
     Folgenden werden hilfreiche Eigenschaften der topologischen Operatoren aufgeführt, die für die Beweise über die \strukt nützlich sind oder sein könnten.
@@ -248,7 +247,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \end{enumerate}	
         
     \end{satz}
-
+%
     \begin{bew}%[Satz \ref{satz:cl}]
         \ 
 
@@ -277,8 +276,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \thmemph{Zu \ref{satz:cl.2}-\ref{satz:cl.8}:} siehe \ref{anh:cl.2} - \ref{anh:cl.8}.
 
     \end{bew}
-
-
+%
+%
     \begin{kor} \label{kor:cl}\ \vspace{0pt}
         \begin{enumerate}
             \item \label{kor:cl.1} $\cl(A)$ ist abgeschlossen in X.
@@ -287,7 +286,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
             \item \label{kor:cl.4} $\cl(\cl(A)) = \cl(A)$
         \end{enumerate}
     \end{kor}
-
+%
     \begin{bew}
         \
 
@@ -298,8 +297,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \thmemph{Zu \ref{kor:cl.4}:} Ebenfalls eine Folgerung aus Satz \ref{satz:cl}.\ref{satz:cl.1}. Dieser Satz besagt $\cl(\cl(A))$ ist die kleinste abgeschlossene Obermenge von $\cl(A)$. Da $\cl(A)$ selbst abgeschlossen ist (\ref{kor:cl.1}.) muss also gelten $\cl(\cl(A)) = \cl(A)$.
 
     \end{bew}
-
-
+%
+%
     \begin{satz}[Eigenschaften des Kernoperators] \label{satz:op}\ \\
         Sei $X$ ein topologischer Raum, $A, B \subseteq X$. Dann gelten:
     %	
@@ -314,7 +313,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \end{enumerate}	
         
     \end{satz}
-
+%
     \begin{bew} 
     \ 
 
@@ -342,8 +341,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \thmemph{Zu \ref{satz:op.7}:} Da $\op(A)$ nach \ref{satz:op.1}. offen ist, gibt es für jeden Punkt $x$ in $\op(A)$ eine offene Umgebung, die in $A$ und somit auch in $B$ liegt. Also liegt $x$ auch in $\op(B)$.
         
     \end{bew}
-
-
+%
+%
     \begin{kor} \label{kor:op}\ \vspace{0pt}
         \begin{enumerate}
             \item $\op(A)$ ist offen in $X$. \label{kor:op.1}
@@ -352,7 +351,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \end{enumerate}
     %
     \end{kor}
-
+%
     \begin{bew}
         \
 
@@ -363,15 +362,15 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \thmemph{Zu \ref{kor:cl.4}:} Ebenfalls eine Folgerung aus Satz \ref{satz:op}.\ref{satz:op.1}. Dieser Satz besagt $\op(\op(A))$ ist die größte in $X$ offene Teilmenge von $op(A)$. Da $op(A)$ selbst offen ist in $X$ (\ref{kor:op.1}.), muss also gelten $\op(\op(A)) = \op(A)$.
 
     \end{bew}
-    
+%    
     Im Allgemeinen gelten nicht ${\cl(A \cap B) = \cl(A) \cap \cl(B)}$ und \\
     ${\op(A \cup B) = \op(A) \cup \op(B)}$, wie folgendes Gegenbeispiel belegt.
     %
     \begin{gegenbsp}
         Wähle ${X := \{1,2\}}$, ${\offen_X := \{\varnothing, \{1\}, \{1,2\}\}}$, ${A:= \{1\}}$ und ${B:=\{2\}}$.
     \end{gegenbsp}
-    
-    
+%    
+%    
     \begin{satz}[Eigenschaften des Randoperators] \label{satz:rand} \ \\
         Seien $X$ ein topologischer Raum, $A, B \subseteq X$. Dann gelten
     %	
@@ -389,13 +388,13 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \end{satz}
     %
     Zu den Beweisen von \ref{satz:rand.1} - \ref{satz:rand.7} siehe Anhang \ref{anh:rand.1} - \ref{anh:rand.7}. Der Beweis von \ref{satz:rand.8} ist trivial.
-
-
+%
+%
     \begin{bem} \label{bem:rand}
         Warum ist der Randoperator im Gegensatz zum Abschluss- und zum Kernoperator nicht idempotent? Wieso lässt sich \ref{satz:rand}.\ref{satz:rand.1}. also nicht verschärfen zu $\rand(\rand(A)) = \rand(A)$? Ein einfaches Gegenbeispiel ist nicht schwer zu finden. Seien $X := \{a, b\}$, $\offen := \{\varnothing, X\}$, $A := \{a\}$. Dann lässt sich leicht nachprüfen, dass $\offen$ eine Topologie ist und dass $\rand(A) = X$ und $\rand(\rand(A)) = \varnothing$ gelten.
     \end{bem}
-
-
+%
+%
     \begin{kor}\label{kor:rand-abg}
         Seien $X$ ein topologischer Raum und $A \subseteq X$. Dann gilt $\rand A \in \abg$.
     \end{kor}
@@ -404,8 +403,9 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         Da $\cl(A) \in \abg$ und $\op(A) \in \offen$, ist wegen \\
         $\rand A = \cl(A) \setminus \op(A)$ nach Satz \ref{satz:differenz} $\rand A \in \abg$.
     \end{bew}
-    
+%    
     Der folgende Satz erweist sich als nützlich, wenn wir die Ränder lokal gleicher Mengen betrachten, die in Abschnit \ref{sec:lokale-gleichheit} eingeführt werden und Grundlage der Definition der Objektäquivalenz sind.
+%
     \begin{satz} \label{satz:AdB=AdC}\ \vspace{8pt}
 
         \noindent
@@ -418,13 +418,13 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         (Beweis siehe Anhang \ref{anh:AdB=AdC})
     \end{satz}
     %(Beweis siehe Anhang \ref{anh:AdB=AdC})
-    
-    
+%    
+%    
     Bei
     \marginpar{Häufungspunkt}
     der Analyse des Standardbeispiels in Abschnitt \ref{ssec:standardbsp} wird der Begriff des Häufungspunktes einer Menge genutzt. 
     Das ist ein Punkt, für den in jeder Umgebung noch weitere Punkte aus der Menge liegen.
-    
+%
     \begin{dfn}[Häufungspunkt]\ \\
         Seien $X$ ein topologischer Raum, $A \subseteq X$.
         Ein Punkt $x \in X$ heißt \thmemph{Häufungspunkt} von $A$ in $X$, falls gilt
@@ -434,31 +434,30 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         $\HP_X(A)$ bezeichnet die \thmemph{Menge der Häufungspunkte} von $A$ in $X$.
         Falls eine Verwechslung ausgeschlossen ist, schreiben wir auch $\HP(A)$ für $\HP_X(A)$.
     \end{dfn}
-
-    %\begin{bem}
-        Man beachte, dass eine Menge auch Häufungspunkte haben kann, die außerhalb von ihr liegen, wie folgendes Beispiel zeigt.
-    %\end{bem}
-    
+%
+%
+    Man beachte, dass eine Menge auch Häufungspunkte haben kann, die außerhalb von ihr liegen, wie folgendes Beispiel zeigt.
+%    
     \begin{bsp}[Häufungspunkte am Standardbeispiel]\ \\
         Die sowohl die Menge ${A = \bigcup_{n \in \N} [2^{-2n}, 2^{-2n+1}]}$ aus Bsp.~\ref{bsp:standardbsp} als auch $\R \setminus A$ haben $0$ als Häufungspunkt.
     \end{bsp}
-    
+%    
     \begin{bew}
         Dass $0$ Häufungspunkt von $\R \setminus A$ ist, ist klar, denn jede offene Umgebung von $0$ enthält negative Zahlen, die nicht in $A$ liegen.\\
         Sei nun $U \in \offen_{\R}({0})$. Dann gibt es nach Definition der Standardtopologie (\ref{bsp:standard-r}) ein offenes Intervall $(a,b) \subseteq U$ mit $a < 0 < b$.
         Sei $N \in \N$ mit $\frac{1}{2^N} < b$. Dann ist $0 \neq \frac{1}{2^N} \in A \cap (a,b) \subseteq A \cap U$ und somit $U \cap (A \setminus \{0\}) \neq \varnothing$.
         Also ist $0$ ein Häufungspunkt von $A$.
     \end{bew}
-
+%
 %    \todo[inline]{FL: auf ``und $(a,b)$.'' kann ich mir aktuell leider keinen Reim machen. Fehlt ein $\in \ldots$ oder $\subseteq \ldots$, z.B. $\subseteq A$? Führt $A \setminus \{0\} = A$ nicht schon schneller zu $U \cap (A \setminus \{x\}) \neq \varnothing$?}
-    
+%    
     \begin{bsp}[Häufungspunkte auf dem Rand des Standardbeispiels]\label{bsp:standardbsp-rand-hp}\ \\
         Der Rand $\rand A = \{\frac{1}{2^n} \mid n \in \N\} \cup \{0\}$ der Menge $A$ aus dem Standardbeispiel hat $0$ als einzigen Häufungspunkt.\\
         (Beweis: siehe Anhang \ref{anh:standardbsp-rand-hp})
     \end{bsp}
     %\vspace{-4pt}
 %     Beweis: siehe Anhang \ref{anh:standardbsp-rand-hp} 
-
+%
     Der Begriff des Häufungspunktes ermöglicht eine alternative Definition von Abschluss und Kern einer Menge, der das intuitive Verständnis dieser Konzepte erweitert und in manchen Fällen Beweise vereinfachen kann.
     \begin{satz}[Abschluss und Kern über Häufungspunkte]\label{satz:cl-op-hp}\ \\
         Seien $X$ ein topologischer Raum, $A \subseteq X$. Dann gelten:
@@ -469,13 +468,14 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         (Beweis: siehe Anhang \ref{anh:cl-op-hp})
     \end{satz}
     %Beweis: siehe Anhang \ref{anh:cl-op-hp}.
-
+%
     %Topologien sind die allgemeinsten Räume für die sich der Begriff der Stetigkeit einer Abbildung definieren lässt.
     Ein
     \marginpar{Stetigkeit}
     zentraler Begriff der Topologie ist die Stetigkeit.
     Stetige Abbildungen sind die Morphismen der Kategorie der topologischen Räume.
-    \todo[inline]{wo wird dieser Begriff in der Arbeit verwendet? \ref{satz:weg}}
+    In dieser Arbeit wird er unter anderm im Satz \ref{satz:weg} im Kontext stetiger Wege genutzt.
+%
     \begin{dfn}[Stetigkeit]\label{def:stetig} \ \\%verwendung: {satz:weg}
         Seien $X$ und $Y$ topologische Räume.
         Eine Abbildung $f: X \to Y$ ist \thmemph{stetig}, wenn für alle $V \in \offen_Y$ gilt: $f^{-1}(V) \in \offen_X$.
@@ -517,7 +517,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         die von $X$ auf $A$ \thmemph{induzierte Topologie} -- die sogenannte \thmemph{Teilraumtopologie} von $A$ .
         
     \end{dfn}
-    
+%    
     Der folgende Satz besagt, dass das so definierte Mengensystem $\offen_A$ tatsächlich eine Topologie ist.
     %
     \begin{satz} \label{satz:trTop}\ \\
@@ -537,18 +537,16 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         Also gilt auch T2.\\
         Der Nachweis, dass beliebige Vereinigungen von Mengen aus $\offen_A$ wieder in $\offen_A$ sind (T3), verläuft analog.
     \end{bew}
-
-    
-    
+%
+%        
     \begin{figure}[ht]
         \centering
         \includegraphics[height=4.5cm]{abb/teilraumtop.png}
         \caption{Teilraumtopologie}
         \label{fig:teilraumtop}
     \end{figure}
-    
-    
-    
+%    
+%        
     \begin{bsp}[Teilraumtopologie Standardbeispiel]\ \\
         In der Teilraumtopologie von ${\rand A = \{\frac{1}{2^n} \mid n \in \N\} \cup \{0\}}$ (siehe Bsp.~\ref{bsp:standardbsp}) sind alle Mengen $M$ 
         \begin{itemize}
@@ -560,8 +558,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         Zusammen mit \\
         ${\cl(M) = M \cup \HP(M)}$ und ${\op(M) = M \setminus \HP(\rand A \setminus M)}$ ergeben sich die Aussagen.
     \end{bsp}
-
-
+%
+%
     Analog zu den offenen Mengen entstehen die abgeschlossenen Mengen in $A \subseteq X$ durch Schnitte mit in $X$ abgeschlossenen Mengen.
     %
     \begin{satz} \label{satz:trAbg}\ \vspace{8pt}
@@ -575,8 +573,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         
     \end{satz}
     %(Beweis siehe \ref{anh:trAbg})
-
-
+%
+%
     Ist $A \subseteq X$ offen in $X$, so sind alle in $A$ offenen Mengen auch offen in $X$. Analoges gilt für abgeschlossene Mengen.
     %
     \begin{kor}\label{kor:OX-OA-CX-CA}
@@ -594,8 +592,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
             \item Mit vorherigem Satz analog.
         \end{enumerate}
     \end{bew}
-
-
+%
+%
     Der folgende Satz wird in den Beweisen von \ref{satz:da1=da2} und \ref{kor:da1=da2} verwendet.
     %
     \begin{satz} \label{satz:dAB<clB}\ \vspace{8pt}
@@ -610,8 +608,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         (Beweis siehe Anhang \ref{anh:dAB<clB})
     \end{satz}
 %     (Beweis siehe \ref{anh:dAB<clB})
-
-
+%
+%
     Der folgende Satz wird zum Beweis von Korollar \ref{kor:cl-rand-A1-A2} verwendet.
     %
     \begin{satz}\label{satz:clA1-teil-clA2}\ \\
@@ -620,18 +618,18 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \end{satz}
     %
 %     (Beweis siehe \ref{anh:clA1-teil-clA2})
-
-
+%
+%
     Für einen topologischen Raum $X$ und Teilmengen $A_1, A_2, B \subseteq X$ mit $B \subseteq A_1 \cap A_2$ muss nicht notwendigerweise gelten $\cl_{A_1}(B) \subseteq A_2$.
     %
     \begin{gegenbsp}
         Man nehme $X = \{0,1\}, \offen_X = \{\varnothing, \{0,1\}\}, A_1 = X, A_2 = \{0\}, B = \{0\}$. Dann ist $\abg_X = \{\varnothing, \{0,1\}\}$ also $\abg_{A_1} = \{\varnothing, \{0,1\}\}$ und damit $\cl_{A_1} = \{0,1\} \nsubseteq A_2$
     \end{gegenbsp}
-    %
+%
 % 		\todo[inline]{FL: müsste es nach ``damit'' heißen:
 % 		$\cl_{A_1}(B) = \{0,1\} \nsubseteq A_2$ ?\\
 % 		-> BH: das ist richtig}
-    %
+%
     Folgender Satz besagt jedoch, dass diese Aussage gilt, falls $A_1$ und $A_2$ Ränder von Mengen sind.
     %
     \begin{satz}\label{satz:cl-dA1-dA2}\ \\
@@ -642,34 +640,35 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \end{satz}
     %
 %     (Beweis siehe \ref{anh:cl-dA1-dA2})
-
-
+%
+%
     \begin{kor}\label{kor:cl-rand-A1-A2}
         Seien $X$ ein topologischer Raum, $A_1, A_2 \subseteq X$ und $B \subseteq \rand A_1 \cap \rand A_2$.\\
         Dann ist ${\cl_{\rand A_1}(B) = \cl_{\rand A_2}(B)}$.
     \end{kor}
-    %
+%
     \begin{bew}
         Aus dem vorherigen Satz folgen $\cl_{\rand A_1}(B) \subseteq \rand_{A_2}B$ und $\cl_{\rand A_2}(B) \subseteq \rand_{A_1}B$. Deshalb lässt sich mit Satz \ref{satz:clA1-teil-clA2} folgern \\
         ${\cl_{\rand A_1}(B) \subseteq \cl_{\rand A_2}(B)}$ und ${\cl_{\rand A_2}(B) \subseteq \cl_{\rand A_1}(B)}$.
     \end{bew}
-
+%
     Unter den Voraussetzungen von Korollar \ref{kor:cl-rand-A1-A2} gilt nicht notwendigerweise ${\op_{\rand A_1}(B) = \op_{\rand A_2}(B)}$.
-    
+%    
     \begin{gegenbsp}\label{gegenbsp-teiltop}\ \\
         Als Gegenbeispiel wähle $X = \R^2$, ${A_1 = \{(x,y) \in \R^2 \mid x*y < 0\}}$, ${A_2 = \{(x,y) \in \R^2 \mid x > 0, y > 0\}}$, \\
         ${B = \{0\} \times (0, \infty) \cup (0,\infty) \times \{0\}}$.\\
         Dann ist ${(0,0) \notin \op_{\rand A_1}(B)}$ aber ${(0,0) \in \op_{\rand A_2}(B)}$.
     \end{gegenbsp}
-    %
+%
     \begin{figure}[ht]
         \centering
         \includegraphics[height=7cm]{abb/gegenbsp-teilraumtop.png}
         \caption{Zu Gegenbeispiel \ref{gegenbsp-teiltop}}
         \label{fig:gegenbsp-teilraumtop}
     \end{figure}
-
+%
     Daraus folgt, dass sich die Teilraumtopologien auf den Rändern von Mengen unter gewissen Bedingungen ähneln.
+%
     \begin{satz}\label{satz:da1=da2} \ \vspace{8pt}
 
         \noindent
@@ -689,8 +688,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         
     \end{satz}
 %     (Beweis siehe \ref{anh:da1=da2})
-
-    %
+%
+%
     \begin{kor}\label{kor:da1=da2} \ \vspace{8pt}
 
         \noindent
@@ -753,8 +752,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         \end{enumerate}
     %	
     \end{dfn}
-
-
+%
+%
     Die
     \marginpar{$\varepsilon$-Umgebung}
     $\varepsilon$-Umgebung eines Punktes besteht aus allen Punkten, die ihm $\varepsilon$-nahe sind, also einen kleineren Abstand als $\varepsilon$ haben.
@@ -772,11 +771,12 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         die (offene) \thmemph{$\varepsilon$-Umgebung} von $x$.
         
     \end{dfn}
-
-
+%
+%
     In
     \marginpar{Topologie metrischer Räume}
     einem metrischen Raum ist ein innerer Punkt einer Menge ein Punkt, der eine $\varepsilon$-Umgebung hat, die ganz in dieser Menge liegt. Dies führt zu folgender Definition für offene Mengen in metrischen Räumen.
+%
     \begin{dfn}[Topologie metrischer Räume] \label{def:topMet} \ \vspace{8pt}
 
         \noindent
@@ -787,7 +787,7 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         die von \thmemph{$d$ induzierte Topologie} auf $X$.
         
     \end{dfn}
-
+%
     Der folgende Satz besagt, dass das so definierte Mengensystem tatsächlich im Sinne von \ref{def:top} eine Topologie ist.
     %
     \begin{satz}
@@ -811,8 +811,8 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         %\item den $co$-Operator in $X$ mit $co_d$
         \end{itemize}
     \end{nota}
-
-
+%
+%
     Die abgeschlossenen Mengen in einem metrischen Raum lassen sich auf ähnliche Weise definieren wie die offenen.
     %
     \begin{satz} \label{satz:Cd} \ \hspace{8pt}
@@ -833,15 +833,15 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
             &= \{A \subseteq X \mid \forall\: x \in X (\: \forall\: \varepsilon > 0 : \ball_\varepsilon(x) \cap A \neq \varnothing \rightarrow x \in A \:) \} 
         \end{align*}
     \end{bew}
-
-
+%
+%
 %     \begin{satz} \label{satz:dAabg}
 %         Seien $(X,d)$ ein metrischer Raum, $A \subseteq X$. Dann gilt $\rand_d A \in \abg_d$.
 %     \end{satz}
 %     (Beweis siehe \ref{anh:dAabg})
-      % bem: unnötig, da schon in Korollar \ref{kor:rand-abg} allgemein bewiesen
-
-
+%      % bem: unnötig, da schon in Korollar \ref{kor:rand-abg} allgemein bewiesen
+%
+%
 %     \begin{kor} \label{kor:BinCA-BinC}
 %         Seien $(X,d)$ ein metrischer Raum, $A \subseteq X$, $B \in \abg_{\rand_d A}$. Dann gilt: $B \in \abg_d$.
 %     \end{kor}
@@ -850,20 +850,20 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
 %         Aus Korollar \ref{kor:rand-abg} folgt $\rand_d A \in \abg$. Aus Satz \ref{satz:trAbg} wissen wir da $B \in \abg_{\rand_d A}$ ist gibt es ein $B' \in \abg_d$ mit $B = B' \cap \rand_d A$. Als Schnitt abgeschlossener Mengen ist dann $B$ auch abgeschlossen (vgl. Satz \ref{satz:cl}).
 %     \end{bew}
     % bem: unnötig, da Spezialfall von Korollar \ref{kor:OX-OA-CX-CA}
-
-
-    \todo[inline]{prüfen, ob folgender Satz raus kann, da er nicht verwendet wird}
-    \begin{satz}\label{satz:ball}
-    Sei $(X,d)$ ein metrischer Raum, $x \in X$. Seien $\varepsilon, \delta \in \R$ mit $0 < \varepsilon< \delta$. Dann gilt: $\cl_d(\ball_\varepsilon(x)) \subseteq \ball_\delta(x)$.
-    \end{satz}
-    %
-    \begin{bew}
-    Sei $y \in \cl_d(\ball_\varepsilon(x))$. Dann gilt für alle $\eta > 0$:\\ $\ball_\eta(y) \cap U_\varepsilon(x) \neq \varnothing$. Sei $\eta = \delta - \varepsilon$. Sei $z \in U_\eta(y) \cap U_\varepsilon(x)$. Nach der Dreiecksungleichung gilt dann:
-    $$d(x,y) \leq d(x,z) + d(z,y) < \varepsilon + \eta = \delta.$$
-    Also ist $y \in \ball_\delta(x)$.
-    \end{bew}
-
-
+%
+%
+%     \todo[inline]{prüfen, ob folgender Satz raus kann, da er nicht verwendet wird}
+%     \begin{satz}\label{satz:ball}
+%     Sei $(X,d)$ ein metrischer Raum, $x \in X$. Seien $\varepsilon, \delta \in \R$ mit $0 < \varepsilon< \delta$. Dann gilt: $\cl_d(\ball_\varepsilon(x)) \subseteq \ball_\delta(x)$.
+%     \end{satz}
+%     %
+%     \begin{bew}
+%     Sei $y \in \cl_d(\ball_\varepsilon(x))$. Dann gilt für alle $\eta > 0$:\\ $\ball_\eta(y) \cap U_\varepsilon(x) \neq \varnothing$. Sei $\eta = \delta - \varepsilon$. Sei $z \in U_\eta(y) \cap U_\varepsilon(x)$. Nach der Dreiecksungleichung gilt dann:
+%     $$d(x,y) \leq d(x,z) + d(z,y) < \varepsilon + \eta = \delta.$$
+%     Also ist $y \in \ball_\delta(x)$.
+%     \end{bew}
+%
+%
     Auf
     \marginpar{Standardmetrik des $\R^n$}
     $\R^n$ liefert der euklidische Abstand, der mit Hilfe des Skalarprodukts berechnet werden kann, eine Metrik -- die sogennannte Standardmetrik des $\R^n$.
@@ -880,11 +880,11 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
         Die durch die Standardmetrik induzierte Topologie auf $\R^n$ bezeichnen wir mit $\offen_n$.
         
     \end{dfn}
-
+%
     \begin{konv}\label{konv:d3}
         Statt $d_3$ schreiben wir auch einfach $d$.	
     \end{konv}
-    
+%    
     \begin{bem}
         Die durch die Standardmetrik induzierte Topologie auf $\R$ stimmt mit der in Bsp.~\ref{bsp:standard-r} definierten Standardtopologie überein.
     \end{bem}
@@ -895,14 +895,14 @@ Die eingeführten Begriffe und Notationen finden sich auf den herausnehmbaren Ü
     \begin{satz}\label{satz:weg} %verwendung: {satz:r2}
         Sei $X$ ein topologischer Raum. Sei $A \subset X$. Seien $x \in A$, $y \in X \setminus A$. Seien $a,b \in \mathbb{R}$ mit $a < b$. Sei $\gamma : [a,b] \to X$ ein stetiger Weg mit $\gamma(a) = x$ und $\gamma(b) = y$. Dann gibt es ein $t \in [a,b]$ mit $\gamma(t) \in \rand A$.
     \end{satz}
-    
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[height=5cm]{abb/weg_sw.png}
         \caption{Zum Beweis von Satz \ref{satz:weg}}
         \label{fig:weg}
     \end{figure}
-
+%
     \begin{bew}
         Definiere eine Intervallschachtelung $([a_i, b_i])_{i \in \N}$ auf folgende Weise:
         \begin{enumerate}
