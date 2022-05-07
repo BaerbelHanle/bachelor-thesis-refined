@@ -1,25 +1,24 @@
 \chapter{Nebenresultate}\label{chap:nebenresultat}
 
-\section{Neue topologische Begriffe}
-
-    - echter Rand im gegensatz zu innerem Rand
-    - erster Ansatz, der zum Begriff der einfachen Mengen geführt hat
-    - auf einfachen Mengen entspricht der echte Rand dem (topologischen) Rand
+\section{Echter Rand}
+    In einer ersten Annäherung an die \strukt, wurden Raumregionen als beliebige Teilmengen mit nichtleerem Inneren des $\R^3$ eingeführt, Flächenregionen als Mengen auf deren Rändern usw.
+    Diese Mengen können niederdimensionale Ausläufer und Löcher haben, die im Sinne von $\theoryBSO$ nicht als räumliche Grenzen gelten sollten. 
+    Der hier vorgestellte Ansatz arbeitet deshalb mit dem Begriff der einfachen Menge. 
+    In einer früheren Version wurde dieses Problem durch den Begriff des echten Randes gelöst.
+    Für einfache Mengen entspricht er dem topologischen Rand.
 
     \begin{dfn}[Echter Randoperator, echter Rand]\label{def:echtR} \ \vspace{8pt}
 
         \noindent
         Sei $X$ ein topologischer Raum. Dann ist der \textbf{echte Randoperator} $\Delta_X : 2^X \to 2^X$ definiert durch
     %	
-        \begin{align}
+        \begin{align*}
             \Delta_X := \rand_X \circ \co_X.
-        \end{align}
+        \end{align*}
     %	
         Für eine Teilmenge $A \subseteq X$ heißt $\Delta_X(A)$ der \textbf{echte Rand} von $A$. Wenn eine Verwechslung mit anderen Topologien ausgeschlossen ist, schreiben wir auch $\Delta$.
         
     \end{dfn}
-
-    \todo{Beispiele}
 
     \begin{satz} \label{satz:dco=doc} \ \vspace{8pt}
 
@@ -27,14 +26,17 @@
         Seien $X$ ein topologischer Raum, $A \subseteq X$. Dann gilt
         \begin{align*}
             \Delta(A) = \co(A) \setminus \oc(A) = \rand \circ \oc(A)
-        \end{align*}	
+        \end{align*}
+        (Beweis siehe \ref{anh:doc=doc})
     \end{satz}
-    (Beweis siehe \ref{anh:doc=doc})
-    %\vspace{8pt}
-    \todo{Malerkreppbild}
     
-    - Kaskadierter Randoperator zur Verallgemeinerung der vorgestellten Interpretation
-    - ursprüngliches Ziel: Interpretationsfamilie
+    
+\section{Kaskadierter Randoperator}\label{sec:kaskadierter-ro}
+    Lange Zeit wurde der Ansatz verfolgt, eine ganze Familie von Interpretationen für $\theoryBSO$ zu definieren (siehe hierzu auch \ref{sec:offene-fragen}).
+    Einer der Parameter dieser Familie war der zugrundgelegte Randbegriff.
+    Da sich dieser für Raumregionen, euklidischen Flächen und euklidischen Linien definiert werden muss, wurde als allgemeinste Definition der kaskadierte Randoperator eingeführt.
+    Er baut auf den Begriff des relevanten Randoperators auf.
+    das ist ein Randoperator, der sich zwischen den Grenzfällen des echten und des äußeren Randes bewegt.
     
         \begin{dfn}[Relevanter Randoperator]\label{dfn:relevanter-rand} \ \vspace{8pt}
 
@@ -71,10 +73,7 @@
         Jede so konstruierte Funktion ist ein \textbf{kaskadierter Randoperator}.
     \end{dfn}
     
-    
-    
-    
-% \section{Lokal maximal-dimensional zusammenhängende Raumentitäten}\label{sec:lok-zusammenhang}
+
 \section{Lokaler Zusammenhang}\label{sec:lok-zusammenhang}
 
     In Abbildung \ref{fig:zusammenhang} ist 
@@ -127,29 +126,9 @@
         
     \end{dfn}
 %     
-%     In Abbildung \ref{fig:lok0dc} ist ein Beispiel einer lokal 0-dimensional zusammenhängenden Raumregion dargestellt.
-%     
-
-
     Da es in $\theoryBS$ keinen Abstandsbegriff gibt, lässt sich diese Definition nicht so ohne weiteres auf die Theorie hochziehen. 
     In $\theoryBS$ definiere ich den lokalen Zusammenhang auf folgende Weise:
-
-    % Wenn wir erst den Begriff des maximaldimensionalen zusammenhangs einführen, müssen wir dafür nicht zwischen Raum- und Flächenregionen unterscheiden.
-    % 
-    % Eine Raumentität ist maximaldimensional zusammenhängend, wenn sie aufgrund ihrer Dimension nicht stärker zusammenhängend sein kann.
-    % 
-    % \begin{dfn}[$x$ ist maximaldimensional zusammenhängend]
-    %     \begin{align*}
-    %         \Gmaxcon(x) := 
-    %             &(\GSReg(x) \wedge \GtwoDC(x)) \lor 
-    %             (\GtwoDE(x) \land \GoneDC(x)) \lor
-    %             \\
-    %             &(\GoneDE(x) \land \GzeroDC(x)) \lor \GzeroD(x)
-    %     \end{align*}
-    % 
-    % \end{dfn}
-
-
+%
     \begin{dfn}[$x$ ist lokal $0$/$1$-dimensional zusammenhängend in $y$]
         \begin{align*}
             \Gloczerodc(x,y) := &\GzeroD(y) \land \Gtangpart(y,x) \land
@@ -166,7 +145,7 @@
         \end{align*}
 
     \end{dfn}
-
+%
     Es ist noch zu zeigen, dass beide Definitionen kompatibel sind.
     Abbildung \ref{fig:loc1dc} zeigt ein Beispiel einer lokal $1$-dimensional zusammenhängenden Raumregion.
 
