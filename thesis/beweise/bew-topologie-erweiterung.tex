@@ -210,8 +210,8 @@
     \begin{align*}
         \co(A \cup B) 
            &= \cl(\op(A \cup B)) 
-           \overset{Satz \ref{satz:op}.\ref{satz:op.4}}{\supseteq} \cl(\op(A) \cup \op(B))
-           \overset{Satz \ref{satz:cl}.\ref{satz:cl.4}}{=} \cl(\op(A)) \cup \cl(\op(B))\\
+           \overset{Satz \ref{satz:op}.\ref{satz:op.4}}{\supseteq} \cl(\op(A) \cup \op(B))\\
+           &\overset{Satz \ref{satz:cl}.\ref{satz:cl.4}}{=} \cl(\op(A)) \cup \cl(\op(B))\\
            &= \co(A) \cup \co(B)
            = A \cup B
     \end{align*}
@@ -224,8 +224,8 @@
     \begin{align*}
         \oc(A \cap B) 
            &= \op(\cl(A \cap B)) 
-           \overset{Satz \ref{satz:cl}.\ref{satz:cl.3}}{\subseteq} \op(\cl(A) \cap \cl(B))
-           \overset{Satz \ref{satz:op}.\ref{satz:op.3}}{=} \op(\cl(A)) \cap \op(\cl(B))\\
+           \overset{Satz \ref{satz:cl}.\ref{satz:cl.3}}{\subseteq} \op(\cl(A) \cap \cl(B))\\
+           &\overset{Satz \ref{satz:op}.\ref{satz:op.3}}{=} \op(\cl(A)) \cap \op(\cl(B))\\
            &= \oc(A) \cap \oc(B)
            = A \cap B
     \end{align*}
@@ -310,7 +310,14 @@
 \subsubsection{Zu Satz \ref{satz:AohneB-abg}}\label{anh:AohneB-abg}
     Zu zeigen ist: Aus $A \in \CO$, $B \in \abg$ und $A \setminus B \neq \varnothing$ folgt $\op(A \setminus B) \neq \varnothing$.\\
     Sei $x \in A \setminus B$. Dann ist $x \notin B = \cl(B) = \cl(B)$ und somit gibt es ein ${U \in \offen(x)}$ mit ${U \cap B = \varnothing}$. Da $A$ maximaldimensional ist, gilt dann
-    $$\varnothing \neq U \cap \op(A) = (U \setminus B) \cap \op(A) = U \cap (\op(A) \setminus B) \subseteq \op(A) \setminus B = \op(A) \setminus \cl(B) = \op(A \setminus B).$$
+    \begin{align*}
+        \varnothing \neq U \cap \op(A) 
+        &= (U \setminus B) \cap \op(A) 
+        = U \cap (\op(A) \setminus B) 
+        \subseteq \op(A) \setminus B \\
+        &= \op(A) \setminus \cl(B) 
+        = \op(A \setminus B).
+    \end{align*}
     
 
 \subsubsection{Zu Satz \ref{satz:AohneB-offen}}\label{anh:AohneB-offen}
@@ -371,9 +378,10 @@ Zu zeigen ist
 \noindent
 \textbf{Zu \ref{anh:dco=doc.1}:}
 	\begin{align*}
-		\Delta_X(A) &= \rand_X(co_X(A)) &\\
+		\Delta_X(A) &= \rand_X(co_X(A)) \\
 		&= cl_X(cl_X(op_X(A))) \setminus op_X(cl_X(op_X(A))) \\
-		&= co_X(A) \setminus oc_X(op_X(A)) &\subseteq co_X(A) \setminus oc_X(A)
+		&= co_X(A) \setminus oc_X(op_X(A)) \\
+		&\subseteq co_X(A) \setminus oc_X(A)
 	\end{align*} 
 	Die letzte Gleichung gilt, da $A \subseteq op_X(A)$ und damit $oc_X(A) \subseteq oc_X(op_X(A))$ ist, gilt.
 	\footnote{Allerdings gilt nicht $oc_X(A) = oc_X(op_X(A))$. Für ein Gegenbeispiel siehe Bem \ref{bem:rand} }
@@ -411,9 +419,10 @@ Zu zeigen ist
 \noindent
 \textbf{Zu \ref{anh:dco=doc.4}:}
 	\begin{align*}
-		\rand_X(oc_X(A)) &= cl_X(oc(A)) \setminus op_X(oc_X(A)) &\\
-		&= cl_X(op_X(cl_X(A))) \setminus op_X(op_X(cl_X(A))) &\\
-		&\subseteq cl_X(op_X(A)) \setminus op_X(cl_X(A)) & = co_X(A) \setminus oc_X(A)
+		\rand_X(oc_X(A)) &= cl_X(oc(A)) \setminus op_X(oc_X(A)) \\
+		&= cl_X(op_X(cl_X(A))) \setminus op_X(op_X(cl_X(A))) \\
+		&\subseteq cl_X(op_X(A)) \setminus op_X(cl_X(A)) \\
+		& = co_X(A) \setminus oc_X(A)
 	\end{align*}
 
 

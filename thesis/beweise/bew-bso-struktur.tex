@@ -7,7 +7,8 @@
 \subsubsection{Zu Satz \ref{satz:spart-trans}}\label{anh:spart-trans}
 Zu zeigen ist: Die $\Gspart$-Relation ist transitiv.\\ \ \\
 %
-Da für $\Gdim(x) \neq \Gdim(y)$ gilt $\neg \Gspart(x,y)$ muss die Transitivität ($\Gspart(x,y) \:\land\: \Gspart(y,z) \quad \Rightarrow \quad \Gspart(x,z)$) nur für gleichdimensionale $x$, $y$ und $z$ gezeigt werden.
+Da für $\Gdim(x) \neq \Gdim(y)$ gilt $\neg \Gspart(x,y)$ muss die Transitivität\\
+($\Gspart(x,y) \:\land\: \Gspart(y,z) \to \Gspart(x,z)$) nur für gleichdimensionale $x$, $y$ und $z$ gezeigt werden.
 Für 3-dimensionale Raumentitäten (Topoide) folgt die Transitivität direkt aus der Definition und der Transitivität von \glqq $\subseteq$\grqq .\\
 Für niederdimensionale Raumentitäten sei hier beispielhaft der Beweis für 2-dimensionale Raumentitäten(Flächen) gezeigt, die anderen funktionieren analog. \\ \ \\
 %
@@ -29,7 +30,8 @@ Für niederdimensionale Raumentitäten sei hier beispielhaft der Beweis für 2-d
     14 & $\deshalb$ & 15. & $\exists\: U \in \offen(x): U \cap A_2 = U \cap A_3$ \\
     15 & $\deshalb$ & 16. & Sei $U_{23} \in \offen(x)$ mit $U_{23} \cap A_2 = U_{23} \cap A_3$ \\
     12,16 & $\deshalb$ & 17. & Sei $U := U_{12} \cap U_{23} \in \offen(x)$ \\
-    17 & $\deshalb$ & 18. & $U \cap A_1 = A_1 \cap U_{12} \cap U_{23} = U_{12} \cap A_2 \cap U_{23} = U_{12} \cap U_{23} \cap A_3 = U \cap A_3$ \\
+    17 & $\deshalb$ & 18. & $U \cap A_1 = A_1 \cap U_{12} \cap U_{23} = U_{12} \cap A_2 \cap U_{23}$\\ 
+                        &&& $= U_{12} \cap U_{23} \cap A_3 = U \cap A_3$ \\
     9,17,18 & $\deshalb$ & 18. & $\lightning$
 \end{longtable}	
 
