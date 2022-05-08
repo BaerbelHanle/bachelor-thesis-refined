@@ -1,7 +1,7 @@
 \chapter{Schlussbetrachtungen}\label{chap:diskussion}
-    Dieses Kapitel enthält zum einen eine relativ ausführliche Zusammenfassung der \textcolor{red}{Arbeit}, die -- Grundkenntnisse der formalen Logik und der mengentheoretischen Topologie vorausgesetzt -- im Großen und Ganzen auch für sich gelesen werden kann,
+    Dieses Kapitel enthält zum einen eine ausführliche Zusammenfassung der \textcolor{red}{Arbeit}, die -- Grundkenntnisse der formalen Logik und der mengentheoretischen Topologie vorausgesetzt -- im Großen und Ganzen auch für sich gelesen werden kann,
     zum anderen eine Sammlung offener Fragen, die sich im Laufe der \textcolor{red}{Arbeit} ergeben haben.
-    
+\todo[inline]{FL: mir unklar, was rote Hervorhebungen markieren -> müssten wohl noch raus; dies gilt im gesamten Kapitel. NB, falls eine Adäquatheitsfrage stehen sollte: Sofern ich nichts anderes kommentiere, sehe ich nichts, was gegen die Verwendung der roten Begriffe spricht.}
     
     \section{Zusammenfassung}
     Der
@@ -19,7 +19,7 @@
             Eine räumliche Grenze auf dem Rand einer Raumregion heißt Flächenregion, auf dem Rand einer Flächenregion heißt sie Linienregion und auf dem Rand einer Linienregion heißt sie Punktregion.%
             \footnote{
                 Primitiv ist die binäre Relation $\Gsb(x,y)$, die angibt, dass $x$ auf dem Rand von $y$ liegt.
-                Die unäre Relation $\GSB(x)$, die besagt, dass $x$ räumliche Grenze einer anderen Raumentitäten ist, wird davon abgeleitet.
+                Die unäre Relation $\GSB(x)$, die besagt, dass $x$ räumliche Grenze mindestens einer anderen Raumentität ist, wird davon abgeleitet.
             }
         \item \textemph{Koinzidenz}
             ist eine Äquivalenzrelation auf den niederdimensionalen Raumentitäten, die besagt, dass sie sich überall berühren.
@@ -45,21 +45,21 @@
     
     Da
     \marginpar{alternative Formalisierung}
-    in $\theoryBSO$ manche \textcolor{red}{Konzepte} trivial werden, andere zusammenfallen, wurde eine modifizierte Formalisierung eingeführt, in der triviale \textcolor{red}{Konzepte} entfallen und \textcolor{red}{Konzepte}, die zusammenfallen durch das dasjenige ersetzt werden, das in $\theoryBS$ restriktiver ist -- beispielsweise $\GLDE$ durch $\GSB$. 
+    in $\theoryBSO$ manche \textcolor{red}{Konzepte} trivial werden, während andere zusammenfallen, wurde eine modifizierte Formalisierung eingeführt, in der triviale \textcolor{red}{Konzepte} entfallen und \textcolor{red}{Konzepte}, die zusammenfallen, durch jeweils dasjenige ersetzt werden, das in $\theoryBS$ restriktiver ist -- beispielsweise $\GLDE$ durch $\GSB$. 
     %-- also $\GLDE$ beispielsweise wird durch $\GSB$ ersetzt.
     % die auf unnötige \textcolor{red}{Konzepte} verzichtet.
     Dadurch müssen auch Axiome umgeschrieben werden, die diese \textcolor{red}{Konzepte} benutzen.
     
     Als
     \marginpar{\strukt,\\euklidische Entitäten}
-    Kandidat für ein Modell von $\theoryBSO$ wurde die \strukt eingeführt, auf den Begriff der euklidischen Entität aufbaut.
+    Kandidat für ein Modell von $\theoryBSO$ wurde die \strukt eingeführt, die auf dem Begriff der euklidischen Entität aufbaut.
     Dazu gehören:
     %
     \begin{enumerate}
         %\item \textemph{Euklidische Körper:} Teilmengen des $\R^3$, die als Raumregionen interpretiert werden können. Sie müssen überall echt 3-dimensional sein, einen 2-dimensionalen Rand habe und alle ihre Löcher müssen 3-dimensional sein.
         \item \textemph{Raumregionen:} Teilmengen des $\R^3$, die den Raumregionen in $\theoryBS$ bzw.\ $\theoryBSO$ entsprechen.%
         \footnote{Der Begriff der Raumregion ist also überbelegt. Er bezeichnet zum einen eine primitive Relation in $\theoryBS$ bzw.\ $\theoryBSO$, zum anderen bestimmte Teilmengen des $\R^3$, die Elemente des Universums der \strukt sind.}
-        Sie müssen überall echt 3-dimensional sein, einen 2-dimensionalen Rand habe und, falls sie Löcher haben, müssen diese 3-dimensional sein.
+        Sie müssen überall echt 3-di\-men\-sio\-nal sein, einen 2-dimensionalen Rand haben und, falls sie Löcher besitzen, müssen diese 3-dimensional sein.
         \item \textemph{Euklidische Flächen:} 2-dimensionale Gebiete auf dem Rand von %euklidischen Körpern
         Raumregionen, deren Rand überall 1-dimensional ist und die nur 2-dimensionale Löcher haben.
         \item \textemph{Euklidische Linien:} 1-dimensionale Teilmengen auf dem Rand von euklidischen Flächen, die nur 1-dimensionale Löcher haben.
@@ -69,8 +69,8 @@
     Zu
     \marginpar{Repräsentanten}
     jeder euklidischen Punktmenge gehören bestimmte euklidische Linien, zu denen bestimmte euklidischen Flächen gehören, zu denen bestimmte Raumregionen gehören.
-    Tupel aus zusammengehörigen euklidische Entitäten sind Repräsentanten der Individuen der \strukt.
-    Je nach Tupellänge werde drei Arten von Repräsentanten unterschieden:
+    Tupel aus zusammengehörigen euklidischen Entitäten sind Repräsentanten der Individuen der \strukt.
+    Je nach Tupellänge werden drei Arten von Repräsentanten unterschieden:
     %
     \begin{enumerate}
         \item \textemph{Flächenrepräsentanten} 
@@ -78,17 +78,17 @@
         \item \textemph{Linienrepräsentanten}
             sind Tripel aus einer Raumregion, einer euklidischen Fläche auf ihrem Rand und einer euklidischen Linie auf deren Rand.
         \item \textemph{Punktrepräsentanten:}
-            sind Quadrupel aus einer Raumregion, einer euklidischen Fläche auf ihrem Rand, einer euklidischen Linie auf deren Rand und einer euklidischen Punktmenge auf deren Rand.%
+            sind Quadrupel aus einer Raumregion, einer euklidischen Fläche auf ihrem Rand, einer euklidischen Linie auf deren Rand und einer euklidischen Punktmenge auf dem Rand der Linie.%
     \end{enumerate}
     %
     Zwei
     \marginpar{Objektäquivalenz}
-    Flächenrepräsentanten sollen die gleich Flächenregion repräsentieren, wenn die Raumregionen, auf deren Rand sie liegen, überall 
+    Flächenrepräsentanten sollen die gleiche Flächenregion repräsentieren, wenn die Raumregionen, auf deren Rand sie liegen, überall 
     %auf der zugehörigen euklidischen Fläche 
     \glqq von der gleichen Seite kommen\grqq.
     In ähnlicher Weise können verschiedene Linien- bzw. Punktrepräsentanten die gleichen Raumentitäten repräsentieren.
     
-    Diese Idee wird spiegelt sich im Begriff der Objektäquivalenz wieder. 
+    Diese Idee spiegelt sich im Begriff der Objektäquivalenz wider. 
     Sie ist eine Äquivalenzrelation auf den Repräsentanten, deren Äquivalenzklassen die niederdimensionalen Raumentitäten sind.
     Sie drückt also in geeigneter Weise aus, was es heißt, dass euklidische Entitäten \glqq von der gleichen Seite\grqq\ auf eine niedriger-dimensionale euklidische Entität zukommen.
     
@@ -99,14 +99,14 @@
     
     Für
     %\marginpar{Topologie}
-    die formale Definition der euklidischen Entitäten und der Objektäquivalenz, werden topologische Begriffe benötigt, die im zweiten Teil dieser Arbeit eingeführt wurden.
+    die formale Definition der euklidischen Entitäten und der Objektäquivalenz werden topologische Begriffe benötigt, die im zweiten Teil dieser Arbeit eingeführt wurden.
     
     Die
     \marginpar{topologische Grundbegriffe}
     Begriffe der mengentheoretischen Topologie, die für diese Arbeit benötigt werden, sind auf Übersichtsblatt 4 aufgelistet und kurz erklärt.
     Dazu gehören die Grundbegriffe für allgemeine Topologische Räume, die Teilraumtopologie und Topologie metrischer Räume -- insbesondere des mit der euklidischen Metrik (hier Standardmetrik genannt) ausgestatteten $\R^3$.
     
-    Auf diese Grundlagen aufbauend, wurden neue topologische Begriffe definiert, die die Definition der \strukt vereinfachen.
+    Auf diesen Grundlagen aufbauend wurden neue topologische Begriffe definiert, die die Definition der \strukt vereinfachen.
     %
     \begin{itemize}
         \item 
@@ -114,7 +114,7 @@
             Sie sind lokal gleich bzgl. einer Menge, wenn sie in jedem Punkt dieser Menge lokal gleich sind.
         
         \item
-            Eine Menge ist \textemph{maximaldimensional}, wenn sie die gleiche Dimension, wie der sie einbettende Raum hat, wenn also für jeden ihrer Punkte jede Umgebung Punkte aus ihrem Inneren hat.
+            Eine Menge ist \textemph{maximaldimensional}, wenn sie die gleiche Dimension wie der sie einbettende Raum hat, wenn also für jeden ihrer Punkte jede Umgebung Punkte aus ihrem Inneren hat.
         
         \item
             Eine Menge ist \textemph{einfach}, wenn sie und ihr Komplement einfach sind.
@@ -127,7 +127,7 @@
             Wir nehmen als topologischen Raum den Rand von $A$ und darauf die Menge $B$, die Rand einer der beiden Kugeln ist. 
             Dann ist der Berührungspunkt der beiden Kugeln ein Randpunkt von $B$, da in jeder seiner Umgebungen Punkte liegen, die zur Grundmenge (also zum Rand von $A$), nicht jedoch zu $B$ gehören.
             
-            Wenn wir nur $B$ kennen und wissen, dass sie auf dem rand einer unbekannten einfachen Menge $A$ liegt, so könnte $A$ auch nur aus einer der beiden Kugeln bestehen -- nämlich der, auf deren Rand $B$ liegt.
+            Wenn wir nur $B$ kennen und wissen, dass sie auf dem Rand einer unbekannten einfachen Menge $A$ liegt, so könnte $A$ auch nur aus einer der beiden Kugeln bestehen -- nämlich der, auf deren Rand $B$ liegt.
             Dann hätte $B$ keine Randpunkte.
             
             Um Punkte als Grenzen auszuschließen, die nur Randpunkte sind wegen der spezifischen Wahl von $A$,  wurde der Begriff des \textemph{äußeren Randes} eingeführt.
@@ -160,7 +160,7 @@
     Hilfe dieser Definitionen, lässt sich der Begriff der euklidischen Entität formal fassen:
     %
     \begin{enumerate}
-        \item \textemph{Raumregionen} sind nichtleere, einfach offenen Mengen im $\R^3$, die beschränkt sind.
+        \item \textemph{Raumregionen} sind nichtleere, einfach offene Mengen im $\R^3$, die beschränkt sind.
         \item \textemph{euklidische Flächen} sind nichtleere, einfach offene Mengen auf dem Rand von Raumregionen.
         \item \textemph{euklidische Linien} sind nichtleere, einfach offene Mengen auf dem äußeren Rand von euklidischen Flächen.
         \item \textemph{euklidische Punktmengen} sind nichtleere Teilmengen des äußeren Randes zweiter Stufe von euklidischen Linien.
@@ -169,18 +169,18 @@
     Auch
     \marginpar{Objektäquivalenz (formale Definition)}
     die Definition der Objektäquivalenz kann mit den neuen topologischen Begriffen präzisiert werden:
-    Zwei Flächenrepräsentanten sind äquivalent, wenn ihre zugehörigen euklidischen Flächen gleich und ihre Raumregionen lokal gleich sind bzgl. ihrer euklidischen Fläche. Auf ähnliche Weise lassen sich die Äquivalenz von von Linien- bzw.\ Punktrepräsentanten über die lokale Gleichheit definieren.
+    Zwei Flächenrepräsentanten sind äquivalent, wenn ihre zugehörigen euklidischen Flächen gleich und ihre Raumregionen lokal gleich sind bzgl. ihrer euklidischen Fläche. Auf ähnliche Weise lassen sich die Äquivalenz von Linien- bzw.\ Punktrepräsentanten über die lokale Gleichheit definieren.
     
     Damit
     \marginpar{Untersuchung der \strukt}
     konnten die letzten Lücken der Definition der \strukt geschlossen werden. 
-    Die Untersuchung, ob sie alle Vorstellungen , die mit dieser Theorie verknüpft sind adäquat wieder gibt und ob sie tatsächlich ein Modell von $\theoryBSO$ darstellt, wurde im Rahmen dieser Arbeit nur an einigen Beispielen angerissen -- mit folgenden Ergebnissen:
+    Die Untersuchung, ob sie alle Vorstellungen, die mit dieser Theorie verknüpft sind, adäquat wiedergibt und ob sie tatsächlich ein Modell von $\theoryBSO$ darstellt, wurde im Rahmen dieser Arbeit nur an einigen Beispielen angerissen -- mit folgenden Ergebnissen:
     %
     \begin{itemize}
         \item Die Objektäquivalenz ist tatsächlich eine Äquivalenzrelation.
-        \item Die $\Gspart$-Relation ist transitiv.
         \item $\Ggrsb$ ist tatsächlich die Oberfläche/Umrisslinie/Menge der Endpunkte einer Raumregion/Flächenregion/Linienregion, wie wir von der größten räumlichen Grenze erwarten.
         \item Zwei Raumregionen überlappen, wenn ihr Schnitt nicht leer ist.
+        \item Die $\Gspart$-Relation ist transitiv.
         \item Für Raumregionen gilt das starke Ergänzungsprinzip.
     \end{itemize}
     %
@@ -401,7 +401,7 @@
 %--------------------------------------------------------------
 
     \section{Offene Fragen}\label{sec:offene-fragen} %future work
-    Im Laufe der Arbeit wurden immer wieder unbeantwortete Fragen aufgeworfen, die ich in diesem Abschnitt sammeln und andiskutieren möchte.
+    Im Laufe der Arbeit wurden immer wieder unbeantwortete Fragen aufgeworfen, die in diesem Abschnitt gesammelt und andiskutiert sind.
     
 %     Brentanoraum mit einer Metrik ausstatten?
 %     \strukt nutzt Teilmengen des $\R^3$, der eine reichhaltige, gut untersuchte Struktur mit sich bringt (Vektorraum, Maßraum, differenzierbare Mannigfaltigkeit, ...)
@@ -409,22 +409,22 @@
     
     In
     \marginpar{$\theoryBSO$}
-    Abschnitt \ref{sec:bso} wurde $\theoryBSO$ als Einschränkung von $\theoryBS$ auf die ordinären Raumentitäten eingeführt. Damit ist klar, dass Axiom A16, das die Existenz der mereologischen Summe für gleichdimensionale Raumentitäten fordert nicht uneingeschränkt gelten kann. Offen ist, ob die vorgeschlagene Modifikation A16' ausreichend ist und ob weitere Axiome von der Einschränkung betroffen sind.
+    Abschnitt \ref{sec:bso} wurde $\theoryBSO$ als Einschränkung von $\theoryBS$ auf die ordinären Raumentitäten eingeführt. Damit ist klar, dass Axiom A16, das die Existenz der mereologischen Summe für gleichdimensionale Raumentitäten fordert, nicht uneingeschränkt gelten kann. Offen ist, ob die vorgeschlagene Modifikation A16' ausreichend ist und ob weitere Axiome von der Einschränkung betroffen sind.
     
-    Eine umfangreiche Frage ist, ob die \strukt die Vorstellungen, die hinter $\theoryBSO$ stehen adäquat wiedergeben.
+    Eine umfangreiche Frage ist, ob die \strukt die Vorstellungen, die hinter $\theoryBSO$ stehen, adäquat wiedergeben.
     
     Dazu
     \marginpar{definierte Relationen}
-    müsste man unter anderem untersuchen wie die definierten Relationen in der \strukt aussehen und ob sie mit der Intuition übereinstimmen. 
-    Dies ist exemplarisch in Abschnitt \ref{sec:analyse} anhand der $\Ggrsb$ und $\Gsov$-Relation durchgeführt worden.
+    müsste man unter anderem untersuchen, wie die definierten Relationen in der \strukt aussehen und ob sie mit der Intuition übereinstimmen. 
+    Dies ist exemplarisch in Abschnitt \ref{sec:analyse} anhand der $\Ggrsb$ und $\Gsov$-Relationen durchgeführt worden.
     
-    Zum Problem der Adäquatheit der \strukt gehören auch ein Reihe mathematischer Fragen.
+    Zum Problem der Adäquatheit der \strukt gehören auch eine Reihe mathematischer Fragen.
     
 %     Zur Frage nach der Adäquatheit der \strukt gehört auch, ob die gewählten mathematischen Lösungen geeignet sind um die in \ref{sec:zusammenfassung} formulierten Ziele zu erfüllen.
     
     Lassen
     \marginpar{pathologische Beispiele für Raumentitäten}
-    sich innerhalb der gegebenen Definitionen seltsame Raumentitäten bauen und falls ja, würde das den gesamte Ansatz zunichte machen oder hätte man lediglich exotische Beispiele konstruiert, die sich in der Praxis ignorieren lassen?
+    sich innerhalb der gegebenen Definitionen seltsame Raumentitäten erzeugen und falls ja, würde das den gesamten Ansatz zunichte machen oder hätte man lediglich exotische Beispiele konstruiert, die sich in der Praxis ignorieren lassen?
     
     Eine
     \marginpar{Dimension der euklidischen Entitäten}
@@ -445,7 +445,7 @@
     schlimmsten Fall scheitert auch die saubere Trennung der euklidischen Entitäten in Raumregionen, euklidische Flächen, Linien und Punkte.
     Dann wäre zu überlegen, ob sich die Probleme beheben lassen, möglicherweise durch explizite Anforderungen an die Ränder euklidischer Entitäten. 
     Beispielsweise könnte man als Raumregionen nur solche Mengen zulassen, die Untermannigfaltigkeiten des $\R^3$ als Ränder haben oder deren Rand sich als endliche Vereinigung solcher Untermannigfaltigkeiten darstellen lässt.
-    Eventuell würde das auch weitere Einschränkungender Theorie voraussetzen -- beispielsweise auf lokal maximaldimensional-zusammenhängende Raumentitäten, die im Anhang \ref{sec:lok-zusammenhang} als Nebenresultat eingeführt werden, und Fälle von lokal niedriger-dimensional zusammenhängenden Raumregionen vermeiden (siehe Abbildung \ref{fig:zusammenhang} im Beispiel für 1-dimensional zusammenhängende Flächenregionen).
+    Eventuell würde das auch weitere Einschränkungen der Theorie voraussetzen -- beispielsweise auf lokal maximaldimensional-zusammenhängende Raumentitäten, die im Anhang \ref{sec:lok-zusammenhang} als Nebenresultat eingeführt werden, und Fälle von lokal niedriger-dimensional zusammenhängenden Raumregionen vermeiden (siehe Abbildung \ref{fig:zusammenhang} im Beispiel für 1-dimensional zusammenhängende Flächenregionen).
     
     Dem
     \marginpar{äußerer Rand}
@@ -454,22 +454,27 @@
     
     Auf
     \marginpar{$\theoryBSO$-Axiome}
-    der anderen Seite steht die Frage, ob die \strukt ein Modell von $\theoryBSO$ ist. Dafür müssen die $\theoryBSO$-Axiome auf ihre Gültigkeit in der \strukt untersucht werden wie in \ref{sec:analyse} für das starke Ergänzungsprinzip (A8) auf Raumregionen ausgeführt und für Flächenregionen skizziert wurde.
+    der anderen Seite steht die Frage, ob die \strukt ein Modell von $\theoryBSO$ ist. Dafür müssen alle $\theoryBSO$-Axiome auf ihre Gültigkeit in der \strukt untersucht werden, wie in \ref{sec:analyse} für die Transitivität von $\Gspart$ (A6) gezeigt und für das starke Ergänzungsprinzip (A8) auf Raumregionen ausgeführt sowie für Flächenregionen skizziert wurde.
     Falls das nicht der Fall ist, könnte man überlegen, ob sich die Interpretation im Rahmen der Grundidee reparieren lässt, beispielsweise indem man die euklidischen Entitäten oder die Objektäquivalenz anders definiert.
     
     Lange Zeit
     \marginpar{eine Familie von Interpretationen für $\theoryBSO$}
-    wurde hatte ich den Ansatz verfolgt, eine ganze Interpretationsfamilie für $\theoryBSO$ zu definieren.
+    hatte ich den Ansatz verfolgt, eine ganze Interpretationsfamilie für $\theoryBSO$ zu definieren.
     Diese Idee findet sich auch jetzt noch im Aufbau der Arbeit wieder.
     In Kapitel \ref{chap:bso-grundideen} wird die \strukt weitgehend eingeführt, ohne jedoch die euklidischen Entitäten und die Objektäquivalenz formal zu definieren.
     Diese Freiheitsgrade können als Parameter einer Familie von Interpretationen betrachtet werden.
-    Von dieser Idee bin ich letztendlich abgekommen, da es für mich schwierig zu fassen war, in welchen Grenzen sich die Objektäquivalenz und der zugrundegelegte Randbegriff bewegen sollten (siehe hierzu auch \ref{sec:kaskadierter-ro}).
+    Von dieser Idee bin ich jedoch letztendlich abgerückt, da es für mich schwierig zu fassen war, in welchen Grenzen sich die Objektäquivalenz und der zugrunde gelegte Randbegriff bewegen sollten (siehe hierzu auch \ref{sec:kaskadierter-ro}).
     Sie spiegelt jedoch die Flexibilität der \strukt wieder, die neuen Erkenntnissen relativ einfach angepasst werden kann, ohne dass ihre Grundidee aufgegeben wird.
 
     Die
     \marginpar{Konsistenzbeweis für $\theoryBS$}
-    vielleicht grundlegendsteFrage zum vorgestellten Ansatz wäre aber aus meiner Sicht,
+    vielleicht grundlegendste Frage zum vorgestellten Ansatz wäre aber aus meiner Sicht,
     ob sich ein beliebiges (oder falls vorhanden ein konkretes) Modell für $\theoryBSO$ durch Abschlussbildung unter mereologischer Summenbildung zu einen Modell für $\theoryBS$ erweitern lässt.
+
+\bigskip \noindent
+Die vorliegende Arbeit abschließend hoffe ich, dass diese einige Beiträge leistet, um sich einem
+Beweis der Konsistenz der GFO-Raumtheorie --~in Form der Axiomatisierungen $\theoryBSO$ und $\theoryBS$ oder gegebenenfalls noch notwendiger Anpassungen derer~-- weiter zu nähern, damit dieser schlussendlich ermöglicht und ausgeführt werden wird.
+\todo[inline]{FL: Bitte Vorschlag für Abschlusssatz prüfen. Überhaupt ein abschließender Satz oder Absatz ist m.E. günstig.}
 % 
 % 
 % - Bildet die \strukt die Vorstellungen, die hinter $\theoryBS$ stehen und sich auf $\theoryBSO$ übertragen adäquat ab? 
