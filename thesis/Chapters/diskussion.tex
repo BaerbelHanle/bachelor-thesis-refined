@@ -1,7 +1,8 @@
 \chapter{Schlussbetrachtungen}\label{chap:diskussion}
-    Dieses Kapitel enthält zum einen eine ausführliche Zusammenfassung der \textcolor{red}{Arbeit}, die -- Grundkenntnisse der formalen Logik und der mengentheoretischen Topologie vorausgesetzt -- im Großen und Ganzen auch für sich gelesen werden kann,
-    zum anderen eine Sammlung offener Fragen, die sich im Laufe der \textcolor{red}{Arbeit} ergeben haben.
-\todo[inline]{FL: mir unklar, was rote Hervorhebungen markieren -> müssten wohl noch raus; dies gilt im gesamten Kapitel. NB, falls eine Adäquatheitsfrage stehen sollte: Sofern ich nichts anderes kommentiere, sehe ich nichts, was gegen die Verwendung der roten Begriffe spricht.}
+    Dieses Kapitel besteht zum einen aus einer ausführliche Zusammenfassung der Arbeit, die -- Grundkenntnisse der formalen Logik und der mengentheoretischen Topologie vorausgesetzt -- im Großen und Ganzen auch für sich gelesen werden kann.
+    Zum anderen enthält sie eine Sammlung offener Fragen, die sich in meiner Auseinandersetzung mit dem Thema ergeben haben.
+% \todo[inline]{FL: mir unklar, was rote Hervorhebungen markieren -> müssten wohl noch raus; dies gilt im gesamten Kapitel. NB, falls eine Adäquatheitsfrage stehen sollte: Sofern ich nichts anderes kommentiere, sehe ich nichts, was gegen die Verwendung der roten Begriffe spricht.\\
+% -> BH: Die roten Begriffe sind Wiederholungen, die ich gerne vermeiden würde.}
     
     \section{Zusammenfassung}
     Der
@@ -43,12 +44,22 @@
 %     A16' besagt: wenn zwei gleichdimensionale Raumentitäten keine Teile haben, die konzidieren, aber nicht überlappen, dann existiert ihre mereologische Summe. 
     Das neue Axiom A16' besagt: Wenn die mereologische Summe zweier ordinärer Raumentitäten in $\theoryBS$ nicht extraordinär ist, dann existiert ihre mereologische Summe auch in $\theoryBSO$.
     
-    Da
+    In
     \marginpar{alternative Formalisierung}
-    in $\theoryBSO$ manche \textcolor{red}{Konzepte} trivial werden, während andere zusammenfallen, wurde eine modifizierte Formalisierung eingeführt, in der triviale \textcolor{red}{Konzepte} entfallen und \textcolor{red}{Konzepte}, die zusammenfallen, durch jeweils dasjenige ersetzt werden, das in $\theoryBS$ restriktiver ist -- beispielsweise $\GLDE$ durch $\GSB$. 
-    %-- also $\GLDE$ beispielsweise wird durch $\GSB$ ersetzt.
-    % die auf unnötige \textcolor{red}{Konzepte} verzichtet.
-    Dadurch müssen auch Axiome umgeschrieben werden, die diese \textcolor{red}{Konzepte} benutzen.
+    $\theoryBSO$ werden manche Konzepte trivial, während andere zusammenfallen.
+    Deshalb wurde eine modifizierte Formalisierung eingeführt, in der die trivialen entfallen.
+    Bei den zusammenfallenden wird jeweils das in $\theoryBS$ restriktivere genommen.%
+    \footnote{
+        Zum Beispiel wird $\GLDE$ durch $\GSB$ ersetzt, da in $\theoryBS$ gilt: $\GSB(x) \to \GLDE(x)$
+    }
+    Infolgedessen müssen auch Axiome umgeschrieben werden, die diese Konzepte benutzen.
+    
+%     Da
+%     \marginpar{alternative Formalisierung}
+%     in $\theoryBSO$ manche \textcolor{red}{Konzepte} trivial werden, während andere zusammenfallen, wurde eine modifizierte Formalisierung eingeführt, in der triviale \textcolor{red}{Konzepte} entfallen und \textcolor{red}{Konzepte}, die zusammenfallen, durch jeweils dasjenige ersetzt werden, das in $\theoryBS$ restriktiver ist -- beispielsweise $\GLDE$ durch $\GSB$. 
+%     %-- also $\GLDE$ beispielsweise wird durch $\GSB$ ersetzt.
+%     % die auf unnötige \textcolor{red}{Konzepte} verzichtet.
+%     Dadurch müssen auch Axiome umgeschrieben werden, die diese \textcolor{red}{Konzepte} benutzen.
     
     Als
     \marginpar{\strukt,\\euklidische Entitäten}
@@ -401,7 +412,13 @@
 %--------------------------------------------------------------
 
     \section{Offene Fragen}\label{sec:offene-fragen} %future work
-    Im Laufe der Arbeit wurden immer wieder unbeantwortete Fragen aufgeworfen, die in diesem Abschnitt gesammelt und andiskutiert sind.
+    Im Laufe der Arbeit wurden immer wieder unbeantwortete Fragen aufgeworfen, die in diesem Abschnitt gesammelt und andiskutiert werden.
+    
+    Zunächst
+    \marginpar{Hypothesen}
+    sei an zwei Hypothesen erinnert, die noch bewiesen oder widerlegt werden können. Beide lassen sich zur Untersuchung des äußeren Randes einer Menge nutzen. 
+    Die eine (\ref{hyp:rand-geht-weiter}) besagt, dass sich jeder stetige, injektive Weg auf dem Rand einer einfachen Menge stetig und injektiv fortsetzen lässt.
+    Die andere (\ref{hyp:aeusserer-rand}) ist Grundlage für das sogenannte Pflasterbild, das den Begriff des äußeren Randpunktes von Mengen im $\R^3$ veranschaulicht.
     
 %     Brentanoraum mit einer Metrik ausstatten?
 %     \strukt nutzt Teilmengen des $\R^3$, der eine reichhaltige, gut untersuchte Struktur mit sich bringt (Vektorraum, Maßraum, differenzierbare Mannigfaltigkeit, ...)
@@ -447,10 +464,10 @@
     Beispielsweise könnte man als Raumregionen nur solche Mengen zulassen, die Untermannigfaltigkeiten des $\R^3$ als Ränder haben oder deren Rand sich als endliche Vereinigung solcher Untermannigfaltigkeiten darstellen lässt.
     Eventuell würde das auch weitere Einschränkungen der Theorie voraussetzen -- beispielsweise auf lokal maximaldimensional-zusammenhängende Raumentitäten, die im Anhang \ref{sec:lok-zusammenhang} als Nebenresultat eingeführt werden, und Fälle von lokal niedriger-dimensional zusammenhängenden Raumregionen vermeiden (siehe Abbildung \ref{fig:zusammenhang} im Beispiel für 1-dimensional zusammenhängende Flächenregionen).
     
-    Dem
-    \marginpar{äußerer Rand}
-    aufmerksamen Leser ist möglicherweise auch aufgefallen, dass in \ref{sec:aeusserer-rand} der äußere Rand ohne ein formal bewiesenes Beispiel eingeführt wurde.
-    Folglich bleibt die Frage, ob es überhaupt äußere Randpunkte gibt.
+%     Dem
+%     \marginpar{äußerer Rand}
+%     aufmerksamen Leser ist möglicherweise auch aufgefallen, dass in \ref{sec:aeusserer-rand} der äußere Rand ohne ein formal bewiesenes Beispiel eingeführt wurde.
+%     Folglich bleibt die Frage, ob es überhaupt äußere Randpunkte gibt.
     
     Auf
     \marginpar{$\theoryBSO$-Axiome}
@@ -474,7 +491,8 @@
 \bigskip \noindent
 Die vorliegende Arbeit abschließend hoffe ich, dass diese einige Beiträge leistet, um sich einem
 Beweis der Konsistenz der GFO-Raumtheorie --~in Form der Axiomatisierungen $\theoryBSO$ und $\theoryBS$ oder gegebenenfalls noch notwendiger Anpassungen derer~-- weiter zu nähern, damit dieser schlussendlich ermöglicht und ausgeführt werden wird.
-\todo[inline]{FL: Bitte Vorschlag für Abschlusssatz prüfen. Überhaupt ein abschließender Satz oder Absatz ist m.E. günstig.}
+% \todo[inline]{FL: Bitte Vorschlag für Abschlusssatz prüfen. Überhaupt ein abschließender Satz oder Absatz ist m.E. günstig.\\
+% -> BH: guter Vorschlag, Danke}
 % 
 % 
 % - Bildet die \strukt die Vorstellungen, die hinter $\theoryBS$ stehen und sich auf $\theoryBSO$ übertragen adäquat ab? 
