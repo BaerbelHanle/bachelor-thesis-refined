@@ -1,9 +1,6 @@
 \chapter{Weitere topologische Begriffe}\label{chap:topologie-erweiterung}
 
-In diesem Kapitel definiere ich 
-% in den Abschnitten \ref{sec:lokale-gleichheit}--\ref{sec:aeusserer-rand} 
-eigene Begriffe auf topologischen Räumen,
-die ich für die formale Definition der \strukt benötige.
+In diesem Kapitel definiere ich eigene Begriffe auf topologischen Räumen, die ich für die formale Definition der \strukt benötige.
 Dazu gehören:
 \begin{enumerate}
     \item die \textemph{lokale Gleichheit} als Grundlage für die Definition der Objektäquivalenz
@@ -31,10 +28,10 @@ Dazu gehören:
     
     Anschaulich gesprochen sind zwei Teilmengen eines topologischen Raumes dann lokal gleich bezüglich eines Punktes, wenn dieser eine Umgebung hat, in der sie nicht zu unterscheiden sind.
     Sie sind lokal gleich bezüglich einer Menge, wenn sie lokal gleich sind bezüglich jeden Punktes dieser Menge.
-    
+%    
 %     Eine anschauliche Vorstellung dieses Begriffs lässt sich durch das Ameise-im-Nebel-Bild beschreiben:\\
 %     Eine Ameise kann sich innerhalb einer Fläche $B$ frei bewegen. Sie kann in alle Richtungen sehen, aber nur ein kleines Stück, denn es herrscht dichter Nebel. Dieser Nebel ist möglicherweise unterschiedlich dicht an verschiedenen Stellen. Zwei Raumregionen $A_1$ und $A_2$ sind lokal gleich bzgl. $B$, wenn es einen \glqq Nebel\grqq\ gibt, so dass die Ameise $A_1$ und $A_2$ nicht unterscheiden kann.
-
+%
     \begin{dfn}[Lokal gleich]\label{def:lok-gleich}\ \\
         Seien $X$ ein topologischer Raum, $A_1, A_2 \subseteq X$.
         $A_1$ und $A_2$ sind \thmemph{lokal gleich} 
@@ -45,17 +42,17 @@ Dazu gehören:
         \end{itemize}
         Wir schreiben ${A_1 =_x A_2}$, falls $A_1$ und $A_2$ lokal gleich sind in bzw. bzgl. $x$.
     \end{dfn}
-    
+%    
     \begin{bem}\ \\
      In einem metrischen Raum lässt sich lokale Gleichheit in einem Punkt $p$ äquivalent definieren durch:
      $$ A_1 =_p A_2 \quad \quad \Leftrightarrow \quad \quad \exists\: \varepsilon > 0 : B_\varepsilon(p) \cap A_1 = B_\varepsilon(p) \cap A_2.$$
     \end{bem}
-    
+%    
     \begin{bsp}\label{bsp:lok-gleich}\ \\
      $A_1 := (0,1)^2$ und $A_2 := (0,2) \times (0,1)$ sind lokal gleich bzgl. $M_1 := (0,1) \times \{0\}$ nicht jedoch bzgl. $M_2 := [1,2] \times \{1\}$, denn für jeden Punkt $p_1 = (x_1,0)$ ist mit $\varepsilon_1 := min\{x_1,1-x_1\}$ $B_{\varepsilon_1/2}(p_1)$ eine Umgebung von $p_1$ auf der sich $A_1$ und $A_2$ nicht unterscheiden.
      Aber für $(1,1) \in M_2$ gibt es keine Umgebung $U$ mit $U \cap A_1 = U \cap A_2$ (siehe Abbildung \ref{fig:lok-gleich}).
     \end{bsp}
-    
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[width=\textwidth]{abb/lok-gleich.png}
@@ -63,37 +60,30 @@ Dazu gehören:
         \caption{Zu Beispiel \ref{bsp:lok-gleich}}
         \label{fig:lok-gleich}
     \end{figure}
-
-        
-%     Eine anschauliche Vorstellung der lokalen Gleichheit lässt sich durch das Ameise-im-Nebel-Bild gewinnen:\\
-%     Eine Ameise kann sich auf ganz $B$ frei bewegen. Sie kann in alle Richtungen sehen, aber nur ein kleines Stück, denn es herrscht dichter Nebel. Dieser Nebel ist möglicherweise unterschiedlich dicht an verschiedenen Stellen. $A_1$ und $A_2$ sind lokal gleich bzgl. $B$, wenn es einen \glqq Nebel\grqq\ gibt, so dass die Ameise $A_1$ und $A_2$ nicht unterscheiden kann.
-%     
-    
+%
     \begin{satz}\label{satz:lokale-gleichheit-aer}
         Die lokale Gleichheit in einem Punkt ist eine Äquivalenzrelation.\\
         (Beweis: siehe Anhang \ref{anh:lokale-gleichheit-aer})
     \end{satz}
-%     Beweis: siehe Anhang \ref{anh:lokale-gleichheit-aer}
-    
+%  
     \begin{kor}\label{kor:lokale-gleichheit-aer}
      Die lokale Gleichheit bzgl. einer festen Menge ist eine Äquivalenzrelation.\\
      (Beweis: direkte Folgerung aus dem vorhergehenden Satz.)
     \end{kor}
-    
+%    
     Die folgenden Sätze besagen, dass lokal gleiche Mengen auch lokal die gleichen Randpunkte haben.
+%
     \begin{satz}\label{satz:rand-lokal-gleich}\ \\
         Seien $X$ ein topologischer Raum, $p \in X$, $A,B \subseteq X$ mit $A =_p B$. Falls $p \in \rand A$ ist, so ist $p$ auch in $\rand B$.\\
         (Beweis: siehe Anhang \ref{anh:rand-lokal-gleich})
     \end{satz}
-%     Beweis: siehe \ref{anh:rand-lokal-gleich}
-    
+%  
     \begin{kor}\ \\ 
         Seien $X$ ein topologischer Raum, $A_1, A_2 \subseteq X$, $B \subseteq \rand A_1$, $A_1 =_{B} A_2$. Dann ist $B \subseteq \rand A_2$.\\
         (Beweis: direkte Folgerung aus dem vorhergehenden Satz.)
     \end{kor}
-%     Beweis: direkte Folgerung aus dem vorhergehenden Satz.
-    \todo[inline]{FL: Ich hoffe, die Korrektur zweier Auftreten von $B_1$ zu $B$ ist korrekt.\\
-    -> BH: bestimmt!}
+%     \todo[inline]{FL: Ich hoffe, die Korrektur zweier Auftreten von $B_1$ zu $B$ ist korrekt.\\
+%     -> BH: bestimmt!}
 
 
     
@@ -105,50 +95,40 @@ Dazu gehören:
                             %%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Einfache Mengen}\label{sec:einf-mengen}
-% \cFLimp[inline]{TODO:
-% §, der beschreibt, wozu der nächste oder die nächsten Begriffe notwendig sind.
-% 
-% Zum Aufbau:\\
-% Wozu werden `einfache Mengen' dienen? Wie lassen sie sich in 1-3 Sätzen intuitiv beschreiben?
-% Ggf.\ wozu wird `maximaldimensional' dabei benötigt? Wichtiger: Intuitive Beschreibung.
-% } %\cFLimp
-% 
-% \todo[inline]{Die Verwendeng der Begriffe Flächen-, Linien-, Punktrepräsentant vs Grenzfläche, -linie, -punkt in Übereinstimmung mit Kapitel \ref{sec:grundideen} überprüfen}
 
-Einfache Mengen werden die Kandidaten für Raumregionen, euklidische Flächen und Linien sein.
-In Abschnitt \ref{sec:zusammenfassung} wurden einige wünschenswerte Eigenschaften dieser Objekte zusammengefasst.
-Wie wir im Folgenden sehen werden, schließen einfache Mengen einige offensichtlich unerwünschte Fälle aus. 
-Ob sie ausreichend sind, um alle gewünschten Eigenschaften zu gewährleisten, bleibt noch zu untersuchen (vgl.\ Abschnitt \ref{sec:offene-fragen}).
+    Einfache Mengen werden die Kandidaten für Raumregionen, euklidische Flächen und Linien sein.
+    In Abschnitt \ref{sec:zusammenfassung} wurden einige wünschenswerte Eigenschaften dieser Objekte zusammengefasst.
+    Wie wir im Folgenden sehen werden, schließen einfache Mengen einige offensichtlich unerwünschte Fälle aus. 
+    Ob sie ausreichend sind, um alle gewünschten Eigenschaften zu gewährleisten, bleibt noch zu untersuchen (vgl.\ Abschnitt \ref{sec:offene-fragen}).
 
 
 \subsection{Definitionen und Eigenschaften}
-\todo[inline]{FL: Alternative Überschrift: Charakterisierung\\
-Überschrift eingefügt, um die einzelne Überschrift '5.2.1 Ein Beispiel' zu vermeiden, da in aller Regel mind.\ zwei Unterüberschriften genutzt werden, wenn überhaupt untergliedert wird.\\
-- BH: ``Definitionen und Eigenschaften'' finde ich OK}
-In
-\marginpar{maximaldimensional}
-unserer Vorstellung sind Raumregionen überall dreidimensional (R1). D.h. insbesondere, sie haben keine \glqq niederdimensionalen Ausläufer\grqq.
-Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimensionale Teilmengen.
-
+%     \todo[inline]{FL: Alternative Überschrift: Charakterisierung\\
+%     Überschrift eingefügt, um die einzelne Überschrift '5.2.1 Ein Beispiel' zu vermeiden, da in aller Regel mind.\ zwei Unterüberschriften genutzt werden, wenn überhaupt untergliedert wird.\\
+%     - BH: ``Definitionen und Eigenschaften'' finde ich OK}
+    In
+    \marginpar{maximaldimensional}
+    unserer Vorstellung sind Raumregionen überall dreidimensional (R1). D.h. insbesondere, sie haben keine \glqq niederdimensionalen Ausläufer\grqq.
+    Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimensionale Teilmengen.
+%
     \begin{dfn}[Maximaldimensional]\label{def:maxdim}\ \\
         Sei $X$ ein topologischer Raum. Eine Teilmenge $A \subseteq X$ heißt \thmemph{maximaldimensional}, wenn für jeden Punkt $a \in A$ gilt:
         $$\forall\: U \in \offen_X(a) : U \cap \op_X(A) \neq \varnothing$$ 
     \end{dfn}
-    
-    
+%    
+%    
     Die folgenden Sätze geben zwei einfach zu zeigende Eigenschaften für maximaldimensionale Mengen an, die in einigen Beweisen genutzt werden.
-    %
+%
     \begin{satz}\label{satz:offen-maxdim}
         Jede offene Menge ist maximaldimensional.\\
         (Beweis: trivial)
     \end{satz}
-%     Beweis: trivial
-    
-    
+%    
+%    
     \begin{satz}\label{satz:abschluss-maxdim}
         Der Abschluss jeder maximaldimensionalen Menge ist maximaldimensional.
     \end{satz}
-    
+%    
     \begin{bew}
         Sei $A$ maximaldimensional. 
         Angenommen $\cl(A)$ ist nicht maximaldimensional.
@@ -158,37 +138,36 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         Damit kann $x$ nicht in $\cl(A)$ sein. 
         $\lightning$
     \end{bew}
-
-
+%
+%
     Die folgenden drei Beispiele zeigen maximaldimensionale und nicht maximaldimensionale Mengen im $\R^2$.
-    %
+%
     \begin{bsp}\label{bsp:maximaldimensional-1}
         $A := \{(x,y) \in \R^2 \mid x^2 \leq y\} \subseteq \R^2$ ist maximaldimensional.
     \end{bsp}
-    %
+%
     \begin{bew}
         Sei $(a,b) \in A$. Sei $U \in \offen((a,b))$. Sei $\varepsilon > 0$ mit $B_\varepsilon((a,b)) \subseteq U$. Dann ist $(a,b+\varepsilon) \in U \cap \op(A)$.
     \end{bew}
-
-    
+%
+%    
     \todo[inline]{Bilder zu den Beispielen zusammenfassen}
     \begin{figure}[ht]
         \centering
         \includegraphics[width=5cm]{abb/maxdim-1.png}
-%         \caption[Maximaldimensionale Menge]{Zu Beispiel \ref{bsp:maximaldimensional-1}}
         \caption{Zu Beispiel \ref{bsp:maximaldimensional-1}}
         \label{fig:maxdim-1}
     \end{figure}
-
+%
     \begin{bsp}\label{bsp:maximaldimensional-2}
         $B := \{(x,y) \in \R^2 \mid x^2 \leq y\} \setminus \{0\} \times \R \subseteq \R^2$ ist maximaldimensional.
     \end{bsp}
-    %
+%
     \begin{bew}
         Sei $(a,b) \in B$. Sei $U \in \offen((a,b))$. Sei $\varepsilon > 0$ mit $B_\varepsilon((a,b)) \subseteq U$. Dann ist $(a,b+\frac{\varepsilon}{2}) \in U \cap \op(B)$.
     \end{bew}
-
-    
+%
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[width=5cm]{abb/maxdim-2.png}
@@ -196,16 +175,16 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \caption{Zu Beispiel \ref{bsp:maximaldimensional-2}}
         \label{fig:maxdim-2}
     \end{figure}
-
+%
     \begin{gegenbsp}\label{gegenbsp:maximaldimensional}
         $C := \{(x,y) \in \R^2 \mid x^2 \leq \max\{0,y\}\} \subseteq \R^2$ ist nicht maximaldimensional.
     \end{gegenbsp}
-    %
+%
     \begin{bew}
         Mit $A$ aus Bsp. \ref{bsp:maximaldimensional-1} sind $C = A \cup \{0\} \times \R$ und $\op(C) = \op(A) = \{(x,y) \in \R^2 \mid x^2 < y\}$. Also ist $(0,-2) \in C$, aber für $U := B_1((0,-2))$ ist $U \cap \op(C) = \varnothing$.
     \end{bew}
-
-    
+%
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[width=5cm]{abb/nicht-maxdim.png}
@@ -213,7 +192,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \caption{Zu Beispiel \ref{gegenbsp:maximaldimensional}}
         \label{fig:nicht-maxdim}
     \end{figure}
-
+%
     Obige
     \marginpar{Probleme mit maximaldimensionalen Mengen}
     Beispiele legen nahe, dass maximaldimensionale Mengen in $\R^n$ keine niederdimensionalen Ausläufer haben können.
@@ -226,7 +205,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
     Um
     \marginpar{einfache Menge}
     solche Fälle auszuschließen, soll auch das Komplement einer einfachen Menge maximaldimensional sein.
-
+%
     \begin{dfn}[Einfache Menge, $\einf$, $\CO_X$, $\OC_X$]\label{def:einf}\ \\
         Sei $X$ ein topologischer Raum. Eine Teilmenge $A \subseteq X$ heißt 
         \begin{enumerate}
@@ -237,24 +216,27 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         Die \thmemph{Menge der einfachen Mengen} in $X$ bezeichnen wir mit $\einf_X$, die der \thmemph{einfach abgeschlossenen Mengen} mit $\CO_X$ und die der \thmemph{einfach offenen Mengen} mit $\OC_X$.\\
         Wenn dies nicht zu Uneindeutigkeit führt, schreiben wir auch $\einf$, $\CO$ und $\OC$.
     \end{dfn}
-    
+%
+%
     Wie sieht es nun mit der Einfachheit der obigen Beispiele aus?
+%
     \begin{bsp}\label{bsp:einfach}
         $A = \{(x,y) \in \R^2 \mid x^2 \leq y\}$ aus Bsp. \ref{bsp:maximaldimensional-1} ist einfach.
     \end{bsp}
-    %
+%
     \begin{bew}
         Klar ist: $A$ ist maximaldimensional. Da $A$ abgeschlossen ist, ist ihr Komplement offen und somit auch maximaldimensional.
     \end{bew}
-
+%
+%
     \begin{gegenbsp}\label{gegenbsp:einfach-1}
         $B = \{(x,y) \in \R^2 \mid x^2 \leq y\} \setminus \{0\} \times \R$ aus Bsp. \ref{bsp:maximaldimensional-2} ist \textit{nicht} einfach.
     \end{gegenbsp}
-    %
+%
     \begin{bew}
         $B$ ist zwar maximaldimensional, aber $\R^2 \setminus B = \{(x,y) \in \R^2 \mid x^2 > y\} \cup \{0\} \times \R$ und somit ist $(0,2) \in \R^2 \setminus B$, aber $B_1((0,2)) \cap \op(\R^2 \setminus B) = B_1((0,2)) \cap \{(x,y) \in \R^2 \mid x^2 > y\} = \varnothing$.
     \end{bew}
-    %
+%
     \begin{figure}[ht]
         \centering
         \includegraphics[width=5cm]{abb/nicht-einfach.png}
@@ -262,43 +244,44 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \caption{Zu Beispiel \ref{gegenbsp:einfach-1}}
         \label{fig:nicht-einfach}
     \end{figure}
-
+%
+%
     \begin{gegenbsp}\label{gegenbsp:einfach-2}
         $C = \{(x,y) \in \R^2 \mid x^2 \leq \max\{0,y\}\}$ aus Gegenbsp. \ref{gegenbsp:maximaldimensional} ist nicht einfach, da nicht maximaldimensional.
     \end{gegenbsp}
-    %
+%
     Diese Beispiele legen nahe, dass einfache Mengen in $\R^n$ auch keine niederdimensionalen Löcher haben können.
     
     Die folgenden Sätze geben Eigenschaften von einfachen Mengen an, die für Beweise nützlich sein können.
+%
     \begin{satz}\label{satz:einf-komplement}
         Sei $X$ ein topologischer Raum. Eine Teilmenge $A \subseteq X$ ist genau dann einfach, wenn ihr Komplement einfach ist.\\
         (Beweis trivial.)
     \end{satz}
-%     Beweis trivial.
-    
-    
+%    
+%    
     \begin{satz}\label{satz:inneres-einf-offen}
         Das Innere jeder einfachen Menge ist einfach offen.
     \end{satz}
-    
+%    
     \begin{bew}
         Sei $X$ eine topologischer Raum, $A \in \einf_X$. 
         Klar: $\op(A)$ ist offen und als offene Menge nach Satz \ref{satz:offen-maxdim} maximaldimensional.
         Zu zeigen ist also noch: $X \setminus \op(A)$ ist maximaldimensional.
         Da $A \in \einf_X$ ist, ist $X \setminus A$ maximaldimensional und damit nach Satz \ref{satz:abschluss-maxdim} auch $\cl(X \setminus A) = X \setminus \op(A)$.
     \end{bew}
-    
-    
+%    
+%
     \begin{kor}
         Der Abschluss jeder einfachen Menge ist einfach abgeschlossen.
     \end{kor}
-    
+%    
     \begin{bew}
         Wenn $A$ einfach ist, dann auch $X \setminus A$ und somit nach vorherigen Satz auch $\op(X \setminus A) = X \setminus \cl(A)$ und damit auch $\cl(A)$. 
         Abgeschlossen ist $\cl(A)$ sowieso.
     \end{bew}
-
-
+%
+%
     Die folgenden beiden Sätze stellen alternative Definitionen für einfache Mengen dar.
     \begin{satz}
         Sei $X$ ein topologischer Raum. Eine Teilmenge $A \subseteq X$ ist genau dann einfach, wenn für alle $x \in X$ und jede offene Umgebung $U$ von $x$ gilt:
@@ -308,9 +291,8 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \end{itemize}
         (Beweis trivial)
     \end{satz}
-%     Beweis trivial
-
-
+%
+%
     Folgender Satz besagt, dass man zur Überprüfung der Einfachheit einer Menge nur Randpunkte untersuchen muss. 
     %Er bietet somit eine alternative Definition für einfache Mengen.
     %
@@ -319,12 +301,12 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         $$\forall\: U \in \offen(a): (\: U \cap \op(A) \neq \varnothing \:\land\: U \setminus \cl(A) \neq \varnothing \:) $$
         (Beweis: siehe Anhang \ref{anh:alt-def-einf-1})
     \end{satz}
-%     Beweis: siehe Anhang \ref{anh:alt-def-einf-1}
-   
+%
+%   
     Wie
     \marginpar{$\co$- und $\oc$-Operatoren}
     wir in \ref{kor:co(A)=A-oc(A)=A} sehen werden, lassen sich einfach abgeschlossene und offene Mengen auch als Fixpunkte zweier Operatoren verstehen, die ich mit $\co$ und $\oc$ bezeichne.
-    %
+%
     \begin{dfn}[$co$- und $oc$-Operator, Abgeschlossenes Inneres, innerer Abschluss]\label{def:cooc} \ \vspace{8pt}
 
         \noindent
@@ -344,11 +326,11 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         $\co_X(A)$ nennen wir das \thmemph{abgeschlossene Innere}, $\oc_X(A)$ den \thmemph{inneren Abschluss} von $A$.
         
     \end{dfn}
-    \todo[inline]{Beispiele}
-
-
+%    \todo[inline]{Beispiele}
+%
+%
     Die folgenden Sätze liefern hilfreiche Rechenregeln für den $\co$- und den $\oc$-Operator.
-    %
+%
     \begin{satz}[Eigenschaften des $\co$-Operators]\label{satz:co} \ \vspace{8pt}
 
         \noindent
@@ -364,10 +346,8 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         
         (Die Beweise für \ref{satz:co.0} - \ref{satz:co.3} folgen durch einfaches Anwenden der Rechenregeln für Kern- und Abschlussoperator (Sätze \ref{satz:cl} und \ref{satz:op}). Zu \ref{satz:co.4} siehe \ref{anh:co.4-oc.4}.)
     \end{satz}
-    %
-%     Die Beweise für \ref{satz:co.0} - \ref{satz:co.3} folgen durch einfaches Anwenden der Rechenregeln für Kern- und Abschlussoperator (Sätze \ref{satz:cl} und \ref{satz:op}). Zu \ref{satz:co.4} siehe \ref{anh:co.4-oc.4}.
-
-
+%
+%
     \begin{satz}[Eigenschaften des $\oc$-Operators] \label{satz:oc} \ \vspace{8pt}
 
         \noindent
@@ -384,18 +364,16 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         (Die Beweise für \ref{satz:oc.0} - \ref{satz:oc.3} folgen durch einfaches Anwenden der Rechenregeln für Kern- und Abschlussoperator (Sätze \ref{satz:cl} und \ref{satz:op}). Zu \ref{satz:oc.4} siehe \ref{anh:co.4-oc.4}.)
         
     \end{satz}
-    %
-%     Die Beweise für \ref{satz:oc.0} - \ref{satz:oc.3} folgen durch einfaches Anwenden der Rechenregeln für Kern- und Abschlussoperator (Sätze \ref{satz:cl} und \ref{satz:op}). Zu \ref{satz:oc.4} siehe \ref{anh:co.4-oc.4}.
-
+%
+%
     Folgender Satz bietet eine weitere alternative Definition für einfache Mengen, für die man nur zwei Teilmengenbeziehungen zu überprüfen braucht.
     \begin{satz}\label{satz:alt-def-einf-2}
         Sei $X$ ein topologischer Raum, $A \subseteq X$. $A$ ist genau dann einfach, wenn gilt:
         $$ \oc(A) \subseteq A \subseteq \co(A).$$
         (Beweis siehe Anhang \ref{anh:alt-def-einf-2})
     \end{satz}
-%     Beweis siehe Anhang \ref{anh:alt-def-einf-2}
-
-
+%
+%
     Folgendes Korollar bietet eine alternative Definition für einfach abgeschlossene und offene Mengen, die die Operatoren $\co$ und $\oc$ benutzt. Er bildet die Grundlage für die meisten hier angeführten Beweise zu Aussagen über $\CO$ und $\OC$.
     \begin{kor}\label{kor:co(A)=A-oc(A)=A}
         Sei $X$ ein topologischer Raum, $A \subseteq X$. Dann gelten:
@@ -428,8 +406,9 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         %\end{align*}
         %\glqq $\boldsymbol{\Leftarrow}$\grqq: Mit $\oc(A) = A$ ist klar, dass $A$ offen ist und somit gilt $$\oc(A) \subseteq A = \op(A) \subseteq \cl(\op(A)) = \co(A).$$ Also ist $A$ nach Satz \ref{satz:alt-def-einf-2} auch einfach.
     \end{bew}
-        
-    Folgender Satz ist ein weiteres Korollar zu Satz \ref{satz:alt-def-einf-2}:
+%        
+    Folgender Satz ist ein weiteres Korollar zu Satz \ref{satz:alt-def-einf-2}.
+%    
     \begin{kor} \label{kor:co-oc} \ \vspace{8pt}
         \noindent
         Seien $X$ ein topologischer Raum und $A \subseteq X$. Dann gelten
@@ -447,7 +426,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         ist $\cl(A)$ nach Satz \ref{satz:alt-def-einf-2} auch einfach.\\
         Der Beweis für \ref{kor:co-oc.2} geht analog.
     \end{bew}
-
+%
     \begin{kor} \label{kor:co-CO-oc-OC} \ \vspace{8pt}
 
         \noindent
@@ -459,7 +438,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \end{enumerate}
     %		
     \end{kor}
-    %
+%
     \begin{bew}
     Da nach Korollar \ref{kor:cl} und \ref{kor:op} $\op(A)$ offen und $\cl(A)$ abgeschlossen sind, gelten nach dem obigen Satz
         \begin{align*}
@@ -467,85 +446,79 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
             \oc(A) &= \op(cl(A)) \in \OC.
         \end{align*}
     \end{bew}
-    
-    
+%    
+%    
     Ferner
     \marginpar{Abschlusseigenschaften von $\CO$ und $\OC$}
     lassen sich Abschlusseigenschaften der Mengen $\OC$ und $\CO$ betrachten.
-    %
+%
     \begin{satz}\label{kor:co-oc-abschluss}\ \\
         $\CO_X$ ist abgeschlossen unter Vereinigung, $\OC_X$ unter Schnitt.\\
         (Beweis: siehe Anhang (\ref{anh:co-oc-abschluss}))
     \end{satz}
-    %
-%     Beweis: siehe Anhang (\ref{anh:co-oc-abschluss}).
-    
+%
+%    
     \begin{bem}
     $\CO_X$ ist \textit{nicht} abgeschlossen unter Schnitt, $\OC_X$ \textit{nicht} unter Vereinigung.
     \end{bem}
-
+%
     \begin{gegenbsp}\ \\
     ${[0,1], [1,2] \in \CO_\R}$, aber ${[0,1] \cap [1,2] = \{1\}}$, also nicht maximaldimensional.\\
     ${(-\infty,0), (0,\infty) \in \OC_\R}$, aber ${\R \setminus ((-\infty,0) \cup (0,\infty)) = \{0\}}$, also ist das Komplement von ${(-\infty,0) \cup (0,\infty)}$ nicht maximaldimensional.
     \end{gegenbsp}
-
-
+%
+%
 %     \begin{hyp}\label{satz:coA1=coA2}
 %         Sei $X$ ein topologischer Raum, $A_1, A_2 \subseteq X$ und $B \subseteq A_1 \cap A_2$. Dann gilt: $\co_{A_1}(B) = \co_{A_2}(B)$
 %     \end{hyp}
 %     (Beweis siehe \ref{anh:coA1=coA2})
 %     hyp falsch: nehme X = A_1 = \R, A_2 = {0} und B = {0}
-
+%
     Die folgenden Sätze konstatieren die Nichtleerheit bestimmter Mengen und sind Grundlage für einige Existenzbeweise im Zusammenhang mit der \strukt.
-
+%
     \begin{satz}\label{satz:Aleer}
         Sei $X$ ein topologischer Raum, $A \in \CO$. Dann ist $A = \varnothing$ genau dann, wenn $\op(A) = \varnothing$ gilt.\\
         (Beweis trivial)
     \end{satz}
-%     Beweis trivial.
-
-
+%
+%
     \begin{satz}\label{satz:AohneB-abg}
         Sei $X$ ein topologischer Raum, $A \in \CO$, $B \in \abg$ mit $A \setminus B \neq \varnothing$. Dann ist $\op(A \setminus B) \neq \varnothing$.\\
         (Beweis: siehe Anhang \ref{anh:AohneB-abg})
     \end{satz}
-%     Beweis: siehe Anhang \ref{anh:AohneB-abg}
-    
-    
+%    
+%    
     \begin{satz}\label{satz:AohneB-offen}
         Sei $X$ ein topologischer Raum, $A \in \offen$, $B \in \OC$ mit $A \setminus B \neq \varnothing$. Dann ist $\op(A \setminus B) \neq \varnothing$.\\
         (Beweis: siehe Anhang \ref{anh:AohneB-offen})
     \end{satz}
-%     Beweis: siehe Anhang \ref{anh:AohneB-offen}
-
-    
+%
+%    
     \begin{satz}\label{satz:opAohneBinOC}
         Sei $X$ ein topologischer Raum, $A,B \in \OC_X$. Dann ist $\op(A \setminus B) \in \OC_X$.\\
         (Beweis: siehe Anhang \ref{anh:opAohneBinOC})
     \end{satz}
-%     (Beweis: siehe Anhang \ref{anh:opAohneBinOC})
-
-
-
+%
+%
     \begin{satz}
         Sei $(X,d)$ ein metrischer Raum, der mit der durch $d$ erzeugten Topologie ausgestattet ist. Seien $A,B \in \CO$ mit $A \setminus B \neq \varnothing$. Dann gibt es ein $C \in \CO$ mit $\varnothing \neq C \subseteq A \setminus B$.
     \end{satz}
-    %
+%
     \begin{bew}
         Wenn $A \setminus B \neq \varnothing$ ist, so ist nach Satz \ref{satz:AohneB-abg} auch $\op(A \setminus B) \neq \varnothing$. Sei also $a \in \op(A \setminus B)$. Sei $\varepsilon > 0$ mit $B_\varepsilon(a) \subseteq A \setminus B$. Setze dann $C := \cl(B_{\varepsilon / 2}(a))$. Klar ist dann $C \neq \varnothing$ und nach vorherigem Satz auch $C \subseteq A \setminus B$. Da $B_{\varepsilon / 2}$ offen ist, ist nach Satz \ref{kor:co-oc}.\ref{kor:co-oc.1} $C \in \CO$.
     \end{bew}
-
-
-        Im
-        \marginpar{Ränder einfacher Mengen}
-        vorgestellten Ansatz verwende ich einfach abgeschlossene Mengen in der Hoffnung, dass Ränder solcher Mengen für normierte Vektorräume Kodimension 1 haben. %\todo{zu Dimensionsbegriffen recherchieren}
-        Folgender Satz ist eine notwendige Bedingung dafür, dass es für jeden Randpunkt einer einfach abgeschlossenen Menge im $\R^2$ eine 2-dimensionale Mannigfaltigkeit gibt, die Teil dieses Randes ist und den Randpunkt enthält.
-
+%
+%
+    Im
+    \marginpar{Ränder einfacher Mengen}
+    vorgestellten Ansatz verwende ich einfach abgeschlossene Mengen in der Hoffnung, dass Ränder solcher Mengen für normierte Vektorräume Kodimension 1 haben. %\todo{zu Dimensionsbegriffen recherchieren}
+    Folgender Satz ist eine notwendige Bedingung dafür, dass es für jeden Randpunkt einer einfach abgeschlossenen Menge im $\R^2$ eine 2-dimensionale Mannigfaltigkeit gibt, die Teil dieses Randes ist und den Randpunkt enthält.
+%
     \begin{satz}\label{satz:r2}
         Sei $A \subseteq \R^2$ mit $A \in \CO_{\R^2}$ oder $A \in \OC_{\R^2}$. Sei $b \in \rand_{\R^2}(A)$. Sei $\varepsilon > 0$. Dann gibt es ein $b' \in B_{\varepsilon}(b) \cap \rand_{\R^2} A$ mit $b' \neq b$
     \end{satz}
-
-
+%
+%
     \begin{bew}
         Zur einfacheren Notation identifiziere ich $\R^2$ mit $\mathbb{C}$.\\
         Nach Satz \ref{satz:alt-def-einf-1} gibt es $p$ und $q$ in $B_\varepsilon(b)$ mit $p \in \op_{\R^2}(A)$ und $q \in \R^2 \setminus \cl_{\R^2}(A)$. Seien $r_1, r_2 > 0$ und $0 \leq \varphi_1, \varphi_2 < 2\pi$ so dass 
@@ -567,7 +540,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
 %     \begin{hyp}\label{hyp:rand-geht-weiter}
 %         Seien $A \in \einf_{\R^2}$, $\gamma : [0,1] \to \rand_{\R^2} A$ stetig und injektiv, $p := \gamma(1)$ und $\varepsilon > 0$. Dann gibt es ein $q \in B_\varepsilon(p) \cap \rand_{\R^2} A$ mit $q \notin \gamma([0,1])$.
 %     \end{hyp}
-    
+%    
     Der folgenden Hypothese liegt die Vorstellung zugrunde, dass sich der Rand jeder einfachen Menge im $\R^2$ an jedem Punkt in mindestens zwei Richtungen fortsetzt.
     Sie wird in Beispiel \ref{bsp:aeusserer-rand} genutzt, um zu zeigen, dass ein bestimmter Punkt ein äußerer Randpunkt ist.
 %
@@ -576,7 +549,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         Dann gibt es eine stetige, injektive Fortsetzung von $\gamma$ auf dem Rand von $A$, 
         also eine stetige, injektive Abbildung $\gamma' : [0,2] \to \rand_{\R^2} A$ mit $\gamma'(t) = \gamma(t)$ für $t \in [0,1]$.
     \end{hyp}
-    %
+%
     Die Bedingung der Einfachheit von $A$ ist dabei unverzichtbar, wie Abbildung \ref{fig:rand-geht-weiter} zeigt.
 %     
      \begin{figure}[ht]
@@ -585,8 +558,8 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \caption{Zu Hypothese \ref{hyp:rand-geht-weiter}}
         \label{fig:rand-geht-weiter}
     \end{figure}
-
-
+%
+%
 %     In welchem Sinn sind einfach offene Mengen im $\R^n$ einfach? \todo{sinnvoll in den Abschnitt integrieren}
 % 
 %     Aus Definition \ref{def:topMet} sehen wir dass offene Teilmengen des $\R^n$ in jedem ihrer Punkte echt $n$-dimensional sind, da jeder Punkt eine ganze $\varepsilon$-Umgebung hat, die auch in der Menge liegt, man kann also von jedem Punkt aus ein Stück in jede Richtung \glqq gehen\grqq ohne die Menge zu verlassen.
@@ -597,20 +570,20 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
 % 
 %     Dies legt nahe, dass der Rand einer einfach abgeschlossenen oder offenen Menge $n-1$-dimensional ist. Dies ist ein Frage des Dimensionsbegriffs. Man nehme Beispielsweise die Menge $M := \{(x,y) \in \R^2 \mid xy > 0\}$. Der Rand dieser Menge ist $\rand_2 M = \R \times \{0\} \cup \{0\} \times \R$ dies ist \textit{keine} 1-dimensionale topologische Mannigfaltigkeit, da es keine Umgebung des Punktes $(0,0)$ in $\rand_2 M$ gibt, die Homöomorph zu $\R$ ist.
 %     
-
+%
     \subsection{Ein Beispiel}\label{ssec:standardbsp}
     Die \strukt arbeitet mit einfachen Mengen auf den Rändern von einfachen Mengen.
     Das in Bsp.~\ref{bsp:standardbsp} eingeführte Standardbeispiel zeigt einige unerwartete Auswirkungen der Teilraumtopologie für die Einfachheit von Mengen.
     Insofern lassen sich mit seiner Hilfe möglicherweise problematische Beispiele für die im nächsten Kapitel definierten Repräsentanten konstruieren.
     Deshalb möchte ich dieses Beispiel hier näher untersuchen.
-    
+%    
     \begin{erin}\ \\
     Aus dem vorherigen Kapitel kennen wir folgende Eigenschaften der Menge %$A$ 
     \begin{align*}
         A = \bigcup_{n \in \N} [2^{-2n}, 2^{-2n+1}]
     \end{align*}
     aus Beispiel~\ref{bsp:standardbsp}:
-    %
+%
         \begin{enumerate}
 %             \item Die Menge $A$ aus Bsp.~\ref{bsp:standardbsp} ist definiert als
 %                 \begin{align*}
@@ -631,8 +604,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
             \item $\rand A$ hat $0$ als einzigen Häufungspunkt.
         \end{enumerate}
     \end{erin}
-    
-    \noindent
+%
     Wie
     \marginpar{Einfachheit von $A$}
     sieht es mit der Einfachheit von $A$ aus?
@@ -656,11 +628,10 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \\
         &\quad = \op(A).
     \end{align*}
+%
     Deshalb ist $\cl(A)$ einfach abgeschlossen und $\op(A)$ einfach offen. 
-    Nach Satz~\ref{satz:alt-def-einf-2} ist $A$ also einfach.\\ 
-    \vspace{-5pt}
-    
-    \noindent
+    Nach Satz~\ref{satz:alt-def-einf-2} ist $A$ also einfach.
+
     Welche
     \marginpar{einfach abgeschlossene/offene Mengen auf dem Rand von $A$}
     Mengen auf dem Rand von $A$ einfach abgeschlossen bzw.\ offen oder auch keines von beidem sind, hängt nur von 3 Faktoren ab:
@@ -672,16 +643,16 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
     \noindent
     Da $\rand A$ einen Häufungspunkt bei $0$ hat, muss mindestens eine der Mengen $B$ oder $\rand A \setminus B$ dort auch einen Häufungspunkt haben.
     Deshalb gibt es nur noch 6 mögliche Fälle, die in Abbildung \ref{fig:tab-standardbsp} dargestellt sind.
-    
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[width=0.7\textwidth]{abb/tab-standardbsp.png}
         \caption{Innerer Abschluss und abgeschlossenes Inneres für verschiedene Teilmengen auf $\rand A$}
         \label{fig:tab-standardbsp}
     \end{figure}
-    
+%    
 %     \vspace{8pt}
-    
+%    
 %     \noindent
 %     \small
 %     %\begin{tabularx}{\textwidth}{| p{1cm} | c | c | c | c |}
@@ -739,21 +710,20 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
 %     \end{tabularx}
 %     \vspace{8pt}
 %     \normalsize
-    
-    \noindent
+%    
+%    \noindent
     Damit sind in $\rand A$ Teilmengen $B$
     \begin{itemize}
         \item einfach abgeschlossen, falls $0$ in $B$ und ein Häufungspunkt von $B$ oder falls $0$ \textit{nicht} in $B$ und \textit{kein} Häufungspunkt von $B$ ist
         \item einfach offen, falls $0$ in $B$ und \textit{kein} Häufungspunkt von $\rand A \setminus B$ oder falls $0$ \textit{nicht} in $B$ und ein Häufungspunkt von $\rand A \setminus B$ ist.
     \end{itemize}
-    %\end{bsp}
-    
+%    
     \noindent
     Mit
     \marginpar{Einfachheit von Mengen und Teilraumtopologie}
     Hilfe der Menge $A$ können wir zeigen, dass es durchaus einen Unterschied für die Einfachheit von Mengen macht, auf dem Rand welcher einfachen Mengen sie liegen.
     Mit anderen Worten: Es kann einfache Mengen $A_1$ und $A_2$ geben und eine Menge, die einfach ist in $\rand A_1$, nicht jedoch in $\rand A_2$.
-
+%
     \begin{bsp}
          Seien $A_1 := [0,1]$, $A_2 := \cl(A)$.
          Es gilt: sowohl $A_1$ als auch $A_2$ sind einfach abgeschlossen in $\R$. 
@@ -774,7 +744,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
     \marginpar{Probleme mit den Rändern einfacher Mengen}
     Mengen sind mit weiteren Einschränkungen die Kandidaten für Raumregionen. Euklidische Flächen sind einfache Mengen auf dem Rand einfacher Mengen.
     Nicht jede einfache Teilmenge des Randes jeder einfachen Teilmenge eignet sich jedoch als euklidische Fläche im Sinne der Theorie $\theoryBSO$, wie folgendes, um eine Dimension reduziertes Beispiel verdeutlicht:
-    
+%
     \begin{gegenbsp}\label{gegenbsp:aeusserer-rand}
         Seien $A := \{(x,y) \in \R^2 \mid xy > 0\}$, $B := [-1,1] \times \{0\}$ und $p := (0,0)$. 
         %Dann sind $A \in \CO(\R^2)$, $B \in \CO(\rand A)$ und $p \in \rand_{\rand A}B$.
@@ -783,7 +753,7 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         Allerdings eignet sich $p$ nicht als Grenzpunkt von $B$, denn für $p$ lässt sich nicht eindeutig eine Richtung festlegen, \glqq aus der die durch $p$ begrenzte Linie kommt\grqq, denn $B$ erstreckt sich sowohl links als auch rechts von $p$.
         Die Endpunkte $(-1,0)$ und $(1,0)$ von $B$ hingegen bezeichne ich als äußeren Rand.
     \end{gegenbsp}
-    
+%    
     \begin{figure}[ht]
         \centering
         \includegraphics[width=5cm]{abb/kein-aeusserer-rand.png}
@@ -791,11 +761,12 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \caption{Zu Gegenbeispiel \ref{gegenbsp:aeusserer-rand}}
         \label{fig:kein-aeusserer-rand}
     \end{figure}
-
+%
     Die
-    \marginpar{äußerer Rand}folgende Definition formalisiert diese intuitive Vorstellung des äußeren Randes.
+    \marginpar{äußerer Rand}
+    folgende Definition formalisiert diese intuitive Vorstellung des äußeren Randes.
     Vereinfacht gesagt ist ein äußerer Randpunkt einer einfachen Menge, die auf dem Rand einer anderen einfachen Menge \glqq lebt\grqq, ein Punkt, der immer Randpunkt ist, egal, wie diese andere einfache Menge genau aussieht.
-
+%
 %     \begin{dfn}[Äußerer Rand]\label{def:aeusserer-rand} \ \vspace{8pt}
 % 
 %         \noindent
@@ -855,12 +826,12 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         
         Also ist $\gamma'(1+\frac{\varepsilon}{2}) \in V \setminus B$, was ein Widerspruch zu $V \subseteq B$ ist. $\lightning$
     \end{bew}
-
-    
+%
+%    
     Der
     \marginpar{äußerer Rand $n$-ter Stufe}
-    Begriff des äußeren Randes lässt sich verallgemeinern zum äußeren Rand $n$-ter Stufe. Hier genügt uns $n = 2$.
-    
+    Begriff des äußeren Randes lässt sich verallgemeinern zum äußeren Rand $n$-ter Stufe. Für diese Arbeit genügt uns $n = 2$.
+%
     \begin{dfn}[Äußerer Rand zweiter Stufe]\label{def:aeusserer-rand-2} \ \vspace{8pt}
 
         \noindent
@@ -873,12 +844,8 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         Die \thmemph{Menge der äußeren Randpunkte 2. Stufe} von $C$ bezeichnen wir mit $\delta_X^2(C)$.\\
         Ein Punkt aus $\rand_{\rand_{\rand_X A}(B)}(C)$, der kein äußerer Randunkt zweiter Stufe von $C$ ist, heißt \thmemph{innerer Randpunkt} von $C$ in $\rand_{\rand_X A}(B)$.
     \end{dfn}
-    
+%    
     Die Vorstellung, die dem Begriff des äußeren Randes zugrunde liegt, ist, dass es nach einem äußeren Randpunkt \glqq wirklich nicht weiter geht\grqq.
-    
-%     Für eine euklidische Linie $C$ sollte $p$ ein äußerer Randpunkt zweiter Stufe sein, wenn sie dort in einer \glqq Sackgasse\grqq\ landet.
-%     Im anderen Fall, also wenn $C$ in $p$ keine Sackgasse hat, gibt es mindestens zwei Richtungen in $C$ in die man von $p$ aus gehen kann. 
-%     Mathematisch gesprochen bedeutet dies, dass es eine stetige injektive Abbildung $\gamma:(-1,1) \to C \cup \{p\}$ gibt mit $\gamma(0) = p$.
 
     Im
     \marginpar{Sackgassenbild}
@@ -887,17 +854,26 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
     Ist dies nicht der Fall -- genauer: sind $A \in \OC_2$, $B \in \OC_{\rand A}$ und $p \in \rand_{\rand_A} B$ kein äußerer Randpunkt von $B$ -- so gibt es von $p$ aus mindestens zwei Richtungen in $B$.
     Mathematisch bedeutet dies, dass es eine stetige injektive Abbildung $\gamma:(-1,1) \to B \cup \{p\}$ gibt mit $\gamma(0) = p$.
 
+    Die
+    \marginpar{Einbettung von $\R^{n-1}$ und innere Randpunkte}
+    folgende Hypothese verallgemeinert diese Vorstellungen auf Teilmengen des $\R^n$
+%
+    \begin{hyp}[Äußerer Rand in $\R^n$]\label{hyp:aeusserer-rand} \ \vspace{8pt}
+
+        \noindent
+        Seien $n \in \N$ mit $n \geq 2$, $A \in \einf_{\R^n}$ und $B \in \einf_{\rand_{\R^n} A}$. Ein Punkt $p \in \rand_{\rand A}(B)$ ist genau dann ein äußerer Randpunkt von $B$, falls es \textit{keine} stetige injektive Abbildung $f : U \to \cl_{\rand A}(B)$ gibt mit $p \in f(U)$ für eine offene Menge $U \in \offen_{\R^{n-1}}$.
+    \end{hyp}
+%    
+    Diese Vorstellung gilt analog für äußere Randpunkte höherer Stufe.
+    
+    Die Abbildungen \ref{fig:pflasterbild-innerer-rp} und \ref{fig:pflasterbild-aeusserer-rp} illustrieren diese Hypothese für $n=3$.
+    %
     \begin{figure}[ht]
         \centering
         \includegraphics[height=7cm]{abb/pflasterbild-innerer-rp.png}
         \caption[Zu Hypothese \ref{hyp:aeusserer-rand} (innerer Randpunkt)]{Zu Hypothese \ref{hyp:aeusserer-rand}: Ist $p$ ein innerer Randpunkt von $B \subseteq \R^3$, so gibt es eine stetige, injektive Abbildung $f:U \to \cl_{\rand A} B$ mit $p \in f(U)$, wobei $U \in \offen_2$ ist.}
         \label{fig:pflasterbild-innerer-rp}
     \end{figure}
-    
-    
-    Die
-    \marginpar{Einbettung von $\R^{n-1}$ und innere Randpunkte}
-    folgende Hypothese verallgemeinert diese Vorstellungen auf Teilmengen des $\R^n$
 
     \begin{figure}[ht]
         \centering
@@ -905,41 +881,6 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
         \caption[Zu Hypothese \ref{hyp:aeusserer-rand} (äußerer Randpunkt)]{Zu Hypothese \ref{hyp:aeusserer-rand}: Ist $p$ ein äußerer Randpunkt von $B \subseteq \R^3$, so kann eine stetige Abbildung $f:U \to \cl_{\rand A} B$ mit $p \in f(U)$, wobei $U \in \offen_2$ ist, nicht injektiv sein.}
         \label{fig:pflasterbild-aeusserer-rp}
     \end{figure}
-    
-    \todo[inline]{Bilder zusammenfügen}
-
-
-    \begin{hyp}[Äußerer Rand in $\R^n$]\label{hyp:aeusserer-rand} \ \vspace{8pt}
-
-        \noindent
-        Seien $n \in \N$ mit $n \geq 2$, $A \in \einf_{\R^n}$ und $B \in \einf_{\rand_{\R^n} A}$. Ein Punkt $p \in \rand_{\rand A}(B)$ ist genau dann ein äußerer Randpunkt von $B$, falls es \textit{keine} stetige injektive Abbildung $f : U \to \cl_{\rand A}(B)$ gibt mit $p \in f(U)$ für eine offene Menge $U \in \offen_{\R^{n-1}}$.
-    \end{hyp}
-    
-    Diese Vorstellung gilt analog für äußere Randpunkte höherer Stufe.
-    
-    Die Abbildungen \ref{fig:pflasterbild-innerer-rp} und \ref{fig:pflasterbild-aeusserer-rp} illustrieren diese Hypothese für $n=3$.
-    
-    %Abbildung \ref{fig:pflasterbild-innerer-rp} zeigt einen inneren Randpunkt einer Teilmenge des $\R^3$, Abbildung \ref{fig:pflasterbild-aeusserer-rp} einen äußeren.
-    
-
-    
-    
-%     \begin{figure}
-%         \begin{subfigure}{.5\textwidth}
-%             \centering
-%             \includegraphics[width=.8\linewidth]{pflasterbild-innerer-rp.png}
-%             \caption{Ist $p$ ein innerer Randpunkt von $B \subseteq \R^3$, so gibt es eine stetige, injektive Abbildung $f:U \to \cl_{\rand A} B$ mit $p \in f(U)$, wobei $U \in \offen_2$ ist.}
-%             \label{fig:aeusserer-rand-2-innen}
-%         \end{subfigure}%
-%         \begin{subfigure}{.5\textwidth}
-%             \centering
-%             \includegraphics[width=.8\linewidth]{abb/pflasterbild-aeusserer-rp.png}
-%             \caption{Ist $p$ ein äußerer Randpunkt von $B \subseteq \R^3$, so kann eine stetige Abbildung $f:U \to \cl_{\rand A} B$ mit $p \in f(U)$, wobei $U \in \offen_2$ ist, nicht injektiv sein.}
-%             \label{fig:aeusserer-rand-2-aussen}
-%         \end{subfigure}
-%         \caption{Zu Hypothese \ref{hyp:aeusserer-rand}}
-%         \label{fig:aeusserer-rand-2}
-%     \end{figure}
     
     Weniger
     \marginpar{Pflasterbild}

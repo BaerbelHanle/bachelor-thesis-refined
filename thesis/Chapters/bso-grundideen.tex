@@ -191,14 +191,14 @@
 %         Betrachte als Beispiel Abbildung \ref{fig:sb}. 
 %         Dort gilt:
 %         Wenn $x$ durch $u$ begrenzt wird, dann auch $y$, nicht jedoch $z$.
-
+%
         \begin{figure}[ht]
             \centering
             \includegraphics[height=7cm]{abb/sb.png}
             \caption[Räumliche Grenzen]{Räumliche Grenzen: Wenn die Flächenregion $u$ die Raumregion $x$ begrenzt, so auch die $y$, nicht jedoch $z$}
             \label{fig:sb}
         \end{figure}
-
+%
         Um eine Flächenregion zu kennen, genügt es also, die ihr zugehörige euklidische Fläche und eine Raumregion zu kennen, die von ihr begrenzt wird.
         Jedes Paar $(A,B)$ aus einer Raumregion $A$ und einer euklidischen Fläche $B$ auf dem Rand von $A$ repräsentiert also eine Flächenregion.
 
@@ -207,17 +207,17 @@
         Da Flächenregionen durch Paare repräsentiert werden, braucht es also Tripel, um Linienregionen zu repräsentieren.
         Zwei Linienregionen zu den gleichen euklidischen Linien und Flächen, die durch die Tripel $(A_1, B, C)$ und $(A_2, B, C)$ repräsentiert werden, können verschieden sein, wenn $A_1$ und $A_2$ von verschiedenen Seiten auf $B$ zukommen. 
         Eine ähnliche Situation ist in Abbildung \ref{fig:objektaeq-linien} dargestellt (Beispiel 1).
-
+%
         \begin{figure}[ht]
             \centering
             \includegraphics[height=5cm]{abb/objektaeq-linien.png}
             \caption{Beispiele für äquivalente (2) und nicht äquivalente (1) Linienregionen}
             \label{fig:objektaeq-linien}
         \end{figure}
-        
+%        
         Auf dieser Idee -- dass niederdimensionale Raumentitäten durch Tupel repräsentiert werden -- beruht die \strukt, wobei das Symbol $\rep$ für \glqq repräsentantenbasiert\grqq\ steht.
         Zusammengefasst werden in der folgenden Definition Flächen-, Linien- und Punktrepräsentanten definiert und in Abbildung \ref{fig:repr} verdeutlicht.
-
+%
         \begin{dfn}[Repräsentanten]\ \vspace{0pt}
             \begin{enumerate}
                 \item Ein \spacedlowsmallcaps{Flächenrepräsentant} ist ein Paar $(A,B)$, 
@@ -231,7 +231,7 @@
                     Die \spacedlowsmallcaps{Menge der Punktrepräsentanten} bezeichnen wir mit $\rep^0$.
             \end{enumerate}
         \end{dfn}
-
+%
         \begin{figure}[ht]
             \centering
             \includegraphics[height=5cm]{abb/repr.png}
@@ -239,12 +239,12 @@
                     $A$ ist eine Raumregion, $B$ eine euklidische Fläche, $C$ eine euklidische Linie und $D$ eine euklidische Punktmenge. $(A,B)$ ist ein Flächenrepräsentant, $(A,B,C)$ ein Linienrepräsentant und $(A,B,C,D)$ ein Punktrepräsentant.}
             \label{fig:repr}
         \end{figure}
-
+%
         Eine Äquivalenzrelation auf der Menge der Repräsentanten, für die zwei Repräsentanten äquivalent sind, wenn sie die gleiche Raumentität repräsentieren, heißt Objektäquivalenz.
         \marginpar{Objektäquivalenz}
         Eine Objektäquivalenz erfasst also in geeigneter Weise, was es heißt, dass zwei Raumentitäten \glqq von der gleichen Seite\grqq\ oder \glqq aus der gleichen Richtung\grqq\ kommen.
         Niederdimensionale Raumentitäten lassen sich also als Äquivalenzklassen einer Objektäquivalenz auffassen, was in folgender Definition präzisiert wird.
-
+%
         \begin{dfn}[Flächen-, Linien- und Punktregionen]\ \vspace{8pt}
 
             \noindent
@@ -281,18 +281,18 @@
                 $\univ^3$ ist die \spacedlowsmallcaps{Menge der Raumregionen}.
                 
         \end{dfn}
-        
+%        
         In Abbildung \ref{fig:objektaeq-flaechen} sind Beispiele für äquivalente und nicht äquivaleten Flächenregionen dargestellt.
-        %
+%
         \begin{figure}[ht]
             \centering
             \includegraphics[height=7cm]{abb/objektaeq-flaechen.png}
             \caption{Beispiele für äquivalente und nicht äquivalente Flächenrepräsentanten}
             \label{fig:objektaeq-flaechen}
         \end{figure}
-
+%
         Damit können wir das Universum der \strukt definieren, das aus den Raum-, Flächen-, Linien- und Punktregionen besteht.
-
+%
         \begin{dfn}[Universum]\ \vspace{8pt}
 
             \noindent
@@ -302,9 +302,9 @@
             \end{align*}
                     
         \end{dfn}
-        
+%        
         Da $\univ^3$, $\univ^2$, $\univ^1$ und $\univ^0$ paarweise disjunkt sind, lässt sich die folgende Funktion auf $U$ definieren:
-    
+%    
         \begin{dfn}[Dimensionsfunktion]\ \\
             $\Gdim : \univ \to \N$ ist definiert durch
             $$ \Gdim(x) = i \quad \Leftrightarrow \quad x \in \univ^i $$
@@ -317,13 +317,16 @@
         Die Interpretation der primitiven Relationen in $\theoryBSO$ unter der \strukt kann vollständig auf die gewählte Objektäquivalenz zurückgeführt werden, die im Folgenden mit $\sim$ bezeichnet wird.
         %Zur Unterscheidung werden die Symbole der Struktur mit einem hochgestellten $\strukt$ versehen.
 
-        Die Interpretation des Symbols $\GSReg$ als Menge der Raumregionen ist selbsterklärend.
+        Die
         \marginpar{$\GSReg$}
-
-        Für die Interpretation des Symbols $\Gsb$ rufen wir uns ins Gedächtnis:
+        Interpretation des Symbols $\GSReg$ als Menge der Raumregionen ist selbsterklärend.
+        
+        Für
+        \marginpar{$\Gsb$}
+        die Interpretation des Symbols $\Gsb$ rufen wir uns ins Gedächtnis:
         Eine Flächenregion, die durch einen Flächenrepräsentanten $(A_1,B)$ repräsentiert wird, begrenzt eine Raumregion $A_2$, wenn $A_1$ und $A_2$ überall auf der gleichen Seite von $B$ liegen. In diesem Fall sind dann $(A_1,B)$ und $(A_2, B)$ äquivalent.
         Diese Überlegung lässt sich auf andere Dimensionen erweitern und führt zu folgender Definition:
-
+%
         \begin{dfn}[Die $\Gsb$-Relation in der \strukt]\ \vspace{0pt}
 
             \begin{enumerate}
@@ -346,9 +349,9 @@
             \end{enumerate}
             
         \end{dfn}
-        
+%        
         Als direkte Folgerung aus dieser Definition ergibt sich folgender Satz
-        
+%        
         \begin{satz}\label{satz:sb-einfacher-fall}\ \vspace{0pt}
             
             \begin{itemize}
@@ -357,9 +360,11 @@
                 \item Für alle Punktrepräsentanten $(A,B,C,D) \in \rep^0$ gilt: \\$\Gsb([A,B,C,D],[A,B,C])$
             \end{itemize}
         \end{satz}
-    
-        Zwei niederdimensionale Raumentitäten koinzidieren, wenn die ihnen zugehörigen euklidischen Entitäten gleich sind. Damit ergibt sich als Interpretation für das $\Gscoinc$-Symbol:
-    
+%    
+        Zwei
+        \marginpar{$\Gscoinc$}
+        niederdimensionale Raumentitäten koinzidieren, wenn die ihnen zugehörigen euklidischen Entitäten gleich sind. Damit ergibt sich als Interpretation für das $\Gscoinc$-Symbol:
+%    
         \begin{dfn}[Die $\Gscoinc$-Relation in der \strukt]\ \vspace{0pt}
 
             \begin{enumerate}
@@ -384,12 +389,14 @@
         \end{dfn}%
 %        
         Aus dieser Definition ergibt sich trivialerweise:
-        
+%        
         \begin{satz}\ \\
             Die $\Gscoinc$-Relation ist eine Äquivalenzrelation auf $\univ^2 \cup \univ^1 \cup \univ^0$.
         \end{satz}
-    
-        Die Überlegungen zur Interpretation des Symbols $\Gspart$ ähneln den Überlegungen zur Interpretation von $\Gsb$.
+%    
+        Die
+        \marginpar{$\Gspart$}
+        Überlegungen zur Interpretation des Symbols $\Gspart$ ähneln den Überlegungen zur Interpretation von $\Gsb$.
     
         Für Raumregionen ist klar: Eine Raumregion ist räumlicher Teil einer anderen, wenn sie eine Teilmenge dieser ist.
     
@@ -400,7 +407,7 @@
             
         Analoge Bedingungen gelten für die $\Gspart$-Beziehung von Linienregionen. Beispiele hierzu sind in Abbildung \ref{fig:spart-linien} dargestellt.
         Nun können wir definieren:
-
+%
         \begin{dfn}[Die $\Gspart$-Relation in der \strukt]\ \vspace{0pt}
 
             \begin{enumerate}
@@ -432,36 +439,42 @@
             \end{enumerate}
             
         \end{dfn}
-        
-        
-    
+%        
         \begin{figure}[ht]
             \centering
             \includegraphics[height=7cm]{abb/spart-flaechen.png}
             \caption{Beispiel und Gegenbeispiel zu $\Gspart$ bei Flächenregionen}
             \label{fig:spart-flaechen}
         \end{figure}
-
+%
         \begin{figure}[ht]
             \centering
             \includegraphics[width=0.9\textwidth]{abb/spart-linien.png}
             \caption{Beispiel und Gegenbeispiel zu $\Gspart$ bei Linienregionen}
             \label{fig:spart-linien}
         \end{figure}
-
+%
     \section{Ausblick}\label{sec:ausblick}
         Der hier skizzierte Interpretationsansatz ist bislang unvollständig.
 
-        Zum einen ist offen, in welchem Raum die euklidischen Entitäten zu finden sind ($\R^3$ als Vektorraum, affiner Raum, ... ).
+        Zum
+        \marginpar{Grundraum}
+        einen ist offen, in welchem Raum die euklidischen Entitäten zu finden sind ($\R^3$ als Vektorraum, affiner Raum, ... ).
         In dieser Arbeit habe ich mich für den $\R^3$ als mit der euklidischen Metrik ausgestatten metrischen Raum entschieden. 
         Dieser wird in Kapitel \ref{chap:topologie-grundlagen} eingeführt.
 
-        Welche Teilmengen dieses Raumes die gewünschten Eigenschaften von euklidischen Entitäten aufweisen, ist eine anspruchsvolle Frage, die im Rahmen dieser Arbeit nicht erschöpfend untersucht werden kann.
+        Welche
+        \marginpar{euklidische Entitäten}
+        Teilmengen dieses Raumes die gewünschten Eigenschaften von euklidischen Entitäten aufweisen, ist eine anspruchsvolle Frage, die im Rahmen dieser Arbeit nicht erschöpfend untersucht werden kann.
         Ich nutze hier die einfachen Mengen, die in Kapitel \ref{chap:topologie-erweiterung} eingeführt werden.
         Sie schließen einige offensichtlich unerwünschte Fälle aus.
 
-        Zu dieser Frage gehört auch, was als Rand der euklidischen Entitäten zählt, auf dem dann die nächst-niedriger-dimensionalen Entitäten zu finden sind.
+        Zu
+        \marginpar{Randbegriff}
+        dieser Frage gehört auch, was als Rand der euklidischen Entitäten zählt, auf dem dann die nächst-niedriger-dimensionalen Entitäten zu finden sind.
         Dafür wird ebenfalls in Kapitel \ref{chap:topologie-erweiterung} der sogenannte äußere Rand eingeführt.
 
-        Schließlich muss noch eine Objektäquivalenz definiert werden, die in geeigneter Weise erfasst, was es heißt, wenn zwei Raumentitäten \glqq von der gleichen Seite\grqq\ auf eine dritte zukommen.
+        Schließlich
+        \marginpar{Objektäquivalenz}
+        muss noch eine Objektäquivalenz definiert werden, die in geeigneter Weise erfasst, was es heißt, wenn zwei Raumentitäten \glqq von der gleichen Seite\grqq\ auf eine dritte zukommen.
         Mit ihrer Einführung in Kapitel \ref{chap:bso-struktur} werden die letzten Lücken in der Definition der \strukt geschlossen.
