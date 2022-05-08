@@ -1,0 +1,14 @@
+In diesem Ordner befinden sich lecht geänderte Kopien der beiden Dateien
+classicthesis.sty
+classicthesis-config.tex
+Diesen dienen zur Erzeugen der pdf-Dokumente
+topologie-grundlagen-overview.pdf
+topologie-erweiterung-overview.pdf
+
+Dies ist Workarrond weil die Kreuzreferenzen bei Verwendung des
+Latex Pakets hyperref nicht richtig erstellt werden
+
+Der Code zu Hyperref ist in beiden Dateien aukommentiert
+Die Stellen in den beiden Dateien markiert
+
+%%%  Workaround: Problems with latex cross References thesis.tex  <-> topologie-erweiterung-overview.tex
