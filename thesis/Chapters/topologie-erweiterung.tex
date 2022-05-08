@@ -774,10 +774,10 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
     Nicht jede einfache Teilmenge des Randes jeder einfachen Teilmenge eignet sich jedoch als euklidische Fläche im Sinne der Theorie $\theoryBSO$, wie folgendes, um eine Dimension reduziertes Beispiel verdeutlicht:
     
     \begin{gegenbsp}\label{gegenbsp:aeusserer-rand}
-        Seien $A := \{(x,y) \in \R^2 \mid xy \geq 0\}$, $B := [-1,1] \times \{0\}$ und $p := (0,0)$. 
+        Seien $A := \{(x,y) \in \R^2 \mid xy > 0\}$, $B := [-1,1] \times \{0\}$ und $p := (0,0)$. 
         %Dann sind $A \in \CO(\R^2)$, $B \in \CO(\rand A)$ und $p \in \rand_{\rand A}B$.
-        Dann sind $A \in \CO(\R^2)$ und $B \in \CO(\rand A)$.
-        Somit ist $p$ ein Randpunkt von $B$ in $\rand A$, denn $\rand A$ besteht aus der $x$- und der $y$-Achse und in jeder Umgebung von $p$ in $\rand A$ liegen sowohl Punkte der $x$-Achse, die im Inneren von $B$ sind, als auch Punkte der $y$-Achse, die nicht in $B$ sind (siehe Abbildung \ref{fig:kein-aeusserer-rand}).
+        Dann sind $A \in \OC(\R^2)$ und $B \subseteq \rand A$.
+        $p$ ist ein Randpunkt von $B$ in $\rand A$, denn $\rand A$ besteht aus der $x$- und der $y$-Achse und in jeder Umgebung von $p$ in $\rand A$ liegen sowohl Punkte der $x$-Achse, die im Inneren von $B$ sind, als auch Punkte der $y$-Achse, die nicht in $B$ sind (siehe Abbildung \ref{fig:kein-aeusserer-rand}).
         Allerdings eignet sich $p$ nicht als Grenzpunkt von $B$, denn für $p$ lässt sich nicht eindeutig eine Richtung festlegen, \glqq aus der die durch $p$ begrenzte Linie kommt\grqq, denn $B$ erstreckt sich sowohl links als auch rechts von $p$.
         Die Endpunkte $(-1,0)$ und $(1,0)$ von $B$ hingegen bezeichne ich als äußeren Rand.
     \end{gegenbsp}
@@ -794,46 +794,79 @@ Eingebettet in einen dreidimensionalen Raum sind Raumregionen also maximaldimens
     \marginpar{äußerer Rand}folgende Definition formalisiert diese intuitive Vorstellung des äußeren Randes.
     Vereinfacht gesagt ist ein äußerer Randpunkt einer einfachen Menge, die auf dem Rand einer anderen einfachen Menge \glqq lebt\grqq, ein Punkt, der immer Randpunkt ist, egal, wie diese andere einfache Menge genau aussieht.
 
+%     \begin{dfn}[Äußerer Rand]\label{def:aeusserer-rand} \ \vspace{8pt}
+% 
+%         \noindent
+%         Sei $X$ ein topologischer Raum.
+%         Seien $A \in \OC_X$, $B \in \OC_{\rand_X A}$ und $x \in \rand_{\rand_X A}(B)$. Dann ist $x$ ein äußerer Randpunkt von $B$, falls gilt
+%         \begin{align*}
+%             \forall\: A' \in \OC_X : (\: B \in \OC_{\rand_X A'} \rightarrow x \in \rand_{\rand_X A'}(B) \:)
+%         \end{align*}
+%         Die \thmemph{Menge der äußeren Randpunkte} von $B$ bezeichnen wir mit $\delta_X(B)$.\\
+%         Ein Punkt aus $\rand_{\rand_X A} B$, der kein äußerer Randunkt von $B$ ist, heißt \thmemph{innerer Randpunkt} von $B$ in $\rand_X A$.
+%     \end{dfn}
+%
     \begin{dfn}[Äußerer Rand]\label{def:aeusserer-rand} \ \vspace{8pt}
 
         \noindent
         Sei $X$ ein topologischer Raum.
-        Seien $A \in \OC_X$, $B \in \OC_{\rand_X A}$ und $x \in \rand_{\rand_X A}(B)$. Dann ist $x$ ein äußerer Randpunkt von $B$, falls gilt
+        Seien $A \in \OC_X$, $B \subseteq \rand_X A$ und $x \in \rand_{\rand_X A}(B)$. Dann ist $x$ ein äußerer Randpunkt von $B$, falls gilt
         \begin{align*}
-            \forall\: A' \in \OC_X : (\: B \in \OC_{\rand_X A'} \rightarrow x \in \rand_{\rand_X A'}(B) \:)
+            \forall\: A' \in \OC_X : (\: B \subseteq \rand_X A' \rightarrow x \in \rand_{\rand_X A'}(\cl_{\rand_X A'}(B)) \:)
         \end{align*}
         Die \thmemph{Menge der äußeren Randpunkte} von $B$ bezeichnen wir mit $\delta_X(B)$.\\
         Ein Punkt aus $\rand_{\rand_X A} B$, der kein äußerer Randunkt von $B$ ist, heißt \thmemph{innerer Randpunkt} von $B$ in $\rand_X A$.
     \end{dfn}
-
-
+%
+%
     \begin{figure}[ht]
         \centering
         \includegraphics[height=7cm]{abb/aeusserer-rand.png}
         \caption{zu Def. \ref{def:aeusserer-rand} (äußerer Rand)}
         \label{fig:aeus-rand}
     \end{figure}
-    
-%     \todo[inline]{Bsp. mit Beweis. Z.B. $(0,1)$ aus Gegenbsp.}
-%     \begin{bsp}\label{bsp:aeusserer-rand}
-%        x
-%     \end{bsp}
-% 
-%     Für \textcolor{red}{weitere} Beispiele und Gegenbeispiele zu äußeren Rand im $\R^3$ und auf seinen Teilmengen -- die allerdings die in Abschnitt \ref{ssec:notationelle-konv} eingeführten vereinfachten Notationen verwenden -- siehe Abbildung \ref{fig:notationen-r3}.
-% 
-%     \todo{Beispiele}
+%    
+    \begin{gegenbsp}\label{gegenbsp:aeusserer-rand}
+       Der Punkt $p=(0,0)$ ist \textit{kein} äußerer Randpunkt von $B=[-1,1] \times \{0\}$ (siehe Gegenbeispiel \ref{gegenbsp:aeusserer-rand}), denn für $A' := \R \times \{0,\infty\} \in \OC$ ist $B \subseteq \rand A'$ aber $p$ ist keine Randpunkt von $\cl_{\rand A'} (B)$ in $\rand A'$.
+    \end{gegenbsp}
+%
+    \begin{bsp}\label{bsp:aeusserer-rand}
+        Falls die Hypothese \ref{hyp:rand-geht-weiter} stimmt, so ist
+        der Punkt $q=(1,0)$ ein äußerer Randpunkt von $B=[-1,1] \times \{0\}$ (siehe Gegenbeispiel \ref{gegenbsp:aeusserer-rand}).
+    \end{bsp}
+%
+    \begin{bew}
+        Angenommen $q$ wäre kein äußerer Randpunkt von $B$.
+        Dann gibt es ein $A' \in \OC$ mit $B \subseteq A'$ und $q \notin \rand_{\rand A'}(\cl_{\rand A'}(B))$.
+        
+        $\rand A'$ ist abgebschlossen in $\R^2$ (\ref{kor:rand-abg}), genauso wie $B$. Deshalb ist nach Korollar \ref{kor:OX-OA-CX-CA} $B$ auch in $\rand A'$ abgeschlossen und somit gilt $\cl_{\rand A'}(B) = B$.
+        Also ist $q \notin \rand_{\rand A'}(B)$.
+        
+        Da $q \in B \subseteq \rand A'$ ist, muss es deshalb ein $V \in \offen_{\rand A'}(q)$ geben mit $V \subseteq B$.
+        Sei $U \in \offen$ mit $V = U \cap \rand A'$.
+        
+        Sei $\gamma: [0,1] \to \rand A'$, $\gamma(t) = -1+2t$. 
+        Nach Hypothese \ref{hyp:rand-geht-weiter} gibt es eine stetige injektive Abbildung $\gamma': [0,2] \to \rand A'$ mit $\gamma'(t) = \gamma(t)$ für $t \in [0,1]$.
+        Da $\gamma([0,1]) = B$ ist und $\gamma'$ injektiv, ist $\gamma'(t) \notin B$ für $t \in (1,2]$.
+        
+        Da $\gamma'$ stetig ist und $V$ eine Umgebung von $p = \gamma'(1)$ in $\rand A'$, muss es ein $\varepsilon > 0$ geben mit $\gamma'(t) \in V$ für alle $t \in (1-\varepsilon, 1+\varepsilon)$.
+        
+        Also ist $\gamma'(1+\frac{\varepsilon}{2}) \in V \setminus B$, was ein Widerspruch zu $V \subseteq B$ ist. $\lightning$
+    \end{bew}
+
     
     Der
-    \marginpar{äußerer rand $n$-ter Stufe}
+    \marginpar{äußerer Rand $n$-ter Stufe}
     Begriff des äußeren Randes lässt sich verallgemeinern zum äußeren Rand $n$-ter Stufe. Hier genügt uns $n = 2$.
     
     \begin{dfn}[Äußerer Rand zweiter Stufe]\label{def:aeusserer-rand-2} \ \vspace{8pt}
 
         \noindent
         Sei $X$ ein topologischer Raum.
-        Seien $A \in \OC_X$, $B \in \OC_{\rand_X A}$, $C \in \OC_{\delta B}$ und $x \in \rand_{\rand_{\rand_X A}(B)}(C)$. Dann ist $x$ ein äußerer Randpunkt 2.~Stufe von $C$, falls gilt
+        Seien $A \in \OC_X$, $B \in \OC_{\rand_X A}$, $C \subseteq \delta B$ und $x \in \rand_{\rand_{\rand_X A}(B)}(C)$. Dann ist $x$ ein äußerer Randpunkt 2.~Stufe von $C$, falls gilt:
         \begin{align*}
-            \forall\: A' \in \OC_X, B' \in \OC_{\rand_X A'} : (\: C \in \OC_{\delta B'} \rightarrow x \in \rand_{\rand_{\rand_X A'}(B')}(C) \:)
+            &\forall\: A' \in \OC_X, B' \in \OC_{\rand_X A'} : (\: C \subseteq \delta B'\\
+            &\hphantom{XXXXXXXXXXXXX} \to x \in \rand_{\rand_{\rand_X A'}(B')}(\cl_{\rand_{\rand_X A'}(B')} (C)) \:)
         \end{align*}
         Die \thmemph{Menge der äußeren Randpunkte 2. Stufe} von $C$ bezeichnen wir mit $\delta_X^2(C)$.\\
         Ein Punkt aus $\rand_{\rand_{\rand_X A}(B)}(C)$, der kein äußerer Randunkt zweiter Stufe von $C$ ist, heißt \thmemph{innerer Randpunkt} von $C$ in $\rand_{\rand_X A}(B)$.
