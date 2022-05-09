@@ -10,21 +10,11 @@
 
     \section{Repräsentanten und Objektäquivalenz}\label{sec:univ-2}
     In diesem Abschnitt stelle ich die in \ref{sec:ausblick} angekündigten Definitionen für Raumregionen, Repräsentanten und die Objektäquivalenz der \strukt bereit.
-    
-%     \begin{erin}[Eigenschaften von Raumregionen]\ \vspace{0pt}
-%         \begin{itemize}
-%             \item[(R0)] Raumregionen sind beschränkt.
-%             \item[(R1)] Sie sind überall echt 3-dimensional (insbesondere enthalten sie keine niederdimensionalen Ausläufer).
-%             \item[(R2)] Ihr Rand ist überall echt 2-dimensional.
-%             \item[(R3)] Sie enthalten keine niederdimensionalen Löcher.
-%         \end{itemize}
-%     \end{erin}
-%     
 
     Zur Erinnerung: Raumregionen sind Teilmengen des $\R^3$, die überall echt 3-dimensional sind und einen 2-dimensionalen Rand haben.%
     \marginpar{Raumregionen}
     Mit Hilfe des in Abschnitt~\ref{sec:einf-mengen} eingeführten Begriffs der einfach offenen Menge definiere ich nun:
-    
+%    
     \begin{dfn}[Raumregion]\ \\
         Eine Teilmenge $A \subseteq \R^3$ heißt Raumregion, wenn
         \begin{enumerate}
@@ -35,13 +25,14 @@
         \end{enumerate}
         Die Menge der Raumregionen bezeichnen wir mit $\univ^3$.
     \end{dfn}
+%    
     Ob dieser Ansatz alle Vorstellungen adäquat widerspiegelt, die mit dem Begriff der Raumregion verbunden sind, ob also einfache Mengen alle gewünschten Eigenschaften besitzen, ist eine mathematisch anspruchsvolle Frage, die hier nicht abschließend geklärt werden kann. Sie wird in \ref{chap:diskussion} noch weiter ausgeführt.
-    
+%
     \begin{bsp}[$\varepsilon$-Bälle als Raumregionen]\ \\
         Für jedes $x \in \R^3$ und jedes $\varepsilon > 0$ ist $B_\varepsilon(x)$ eine Raumregion.
     \end{bsp}
-    
-    
+%    
+%
     Niederdimensionale Raumentitäten werden als Äquivalenzklassen von Repräsentanten betrachtet.
     Diese Repräsentanten sind Tupel von euklidischen Entitäten.%
     \marginpar{euklidische Entitäten,\\Repräsentanten}
@@ -49,7 +40,7 @@
     Genauer gesagt: 3-dimensionale euklidische Entitäten sind Raumregionen.
     $n$-dimensionale euklidische Entitäten liegen auf den Rändern von $(n+1)$-dimensionalen und haben einen $(n-1)$-dimensionalen Rand.
     Auf die explizite Definition dieser Entitäten kann ich hier verzichten, denn sie ergibt sich im Nachhinein aus der Definition der Repräsentanten.
-
+%
     \begin{dfn}[Repräsentanten]\label{dfn:repr}\ \vspace{0pt}
 
         \begin{enumerate}
@@ -74,9 +65,9 @@
         \end{enumerate}
     %	
     \end{dfn}
-    
+%    
     Für die so definierten Repräsentanten ergibt sich trivialerweise:
-    
+%    
     \begin{satz}\ \vspace{0pt}
     
         \begin{itemize}
@@ -88,12 +79,12 @@
         \end{itemize}
         
     \end{satz}
-    
-    
+%
+%
     Die Objektäquivalenz erfasst in geeigneter Weise, was es heißt, dass zwei Raumentitäten \glqq von der gleichen Seite\grqq\ bzw.\ \glqq aus der gleichen Richtung\grqq\ auf eine dritte zukommen. 
     \marginpar{Objektäquivalenz}
     Hier erweist sich der in Abschnitt~\ref{sec:lokale-gleichheit} definierte Begriff der lokalen Gleichheit als hilfreich.
-
+%
     \begin{dfn}[Objektäquivalenz, $\sim$]\label{dfn:objektaequivalenz}\ \vspace{0pt}
 
         \begin{enumerate}
@@ -122,16 +113,16 @@
         Wenn zwei Repräsentanten $x$ und $y$ objektäquivalent sind, so schreiben wir $x \sim y$.
         
     \end{dfn}
-    
+%
     Bei der informellen Einführung der Objektäquivalenz in Abschnitt~\ref{sec:universum} wurde die Äquivalenzrelationseigenschaft gefordert, die nun auch nachgewiesen werden kann.
-    
+%    
     \begin{satz}\ \\
         Die Objektäquivalenz ist eine Äquivalenzrelation auf\\
         $\rep^2 \cup \rep^1 \cup \rep^0$.
     \end{satz}
-    
-		\todo[inline]{FL: Im Satz habe ich 2x $\cap$ durch 2x $\cup$ ersetzt; den Beweis würde ich analog zu früheren in die Beweisumgebung setzen? Alternativ als Text ansetzen: ``Der Beweis ist eine direkte ...''\\
-		-> BH: gut}
+%    
+% 		\todo[inline]{FL: Im Satz habe ich 2x $\cap$ durch 2x $\cup$ ersetzt; den Beweis würde ich analog zu früheren in die Beweisumgebung setzen? Alternativ als Text ansetzen: ``Der Beweis ist eine direkte ...''\\
+% 		-> BH: gut}
     \begin{bew}
 		Direkte Folgerung aus Korollar \ref{kor:lokale-gleichheit-aer} (die lokale Gleichheit bzgl. einer festen Menge ist eine Äquivalenzrelation) und der Äquivalenzrelationseigenschaft von \glqq = \grqq .
     \end{bew}
@@ -221,7 +212,7 @@
         \item Ist die vorgestellte Interpretation ein Modell von $\theoryBSO$?
         \item Entspricht sie den Vorstellungen, die hinter dieser Theorie stehen?
     \end{enumerate}
-
+%
     Um die erste Frage %\textcolor{red}{Frage} 
     zu beantworten, muss die Gültigkeit der $\theoryBSO$-Axiome in der \strukt überprüft werden.
     Für die zweite ist zu untersuchen, wie sich die im vorherigen Abschnitt getroffenen Entscheidungen auf die primitiven und vor allem definierten Relationen in $\theoryBSO$ auswirken.
@@ -230,11 +221,9 @@
     Daher wird sie nur anhand weniger Beispiele begonnen.
     
     An dieser Stelle sei noch auf Übersichtblatt 3 hingewiesen, auf dem alle Definitionen der \strukt vereint sind, die im Laufe der Arbeit entwickelt wurden und daher über deren Kapitel verteilt sind.
-    
-%     Zur Erinnerung möchte ich an dieser Stelle auf Übersichtblatt 3 hinweisen, auf dem alle Definitionen der \strukt zu finden sind.
 
-% \subsection{Untersuchung ausgewählter primitiver Relationen}
-\subsection{Ausgewählte primitive Relationen}
+\subsection{Untersuchung ausgewählter primitiver Relationen}
+%\subsection{Ausgewählte primitive Relationen}
 %    \paragraph{Primitive Relationen:}\ \\
     Durch Einsetzen der Definition der Objektäquivalenz aus \ref{sec:univ-2} von $\Gsb$ und $\Gspart$ aus \ref{sec:prim-rel-1} ergeben sich die zwei folgenden Sätze über die Relationen $\Gsb$ und $\Gspart$ in der \strukt, die eine unmittelbare Charakterisierung der beiden Relationen vermittels lokaler Gleichheit wiedergeben.
 
@@ -334,8 +323,8 @@
     \end{satz}
     %
     %
-		\todo[inline]{FL: Vorschlagshalber habe ich den Satz zur Transitivität von $\Gspart$ an den Anfang von 6.2.3 verlegt (hier im Quelltext nur auskommentiert). Bei Nichtgefallen bitte und leider zurückverlegen.\\
-		-> BH: macht Sinn}
+% 		\todo[inline]{FL: Vorschlagshalber habe ich den Satz zur Transitivität von $\Gspart$ an den Anfang von 6.2.3 verlegt (hier im Quelltext nur auskommentiert). Bei Nichtgefallen bitte und leider zurückverlegen.\\
+% 		-> BH: macht Sinn}
 %    Der folgende Satz besagt, das die \strukt Axiom A6 erfüllt.
 %    %
 %    \begin{satz}\label{satz:spart-trans}
@@ -345,8 +334,8 @@
 
 % -------------------------------------------------------------------------------------
     
-% \subsection{Untersuchung ausgewählter definierter Relationen}
-\subsection{Ausgewählte definierte Relationen}
+ \subsection{Untersuchung ausgewählter definierter Relationen}
+%\subsection{Ausgewählte definierte Relationen}
 
 %\paragraph{Definierte Relationen}
 
@@ -370,15 +359,15 @@
         \end{itemize}
 
     \end{satz}
-    %
-		\todo[inline]{FL: Bitte im Satz prüfen:\\
-		1. bei Flächenrepräsentanten: $B$ statt $B_1$ rechts? Oder überall $B_1$?\\
-		2. bei Linienrepräsentanten: $B_1$ rechts korrekt? Oder eher $B_2$? (sonst keine Verbindung zum Flächenrepräsentant?) -> BH: $B_2$\\
-		3. bei Punktrepräsentanten: Index $2$ an $C$ rechts nötig? -> BH: ja\\
-		-> BH: ich denke, es ist doch besser, alle euklidischen Entitäten mit Indizes zu versehen}
-    Ich führe hier exemplarisch den Beweis für 1.\ aus. 
-    Die anderen Aussagen lassen sich analog beweisen.
-    %
+%     %
+% 		\todo[inline]{FL: Bitte im Satz prüfen:\\
+% 		1. bei Flächenrepräsentanten: $B$ statt $B_1$ rechts? Oder überall $B_1$?\\
+% 		2. bei Linienrepräsentanten: $B_1$ rechts korrekt? Oder eher $B_2$? (sonst keine Verbindung zum Flächenrepräsentant?) -> BH: $B_2$\\
+% 		3. bei Punktrepräsentanten: Index $2$ an $C$ rechts nötig? -> BH: ja\\
+% 		-> BH: ich denke, es ist doch besser, alle euklidischen Entitäten mit Indizes zu versehen}
+%     Ich führe hier exemplarisch den Beweis für 1.\ aus. 
+%     Die anderen Aussagen lassen sich analog beweisen.
+%     %
     \begin{bew}
         Aus $\Ggrsb([A_1,B_1],A_2)$ folgt $\Gsb([A_1,B_1],A_2)$ und damit\\
         $(A_1,B_1) \sim (A_2,B_1)$.
@@ -428,25 +417,26 @@
     \end{bew}
 
 
-% \subsection{Untersuchung ausgewählter Axiome}
-\subsection{Ausgewählte Axiome}
+\subsection{Untersuchung ausgewählter Axiome}
+%\subsection{Ausgewählte Axiome}
+%\paragraph{Axiome}
 
     Ich betrachte zunächst mit dem Axiom A6 von $\theoryBSO$ einen einfachen und nachweisbaren Fall. Dem folgenden Satz entsprechend erfüllt die \strukt dieses Axiom.     %
     \begin{satz}\label{satz:spart-trans}
         Die $\Gspart$-Relation ist transitiv.\\
         (Beweis: siehe Anhang \ref{anh:spart-trans}.)
     \end{satz}
-
-%\paragraph{Axiome}
+%
+%
     Komplexer stellt sich die Analyse in Bezug auf Axiom A8, das starke Ergänzungsprinzip, dar, das ebenfalls in der \strukt gelten sollte. 
     Es ist leicht zu sehen, dass man hierfür jeweils nur gleichdimensionale Raumentitäten betrachten muss.
     Zunächst zeige ich die Gültigkeit dieses Prinzips für Raumregionen.
-    %
+%
     \begin{satz}[Das starke Ergänzungsprinzip für Raumregionen]
         Für $A_1,A_2 \in \univ^3$ gilt: 
         $$\neg \Gspart(A_1,A_2) \to \exists\: A \in  \univ^3: (\Gspart(A,A_1) \wedge \neg \Gsov(A,A_2)$$
     \end{satz}
-    %
+%
     \begin{bew}
         Seien $A_1$ und $A_2$ Raumregionen mit $\neg \Gspart(A_1,A_2)$.
         Dann gilt $A_1 \nsubseteq A_2$ also $A_1 \setminus A_2 \neg \varnothing$
@@ -463,9 +453,9 @@
         \end{align*}
         Damit muss nach Satz \ref{satz:sov-raumreg} gelten $\neg \Gsov(A_3,A_2)$.
     \end{bew}
-    %
+%
     Ob dieses Prinzip in der \strukt auch für niederdimensionale Raumentitäten gilt, ist jedoch noch nicht klar.
-    %
+%
     \begin{hyp}[Das starke Ergänzungsprinzip für Flächenregionen]
         Für Flächenregionen $(A_1,B_1)$ und $(A_2,B_2)$ gilt: 
         \begin{align*}
@@ -473,9 +463,9 @@
             &(\Gspart([A,B],[A_1,B_1]) \wedge \neg \Gsov([A,B],[A_2,B_2])
         \end{align*}
     \end{hyp}
-    %
+%
     Für den Beweis kann ich lediglich eine Skizze angeben, von der nicht gesichert ist, ob alle Argumente so durchführbar sind.
-    %
+%
     \begin{bewidee}
         Seien $(A_1,B_1)$ und $(A_2,B_2)$ Flächenregionen mit $\neg \Gspart([A_1,B_1],[A_2,B_2])$.\\
     
@@ -499,8 +489,7 @@
 Der Fall des starken Ergänzungsprinzips deutet exemplarisch die Aufwändigkeit an,
 die den Untersuchungen zur Gültigkeit der Axiome von $\theoryBSO$ in der \strukt innewohnen kann.
 Er beschließt zudem die hierin durchgeführten Analysen der \strukt.
-\todo[inline]{FL: Hinzugefügte Abschlusssätze bitte prüfen.\\
--> BH: gut}
+ 
     
 
 

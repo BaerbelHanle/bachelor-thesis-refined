@@ -1,4 +1,13 @@
 \chapter{Nebenresultate}\label{chap:nebenresultat}
+    In diesem Kapitel stelle ich einige Ideen vor, die in die vorliegende Version der \strukt keinen Eingang gefunden haben.
+    
+    Der \textemph{echte Rand} ist ein Begriff aus einer früheren Version der Arbeit, der mit der Einführung des Konzeptes der einfachen Menge obsolet geworden ist.
+    
+    Der \textemph{kaskadierte Randoperator} steht am anderen Ende der \glqq Evolution der \strukt\grqq.
+    Er gehört sozusagen zu einer Weiterentwicklung der aktuellen Version, die aber hier nicht vorgestellt wurde, da sie in weiten Teilen noch nicht ausgereift ist.
+    
+    Abseits dieser Entwicklungslinie steht die Idee des \textemph{lokalen Zusammenhangs}, die schon in Kapitel \ref{chap:bso-grundideen} benutzt, dort jedoch nicht näher erläutert wurde. 
+    Sie entstammt einer Diskussion zu dem in [\cite{baumann-r-2019--a}] eingeführten Begriff der Continuousness.
 
 \section{Echter Rand}\label{sec:echter-rand}
     In einer ersten Annäherung an die \strukt wurden Raumregionen als beliebige Teilmengen mit nichtleerem Inneren des $\R^3$ eingeführt, Flächenregionen als Mengen auf deren Rändern usw.
@@ -6,7 +15,7 @@
     Der hier vorgestellte Ansatz arbeitet deshalb mit dem Begriff der einfachen Menge. 
     In einer früheren Version wurde dieses Problem durch den Begriff des echten Randes gelöst.
     Für einfache Mengen entspricht er dem topologischen Rand.
-
+%
     \begin{dfn}[Echter Randoperator, echter Rand]\label{def:echtR} \ \vspace{8pt}
 
         \noindent
@@ -19,7 +28,7 @@
         Für eine Teilmenge $A \subseteq X$ heißt $\Delta_X(A)$ der \textbf{echte Rand} von $A$. Wenn eine Verwechslung mit anderen Topologien ausgeschlossen ist, schreiben wir auch $\Delta$.
         
     \end{dfn}
-
+%
     \begin{satz} \label{satz:dco=doc} \ \vspace{8pt}
 
         \noindent
@@ -37,8 +46,8 @@
     Da dieser für Raumregionen, euklidischen Flächen und euklidischen Linien definiert werden muss, wurde als allgemeinste Definition der kaskadierte Randoperator eingeführt.
     Er baut auf den Begriff des relevanten Randoperators auf.
     Letzterer wiederum ist ein Randoperator, der sich zwischen den Grenzfällen des echten und des äußeren Randes bewegt.
-    
-        \begin{dfn}[Relevanter Randoperator]\label{dfn:relevanter-rand} \ \vspace{8pt}
+%    
+    \begin{dfn}[Relevanter Randoperator]\label{dfn:relevanter-rand} \ \vspace{8pt}
 
         \noindent
         Sei $X$ ein topologischer Raum.
@@ -46,8 +55,8 @@
         $$ \delta A \subseteq \rho(A) \subseteq \Delta A. $$
         Statt $\rho(A)$ schreiben wir auch $\rho A$
     \end{dfn}
-    
-    
+%
+%
     \begin{dfn}[Kaskadierter Randoperator in $\R^3$] \ \vspace{8pt}
 
         \noindent
@@ -79,9 +88,7 @@
     In Abbildung \ref{fig:zusammenhang} ist 
     %im Beispiel zu $1$-dimensional zusammenhängenden Flächenregionen 
     eine lokal $0$-dimensional zusammenhängende Flächenregion dargestellt.
-    Diese Idee des lokalen Zusammenhangs entstammt ursprünglich einer Diskussion zu dem in [\cite{baumann-r-2019--a}] eingeführten Begriff der Continuousness.
-
-    Er hat jedoch noch eine weitere Relevanz für die Modellbildung, die in \ref{sec:offene-fragen} thematisiert wurde:
+    Diese Idee des lokalen Zusammenhangs entstammt ursprünglich einer Diskussion zum Begriff der Continuousness, hat jedoch noch eine weitere Relevanz für die Modellbildung, die in \ref{sec:offene-fragen} thematisiert wurde:
     An solchen Stellen, an denen eine Raumentität lokal weniger stark zusammenhängt, ist ihr Rand in der \strukt keine Mannigfaltigkeit.
     Dies bringt möglicherweise Probleme mit sich bei der Untersuchung der Dimension des Randes einer solchen Entität.
 
@@ -89,16 +96,16 @@
     Da ich parallel mit Symbolen aus $\theoryBSO$ als auch aus der \strukt arbeite, unterscheide ich die Struktur-Symbole durch ein hochgestelltes $\mathcal{O}$.
 
     Eine Raumregion $A$ ist lokal $0$-dimensional zusammenhängend im Punkt $y$ im Rand von $A$, wenn es ein $\varepsilon < 0$ gibt, so dass für alle $\eta < \varepsilon$ die Raumregion $\ball_{\eta}(y) \cap A$ $0$-dimensional, aber nicht $1$-dimensional zusammenhängend ist. Siehe hierzu Abbildung \ref{fig:loc0dc}.
-    
+%
     \begin{figure}[ht]
         \centering
         \includegraphics[height=4cm]{abb/loc0dc.png}
         \caption{Beispiel für eine lokal $0$-dimensional zusammenhängende Raumregion}
         \label{fig:loc0dc}
     \end{figure}
-    
+%
     In ähnlicher Weise wird dieser Begriff für Flächenregionen und für lokal $1$-dimensional zusammenhängende Raumregionen definiert.
-
+%
     \begin{dfn}[Lokal 0/1-zusammenhängend in der \strukt]\ \vspace{0pt}
 
         \begin{itemize}
@@ -148,7 +155,7 @@
 %
     Es ist noch zu zeigen, dass beide Definitionen kompatibel sind.
     Abbildung \ref{fig:loc1dc} zeigt ein Beispiel einer lokal $1$-dimensional zusammenhängenden Raumregion.
-
+%
     \begin{figure}[ht]
             \centering
             \includegraphics[width=0.6\textwidth]{abb/loc1dc.png}

@@ -7,7 +7,7 @@
     \section{Zusammenfassung}
     Der
     \marginpar{Brentanoraum,\\$\theoryBS$,\\primitive Relationen}
-    Brentanoraum ist als Theorie des Raumes Teil der Top-Level-Ontologie GFO.
+    Brentanoraum ist als Theorie des Raumes Teil der Top-Level-Ontologie \ac{gfo}.
     Im Rahmen dieser Arbeit wurde zunächst seine Axiomatisierung $\theoryBS$ vorgestellt,
     die auf vier primitiven Relationen beruht:
     %
@@ -29,7 +29,7 @@
             ist eine Ordungsrelation auf gleichdimensionalen Raumentitäten, die besagt, dass eine Raumentität in einer anderen enthalten ist.
             Der Erdkern beispielsweise ist (räumlicher) Teil der Erde.
     \end{enumerate}
-
+%
     Bei
     \marginpar{A16}
     den Axiomen, die den Brentanoraum beschreiben ist vor allem A16 für diese Arbeit von Bedeutung, das für gleichdimensionale Raumentitäten die uneingeschränkte Existenz der mereologischen Summe fordert.
@@ -198,101 +198,6 @@
     Zuletzt wurde noch der Beweis des starken Ergänzungsprinzips für Flächenregionen skizziert und problematische Punkte in diesem Beweis aufgezeigt.
 
 
-% ------------------------------------------------------------------
-% 
-% Zunächst wurde die Axiomatisierung $\theoryBS$ des Brentanoraumes vorgestellt,
-%     die auf vier primitive Relationen aufbaut:
-%     %
-%     \begin{enumerate}
-%         \item \textemph{Raumregionen} 
-%             sind Gebiete des Raumes, die von materiellen Körpern eingenommen werden können.
-%             Raumentitäten, die keine Raumregionen sind, werden niederdimensional genannt.
-%         \item \textemph{(Räumliche) Grenzen} 
-%             sind Gebiete auf den Rand von Raumentitäten. 
-%             Eine räumliche Grenze auf dem Rand einer Raumregion heißt Flächenregion, auf dem Rand einer Flächenregion heißt sie Linienregion und auf dem Rand einer Linienregion heißt sie Punktregion.%
-%             \footnote{
-%                 Primitiv ist die binäre Relation $\Gsb(x,y)$, die angibt, dass $x$ auf dem Rand von $y$ liegt.
-%                 Die unäre Relation $\GSB(x)$, die besagt, dass $x$ räumliche Grenze einer anderen Raumentitäten ist, wird davon abgeleitet.
-%             }
-%         \item \textemph{Koinzidenz}
-%             ist eine Äquivalenzrelation auf den niederdimensionalen Raumentitäten, die besagt, dass sie sich überall berühren.
-%             Liegt z.B.\ ein Würfel exakt auf einem gleich großen anderen, so koinzidiert die untere Seite des oberen Würfels mit der oberen Seite des unteren.
-%         \item \textemph{(Räumlicher) Teil}
-%             ist eine Ordungsrelation auf gleichdimensionalen Raumentitäten, die besagt, dass eine Raumentität in einer anderen enthalten ist.
-%             Der Erdkern beispielsweise ist in der Erde enthalten.
-%     \end{enumerate}
-% 
-%     Bei den Axiomen, die den Brentanoraum beschreiben ist vor allem A16 für diese Arbeit von Bedeutung, das für gleichdimensionale Raumentitäten die uneingeschränkte Existenz der mereologischen Summe fordert.
-%     Dadurch können extraordinäre Raumentitäten entstehen. 
-%     Das sind Raumentitäten, die Teile haben, die koinzidieren, aber nicht überlappen.
-%     Liegt beispielsweise ein Würfel auf einem anderen, so ist die mereologische Summe ihrer Oberflächen eine extraordinäre Raumentität.
-%     
-%     Durch Einschränkung von $\theoryBS$ auf die ordinären Raumentitäten entsteht $\theoryBSO$.
-%     Dazu muss A16 modifiziert werden.
-% %     A16' besagt: wenn zwei gleichdimensionale Raumentitäten keine Teile haben, die konzidieren, aber nicht überlappen, dann existiert ihre mereologische Summe. 
-%     A16' besagt: wenn die mereologische Summe zweier ordinärer Raumentitäten in $\theoryBS$ nicht extraordinär ist, dann existiert ihre mereologische Summe auch in $\theoryBSO$.
-%     
-%     Da in $\theoryBSO$ manche \textcolor{red}{Konzepte} trivial werden, andere zusammenfallen, wurde eine modifizierte Formalisierung eingeführt, in der triviale \textcolor{red}{Konzepte} entfallen und \textcolor{red}{Konzepte}, die zusammenfallen durch das \textcolor{red}{Konzept} ersetzt werden, das in $\theoryBS$ restriktiver ist. 
-%     %-- also $\GLDE$ beispielsweise wird durch $\GSB$ ersetzt.
-%     % die auf unnötige \textcolor{red}{Konzepte} verzichtet.
-%     Dadurch müssen auch Axiome umgeschrieben werden, die diese \textcolor{red}{Konzepte} benutzen.
-%     
-%     Als Kandidat für ein Modell von $\theoryBSO$ wurde die \strukt eingeführt.
-%     Sie baut auf den Begriff der euklidischen Entität auf.
-%     Dazu gehören:
-%     %
-%     \begin{enumerate}
-%         \item \textemph{Euklidische Körper:} 
-%             Teilmengen des $\R^3$, die als Raumregionen interpretiert werden können. Sie müssen beschränkt und überall echt 3-dimensional sein, einen 2-dimensionalen Rand habe und alle ihre Löcher müssen 3-dimensional sein.
-%             \footnote{
-%                 Man beachte, dass euklidische Körper nicht unbedingt zusammenhängend sein müssen.
-%             }
-%         \item \textemph{Euklidische Flächen:} 
-%             2-dimensionale Gebiete auf dem Rand von euklidischen Körpern, deren Rand überall 1-dimensional ist und die nur 2-dimensionale Löcher haben.
-%         \item \textemph{Euklidische Linien:} 
-%             1-dimensionale Teilmengen auf dem Rand von euklidischen Flächen, die nur 1-dimensionale Löcher haben.
-%         \item \textemph{Euklidische Punktmengen:} 
-%             Teilmengen des Randes von euklidischen Linien.
-%     \end{enumerate}
-%     
-%     Zu jeder euklidischen Punktmenge gehören bestimmte euklidische Linien, zu denen bestimmte euklidischen Flächen gehören, zu denen bestimmte euklidische Körper gehören.
-%     Tupel aus zusammengehörigen euklidische Entitäten sind Repräsentanten der Individuen der \strukt.
-%     Je nach Tupellänge werde drei Arten von Repräsentanten unterschieden:
-%     %
-%     \begin{enumerate}
-%         \item \textemph{Flächenrepräsentanten} 
-%             sind Paare aus einem euklidischen Körper und einer euklidischen Fläche auf ihrem Rand.
-%         \item \textemph{Linienrepräsentanten}
-%             sind Tripel aus einem euklidischen Körper, einer euklidischen Fläche auf ihrem Rand und einer euklidischen Linie auf deren Rand.
-%         \item \textemph{Punktrepräsentanten:}
-%             sind Quadrupel aus einem euklidischen Körper, einer euklidischen Fläche auf ihrem Rand, einer euklidischen Linie auf deren Rand und einer euklidischen Punktmenge auf deren Rand.%
-%     \end{enumerate}
-%     
-%     Zwei Flächenrepräsentanten sollen die gleich Flächenregion repräsentieren, wenn die zugehörigen euklidischen Flächen gleich sind und die euklidischen Körper, auf deren Rändern sie liegen, überall \glqq von der gleichen Seite\grqq\ auf diese euklidischen Flächen zukommen.
-%     In ähnlicher Weise können verschiedene Linien- bzw. Punktrepräsentanten die gleichen Raumentitäten repräsentieren.
-%     
-%     Diese Idee spiegelt sich im Begriff der Objektäquivalenz wieder. 
-%     Sie ist eine Äquivalenzrelation auf den Repräsentanten, deren Äquivalenzklassen die niederdimensionalen Raumentitäten sind.
-%     Sie drückt also in geeigneter Weise aus, was es heißt, dass euklidische Entitäten \glqq von der gleichen Seite\grqq\ auf eine niedriger-dimensionale euklidische Entität zukommen.
-%     Da alle äquivalenten Flächenrepräsentanten (Linienrepräsentanten/Punktrepräsentanten) die gleiche euklidischen Fläche (Linie/Punktmenge) haben, gehört also zu jeder niederdimensionalen Raumentität genau eine euklidische Entität.
-%     
-%     Das Universum der \strukt besteht nun aus den euklidischen Körpern und den Äquivalenzklassen einer Objektäquivalenz, zu denen die niederdimensionalen Raumentitäten interpretiert werden.
-%     
-%     Die Interpretation der primitiven Relationen  in der \strukt kann auf die repräsentanten und die Objektäquivalenz zurückgeführt werden.
-%     \begin{enumerate}
-%         \item 
-%             Die Raumregionen entsprechen den euklidischen Körpern.
-%             Im Folgenden werde ich deshalb zur Vereinfachung nicht mehr strikt zwischen Raumregionen und euklidischen Körpern unterscheiden.
-%         \item 
-%             Eine Flächenregion, die durch den Flächenrepräsentanten $(A_1,B)$ repräsentiert wird begrenzt eine Raumregion $A_2$, wenn sie zu $(A_2,B)$ äquivalent ist.
-%             In analoger Weise wird die $\Gsb$-Relation für Linien- und Punktregionen definiert.
-%         \item
-%             Zwei niederdimensionale Raumentitäten sind äquivalent, wenn ihre zugehörigen euklidischen Entitäten gleich sind.
-%         \item
-%             Eine Raumregion ist Teil einer anderen, wenn die euklidischen Körper, die ihnen entsprechen im $\R^3$ in der Teilmengen-Beziehung stehen.
-%             Eine Flächenregion ist Teil einer anderen, wenn 
-%     \end{enumerate}
-                
 % --------------------------------------------------------------
 
 %     - Brentanoraum und seine Axiomatisierung $\theoryBS$ vorgestellt
