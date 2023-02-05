@@ -142,8 +142,67 @@
                     {$x$ ist eine Linie}
                                 
         \itemT[D33.]{\GzeroD(x) := \GzeroDE(x) \wedge \GOrd(x) \wedge \neg\exists y\ \Gsppart(y,x)}
-            {$x$ ist ein Punkt}              
+            {$x$ ist ein Punkt} 
+            
+        \itemTP[D34.]{$\Gstrictsb(x,y) \Ldef 
+           \Gsb(x,y) \wedge 
+					 \forall x' (\Ghypp(x',y) \wedge \Gscoinc(x,x') \to x=x')$
+					\\ \mbox{} \label{def:strictboundary}}
+       {$x$ is a strict spatial boundary}
+       
+       \itemT[D35.]{\Gweaksb(x,y) \Ldef \Gsb(x,y) \wedge \neg\Gstrictsb(x,y) }
+            {$x$ is a weak spatial boundary}
     \end{enumAx}
+    
+    &\Gonedircomp(x,y) := \GzeroD(x) \wedge \GzeroD(y) \wedge \Gscoinc(x,y) \wedge \mbox{}
+        \\ &\hspace{1em}
+        \exists x',y',x'',y''\ (\Gsb(x,x') \wedge \Gsb(x',x'') \wedge \Gsb(y,y') \wedge \Gsb(y',y'') \wedge
+        \\ &\hspace{2em}
+        \neg \Gsov(x',y') \wedge \neg \Gsov(x'', y'') \wedge \mbox{}
+        \\ &\hspace{2em}
+        \forall z\ (\Gscoinc(x,z) \wedge \Ghypp(z, \Ggrsb_f(\Gsum_f(x'',y''))) \to z=x \vee z=y))
+    
+    \begin{enumAx}[D]
+\itemTP{$\Gonedircomp(x,y) \Ldef \Gscoinc(x, y) \wedge \mbox{}$\\
+\hspace*{1em}
+	$\exists x' y' z'\: 
+	 (\:\GOrd(x') \wedge
+	    \GOrd(y') \wedge
+		  \Gsb(x, x') \wedge
+			\Gsb(y, y') \wedge
+      \neg \Gsov(x', y') \wedge	\mbox{}$\\
+  \hspace*{2.5em}
+    $ ( \GSB(x') \wedge \GSB(y') \Limp \mbox{}$\\
+	\hspace*{4em}
+			 $\exists x'' y'' z'' g' \:
+			  (\:\Gsb(x', x'') \wedge
+					 \Gsb(y', y'') \wedge
+           \neg \Gsov(x'', y'') \wedge \mbox{}$\\
+	\hspace*{6em}
+	     $	 \Gsum(x'', y'', z'') \wedge
+					 \Ggrsb(g', z'') \wedge
+					 \Gzerodhypp(x, g') \wedge 
+					 \Gzerodhypp(y, g') \wedge \mbox{}$\\
+	\hspace*{6em}
+				 $ \forall z (  \Gzerodhypp(z, g') \Limp \mbox{}$\\
+	\hspace*{8em}		
+					  $((\Gscoinc(x, z) \wedge \neg\Gsov(x,z) \Limp y=z ) \wedge \mbox{}$\\
+	\hspace*{8em}\hphantom{$($}		
+						$(\Gscoinc(y, z) \wedge \neg\Gsov(y,z) \Limp x=z ) 
+					\ )))))$\\ \mbox{} \label{def:npodircomp}}
+  {$x$ and $y$ are 1-directionally compatible}
+						
+\itemTP{$\Gonecont(x) \Ldef \GoneDE(x) \wedge \mbox{}$\\
+\hspace*{1em}
+  $\forall y\:(\:(\Gzerodhypp(y,x) \wedge
+	                \forall y' ( \Gspart(y',y) \to \neg\Gstrictsb(y',x))) \Limp \mbox{} $\\
+	\hspace*{2.5em}	
+	  $\exists z ( \Gzerodhypp(z,x) \wedge
+		             \neg\Gsov(z,y) \wedge 
+                 \Gonedircomp(y,z)))$\\ \mbox{} \label{def:Gdcont}}
+             {$x$ is 1-continuous}	
+\end{enumAx}
+
 
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
