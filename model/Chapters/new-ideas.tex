@@ -1,0 +1,257 @@
+\chapter{New Ideas}
+
+Block structure
+
+\begin{nota}[Abgeschlossene, beschränkte Intervalle]\ \\
+    \begin{align*}
+      I := \{[p,q] \subseteq \R \mid p,q \in \R\}
+    \end{align*}
+    ist die Menge der abgeschlossenen, beschränkten Intervalle in $\R$.
+    %Wir bezeichnen die Menge der abgeschlossenen beschränkten Intervalle in $\R$ mit $I$.\\
+    Für $\alpha \in I$ ist
+    \begin{align*}
+        I_{\alpha} := \{ \beta \in I \mid \beta \subseteq \alpha\}
+    \end{align*}
+    die Menge der abgeschlossenen und durch $\alpha$ beschränkten Intervalle
+\end{nota}
+
+
+% \begin{dfn}
+%     Für $a,b \in I$ bezeichnet
+%     \begin{align*}
+%         I_{[a,b]} := \{[r,s] \mid r,s \in \R, a \leq r < s \leq b\}\\
+%     \end{align*}
+% \end{dfn}
+
+\begin{dfn}[Gerichtete Zahl]\ \\
+    Eine gerichtete Zahl ist ein Paar $(r,d)$ mit $r \in \R$, $d \in \udset$.\\
+    Statt $(r,d)$ schreiben wir auch $r^d$.\\
+    $\R^\ud$ bezeichnet die Menge der gerichteten Zahlen.
+%     \\Für $[a,b] \subseteq \R$ definieren wir die Menge
+%         \begin{align*}
+%             [a,b]^\ud := \{r^d \in \R^\ud \mid r \in [a,b] \land (r=a \to d =\upa) \land (r=b \to d=\downa)\}
+%         \end{align*}
+\end{dfn}
+
+\begin{dfn}[Beschränkte gerichtete Zahl]\ \\
+    Für $[a,b] \in I$ definieren wir die Menge $[a,b]^\ud \subseteq \R^\ud$ folgendermaßen: $r^d \in [a,b]^\ud$ falls:
+    $$r \in [a,b] \land (r = a \to d=\upa) \land (r=b \to d=\downa)$$.
+\end{dfn}
+
+\begin{dfn}[Einfache Entitäten]\ %\\
+    \begin{enumerate}
+        \item Ein \emph{einfacher Körper} ist ein beschränktes, abgeschlossenes Intervall.\\ 
+            Die Menge der einfachen Körper bezeichnen wir auch mit $\einf^3$.
+        \item Eine \emph{einfache Fläche} ist ein Paar $(A,B) \in \R^\ud \times I_{[0,1]}$.\\
+            Die Menge der einfachen Flächen bezeichnen wir mit $\einf^2$.
+        \item Eine \emph{einfache Linie} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times I_{[0,1]}$.\\
+            Die Menge der einfachen Linien bezeichnen wir mit $\einf^1$.
+        \item Ein \emph{einfacher Punkt} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times [0,1]^\ud$.\\
+            Die Menge der einfachen Punkte bezeichnen wir mit $\einf^0$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}[Die $\vor$-Relation]\ 
+    \begin{itemize}
+        \item Für $d_1,d_2 \in \udset$ gilt $d_1 \vor d_2$ falls $d_1 = \downa$ und $d_2 = \upa$ ist. 
+        \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ gilt $r_1^{d_1} \vor r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$ und $d_1 \vor d_2$.
+        \item Für $[a_1,b_1], [a_2,b_2] \in \einf^3$ gilt $[a_1,b_1] \vor [a_2,b_2]$ falls $b_1 < a_2$ ist.
+        \item Für $(A_1,B_1), (A_2,B_2) \in \einf^2$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2$ und $B_1 \vor B_2$.
+        \item Für $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \einf^1 \cup \einf^0$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2 \land B_1 \vor B_2$ oder $A_1 = A_2 \land B_1 = B_2 \land C_1 \vor C_2$.
+    \end{itemize}
+\end{dfn}
+
+% \begin{dfn}[Die $\vor$-Relation]
+%     \begin{itemize}
+%      \item $a,b \in \R \quad \Rightarrow \quad (a \vor b \leftrightarrow a < b)$
+%       \item $d_1,d_2 \in \udset \quad \Rightarrow \quad (d_1 \vor d_2 \leftrightarrow d_1 = \downa \land d_2 = \upa)$
+%      \item $r_1^{d_1},r_2^{d_2} \in \R^\udset \quad \Rightarrow \quad (r_1^{d_1} \vor r_2^{d_2} \leftrightarrow r_1 < r_2 \lor r_1 = r_2 \land d_1 \vor d_2)$
+%      \item $[a_1,b_1], [a_2,b_2] \in \univ_s^3 \quad \Rightarrow \quad ([a_1,b_1] \vor [a_2,b_2] \leftrightarrow b_1 < a_2)$
+%      \item $(A_1,B_1), (A_2,B_2) \in \univ_s^2 \quad \Rightarrow \quad ((A_1,B_1) \vor (A_2,B_2) \leftrightarrow A_1 \vor A_2 \lor A_1 = A_2 \land B_1 \vor B_2)$
+%      \item $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \univ_s^1 \cup \univ_s^0 \quad \Rightarrow \quad ((A_1,B_1) \vor (A_2,B_2) \leftrightarrow A_1 \vor A_2 \lor A_1 = A_2 \land B_1 \vor B_2 \lor A_1 = A_2 \land B_1 = B_2 \land C_1 \vor C_2)$
+%     \end{itemize}
+% \end{dfn}
+
+
+\begin{dfn}[Das Blockuniversum]\ \\
+Für $d \in \{0,1,2,3\}$ definieren wir
+    \begin{align*}
+        \univ^d &:= \{(A_1, ...,  A_n) \mid n \in \N, A_1, ..., A_n \in \einf^d, A_1 \vor ... \vor A_n\}%\\
+        %\univ &:= \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
+    \end{align*}
+    Das Universum der Blockstruktur ist gegeben durch
+    \begin{align*}
+        \univ &:= \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
+    \end{align*}
+\end{dfn}
+
+
+\begin{dfn}[Die Dimensionsfunktion]\ \\
+    Wir definieren die Funktion $\Gdim : \univ \to \{0,1,2,3\}$ durch
+    $$\Gdim(x) = d \quad \Leftrightarrow \quad x \in \univ^d.$$
+\end{dfn}
+
+\begin{dfn}[Ordinärität]\ 
+    \begin{itemize}
+        \item Ein komplexer Körper ist immer ordinär.
+        \item Eine komplexe Fläche $((p_1^{d_1}, \alpha_1), ..., (p_n^{d_n}, \alpha_n))$ heißt ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $p_i = p_j \to \alpha_i \cap \alpha_j = \varnothing$.
+        \item Eine komplexe Linie $((p_1^{d_1}, q_1^{e_1}, \alpha_1), ... , (p_n^{d_n}, q_n^{e_n}, \alpha_n))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i,q_i) = (p_j,q_j) \to \alpha_i \cap \alpha_j = \varnothing$.
+        \item Ein komplexer Punkt $((p_1^{d_1}, q_1^{e_1}, r_1^{f_1}), ... , (p_n^{d_n}, q_n^{e_n}, r_n^{f_n}))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i, q_i,r_i) \neq (p_j,q_j,r_j)$.
+    \end{itemize}
+\end{dfn}
+
+
+
+\begin{dfn}[$\GSReg$]
+    $\GSReg^B := \univ^3$
+\end{dfn}
+
+
+\begin{dfn}[$\Gsb^\einf$]\ 
+    \begin{itemize}
+        \item Für $x = (r^d,\alpha) \in \einf^2$, $y = [s,t] \in \einf^3$ gilt
+            \begin{align*}
+                \Gsb^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                r=s \land d=\upa \lor r=t \land d=\downa.
+            \end{align*}
+        \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, [u,v]) \in \einf^3$ gilt
+            \begin{align*}
+                \Gsb^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                r^d = t^f \land ( s=u \land e=\upa \lor s=v \land e=\downa ).
+            \end{align*}
+        \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, [u,v]) \in \einf^3$ gilt
+            \begin{align*}
+                \Gsb^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                p^d = s^g \land q^e = t^h \land ( r=u \land f=\upa \lor r=v \land f=\downa ).
+            \end{align*}
+    \end{itemize}
+\end{dfn}
+
+
+\begin{dfn}[$\Gsb$]\ \\
+    Für $d \in \{0,1,2\}$, $m,n \in \N$, $x=(A_1, ..., A_n) \in \univ^d$, $y=(B_1, ..., B_m) \in \univ^{d+1}$ gilt:
+    $$\Gsb(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gsb^\einf(A_i,B_j). $$
+\end{dfn}
+
+
+\begin{dfn}[$\Gscoinc^\einf$]\ 
+    \begin{itemize}
+        \item Für $x = (p_1^{d_1},\alpha_2), y = (p_2^{d_2},\alpha_2) \in \einf^2$ gilt
+            \begin{align*}
+                \Gscoinc^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                p_1 = p_2 \land \alpha_1 = \alpha_2.
+            \end{align*}
+        \item Für $x = (p_1^{d_1},q_1^{e_1},\alpha_1), y = (p_2^{d_2},q_2^{e_2},alpha_2) \in \einf^1$ gilt
+            \begin{align*}
+                \Gscoinc^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                (p_1, q_1) = (p_2,q_2) \land \alpha_1 = \alpha_2.
+            \end{align*}
+        \item Für $x = (p_1^{d_1},q_1^{e_1},r_1^{f_1}), y = (p_2^{d_2},q_2^{e_2},r_2^{f_2}) \in \einf^0$ gilt
+            \begin{align*}
+                \Gscoinc^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                (p_1,q_1,r_1) = (p_1,q_1,r_1).
+            \end{align*}
+    \end{itemize}
+\end{dfn}
+
+
+\begin{dfn}[$\Gscoinc$]\ \\
+    Für $d \in \{1,2,3\}$, $n \in \N$, $x=(A_1, ... , A_n), y=(B_1, ..., B_n) \in \univ^d$ gilt $\Gscoinc(x,y)$ falls
+    \begin{enumerate}
+     \item $x$ und $y$ ordinär sind und
+     \item $\forall i \in \{1, ..., n\} \exists! j \in \{1, ..., n\} : \Gscoinc^\einf(A_i,B_j).$
+    \end{enumerate}
+\end{dfn}
+
+
+\begin{dfn}[$\Gspart^\einf$]\ 
+    \begin{itemize}
+        \item Für $x,y \in \univ^3$ gilt
+            \begin{align*}
+                \Gspart^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                x \subseteq y.
+            \end{align*}
+        \item Für $x = (A_1,\alpha_2), y = (A_2,\alpha_2) \in \einf^2$ gilt
+            \begin{align*}
+                \Gspart^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                A_1 = A_2 \land \alpha_1 \subseteq \alpha_2.
+            \end{align*}
+        \item Für $x = (A_1,B_1,\alpha_1), y = (A_2,B_2,\alpha_2) \in \einf^1$ gilt
+            \begin{align*}
+                \Gspart^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                (A_1, B_1) = (A_2,B_2) \land \alpha_1 \subseteq \alpha_2.
+            \end{align*}
+        \item Für $x, y \in \einf^0$ gilt
+            \begin{align*}
+                \Gspart^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                x=y.
+            \end{align*}
+    \end{itemize}
+\end{dfn}
+
+
+\begin{dfn}[$\Gspart$]
+    Für $d \in \{0,1,2,2\}$, $m,n \in \N$, $x=(A_1, ..., A_n), y=(B_1, ..., B_m) \in \univ^d$ gilt:
+    $$\Gspart(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gspart^\einf(A_i,B_j). $$
+\end{dfn}
+
+
+
+
+
+
+
+
+
+%$\vor, \precnsim \strictif \closedsucc, \rightfishtail, \prurel$
+
+
+% \begin{dfn}[Gerichtetes Intervall]\ \\
+%     Ein gerichtetes Intervall ist ein Tripel $(a,b,d)$ mit $a,b \in \R$, $a < b$ und $d \in \udset$.\\
+%     Statt $(a,b,d)$ schreiben wir auch $[a,b]^d$.\\
+%     Die Menge der gerichteten Intervalle bezeichen wir mit $I^\ud$.
+% \end{dfn}
+% 
+% \begin{dfn}[Beschränkte gerichtete Zahl]\ \\
+%     Für $a,b \in \R$ mit $a<b$ bezeichnet definieren wir die Menge $I_{[a,b]}^\ud \subseteq I^\ud$ folgendermaßen: $[r,s]^d \in I_{[a,b]}^\ud$ falls:
+%     $$[r,s] \in [a,b] \land (r = a \to d=\upa) \land (r=b \to d=\downa)$$.
+% \end{dfn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{dfn}[Gerichtete Ordnung $\R^\ud$]
+    Wir definieren ein strenge Ordnungsrelation $\triangleleft$ auf der Menge der gerichteten Zahlen durch
+    \begin{align*}
+        r_1^{d_1} \triangleleft r_2^{d_2} \quad \Leftrightarrow \quad r_1 < r_2 \lor r_1 = r_2 \land d_1 = \downa \land \ d_2 = \upa
+    \end{align*}
+\end{dfn}
+
+\begin{dfn}[Beschränkte gerichtete Zahl]\ \\
+    Eine gerichtete Zahl $r^d$ heißt beschränkt, wenn $r \in [0,1]$ ist.\\
+    Die Menge der beschränkten gerichteten Zahlen notieren wir mit $\R_[0,1]^\ud$.
+\end{dfn}
+
+
+
+\begin{dfn}[Gerichtete Ordnung $I^\ud$]
+    Wir erweitern die Relation $\triangleleft$ auf die Menge der gerichteten Intervalle durch
+    \begin{align*}
+        [a_1,b_1]^{d_1} \triangleleft [a_2,b_2]^{d_2} \quad \Leftrightarrow \quad b_1 < a_2 \lor b_1 = a_2 \land d_1 = \downa \land \ d_2 = \upa
+    \end{align*}
+\end{dfn}
+
+
+
+
+
+

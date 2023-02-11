@@ -1,0 +1,116 @@
+% % Title Page
+% 
+% \begin{titlepage}
+% 
+% \begin{addmargin}[-1cm]{-3cm}
+% \begin{center}
+% \large
+% 
+% \hfill
+% \vfill
+% 
+% \begingroup
+% \color{Maroon}\spacedallcaps{\Large{\myTitle}\\ \mySubtitle} \\ \bigskip % Thesis title
+% \endgroup
+% 
+% \spacedlowsmallcaps{\myName} % Your name
+% 
+% \vfill
+% 
+% \includegraphics[height=6cm]{gfx/uni-leipzig-logo.png} \\ \medskip % Picture
+% 
+% %\mySubtitle \\ \medskip % Thesis subtitle
+% %\myDegree \\
+% %\myDepartment \\
+% %\myFaculty \\
+% %\myUni \\ \bigskip
+% 
+% \myTime\ -- \myVersion % Time and version
+% 
+% \vfill
+% 
+% \end{center}
+% \end{addmargin}
+% 
+% \end{titlepage}
+
+
+
+%*******************************************************
+%Titlepage
+%*******************************************************
+
+\renewcommand{\today}{\ifnum\number\day<10 0\fi \number\day.\space%
+\ifcase \month \or Januar \or Februar \or März \or April \or Mai %
+\or Juni \or Juli \or August \or September \or Oktober \or November \or Dezember \fi %
+\number \year}
+
+\begin{titlepage}
+	% if you want the titlepage to be centered, uncomment and fine-tune the line below (KOMA classes environment)
+	\begin{addmargin}[-1cm]{-3cm}
+    \begin{center}
+        \large
+
+        \hfill
+
+        \vfill
+        
+        Universität Leipzig\\
+        Fakultät für Mathematik und Informatik\\
+        Institut für Informatik\\
+        
+        \vfill
+
+        \begingroup
+            \color{Maroon}\LARGE{\spacedallcaps{\myTitle}} \\ \bigskip
+            \large{\spacedallcaps{\mySubtitle}}\\ \bigskip
+        \endgroup
+        
+        \vfill
+        
+        \includegraphics[height=4cm]{abb/uni-leipzig-logo-pur.png} \\ \medskip % Picture
+        
+        \vfill
+
+        
+
+        {\Huge BACHELORARBEIT} \bigskip
+
+        \vfill
+        
+    \end{center}
+
+        Leipzig, den \myTime \\ \medskip
+        
+    \begin{flushright}
+        vorgelegt von: \textcolor{white}{,,,,,,,,,,,,,,,,,,,,,,,,,,,,,} \\
+        \vspace{2pt}
+        
+        \noindent
+        \spacedallcaps{Bärbel Hanle} \textcolor{white}{,,,,,,,,}\\ 
+        %\ \\
+        \vspace{4pt}
+        
+        \noindent
+        Studiengang: \textcolor{white}{,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,}\\
+        \vspace{2pt}
+        
+        \noindent
+        \spacedallcaps{Informatik B.Sc.} \textcolor{white}{}
+    \end{flushright}
+    
+    \vfill
+    
+%     %\begin{center}
+%         Betreuender Hochschullehrer:\\
+%         \raggedleft{Dr. Frank Loebe,}\\
+%         \raggedleft{Fakultät für Mathematik und Informatik, Institut für Informatik}
+%     %\end{center}
+    
+    \begin{center}
+        Betreuender Hochschullehrer: Dr. Frank Loebe,\\
+        Fakultät für Mathematik und Informatik, Institut für Informatik
+    \end{center}
+    
+  \end{addmargin}
+\end{titlepage}

@@ -1,0 +1,496 @@
+%\chapter{Eine Interpretation für die Theorie $\theoryBSO$}\label{chap:bso-struktur}
+\chapter{Formale Definition der \strukt}\label{chap:bso-struktur}
+    In Kapitel \ref{chap:bso-grundideen} habe ich die \strukt als Interpretation von $\theoryBSO$ eingeführt, wobei die genauen Definitionen der Repräsentanten und der Objektäquivalenz offen gelassen wurden. 
+    Mit Hilfe der im vorangegangenen Kapitel~\ref{chap:topologie-erweiterung} neu eingeführten topologischen Begriffe werden diese Lücken in Abschnitt \ref{sec:univ-2} geschlossen.
+    Der Abschnitt~\ref{sec:analyse} reißt die Fragen an, ob der vorgeschlagene Ansatz die Vorstellungen, die mit der Theorie verbunden sind, adäquat widerspiegelt und ob er ein Modell von $\theoryBSO$ ist, kann diese jedoch nicht abschließend beantworten.
+% 
+%     Da im Rahmen dieser Arbeit weder ausführlich untersucht werden kann, ob der vorgeschlagene Ansatz die Vorstellungen, die mit der Theorie verbunden sind adäquat wiederspiegelt, noch, ob er ein Modell von $\theoryBSO$ ist, werden diese beiden Fragen in Abschnitt~\ref{sec:analyse} zumindest an einigen Beispielen untersucht
+
+% --------------------------------------------------------------------------------------
+
+    \section{Repräsentanten und Objektäquivalenz}\label{sec:univ-2}
+    In diesem Abschnitt stelle ich die in \ref{sec:ausblick} angekündigten Definitionen für Raumregionen, Repräsentanten und die Objektäquivalenz der \strukt bereit.
+
+    Zur Erinnerung: Raumregionen sind Teilmengen des $\R^3$, die überall echt 3-dimensional sind und einen 2-dimensionalen Rand haben.%
+    \marginpar{Raumregionen}
+    Mit Hilfe des in Abschnitt~\ref{sec:einf-mengen} eingeführten Begriffs der einfach offenen Menge definiere ich nun:
+%    
+    \begin{dfn}[Raumregion]\ \\
+        Eine Teilmenge $A \subseteq \R^3$ heißt Raumregion, wenn
+        \begin{enumerate}
+            \item $\varnothing \neq A \in \OC$ und
+            \item $A$ beschränkt%  
+                  \footnote{Eine Teilmenge $A \subseteq \R^n$ ist beschränkt falls $\exists\: M \in \R : A \subseteq B_M(0)$.}
+                  ist
+        \end{enumerate}
+        Die Menge der Raumregionen bezeichnen wir mit $\univ^3$.
+    \end{dfn}
+%    
+    Ob dieser Ansatz alle Vorstellungen adäquat widerspiegelt, die mit dem Begriff der Raumregion verbunden sind, ob also einfache Mengen alle gewünschten Eigenschaften besitzen, ist eine mathematisch anspruchsvolle Frage, die hier nicht abschließend geklärt werden kann. Sie wird in \ref{chap:diskussion} noch weiter ausgeführt.
+%
+    \begin{bsp}[$\varepsilon$-Bälle als Raumregionen]\ \\
+        Für jedes $x \in \R^3$ und jedes $\varepsilon > 0$ ist $B_\varepsilon(x)$ eine Raumregion.
+    \end{bsp}
+%    
+%
+    Niederdimensionale Raumentitäten werden als Äquivalenzklassen von Repräsentanten betrachtet.
+    Diese Repräsentanten sind Tupel von euklidischen Entitäten.%
+    \marginpar{euklidische Entitäten,\\Repräsentanten}
+    Kurz gesagt sind euklidische Entitäten Teilmengen des $\R^3$, die auf den Rändern von höherdimensionalen euklidischen Entitäten liegen und deren Ränder Kodimension 1 haben.
+    Genauer gesagt: 3-dimensionale euklidische Entitäten sind Raumregionen.
+    $n$-dimensionale euklidische Entitäten liegen auf den Rändern von $(n+1)$-dimensionalen und haben einen $(n-1)$-dimensionalen Rand.
+    Auf die explizite Definition dieser Entitäten kann ich hier verzichten, denn sie ergibt sich im Nachhinein aus der Definition der Repräsentanten.
+%
+    \begin{dfn}[Repräsentanten]\label{dfn:repr}\ \vspace{0pt}
+
+        \begin{enumerate}
+            \item $(A,B)$ ist ein \spacedlowsmallcaps{Flächenrepräsentant}, wenn 
+                \begin{enumerate}
+                    \item $A$ eine Raumregion und
+                    \item $\varnothing \neq B \in \OC_{\rand A}$ ist.
+                \end{enumerate}
+                Die \spacedlowsmallcaps{Menge der Flächenrepräsentanten} bezeichnen wir mit $\rep^2$.
+            \item $(A,B,C)$ ist ein \spacedlowsmallcaps{Linienrepräsentant}, wenn 
+                \begin{enumerate}
+                    \item $(A,B)$ ein Flächenrepräsentant und
+                    \item $\varnothing \neq C \in \OC_{\delta B}$ ist.
+                \end{enumerate}
+                Die \spacedlowsmallcaps{Menge der Linienrepräsentanten} bezeichnen wir mit $\rep^1$.
+            \item $(A,B,C,D)$ ist ein \spacedlowsmallcaps{Punktrepräsentant}, wenn 
+                \begin{enumerate}
+                    \item $(A,B,C)$ ein Linienrepräsentant und
+                    \item $D \subseteq \delta^2 C$ ist.
+                \end{enumerate}
+                Die \spacedlowsmallcaps{Menge der Punktrepräsentanten} bezeichnen wir mit $\rep^0$.
+        \end{enumerate}
+    %	
+    \end{dfn}
+%    
+    Für die so definierten Repräsentanten ergibt sich trivialerweise:
+%    
+    \begin{satz}\ \vspace{0pt}
+    
+        \begin{itemize}
+            \item Für jede Raumregion $A$ gilt: $(A, \rand A)$ ist ein Flächenrepräsentant.
+            \item Für jeden Flächenrepräsentanten $(A,B)$ gilt: 
+                Falls $\delta B \neq \varnothing$ ist, ist $(A, B, \delta B)$ ein Linienrepräsentant.
+            \item Für jeden Linienrepräsentanten $(A,B,C)$ gilt: 
+                Falls $\delta^2 C \neq \varnothing$ ist, ist $(A, B, C, \delta^2 C)$ ein Punktrepräsentant.
+        \end{itemize}
+        
+    \end{satz}
+%
+%
+    Die Objektäquivalenz erfasst in geeigneter Weise, was es heißt, dass zwei Raumentitäten \glqq von der gleichen Seite\grqq\ bzw.\ \glqq aus der gleichen Richtung\grqq\ auf eine dritte zukommen. 
+    \marginpar{Objektäquivalenz}
+    Hier erweist sich der in Abschnitt~\ref{sec:lokale-gleichheit} definierte Begriff der lokalen Gleichheit als hilfreich.
+%
+    \begin{dfn}[Objektäquivalenz, $\sim$]\label{dfn:objektaequivalenz}\ \vspace{0pt}
+
+        \begin{enumerate}
+            \item Zwei \spacedlowsmallcaps{Flächenrepräsentanten} $(A_1,B_1)$ und $(A_2,B_2)$ sind \spacedlowsmallcaps{objektäquivalent}, wenn 
+                \begin{enumerate}
+                    \item $B_1 = B_2$ und
+                    \item $A_1 =_{B_1} A_2$
+                \end{enumerate}
+                gelten.
+            \item Zwei \spacedlowsmallcaps{Linienrepräsentanten} $(A_1,B_1,C_1)$ und \\
+            $(A_2,B_2,C_2)$ sind \spacedlowsmallcaps{objektäquivalent}, wenn 
+                \begin{enumerate}
+                    \item $C_1 = C_2$,
+                    \item $A_1 =_{C_1} A_2$ und $B_1 =_{C_1} B_2$
+                \end{enumerate}
+                gelten.
+            \item Zwei \spacedlowsmallcaps{Punktrepräsentanten} $(A_1,B_1,C_1,D_1)$ und\\
+                $(A_2,B_2,C_2,D_2)$ sind \spacedlowsmallcaps{objektäquivalent}, wenn 
+                \begin{enumerate}
+                    \item $D_1 = D_2$,
+                    \item $A_1 =_{D_1} A_2$, $B_1 =_{D_1} B_2$ und $C_1 =_{D_1} C_2$
+                \end{enumerate}	
+                gelten.		
+        \end{enumerate}
+        
+        Wenn zwei Repräsentanten $x$ und $y$ objektäquivalent sind, so schreiben wir $x \sim y$.
+        
+    \end{dfn}
+%
+    Bei der informellen Einführung der Objektäquivalenz in Abschnitt~\ref{sec:universum} wurde die Äquivalenzrelationseigenschaft gefordert, die nun auch nachgewiesen werden kann.
+%    
+    \begin{satz}\ \\
+        Die Objektäquivalenz ist eine Äquivalenzrelation auf\\
+        $\rep^2 \cup \rep^1 \cup \rep^0$.
+    \end{satz}
+%    
+% 		\todo[inline]{FL: Im Satz habe ich 2x $\cap$ durch 2x $\cup$ ersetzt; den Beweis würde ich analog zu früheren in die Beweisumgebung setzen? Alternativ als Text ansetzen: ``Der Beweis ist eine direkte ...''\\
+% 		-> BH: gut}
+    \begin{bew}
+		Direkte Folgerung aus Korollar \ref{kor:lokale-gleichheit-aer} (die lokale Gleichheit bzgl. einer festen Menge ist eine Äquivalenzrelation) und der Äquivalenzrelationseigenschaft von \glqq = \grqq .
+    \end{bew}
+ 
+    
+%-----------------------------------------------------------------------------
+    
+    
+    
+%     \section{Universum und primitive Relationen in der \strukt}
+% 
+%     
+%     - Übersicht 3
+%     - Wie wirken sich die neuen Definitionen auf das Universum und die primitiven Relationen aus?
+% 
+%     
+%     \begin{erin}[Flächen-, Linien- und Punktregionen] \ \vspace{0pt}
+% 
+%         \noindent
+%             Sei $\sim$ eine Objektäquivalenz.
+%             
+%             \begin{enumerate}
+%         			
+%                 \item Für $(A,B) \in \rep^2$ bezeichnet 
+%                     \begin{align*}
+%                         [A,B] := \{(A',B') \in \rep^2 \mid (A',B') \sim (A,B)\}
+%                     \end{align*}
+%                     die Äquivalenzklasse von $(A,B)$ bezüglich der Objektäquivalenz.\\
+%                     Diese Äquivalenzklassen heißen \spacedlowsmallcaps{Flächenregionen}.
+%                     
+%                 \item Für $(A,B,C) \in \rep^1$ bezeichnet
+%                     \begin{align*}
+%                         [A,B,C] := \{(A',B',C') \in \rep^1 \mid (A',B',C') \sim (A,B,C)\}
+%                     \end{align*}			 
+%                     die Äquivalenzklasse von $(A,B,C)$ bezüglich der Objektäquivalenz.\\
+%                     Diese Äquivalenzklassen heißen \spacedlowsmallcaps{Linieregionen}.
+%         			
+%                 \item Für $(A,B,C,D) \in \rep^0$ bezeichnet
+%                     \begin{align*}
+%                         &[A,B,C,D] := \\
+%                         &\{(A',B',C',D') \in \rep^0 \mid (A',B',C',D') \sim (A,B,C,D)\}
+%                     \end{align*}			 
+%                     die Äquivalenzklasse von $(A,B,C,D)$ bezüglich der Objektäquivalenz.\\
+%                     Diese Äquivalenzklassen heißen \spacedlowsmallcaps{Punktregionen}.
+%         			
+%             \end{enumerate}
+%             
+%             \noindent	
+%                 Für $i \in \{0,1,2\}$ ist $\univ^i := \rep^i /_\sim$ die \spacedlowsmallcaps{Menge der Äquivalenzklassen} von $\rep^i$.\\
+%                 $\univ^3$ ist die \spacedlowsmallcaps{Menge der Raumregionen}.\\
+%                 $\univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0$ ist das \spacedlowsmallcaps{Universum} der \strukt.
+%         
+%     \end{erin}
+%     
+%     \begin{erin}[Universum]\ \vspace{8pt}
+% 
+%         \noindent
+%         Das Universum der \strukt ist definiert als
+%         \begin{align*}
+%             \univ = \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
+%         \end{align*}
+%                 
+%     \end{erin}
+
+    %\section{Die primitiven Relationen in der \strukt}\label{sec:prim-rel-2}
+%     
+%     Da $\univ^3$, $\univ^2$, $\univ^1$ und $\univ^0$ paarweise disjunkt sind, lässt sich die folgende Funktion auf $U$ definieren:
+%     
+%     \begin{dfn} Dimensionsfunktion
+%         Sei $dim : \univ \to \N$ definiert durch
+%         $$ dim(x) = i \quad \Leftrightarrow \quad x \in \univ^i $$
+%     \end{dfn}
+%     
+%     \begin{erin}[Die $\GSReg$-Relation in der \strukt]\ \vspace{8pt}
+% 
+%         \noindent
+%         Für $x \in \univ$ gilt $\GSReg(x)$ gdw $x\in \univ^3$.
+%         
+%     \end{erin}
+%     
+%     
+
+\section{Analyse}\label{sec:analyse}
+    Nachdem die Lücken in der Definition der \strukt nun geschlossen sind, schließen sich innerhalb des $\theoryBSO$-Kontextes nun vor allem zwei Fragen an:%
+    %\marginpar{Korrektheit,\\Adäquatheit}
+    \begin{enumerate}
+        \item Ist die vorgestellte Interpretation ein Modell von $\theoryBSO$?
+        \item Entspricht sie den Vorstellungen, die hinter dieser Theorie stehen?
+    \end{enumerate}
+%
+    Um die erste Frage %\textcolor{red}{Frage} 
+    zu beantworten, muss die Gültigkeit der $\theoryBSO$-Axiome in der \strukt überprüft werden.
+    Für die zweite ist zu untersuchen, wie sich die im vorherigen Abschnitt getroffenen Entscheidungen auf die primitiven und vor allem definierten Relationen in $\theoryBSO$ auswirken.
+
+    Die vollumfängliche Untersuchung und Beantwortung dieser Fragen würde den Rahmen dieser Arbeit sprengen. 
+    Daher wird sie nur anhand weniger Beispiele begonnen.
+    
+    An dieser Stelle sei noch auf Übersichtblatt 3 hingewiesen, auf dem alle Definitionen der \strukt vereint sind, die im Laufe der Arbeit entwickelt wurden und daher über deren Kapitel verteilt sind.
+
+\subsection{Untersuchung ausgewählter primitiver Relationen}
+%\subsection{Ausgewählte primitive Relationen}
+%    \paragraph{Primitive Relationen:}\ \\
+    Durch Einsetzen der Definition der Objektäquivalenz aus \ref{sec:univ-2} von $\Gsb$ und $\Gspart$ aus \ref{sec:prim-rel-1} ergeben sich die zwei folgenden Sätze über die Relationen $\Gsb$ und $\Gspart$ in der \strukt, die eine unmittelbare Charakterisierung der beiden Relationen vermittels lokaler Gleichheit wiedergeben.
+
+    \begin{satz}[Die $\Gsb$-Relation in der \strukt]\ \vspace{0pt}
+
+        \begin{enumerate}
+            \item Für $(A_1,B_1) \in \rep^2$, $A_2 \in \univ^3$ gilt 
+                \begin{align*}
+                    \Gsb([A_1,B_1],A_2) 
+                    \quad \Leftrightarrow \quad 
+                    A_1 =_{B_1} A_2
+                \end{align*}
+            \item Für $(A_1,B_1,C_1) \in \rep^1$, $(A_2,B_2) \in \rep^2$ gilt 
+                \begin{align*}
+                    &\Gsb([A_1,B_1,C_1],[A_2,B_2]) 
+                    \quad \Leftrightarrow \quad\\
+                    &A_1 =_{C_1} A_2 \:\land\: B_1 =_{C_1} B_2
+                \end{align*}
+            \item Für $(A_1,B_1,C_1,D_1) \in \rep^0$, $(A_2,B_2,C_2) \in \rep^1$ gilt 
+                \begin{align*}
+                    &\Gsb([A_1,B_1,C_1,D_1],[A_2,B_2,C_2]) 
+                    \quad \Leftrightarrow \quad\\ 
+                    &A_1 =_{D_1} A_2 \:\land\: B_1 =_{D_1} B_2 \:\land\: C_1 =_{D_1} C_2
+                \end{align*}
+        \end{enumerate}
+        
+    \end{satz}
+    
+%     folgender Satz ist schon in bso-grundidee
+%     \begin{satz}\ \vspace{0pt} 
+% 
+%         \begin{enumerate}\label{satz:sb-einfacher-fall}
+%             \item Für jeden Flächenrepräsentanten $(A,B)$ gilt: $\Gsb([A,B],A)$
+%             \item Für jeden Linienrepräsentanten $(A,B,C)$ gilt:\\
+%                 $\Gsb([A,B,C],[A,B])$
+%             \item Für jeden Linienrepräsentanten $(A,B,C,D)$ gilt:\\
+%                 $\Gsb([A,B,C,D],[A,B,C])$
+%         \end{enumerate}
+% 
+%     \end{satz}
+% 
+% 
+%     \begin{erin}[Die $\Gscoinc$-Relation in der \strukt]\ \vspace{0pt}
+% 
+%         \begin{enumerate}
+%             \item Für $A_1, A_2 \in \univ^3$ gilt: $\neg \Gscoinc(A_1,A_2)$
+%             \item Für $(A_1,B_1), (A_2,B_2) \in \rep^2$ gilt 
+%                 \begin{align*}
+%                     \Gscoinc([A_1,B_1],[A_2,B_2]) 
+%                     \quad \Leftrightarrow \quad 
+%                     B_1 = B_2
+%                 \end{align*}
+%             \item Für $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \rep^1$ gilt 
+%                 \begin{align*}
+%                     \Gscoinc([A_1,B_1,C_1],[A_2,B_2,C_2]) 
+%                     \quad \Leftrightarrow \quad 
+%                     C_1 = C_2
+%                 \end{align*}
+%             \item Für $(A_1,B_1,C_1,D_1), (A_2,B_2,C_2,D_2) \in \rep^0$ gilt 
+%                 \begin{align*}
+%                     &\Gscoinc([A_1,B_1,C_1,D_1],[A_2,B_2,C_2,D_2])\\ 
+%                     &\quad \Leftrightarrow \quad 
+%                     D_1 = D_2
+%                 \end{align*}
+%         \end{enumerate}
+%         
+%     \end{erin}
+% 
+%     
+    \begin{satz}[Die $\Gspart$-Relation in der \strukt]\ \vspace{0pt}
+
+        \begin{enumerate}
+            \item Für $A_1, A_2 \in \univ^3$ gilt $\Gspart(A_1,A_2)$ gdw.\ $A_1 \subseteq A_2$
+    %		
+            \item Für $(A_1,B_1), (A_2,B_2) \in \rep^2$ gilt $\Gspart([A_1,B_1],[A_2,B_2])$ gdw. 
+                \begin{enumerate}
+                    \item $B_1 \subseteq B_2$
+                    \item $A_1 =_{B_1} A_2$
+                \end{enumerate}	
+    %			
+            \item Für $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \rep^1$ gilt\\
+                $\Gspart([A_1,B_1,C_1],[A_2,B_2,C_2])$ gdw. 
+                \begin{enumerate}
+                    \item $C_1 \subseteq C_2$
+                    \item $A_1 =_{C_1} A_2$ und $B_1 =_{C_1} B_2$
+                \end{enumerate}	
+    %			
+            \item Für $(A_1,B_1,C_1,D_1), (A_2,B_2,C_2,D_2) \in \rep^0$ gilt\\
+                $\Gspart([A_1,B_1,C_1,D_1],[A_2,B_2,C_2,D_2])$ gdw.
+                \begin{enumerate}
+                    \item $D_1 = D_2$
+                    \item $A_1 =_{D_1} A_2$, $B_1 =_{D_1} B_2$ und $C_1 =_{D_1} C_2$
+                \end{enumerate}	
+    %
+        \end{enumerate}
+        
+    \end{satz}
+    %
+    %
+% 		\todo[inline]{FL: Vorschlagshalber habe ich den Satz zur Transitivität von $\Gspart$ an den Anfang von 6.2.3 verlegt (hier im Quelltext nur auskommentiert). Bei Nichtgefallen bitte und leider zurückverlegen.\\
+% 		-> BH: macht Sinn}
+%    Der folgende Satz besagt, das die \strukt Axiom A6 erfüllt.
+%    %
+%    \begin{satz}\label{satz:spart-trans}
+%        Die $\Gspart$-Relation ist transitiv.\\
+%        (Beweis: siehe Anhang \ref{anh:spart-trans}.)
+%    \end{satz}
+
+% -------------------------------------------------------------------------------------
+    
+ \subsection{Untersuchung ausgewählter definierter Relationen}
+%\subsection{Ausgewählte definierte Relationen}
+
+%\paragraph{Definierte Relationen}
+
+%     \begin{erin}
+%         $\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))$
+%     \end{erin}
+
+    Hier beschränke ich mich auf Entsprechungen zweier intuitiv gut zugänglicher Relationen im Rahmen der \strukt.
+
+    Die größte räumliche Grenze sollte für Raumregionen der Oberfläche, für Flächenregionen den Umrisslinien und für Linienregionen allen ihren Endpunkten entsprechen.
+    %
+    \begin{satz}[$\Ggrsb$]\ \vspace{0pt} 
+
+        \begin{itemize}
+            \item Für jeden Flächenrepräsentanten $(A_1,B_1)$ und jede Raumregion $A_2$ gilt:
+                $$\Ggrsb([A_1,B_1],A_2) \quad \Rightarrow \quad B_1 = \rand A_2.$$
+            \item Für jeden Linienrepräsentanten $(A_1,B_1,C_1)$ und jeden Flächenrepräsentanten $(A_2,B_2)$ gilt:
+                $$\Ggrsb([A_1,B_1,C_1],[A_2,B_2]) \quad \Rightarrow \quad C_1 = \delta B_2.$$
+            \item Für jeden Punktrepräsentanten $(A_1,B_1,C_1,D_1)$ und jeden Linienrepräsentanten $(A_2,B_2,C_2)$ gilt:
+                $$\Ggrsb([A_1,B_1,C_1,D],[A_2,B_2,C_2]) \quad \Rightarrow \quad D_1 = \delta^2 C_2.$$
+        \end{itemize}
+
+    \end{satz}
+%     %
+% 		\todo[inline]{FL: Bitte im Satz prüfen:\\
+% 		1. bei Flächenrepräsentanten: $B$ statt $B_1$ rechts? Oder überall $B_1$?\\
+% 		2. bei Linienrepräsentanten: $B_1$ rechts korrekt? Oder eher $B_2$? (sonst keine Verbindung zum Flächenrepräsentant?) -> BH: $B_2$\\
+% 		3. bei Punktrepräsentanten: Index $2$ an $C$ rechts nötig? -> BH: ja\\
+% 		-> BH: ich denke, es ist doch besser, alle euklidischen Entitäten mit Indizes zu versehen}
+%     Ich führe hier exemplarisch den Beweis für 1.\ aus. 
+%     Die anderen Aussagen lassen sich analog beweisen.
+%     %
+    \begin{bew}
+        Aus $\Ggrsb([A_1,B_1],A_2)$ folgt $\Gsb([A_1,B_1],A_2)$ und damit\\
+        $(A_1,B_1) \sim (A_2,B_1)$.
+        Insbesondere ist $(A_2,B_1)$ ein Flächenrepräsentant und damit $B_1 \subseteq \rand A_2$.
+        Zu zeigen ist also noch: $\rand A_2 \subseteq B_1$.
+
+        Angenommen $\rand A_2 \nsubseteq B_1$.
+        Sei $x \in \rand A_2 \setminus B_1$. 
+        Da $B_1$ einfach offen ist in $\rand A_2$ ist insbesondere $\rand A_2 \setminus B_1$ maximaldimensional also gilt für alle $U \in \offen(x): U \cap \offen(\rand A_2 \setminus B_1) \neq \varnothing$.
+        Insbesondere gilt $B_2 := \op(\rand A_2 \setminus B_1) \neq \varnothing$
+        Da $\rand A_2 \setminus B_1$ als Komplement einer einfachen Menge einfach ist (Satz \ref{satz:einf-komplement}), ist $B_2$ einfach offen (Satz \ref{satz:inneres-einf-offen}).
+        Somit ist $(A_2,B_2)$ ein Flächenrepräsentant.
+
+        Nach Satz \ref{satz:sb-einfacher-fall} gilt $\Gsb([A_2,B_2],A_2)$.
+        Also müsste wegen\\
+        $\Ggrsb([A_1,B_1],A_2)$ gelten: $\Gspart([A_2,B_2],[A_1,B_1])$.
+        Da $B_2$ nach Konstruktion keine Teilmenge von $B_1$ ist, kann das nicht gelten. $\lightning$
+    \end{bew}
+%    
+%    
+%     \begin{erin}
+%         $\Gsov(x,y) := \exists\: z\ (\Gspart(z,x) \wedge \Gspart(z,y))$
+%     \end{erin}
+%    
+    Ferner sollten zwei Raumregionen überlappen, wenn sie einen nichtleeren Schnitt haben.
+		Auch dies lässt sich zeigen.
+    %
+    \begin{satz}\label{satz:sov-raumreg}\ \\
+        Für zwei Raumregionen $A_1$ und $A_2$ gilt: 
+        $$\Gsov(A_1,A_2) \quad \Leftrightarrow \quad A_1 \cap A_2 \neq \varnothing$$
+    \end{satz}
+    %
+    \begin{bew}\ \\
+        ``$\boldsymbol{\Rightarrow}$'':
+        Es gelte $\Gsov(A_1,A_2)$. 
+        Sei $A_3 \in \univ^3$ mit $\Gspart(A_3,A_1)$ und $\Gspart(A_3,A_2)$.
+        Dann gelten $A_3 \subseteq A_1$ und $A_3 \subseteq A_2$ und somit $\varnothing \neq A_3 \subseteq A_1 \cap A_2$.\\
+%         \begin{align*}
+%             \varnothing \neq A_3 \subseteq A_1 \cap A_2
+%         \end{align*}
+        ``$\boldsymbol{\Leftarrow}$'':
+        Seien $A_1$ und $A_2$ Raumregionen mit $A_1 \cap A_2 \neq \varnothing$.
+        Sei $A_3 := A_1 \cap A_2$.
+        Dann ist $A_3$ nicht leer und nach Korollar \ref{kor:co-oc-abschluss} $A_3$ einfach offen.
+        Weil $A_1$ beschränkt ist, gilt das auch für $A_3$.
+        Somit ist $A_3$ ein Raumrepräsentant und es gelten $A_3 \subseteq A_1$ und $A_3 \subseteq A_2$, also $\Gspart(A_3,A_1)$ und $\Gspart(A_3,A_2)$ und somit $\Gsov(A_1,A_2)$.
+    \end{bew}
+
+
+\subsection{Untersuchung ausgewählter Axiome}
+%\subsection{Ausgewählte Axiome}
+%\paragraph{Axiome}
+
+    Ich betrachte zunächst mit dem Axiom A6 von $\theoryBSO$ einen einfachen und nachweisbaren Fall. Dem folgenden Satz entsprechend erfüllt die \strukt dieses Axiom.     %
+    \begin{satz}\label{satz:spart-trans}
+        Die $\Gspart$-Relation ist transitiv.\\
+        (Beweis: siehe Anhang \ref{anh:spart-trans}.)
+    \end{satz}
+%
+%
+    Komplexer stellt sich die Analyse in Bezug auf Axiom A8, das starke Ergänzungsprinzip, dar, das ebenfalls in der \strukt gelten sollte. 
+    Es ist leicht zu sehen, dass man hierfür jeweils nur gleichdimensionale Raumentitäten betrachten muss.
+    Zunächst zeige ich die Gültigkeit dieses Prinzips für Raumregionen.
+%
+    \begin{satz}[Das starke Ergänzungsprinzip für Raumregionen]
+        Für $A_1,A_2 \in \univ^3$ gilt: 
+        $$\neg \Gspart(A_1,A_2) \to \exists\: A \in  \univ^3: (\Gspart(A,A_1) \wedge \neg \Gsov(A,A_2)$$
+    \end{satz}
+%
+    \begin{bew}
+        Seien $A_1$ und $A_2$ Raumregionen mit $\neg \Gspart(A_1,A_2)$.
+        Dann gilt $A_1 \nsubseteq A_2$ also $A_1 \setminus A_2 \neg \varnothing$
+        Sei $A_3 := \op(A_1 \setminus A_2)$.
+        Nach Satz \ref{satz:AohneB-offen} ist $A_3 \neq \varnothing$ und nach Satz \ref{satz:opAohneBinOC} ist $A_3 \in \OC$.
+        Somit ist $A_3 \in \univ^3$.
+        Nach Konstruktion ist $A_3 \subseteq A_1$ also gilt $\Gspart(A_3,A_1)$.
+        Außerdem gilt
+        \begin{align*}
+            A_3 \cap A_2 
+            = \op(A_1 \setminus A_2) \cap A_2 
+            \subseteq (A_1 \setminus A_2) \cap A_2 
+            = \varnothing
+        \end{align*}
+        Damit muss nach Satz \ref{satz:sov-raumreg} gelten $\neg \Gsov(A_3,A_2)$.
+    \end{bew}
+%
+    Ob dieses Prinzip in der \strukt auch für niederdimensionale Raumentitäten gilt, ist jedoch noch nicht klar.
+%
+    \begin{hyp}[Das starke Ergänzungsprinzip für Flächenregionen]
+        Für Flächenregionen $(A_1,B_1)$ und $(A_2,B_2)$ gilt: 
+        \begin{align*}
+            &\neg \Gspart([A_1,B_1],[A_2,B_2]) \to \exists\: (A,B) \in  \rep^2:\\
+            &(\Gspart([A,B],[A_1,B_1]) \wedge \neg \Gsov([A,B],[A_2,B_2])
+        \end{align*}
+    \end{hyp}
+%
+    Für den Beweis kann ich lediglich eine Skizze angeben, von der nicht gesichert ist, ob alle Argumente so durchführbar sind.
+%
+    \begin{bewidee}
+        Seien $(A_1,B_1)$ und $(A_2,B_2)$ Flächenregionen mit $\neg \Gspart([A_1,B_1],[A_2,B_2])$.\\
+    
+        \thmemph{Fall 1}: $B_1 \nsubseteq B_2$. 
+            Wähle $A = A_1$ und $B = \op_{\rand A}(\cl_{\rand A}(B_1 \setminus B_2))$.
+            Klar ist: $A$ ist eine Raumregion und $B$ ist einfach offen in $\rand A$.
+            Wenn wir zeigen könnten, dass $B \neq \varnothing$ ist, so wäre $(A,B)$ eine Flächenregion und es würde gelten $\Gspart([A,B],[A_1,B_1])$.
+            Nun ist noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$\\
+        
+        \thmemph{Fall 2}: $B_1 \subseteq B_2$.
+            Dann gilt $A_1 \neq_{B_1} A_2$.
+            Wenn wir zeigen könnten, dass $B_1 \setminus B_2 \neq \varnothing$ gilt, so könnte man folgende Konstruktion durchführen:
+            Setze $A := \op(A_1 \setminus A_2)$, $B := \op_{\rand A}(\cl_{\rand A}(B_1 \cap \rand A))$
+            Dann ist $A$ einfach offen, nicht leer und beschränkt und somit eine Raumregion.
+            Klar ist: $B$ ist einfach offen in $\rand A$. 
+            Wenn wir zeigen könnten, dass $B \neq \varnothing$ ist, dann wäre $(A,B)$ ein Flächenrepräsentant und es würde gelten $\Gspart([A,B],[A_1,B_1])$.
+            Nun bleibt noch zu zeigen: $\neg \Gsov([A,B],[A_2,B_2])$.
+                
+    \end{bewidee}
+%
+Der Fall des starken Ergänzungsprinzips deutet exemplarisch die Aufwändigkeit an,
+die den Untersuchungen zur Gültigkeit der Axiome von $\theoryBSO$ in der \strukt innewohnen kann.
+Er beschließt zudem die hierin durchgeführten Analysen der \strukt.
+ 
+    
+
+
+

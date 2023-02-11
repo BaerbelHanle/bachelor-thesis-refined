@@ -1,0 +1,64 @@
+\section{Zu Kapitel \ref{chap:nebenresultate} (Nebenresultate)}
+
+\subsection{Zu Abschnitt \ref{sec:echter-rand}}
+
+% --- satz:dco=doc -------------------------------------------------------------------
+
+\subsubsection{Zu Satz \ref{satz:dco=doc}} \label{anh:doc=doc} 
+Zu zeigen ist
+\begin{enumerate}
+	\item $\Delta_X(A) \subseteq co_X(A) \setminus oc_X(A)$ \label{anh:dco=doc.1}
+	\item $co_X(A) \setminus oc_X(A) \subseteq \Delta_X(A)$ \label{anh:dco=doc.2}
+	\item $co_X(A) \setminus oc_X(A) \subseteq \rand_X \circ oc_X(A)$ \label{anh:dco=doc.3}
+	\item $\rand_X \circ oc_X(A) \subseteq co_X(A) \setminus oc_X(A)$\label{anh:dco=doc.4}
+\end{enumerate}
+
+\noindent
+\textbf{Zu \ref{anh:dco=doc.1}:}
+	\begin{align*}
+		\Delta_X(A) &= \rand_X(co_X(A)) \\
+		&= cl_X(cl_X(op_X(A))) \setminus op_X(cl_X(op_X(A))) \\
+		&= co_X(A) \setminus oc_X(op_X(A)) \\
+		&\subseteq co_X(A) \setminus oc_X(A)
+	\end{align*} 
+	Die letzte Gleichung gilt, da $A \subseteq op_X(A)$ und damit $oc_X(A) \subseteq oc_X(op_X(A))$ ist, gilt.
+	\footnote{Allerdings gilt nicht $oc_X(A) = oc_X(op_X(A))$. Für ein Gegenbeispiel siehe Bem \ref{bem:rand} }
+\\
+
+\noindent	
+\textbf{Zu \ref{anh:dco=doc.2}:}
+	Sei $x \in co_X(A) \setminus oc_X(A)$. Angenommen $x \notin \Delta_X(A) = \rand_X(co_X(A))$. \\
+	Dann gilt $\neg \forall\: U \in \offen_X: (\: (x \in U \to U \cap co_X(A) \neq \varnothing \:\land\: U \setminus co_X(A) \neq \varnothing \:)$. \\
+	Sei also $U_0 \in \offen_X$ mit $x \in U_0$ und 
+	\begin{align}
+		U_0 \cap co_X(A) = \varnothing \:\lor\: U_0 \setminus co_X(A) = \varnothing \label{anh:dco=doc.2.1}
+	\end{align}
+	Einerseits folgt aus $x \in co_X(A) = cl_X(op_X(A))$ dass $U_0 \cap op_X(A) \neq \varnothing$ ist und damit wegen $op_X(A) \subseteq cl_X(op_X(A)) = co_X(A)$ dass $U_0 \cap co_X(A) \neq \varnothing$ ist. Mit (\ref{anh:dco=doc.2.1}) gilt also
+	\begin{align}
+		U_0 \setminus co_X(A) = \varnothing \label{anh:dco=doc.2.2}
+	\end{align}
+	Andererseits ist $x \notin oc_X(A) = op_X(cl_X(A))$ und damit gilt $U_0 \setminus cl_X(A) \neq \varnothing$. \\
+	Da aber $co_X(A) =  cl_X(oc_X(A)) \subseteq cl_X(A)$ ist, gilt also $U_0 \setminus co_X(A) \neq \varnothing$ was (\ref{anh:dco=doc.2.2}) widerspricht. \\
+	
+\noindent	
+\textbf{Zu \ref{anh:dco=doc.3}:}
+	Sei $x \in co_X(A) \setminus oc_X(A)$. Angenommen $x \notin \rand_X(oc_X(A))$. \\
+	Dann gilt $\neg \forall\: U \in \offen_X: (\: (x \in U \to U \cap oc_X(A) \neq \varnothing \:\land\: U \setminus oc_X(A) \neq \varnothing \:)$. \\
+	Sei also $U_0 \in \offen_X$ mit $x \in U_0$ und 
+	\begin{align}
+		U_0 \cap oc_X(A) = \varnothing \:\lor\: U_0 \setminus oc_X(A) = \varnothing \label{anh:dco=doc.3.1}
+	\end{align}
+	Einerseits folgt aus $x \in co_X(A) = cl_X(op_X(A))$ dass $U_0 \cap op_X(A) \neq \varnothing$ ist und wegen $oc_X(A) = op_X(cl_X(A)) \supseteq op_X(A)$ muss dann $U_0 \cap oc_X(A) \neq \varnothing$ sein. Damit gilt nach (\ref{anh:dco=doc.3.1})
+	\begin{align}
+		U_0 \setminus oc_X(A) = \varnothing \label{anh:dco=doc.3.2}
+	\end{align}	
+	Andererseits ist $x \notin oc_X(A) = op_X(cl_X(A))$ und damit gilt $U_0 \setminus cl_X(A) \neq \varnothing$ wegen $oc_X(A) = op_X(cl_X(A)) \subseteq cl_X(A)$ gilt also $U_0 \setminus oc_X(A) \neq \varnothing$ was (\ref{anh:dco=doc.3.2}) widerspricht.\\
+	
+\noindent
+\textbf{Zu \ref{anh:dco=doc.4}:}
+	\begin{align*}
+		\rand_X(oc_X(A)) &= cl_X(oc(A)) \setminus op_X(oc_X(A)) \\
+		&= cl_X(op_X(cl_X(A))) \setminus op_X(op_X(cl_X(A))) \\
+		&\subseteq cl_X(op_X(A)) \setminus op_X(cl_X(A)) \\
+		& = co_X(A) \setminus oc_X(A)
+	\end{align*}

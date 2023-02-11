@@ -1,0 +1,169 @@
+\chapter{Einleitung}\label{chap:einleitung}
+
+\section{Ausgangssituation}
+%     \marginpar{Ontologie}
+    Ontologie
+    \marginpar{Ontologie}
+    ist in der Philosophie die Lehre des Seins, welche sich mit Begriffen wie Existenz, Sein, Werden und Realität befasst.
+    Ontologi\textit{en} in der Informatik sind hingegen meist sprachlich gefasste und formal geordnete Darstellungen einer Menge von Begriffen und der zwischen ihnen bestehenden Beziehungen in einem
+    bestimmten Gegenstandsbereich. 
+    Eine Ontologie kann sich aus mehreren Subontologien, die selbst Ontologien sind, zusammensetzen. In diesem Sinne ist es zu verstehen, wenn im Folgenden sowohl von \ac{gfo}\ 
+    %\glqq General Formal Ontology\grqq\ (GFO) 
+    %\cFLs GFO\cFL{ausführlicher Name bei allererstem Auftreten; Wiederholung ist im nächsten Absatz möglich}, 
+    als auch von den Teilen, aus denen \ac{gfo}\ zusammengesetzt ist, als Ontologien gesprochen wird.
+
+    %\marginpar{General Formal Ontology (GFO)}
+    Seit
+    \marginpar{General Formal Ontology (GFO)}
+    1999 wird an der Universität Leipzig die Ontologie \ac{gfo}\ (General Formal Ontology) entwickelt, die als Grundlagenontologie (foundational ontology) Begriffe für ein breites Anwendungsfeld zur Verfügung stellen soll. 
+    Domänenspezifische Ontologien können dann darauf aufbauen.
+        Die Arbeit in diesem Bereich ging aus einer Kooperation von Barbara 
+		Heller am \ac{imise}
+		%Institut für Medizinische Informatik, Statistik und Epidemologie (IMISE) 
+		und Heinrich Herre am	Institut für Informatik hervor, 
+		die in ihrem Anwendungsbereich zunächst darauf aus war,
+		Methoden der Wissensrepräsentation im Zusammenhang mit der Informationsverarbeitung
+		für Klinische Studien	anzuwenden.
+		Bald formierte sich die Forschungsgruppe %\spacedlowsmallcaps{
+		Ontologien in der Medizin
+		%} 
+		am \ac{imise},
+		die unter anderem die Grundlegung von Wissensrepräsentation mit Hilfe von Ontologien
+		verfolgt.
+		Die Entwicklung von \ac{gfo}\ stellt dabei das am längsten verfolgte Projekt dar,
+		in dem gegenwärtig der Übergang zur nächsten Hauptversion, \ac{gfozweinull}, vollzogen wird [\cite{burek-p-2020-32-a}].
+		
+    \ac{gfo}\ besitzt
+    \marginpar{Abstraktionsebenen von GFO}
+    eine metaontologische Struktur mit drei Abstraktionsebenen. 
+    Dadurch sollen unerwünschte Effekte wie unendliche Regresse (analog zum Russelschen Paradoxon) vermieden werden, die dadurch entstehen, dass die Ontologie Entitäten verschiedenster Art -- unter anderen auch Kategorien -- erfassen soll.
+    Auf unterster Abstraktionsebene \ac{bco}\ werden dabei Begriffe bereitgestellt, die in einem breiten Anwendungsfeld benötigt werden.
+    %Dazu gehören unter anderem Begriffe aus den Themenfeldern Raum, Zeit, materielle Körper und Prozesse.
+    Dazu zählen unter anderem Ontologien zu Raum, Zeit, materiellen Körpern und Prozessen
+    [\cite{baumann-r-2014-171-a, baumann-r-2016-53-a}].
+    Diese sind teilweise unabhängig untereinander, beziehen sich jedoch alle auf die Betrachtungsweisen und Begriffe, die auf den beiden höheren Abstraktionsebenen  \ac{ato}\ und \ac{aco}\ eingeführt werden.
+    Ersteres stellt die Grundlagen für eine formal-semantische Betrachtung der beiden anderen Ebenen bereit und enthält dazu passende formale Theorien, beispielsweise die Mengenlehre und mathematische Kategorientheorie.
+    Auf der zweiten Abstraktionsebene \ac{aco}\ werden ontologische Grundbegriffe wie Kategorie, Individuum, Relation und Rolle bereitgestellt, die in allen \ac{bco}-Ontologien von Bedeutung sind
+    [\cite{loebe-f-2018--a}].
+
+    Die
+    \marginpar{Brentanoraum $\theoryBS$}
+    vorliegende Arbeit befasst sich mit der Theorie $\theoryBS$ (Brentano space), die als Ontologie des Raumes Teil der untersten Abstraktionsebene von \ac{gfo}\ ist [\cite{baumann-r-2016-53-a}].
+    Sie wurde von Ringo Baumann, Frank Loebe und Heinrich Herre entwickelt (zuletzt 2016 publiziert) und baut auf Ideen des Philosophen Franz Brentano zu Raum, Zeit und Kontinuum auf [\cite{brentano-f-1976--a}].
+    Ihr Ziel ist es, Begriffe bereitzustellen, die für die Beschreibung räumlicher Eigenschaften materieller Körper und Beziehungen zwischen diesen benötigt werden.
+    Dabei zielt sie auf einen Größenordnungsbereich ab, der unserer Wahrnehmung zugänglich ist.
+    Sie ist also nicht dazu entworfen, Prozesse in subatomaren oder kosmischen Maßstäben zu betrachten.
+    Als besonderes Merkmal sei hier der Begriff der Koinzidenz niederdimensionaler Raumentitäten erwähnt, der die Berührungsbeziehung zwischen Flächen, Linien und Punkten beschreibt und so in der üblichen mathematischen Betrachtungsweise nicht zu finden ist.
+    Ein Konsistenzbeweis für diese Theorie steht noch aus.
+    
+
+\section{Ziel und Aufbau der Arbeit}
+Ziel dieser Arbeit ist es, einen Beitrag zum Konsistenzbeweis der Theorie $\theoryBS$ zu liefern, indem ich als Kandidat für ein Modell einer Teiltheorie eine Interpretation einführe, die sich möglicherweise zu einem Modell der Gesamttheorie weiterentwickeln lässt.
+% Dazu betrachte ich eine Einschränkung der Theorie $\theoryBS$ analog zu $\theoryBTC$, die ich $\theoryBSO$ nenne, da sie nur noch die sogenannten ordinären Raumentitäten von $\theoryBS$ betrachtet.
+Dazu betrachte ich eine Einschränkung der Theorie $\theoryBS$, die ich $\theoryBSO$ nenne, da sie nur noch die sogenannten ordinären Raumentitäten von $\theoryBS$ beinhaltet.
+
+In
+\marginpar{Der Brentanoraum,\\Grundlagen der \strukt}
+Kapitel~\ref{chap:bs} werden die Ontologie $\theoryBS$ und ihre Einschränkung $\theoryBSO$ vorgestellt.
+Den Kern der Arbeit bildet Kapitel~\ref{chap:bso-grundideen}, in dem die \strukt als Interpretation für $\theoryBSO$ in ihren wesentlichen Ideen eingeführt wird, wobei einige Begriffe noch informell bleiben.
+Dabei steht $\rep$ für \glqq repräsentantenbasiert\grqq, da bei diesem Ansatz die sogenannten niederdimensionalen Raumentitäten durch Tupel \textit{repräsentiert} werden.
+
+Die
+\marginpar{Grundlagen der Topologie,\\Weitere topologische Begriffe}
+folgenden beiden Kapitel liefern mathematische Grundlagen um diese Definitionslücken zu schließen.
+In \ref{chap:topologie-grundlagen} werden Grundbegriffe der Topologie eingeführt, wie sie auch in der Literatur zu finden sind. Hier geht es vor allem um die in dieser Arbeit verwendeten Notationen, die sich teilweise von den geläufigen Notationen unterscheiden.
+Darauf aufbauend definiere ich in Kapitel~\ref{chap:topologie-erweiterung} eigene topologische Begriffe, die die Grundlage für den vorgestellten Interpretationsansatz bilden.
+
+In
+\marginpar{Formale Definition der \strukt}
+Kapitel~\ref{chap:bso-struktur} werden diese neuen Werkzeuge verwendet um die zuvor vage gebliebenen Begriffe der \strukt mathematisch formal zu definieren.
+Eine abschließende Untersuchung, ob die definierte Struktur die Ideen der Theorie adäquat wiedergibt und ob sie ein Modell von $\theoryBSO$ ist, kann im Rahmen dieser Arbeit nicht durchgeführt werden.
+Sie wird jedoch -- ebenfalls in Kapitel~\ref{chap:bso-struktur}~-- an einigen Beispielen angerissen.
+
+Das
+\marginpar{Schlussbetrachtungen}
+letzte Kapitel~\ref{chap:diskussion} dient meinen Schlussbetrachtungen.
+Es enthält eine relativ ausführliche Zusammenfassung der Arbeit und eine Sammlung von offenen Fragen.
+
+Längere
+\marginpar{Beweise,\\Übersichtsblätter}
+Beweise, die eher technischer Natur sind -- also keine interessanten Ideen beinhalten~-- sind im Anhang zu finden.
+Auf den herausnehmbaren Übersichtsblättern 1--5 sind wichtige Definitionen, Begriffe und Symbole zu den einzelnen Kapiteln kompakt aufgelistet.
+
+
+\section{Verwandte Arbeiten}
+    %\marginpar{Die Brentanozeit}
+Im Kontext der GFO-Entwicklung gingen Untersuchungen im Bereich der Zeit (beziehungsweise
+von Zeitentitäten und ihren Zusammenhängen) denen des Raumes voran.
+    Infolgedessen greift der Brentanoraum
+    \marginpar{Brentanozeit\\$\theoryBTC$ und $\theoryBTR$}
+    wesentliche Ideen der Brentanozeit -- also der GFO-Theorie der Zeit~-- auf, die 2014 in [\cite{baumann-r-2014-171-a}] von den Autoren der Theorie $\theoryBS$ veröffentlicht wurde.
+    In diesem Artikel werden zwei aufeinander aufbauende Ontologien der Zeit eingeführt.
+    Die erste -- $\theoryBTC$~-- betrachtet zusammenhängende Zeitintervalle -- Chronoide genannt~-- und deren Grenzen. 
+    Die zweite -- $\theoryBTR$~-- verallgemeinert diesen Ansatz, indem sie neben zusammenhängenden Zeitintervallen auch mereologische Summen dieser in den Blick nimmt~-- die sogenannten Zeitregionen.
+    Beide Theorien sind konsistent, für die erste konnte sogar Vollständigkeit und Entscheidbarkeit bewiesen werden.
+    
+Der Bereich des Raumes erweist sich dahingehend als deutlich komplizierter.
+$\theoryBS$ ist eine Axiomatisierung des Brentanoraumes, die auf vier primitiven Relationen beruht. 
+Unter den symbolischen Bezeichnern $\GSReg$, $\Gsb$, $\Gscoinc$ und $\Gspart$ beziehen sich diese auf die Kategorie von Raumregionen beziehungsweise auf die drei Beziehungen räumlicher Begrenzung, räumlicher Koinzidenz und der Teil-Ganzes-Relation (die allesamt
+detailliert in Abschnitt \ref{sec:bsprimitive} eingeführt werden).
+
+In einem Manuskript
+\marginpar{technische Konsistenz\\ einer Subtheorie}
+aus dem Jahr 2010 [\cite{baumann-r-2010-07-12-a}] wurde ein Beweis für die Subtheorie vorgestellt, die nur die drei primitiven Relationen $\GSReg$, $\Gsb$ und $\Gscoinc$ beinhaltet.
+Diese bezieht sich aber auf eine Vorgängerversion der dieser Arbeit zugrundeliegenden Axiomatisierung, die zum Teil andere Axiome beinhaltet.
+Es handelt sich um einen reinen Konsistenzbeweis, der nicht zugleich zum Ziel hat, die mit dem Brentanoraum verbundenen Vorstellungen abzubilden.
+In dieser Arbeit wähle ich einen anderen Ansatz, der eben diese Vorstellungen in den Mittelpunkt stellt und sie zum Ausgangspunkt macht, aus dem die Interpretation entwickelt wird.
+
+Zuletzt sei angemerkt, dass neben der Raumtheorie von GFO eine große Vielfalt an Raumontologien und -theorien, sowie, noch weiter greifend, Repräsentationsansätzen und -formalismen zur Raumthematik in der Literatur zu finden sind.
+Eine Bezugnahme über den Kontext von GFO hinaus ist im für diese Arbeit vorgegebenen Rahmen allerdings nicht vorgesehen.
+
+
+\section{Konventionen}
+In dieser Arbeit werden die in der formalen Logik üblichen Symbole verwendet. Neben Klammern, die die Struktur der Formeln klar machen, wären dies:
+\begin{itemize}
+    \item 
+        die ausgezeichneten Prädikatensymbole (in Infix-Schreibweise) $=$ für die Gleichheit und $\neq$ für deren Negation,
+    \item 
+        die Konnektoren (in abnehmender Bindungsstärke) $\neg$ für die Negation, $\land$ für die Konjunktion, $\lor$ für die Disjunktion, $\to$ für die Implikation und $\leftrightarrow$ für die Äquivalenz,
+    \item 
+        die Quantoren $\forall$ als Allquantor und $\exists$ als Existenzquantor.
+\end{itemize}
+
+Desweiteren verwende ich die in der Mathematik üblichen Symbole, unter anderem:
+\begin{itemize}
+    \item 
+        $\N$ für die natürlichen Zahlen, \textbf{die in dieser Arbeit bei $\boldsymbol{1}$ beginnen}, $\R$ für die Menge der reellen, $\R_0^+$ für die Menge der nichtnegativen reellen und $\mathbb{Q}$ für die Menge der komplexen Zahlen
+%     \item 
+%         $\text{e}$ als Eulersche Zahl, $\pi$ als Kreiszahl
+%     \item 
+%         $\varnothing$ für die leere Menge
+%     \item
+%         $\in$ als Elementsymbol
+%     \item
+%         $\subseteq$ als Teilmengen- und $\supseteq$ als Obermengenrelation, 
+%     \item    
+%         $\cap$ für den Schnitt (auch in den Varianten $\bigcap_{i=a}^{b}$ und $\bigcap_{m \in M}$), $\cup$ für die Vereinigung (auch in den Varianten $\bigcup_{i=a}^{b}$ und $\bigcup_{m \in M}$), $\setminus$ für das Komplement und 
+    \item
+        $\times$ für das kartesische Produkt
+    \item 
+        die metalogischen Symbole $\Rightarrow$ für die Folgerungsbeziehung und $\Leftrightarrow$ als Abkürzung für \glqq genau dann, wenn\grqq
+%     \item 
+%         $\lightning$ für den Widerspruchsblitz (als Abschluss eines Widerspruchbeweises)
+%     \item
+%         $(x_1, ... , x_n)$ als Tupel der Elemente $x_1$, ..., $x_n$ und $\{x_1, ... , x_n\}$ als Menge der Elemente $x_1$, ..., $x_n$.
+%     \item
+%         $\{x \in X \mid \varphi(x)\}$ ist die Menge der Elemente von $X$, die die Bedingung $\phi$ erfüllen.
+    \item
+        Für reelle Zahlen $a$ und $b$ sind $[a,b]$ das abgeschlossene und $(a,b)$ das offene Intervall%
+        \footnote{
+            $(a,b)$ könnte aber auch das Paar aus $a$ und $b$ sein.
+        }
+        in $\R$.
+    \item
+        Für eine Menge $M$ und eine Äquivalenzrelation $\sim$ bezeichnet $M / _{\sim}$ die Menge der Äquivalenzklassen von $\sim$ in $M$ (Quotientenraum).
+    \item
+        Für eine Menge $X$ bezeichnet $2^X$ die Potenzmenge von $X$.
+\end{itemize}
+
+Für das Komplement einer Menge verzichte ich explizit auf ein eigenes Symbol, da in dieser Arbeit oft Mengen als Teilmengen verschiedener Grundmengen verwende. $\{1\}$ beispielsweise kann als Teilmenge von $\N$ oder $\R$ gesehen werden, weshalb ich je nach Kontext $\N \setminus \{1\}$ oder $\R \setminus \{1\}$ für das Komplement schreibe.

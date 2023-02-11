@@ -1,0 +1,38 @@
+\section{Zu Kapitel \ref{chap:bso-struktur} (Formale Definition der \strukt)}
+
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{0}} % Folgende sections und subsections sollen nicht im Inhaltsverzeichnis erscheinen
+
+\subsection{Zu Abschnitt \ref{sec:analyse}}
+
+\subsubsection{Zu Satz \ref{satz:spart-trans}}\label{anh:spart-trans}
+Zu zeigen ist: Die $\Gspart$-Relation ist transitiv.\\ \ \\
+%
+Da für $\Gdim(x) \neq \Gdim(y)$ gilt $\neg \Gspart(x,y)$ muss die Transitivität\\
+($\Gspart(x,y) \:\land\: \Gspart(y,z) \to \Gspart(x,z)$) nur für gleichdimensionale $x$, $y$ und $z$ gezeigt werden.
+Für 3-dimensionale Raumentitäten (Topoide) folgt die Transitivität direkt aus der Definition und der Transitivität von \glqq $\subseteq$\grqq .\\
+Für niederdimensionale Raumentitäten sei hier beispielhaft der Beweis für 2-dimensionale Raumentitäten(Flächen) gezeigt, die anderen funktionieren analog. \\ \ \\
+%
+\begin{longtable}{r c c l}
+    & & 1. & $\Gspart([A_1,B_1],[A_2,B_2])$ \\
+    & & 2. & $\Gspart([A_2,B_2],[A_3,B_3])$ \\
+    & & 3. & Angen. $\neg \Gspart([A_1,B_1],[A_3,B_3])$ \\
+    1 & $\deshalb$ & 4. & $B_1 \subseteq B_2$ \\
+    2 & $\deshalb$ & 5. & $B_2 \subseteq B_3$ \\
+    4,5 & $\deshalb$ & 6. & $B_1 \subseteq B_3$ \\
+    3,6 & $\deshalb$ & 7. & $A_1 \neq_{B_1} A_3$ \\
+    7 & $\deshalb$ & 8. & $\exists\: x \in B_1 \forall\: U \in \offen(x): U \cap A_1 \neq U \cap A_3$\\
+    8 & $\deshalb$ & 9. & Sei $x \in B_1$ mit $\forall\: U \in \offen(x): U \cap A_1 \neq U \cap A_3$ \\
+    1 & $\deshalb$ & 10. & $A_1 =_{B_1} A_2$ \\
+    9,10 & $\deshalb$ & 11. & $\exists\: U \in \offen(x): U \cap A_1 = U \cap A_2$ \\
+    11 & $\deshalb$ & 12. & Sei $U_{12} \in \offen(x)$ mit $U_{12} \cap A_1 = U_{12} \cap A_2$  \\
+    4,9 & $\deshalb$ & 13. & $x \in B_2$ \\
+    2 & $\deshalb$ & 14. & $A_2 =_{B_2} A_3$ \\
+    14 & $\deshalb$ & 15. & $\exists\: U \in \offen(x): U \cap A_2 = U \cap A_3$ \\
+    15 & $\deshalb$ & 16. & Sei $U_{23} \in \offen(x)$ mit $U_{23} \cap A_2 = U_{23} \cap A_3$ \\
+    12,16 & $\deshalb$ & 17. & Sei $U := U_{12} \cap U_{23} \in \offen(x)$ \\
+    17 & $\deshalb$ & 18. & $U \cap A_1 = A_1 \cap U_{12} \cap U_{23} = U_{12} \cap A_2 \cap U_{23}$\\ 
+                        &&& $= U_{12} \cap U_{23} \cap A_3 = U \cap A_3$ \\
+    9,17,18 & $\deshalb$ & 18. & $\lightning$
+\end{longtable}	
+
+%\addtocontents{toc}{\protect\setcounter{tocdepth}{2}} % Ab hier geht das iInhaltsverzeichnis wieder bis Tiefe subsection
