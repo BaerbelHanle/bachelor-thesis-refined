@@ -1,0 +1,189 @@
+Failed (A9 ist nicht erfüllt)
+
+\section{Vorbereitende Definitionen}
+
+Eine Basismenge ist eine endlicher Vereinigung halboffener Intervalle.
+
+\begin{dfn}[Basismenge]
+    \begin{align*}
+        \B := \{ \bigcup_{i=1}^{n} [a_{2i-1},a_{2i}) \}
+    \end{align*}
+\end{dfn}
+
+Jede Basismenge lässt sich als disjunkte Vereinigung halboffener Intervalle schreiben.
+Wenn wir diese Intervalle ordnen, erhalten wir eine eindeutige Darstellung jeder Basismenge.
+
+\begin{dfn}[Kanonische Darstellung]\ \\
+    Wir definieren die Funktion $\can : \B \to \R^*$ über:\\
+    $\can(B) = (a_1, ... , a_{2n})$ gdw.
+    \begin{enumerate}
+        \item $B = \bigcup_{i=1}^{n} [a_{2i-1},a_{2i})$
+        \item $a_1 < ... < a_2$
+    \end{enumerate}
+\end{dfn}
+
+Die Funktion $\lb$ ordnet jeder Basismenge die Menge ihrer unteren Randpunkte zu.
+
+\begin{dfn}[Untere Grenze]\ \\
+    Wir definieren die Funktion $\lb : \B \to 2^\R$ folgendermaßen:\\
+    Für $B \in \B$ mit $\can(B) = (a_1, ... , a_{2n})$ ist
+    \begin{align*}
+        \lb(B) := \{a_{2i-1} \mid i \in \{1, ... , n\}\}
+    \end{align*}
+\end{dfn}
+
+
+
+\section{Universum}
+
+\begin{dfn}[Das Universum der Klotz-Struktur]
+    \begin{align*}
+        \univ^0 &:= \{\bigcup_{i=1}^{n}(r_i,0,0)\}\\
+        \univ^1 &:= \{B \times \{0\}^2 \mid B \in \B\}\\
+        \univ^2 &:= \{B \times \{0\} \times [0,1] \mid B \in \B\}\\
+        \univ^3 &:= \{B \times [0,1]^2 \mid B \in \B\}\\
+        \univ &:= \univ^0 \cup \univ^1 \cup \univ^2 \cup \univ^3
+    \end{align*}
+\end{dfn}
+
+\begin{dfn}[Dimension]\ \\
+    Wir definieren die Funktion $\dim: \univ \to \{0,1,2,3\}$ durch
+    $$\dim(x) = d \quad \Leftrightarrow \quad x \in \univ^d.$$
+\end{dfn}
+
+Da alle Elemente des Universums Kreuzprodukte aus Teilmengen von $\R$ sind, können wir die Basisfunktion als Projektion auf die erste Komponente definieren.
+\begin{dfn}[Basisfunktion]\ \\
+    Wir definieren die Funktion $\base : \univ \to 2^\R$ durch
+    $$\base (x) = B \quad \Leftrightarrow \quad x = B \times C \quad (B \subseteq \R, C \subseteq \R^2).$$
+\end{dfn}
+
+
+
+\section{Primitive Relationen}
+
+\begin{dfn}[Raumregionen]
+    \begin{align*}
+        \GSReg^I(x) \quad \Leftrightarrow \quad \dim(x) = 3
+    \end{align*}
+\end{dfn}
+
+Bei der definition der $\Gsb^I$-Relation müssen wir zwischen 0-dimensionalen und höherdimensionalen räumlichen Grenzen unterscheiden.
+\begin{dfn}[Räumliche Grenzen]\ \\
+    Es gilt $\Gsb^I(x,y)$ falls
+    \begin{enumerate}
+        \item $\dim(x)+1 = \dim(y)$
+        \item falls $\dim(x) \neq 0$ ist $x \subseteq y$
+        \item falls $\dim(x) = 0$ ist $\base(x) \subseteq \lb(\base(y))$.
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}[Koinzidenz]
+    \begin{align*}
+        \Gscoinc^I(x,y) \quad \Leftrightarrow \quad \dim(x) \neq 3 \land x=y
+    \end{align*}
+\end{dfn}
+
+\begin{dfn}[Teil]
+    \begin{align*}
+        \Gspart^I(x,y) \quad \Leftrightarrow \quad \dim(x) = \dim(y) \land x \subseteq y
+    \end{align*}
+\end{dfn}
+
+
+
+\section{Definierte Relationen}
+
+\begin{satz}
+    \begin{align*}
+        \Gtwodb(x,y) \quad &\Leftrightarrow \quad \dim(x) = 2 \land \dim(y) = 3 \land x \subseteq y \\
+        \Gonedb(x,y) \quad &\Leftrightarrow \quad \dim(x) = 1 \land \dim(y) = 2 \land x \subseteq y \\
+        \Gzerodb(x,y) \quad &\Leftrightarrow \quad \dim(x) = 0 \land \dim(y) = 1 \land \base(x) \subseteq \lb(\base(y)) \\
+        \GSB(x) \quad &\Leftrightarrow \quad \dim(x) \neq 3 \\
+        \Gddb(x) \quad &\Leftrightarrow \quad \dim(x) = \Gd
+    \end{align*}
+\end{satz}
+
+\begin{satz}
+    Es gilt $\Ggrsb(x,y)$ falls
+    \begin{enumerate}
+        \item $\dim(x)+1 = \dim(y)$
+        \item falls $\dim(x) \neq 0$ ist $\base(x) = \base(y)$
+        \item falls $\dim(x) = 0$ ist $\base(x) = \lb(\base(y))$.
+    \end{enumerate}
+\end{satz}
+
+\begin{satz}
+    \begin{align*}
+        \GLDE(x) \quad &\Leftrightarrow \quad \dim(x) \neq 3 \\
+        \GdDE(x) \quad &\Leftrightarrow \quad \dim(x) = \Gd \\
+        \Geqdim(x,y) \quad &\Leftrightarrow \quad \dim(x) = \dim(y)
+    \end{align*}
+\end{satz}
+
+\begin{satz}
+    Es gilt $\Gsppart(x,y)$ falls
+    \begin{enumerate}
+        \item $\dim(x)+1 = \dim(y)$
+        \item falls $\dim(x) \neq 0$ ist $x \subsetneq y$
+        \item falls $\dim(x) = 0$ ist $\base(x) \subsetneq \lb(\base(y))$.
+    \end{enumerate}
+\end{satz}
+
+\begin{satz}
+    \begin{align*}
+        \Gsov(x,y) \quad &\Leftrightarrow \quad \dim(x)=\dim(y) \land x \cap y \neq \varnothing \\
+        \Gsum(x,y,z) \quad &\Leftrightarrow \quad \dim(x) = \dim(y) \land z = x \cup y \\
+        \Gintersect(x,y,z) \quad &\Leftrightarrow \quad \dim(x) = \dim(y) \land z = x \cap y \\
+        \Grelcompl(x,y,z) \quad &\Leftrightarrow \quad \dim(x) = \dim(y) \land z = x \setminus y \\
+        \Gpartition(x,y,z) \quad &\Leftrightarrow \quad \dim(x) = \dim(y) \land z = x \dot{\cup} y
+    \end{align*}
+\end{satz}
+
+\begin{satz}
+    \begin{align*}
+        \Gtwodhypp(x,y) \quad &\Leftrightarrow \quad \dim(x)=2 \land \dim(y)=3 \land x \subseteq y \\
+        \Gonedhypp(x,y) \quad &\Leftrightarrow \quad \dim(x)=1 \land \dim(y) > 1 \land x \subseteq y \\
+        \Gzerodhypp(x,y) \quad &\Leftrightarrow \quad \dim(x)=0 \land \dim(y) > 0 \land x \subseteq y \\
+        \Ghypp(x,y) \quad &\Leftrightarrow \quad \dim(x) \leq \dim(y) \land x \subseteq y \\
+        \Gtangpart(x,y) \quad &\Leftrightarrow \quad \dim(x) \leq \dim(y) \land x \subseteq y \\
+        \Ginpart(x,y) \quad &\Leftrightarrow \quad \bot \\
+        \GExOrd(x) \quad &\Leftrightarrow \quad \bot \\
+        \GOrd(x) \quad &\Leftrightarrow \quad \top
+    \end{align*}
+\end{satz}
+
+\begin{satz}
+    \begin{align*}
+        \GC(x) \quad &\Leftrightarrow \quad \exists r,s \in \R: \base(x) = [r,s) \\
+        \GdDC(x) \quad &\Leftrightarrow \quad \dim(x) \geq \Gd+1 \land \GC(x) \\
+        \Gc(x,y) \quad &\Leftrightarrow \quad \dim(x)=\dim(y) \land \GC(x \cup y) \\
+        \Gexc(x,y) \quad &\Leftrightarrow \quad x \cap y = \varnothing \land \Gc(x,y) \\
+        \GoneCCDd(x) \quad &\Leftrightarrow \quad \GdDC(x) \\
+        \GnCCDd(x) \quad &\Leftrightarrow \quad \exists a_1, ... , a_{2n} \in \R: \can(\base(x)) = (a_1, ..., a_{2n})
+    \end{align*}
+\end{satz}
+
+\begin{satz}
+    \begin{align*}
+        \GTop(x) \quad &\Leftrightarrow \quad \dim(x) = 3 \land \GC(x) \\
+        \GtwoD(x) \quad &\Leftrightarrow \quad \dim(x) = 2 \land \GC(x) \\
+        \GoneD(x) \quad &\Leftrightarrow \quad \dim(x) = 1 \land \GC(x) \\
+        \GzeroD(x) \quad &\Leftrightarrow \quad \exists p \in \R^3: x = \{p\}
+    \end{align*}
+\end{satz}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,26 +2,26 @@
 
 Block structure
 
-\begin{nota}[Abgeschlossene, beschränkte Intervalle]\ \\
+\begin{nota}[(Beschränkte) Basisintervalle]\ \\
     \begin{align*}
-      I := \{[p,q] \subseteq \R \mid p,q \in \R\}
+      \B := \{[p,q) \subseteq \R \mid p,q \in \R\}
     \end{align*}
-    ist die Menge der abgeschlossenen, beschränkten Intervalle in $\R$.
+    ist die Menge der Basisintervalle in $\R$.
     %Wir bezeichnen die Menge der abgeschlossenen beschränkten Intervalle in $\R$ mit $I$.\\
-    Für $\alpha \in I$ ist
+    Für $\alpha \subseteq \R$ ist
     \begin{align*}
-        I_{\alpha} := \{ \beta \in I \mid \beta \subseteq \alpha\}
+        \B_{\alpha} := \{ \beta \in \B \mid \beta \subseteq \alpha\}
     \end{align*}
-    die Menge der abgeschlossenen und durch $\alpha$ beschränkten Intervalle
+    die Menge der und durch $\alpha$ beschränkten BasisIntervalle
 \end{nota}
 
 \begin{bsp}
  \begin{align*}
-  [-5.78,14\pi] &\in I\\
-  [6,4] &\notin I\\
-  [1,1] &\notin I\\
-  [-5.78,14\pi] &\in I_{[-10,100]}\\
-  [-5.78,14\pi] &\notin I_{[0,1]}
+  [-5.78,14\pi) &\in \B\\
+  [6,4) &\notin \B\\
+  [1,1) &\notin \B\\
+  [-5.78,14\pi) &\in \B_{[-10,100]}\\
+  [-5.78,14\pi) &\notin \B_{[0,1]}
  \end{align*}
 \end{bsp}
 
@@ -46,7 +46,7 @@ Block structure
 
 
 \begin{dfn}[Beschränkte gerichtete Zahl]\ \\
-    Für $[a,b] \in I$ definieren wir die Menge $[a,b]^\ud \subseteq \R^\ud$ folgendermaßen: $r^d \in [a,b]^\ud$ falls:
+    Für $[a,b] \subseteq \R$ definieren wir die Menge $[a,b]^\ud \subseteq \R^\ud$ folgendermaßen: $r^d \in [a,b]^\ud$ falls:
     $$r \in [a,b] \land (r = a \to d=\upa) \land (r=b \to d=\downa)$$.
 \end{dfn}
 
@@ -63,11 +63,11 @@ Block structure
 
 \begin{dfn}[Einfache Entitäten]\ %\\
     \begin{enumerate}
-        \item Ein \emph{einfacher Körper} ist ein beschränktes, abgeschlossenes Intervall.\\ 
+        \item Ein \emph{einfacher Körper} ist ein Basisintervall.\\ 
             Die Menge der einfachen Körper bezeichnen wir auch mit $\einf^3$.
-        \item Eine \emph{einfache Fläche} ist ein Paar $(A,B) \in \R^\ud \times I_{[0,1]}$.\\
+        \item Eine \emph{einfache Fläche} ist ein Paar $(A,B) \in \R^\ud \times \B_{[0,1]}$.\\
             Die Menge der einfachen Flächen bezeichnen wir mit $\einf^2$.
-        \item Eine \emph{einfache Linie} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times I_{[0,1]}$.\\
+        \item Eine \emph{einfache Linie} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times \B_{[0,1]}$.\\
             Die Menge der einfachen Linien bezeichnen wir mit $\einf^1$.
         \item Ein \emph{einfacher Punkt} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times [0,1]^\ud$.\\
             Die Menge der einfachen Punkte bezeichnen wir mit $\einf^0$.
@@ -77,18 +77,45 @@ Block structure
 
 \begin{bsp}
     \begin{align*}
-        [3,5] &\in \einf^3\\
-        (2^\upa, [0.2,1]) &\in \einf^2\\
-        (2^\upa, [0,2]) &\notin \einf^2\\
-        (2^\upa,0.7\downa, [0.2,1]) &\in \einf^1\\
-        (2^\upa,1\downa, [0.2,1]) &\in \einf^1\\
-        (2^\upa,0\downa, [0.2,1]) &\notin \einf^1\\
+        [3,5) &\in \einf^3\\
+        (2^\upa, [0.2,1)) &\in \einf^2\\
+        (2^\upa, [0,2)) &\notin \einf^2\\
+        (2^\upa,0.7\downa, [0.2,1)) &\in \einf^1\\
+        (2^\upa,1\downa, [0.2,1)) &\in \einf^1\\
+        (2^\upa,0\downa, [0.2,1)) &\notin \einf^1\\
         (2^\upa,0.7\downa, 0.5\upa) &\in \einf^0\\
         (2^\upa,0.7\downa, 2\upa) &\notin \einf^0\\
         (2^\upa,0.7\downa, 1\upa) &\notin \einf^0
     \end{align*}
-
 \end{bsp}
+
+
+\begin{dfn}[Komplexe Körper, Flächen, Linien, Punktmengen]\
+    \begin{enumerate}
+        \item Ein komplexer Körper ist eine endliche Vereinigung einfacher Körper.\\
+            Die \emph{Menge der komplexen Körper} bezeichnen wir mit $\univ^3$.
+        \item Eine komplexe Fläche ist eine endliche Vereinigung einfacher Flächen.\\
+            Die \emph{Menge der komplexen Flächen} bezeichnen wir mit $\univ^2$.
+        \item Eine komplexe Linie ist eine endliche Vereinigung einfacher Linien.\\
+            Die \emph{Menge der komplexen Linien} bezeichnen wir mit $\univ^1$.
+        \item Eine komplexe Punktmenge ist eine endliche Vereinigung einfacher Punkte.\\
+            Die \emph{Menge der komplexen Punktmengen} bezeichnen wir mit $\univ^0$.
+    \end{enumerate}
+\end{dfn}
+
+
+\begin{dfn}[Universum]\ 
+    \begin{align*}
+        \univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
+    \end{align*}
+    ist das Universum der Blockstruktur.
+\end{dfn}
+
+
+\begin{dfn}[Die Dimensionsfunktion]\ \\
+    Wir definieren die Funktion $\Gdim : \univ \to \{0,1,2,3\}$ durch
+    $$\Gdim(x) = d \quad \Leftrightarrow \quad x \in \univ^d.$$
+\end{dfn}
 
 
 \begin{dfn}[Die $\vor$-Relation]\ 
@@ -124,46 +151,29 @@ Block structure
 \end{bsp}
 
 
+Wir definieren eine Abbildung $\can: \univ \to (\einf^3)* \cup (\einf^2)* \cup (\einf^1)* \cup (\einf^0)*$, die eine eindeutige Darstellung jeder Raumentität entspricht.
 
-% \begin{dfn}[Die $\vor$-Relation]
-%     \begin{itemize}
-%      \item $a,b \in \R \quad \Rightarrow \quad (a \vor b \leftrightarrow a < b)$
-%       \item $d_1,d_2 \in \udset \quad \Rightarrow \quad (d_1 \vor d_2 \leftrightarrow d_1 = \downa \land d_2 = \upa)$
-%      \item $r_1^{d_1},r_2^{d_2} \in \R^\udset \quad \Rightarrow \quad (r_1^{d_1} \vor r_2^{d_2} \leftrightarrow r_1 < r_2 \lor r_1 = r_2 \land d_1 \vor d_2)$
-%      \item $[a_1,b_1], [a_2,b_2] \in \univ_s^3 \quad \Rightarrow \quad ([a_1,b_1] \vor [a_2,b_2] \leftrightarrow b_1 < a_2)$
-%      \item $(A_1,B_1), (A_2,B_2) \in \univ_s^2 \quad \Rightarrow \quad ((A_1,B_1) \vor (A_2,B_2) \leftrightarrow A_1 \vor A_2 \lor A_1 = A_2 \land B_1 \vor B_2)$
-%      \item $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \univ_s^1 \cup \univ_s^0 \quad \Rightarrow \quad ((A_1,B_1) \vor (A_2,B_2) \leftrightarrow A_1 \vor A_2 \lor A_1 = A_2 \land B_1 \vor B_2 \lor A_1 = A_2 \land B_1 = B_2 \land C_1 \vor C_2)$
-%     \end{itemize}
-% \end{dfn}
-
-
-\begin{dfn}[Das Blockuniversum]\ \\
-Für $d \in \{0,1,2,3\}$ definieren wir
+\begin{dfn}[Kanonische Darstellung]\ \\
+    Für $x \in \univ$ mit $\dim(x) = d$ gibt es eindeutig bestimmte einfache Entitäten $y_1, ..., y_n \in \einf^d$ mit
+    \begin{enumerate}
+        \item $x = \bigcup_{i=1}_n y_i$.
+        \item $y_1 \vor ... \vor y_n$
+    \end{enumerate}
+    Damit können wir die kanonische Darstellung von $x$ definieren als
     \begin{align*}
-        \univ^d &:= \{(A_1, ...,  A_n) \mid n \in \N, A_1, ..., A_n \in \einf^d, A_1 \vor ... \vor A_n\}%\\
-        %\univ &:= \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
-    \end{align*}
-    Das Universum der Blockstruktur ist gegeben durch
-    \begin{align*}
-        \univ &:= \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
+        \can(x) = (y_1, ... , y_n).
     \end{align*}
 \end{dfn}
 
-
-\begin{dfn}[Die Dimensionsfunktion]\ \\
-    Wir definieren die Funktion $\Gdim : \univ \to \{0,1,2,3\}$ durch
-    $$\Gdim(x) = d \quad \Leftrightarrow \quad x \in \univ^d.$$
-\end{dfn}
 
 \begin{dfn}[Ordinärität]\ 
     \begin{itemize}
         \item Ein komplexer Körper ist immer ordinär.
-        \item Eine komplexe Fläche $((p_1^{d_1}, \alpha_1), ..., (p_n^{d_n}, \alpha_n))$ heißt ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $p_i = p_j \to \alpha_i \cap \alpha_j = \varnothing$.
-        \item Eine komplexe Linie $((p_1^{d_1}, q_1^{e_1}, \alpha_1), ... , (p_n^{d_n}, q_n^{e_n}, \alpha_n))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i,q_i) = (p_j,q_j) \to \alpha_i \cap \alpha_j = \varnothing$.
-        \item Ein komplexer Punkt $((p_1^{d_1}, q_1^{e_1}, r_1^{f_1}), ... , (p_n^{d_n}, q_n^{e_n}, r_n^{f_n}))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i, q_i,r_i) \neq (p_j,q_j,r_j)$.
+        \item Eine komplexe Fläche mit kanonischer Darstellung $((p_1^{d_1}, \alpha_1), ..., (p_n^{d_n}, \alpha_n))$ heißt ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $p_i = p_j \to \alpha_i \cap \alpha_j = \varnothing$.
+        \item Eine komplexe Linie mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, \alpha_1), ... , (p_n^{d_n}, q_n^{e_n}, \alpha_n))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i,q_i) = (p_j,q_j) \to \alpha_i \cap \alpha_j = \varnothing$.
+        \item Ein komplexer Punkt mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, r_1^{f_1}), ... , (p_n^{d_n}, q_n^{e_n}, r_n^{f_n}))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i, q_i,r_i) \neq (p_j,q_j,r_j)$.
     \end{itemize}
 \end{dfn}
-
 
 
 \begin{dfn}[$\GSReg$]
@@ -173,19 +183,19 @@ Für $d \in \{0,1,2,3\}$ definieren wir
 
 \begin{dfn}[$\Gsb^\einf$]\ 
     \begin{itemize}
-        \item Für $x = (r^d,\alpha) \in \einf^2$, $y = [s,t] \in \einf^3$ gilt
+        \item Für $x = (r^d,\alpha) \in \einf^2$, $y = [s,t) \in \einf^3$ gilt
             \begin{align*}
                 \Gsb^\einf(x,y) 
                 \quad \Leftrightarrow \quad 
                 r=s \land d=\upa \lor r=t \land d=\downa.
             \end{align*}
-        \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, [u,v]) \in \einf^3$ gilt
+        \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, [u,v)) \in \einf^3$ gilt
             \begin{align*}
                 \Gsb^\einf(x,y) 
                 \quad \Leftrightarrow \quad 
                 r^d = t^f \land ( s=u \land e=\upa \lor s=v \land e=\downa ).
             \end{align*}
-        \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, [u,v]) \in \einf^3$ gilt
+        \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, [u,v)) \in \einf^3$ gilt
             \begin{align*}
                 \Gsb^\einf(x,y) 
                 \quad \Leftrightarrow \quad 
@@ -196,10 +206,13 @@ Für $d \in \{0,1,2,3\}$ definieren wir
 
 
 \begin{dfn}[$\Gsb$]\ \\
-    Für $d \in \{0,1,2\}$, $m,n \in \N$, $x=(A_1, ..., A_n) \in \univ^d$, $y=(B_1, ..., B_m) \in \univ^{d+1}$ gilt:
-    $$\Gsb(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gsb^\einf(A_i,B_j). $$
+    Für $d \in \{0,1,2\}$, $m,n \in \N$, $x \in \univ^d$, $y \in \univ^{d+1}$ mit $\can(x) = (A_1, ..., A_n) \in \univ^d$, $\can(y) = (B_1, ..., B_m) \in \univ^{d+1}$ gilt:
+    \begin{align*}
+        \Gsb(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gsb^\einf(A_i,B_j).
+    \end{align*}
 \end{dfn}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{dfn}[$\Gscoinc^\einf$]\ 
     \begin{itemize}
