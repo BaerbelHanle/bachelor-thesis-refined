@@ -12,8 +12,10 @@ Block structure
     \begin{align*}
         \B_{\alpha} := \{ \beta \in \B \mid \beta \subseteq \alpha\}
     \end{align*}
-    die Menge der und durch $\alpha$ beschränkten BasisIntervalle
+    die Menge der und durch $\alpha$ beschränkten Basisintervalle.
 \end{nota}
+
+
 
 \begin{bsp}
  \begin{align*}
@@ -61,6 +63,19 @@ Block structure
 \end{bsp}
 
 
+\begin{dfn}[Untere und obere Grenzen]\ \\
+    Wir definieren die Funktionen $\lb, \ub: \B \to \R^\ud$ folgendermaßen:\\
+    Für $[a,b) \in \B$ sind
+    \begin{align*}
+        \lb([a,b)) = a^\upa,\ \ub([a,b)) = b^\downa
+    \end{align*}
+    Das Prädikat $\bnd \subseteq \R^\ud \times \B$ wird definiert durch
+    \begin{align*}
+        \bnd(x,y) \quad \Leftrightarrow \quad \lb(y)=x \lor \ub(y)=x
+    \end{align*}
+\end{dfn}
+
+
 \begin{dfn}[Einfache Entitäten]\ %\\
     \begin{enumerate}
         \item Ein \emph{einfacher Körper} ist ein Basisintervall.\\ 
@@ -71,6 +86,7 @@ Block structure
             Die Menge der einfachen Linien bezeichnen wir mit $\einf^1$.
         \item Ein \emph{einfacher Punkt} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times [0,1]^\ud$.\\
             Die Menge der einfachen Punkte bezeichnen wir mit $\einf^0$.
+        \item $\einf : \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0$ ist die \emph{Menge der einfachen Entitäten}
     \end{enumerate}
 \end{dfn}
 
@@ -88,6 +104,39 @@ Block structure
         (2^\upa,0.7\downa, 1\upa) &\notin \einf^0
     \end{align*}
 \end{bsp}
+
+
+\begin{dfn}[Base, Core, euklidische Projektion]\ \\
+    Wir definieren die Funktionen 
+    $$\base: \einf \to (\R^\ud)^*,\ \intv: \einf \to \B \cup {\varnothing},\ \eukl: \einf \to 2^{\R^3}$$
+    folgendermaßen:
+    \begin{enumerate}
+        \item Für $x \in \einf^3$ sind
+            \begin{align*}
+                \eukl(x) &= x \times [0,1]^2\\
+                \base(x) &= \varepsilon\\
+                \intv(x) &= x
+            \end{align*}
+        \item Für $x = (r^d, I) \in \einf^2$ sind
+            \begin{align*}
+                \eukl(x) &= \{r\} \times I \times [0,1]\\
+                \base(x) &= r^d\\
+                \intv(x) &= I
+            \end{align*}
+        \item Für $x = (r^d, s^e, I) \in \einf^1$ sind
+            \begin{align*}
+                \eukl(x) &= \{r\} \times \{s\} \times I\\
+                \base(x) &= r^d s^e\\
+                \intv(x) &= I
+            \end{align*}
+        \item Für $x = (r^d, s^e, t^f) \in \einf^0$ sind
+            \begin{align*}
+                \eukl(x) &= \{(r,s,t)\}\\
+                \base(x) &= r^d s^e t^f\\
+                \intv(x) &= \varnothing
+            \end{align*}
+    \end{enumerate}
+\end{dfn}
 
 
 \begin{dfn}[Komplexe Körper, Flächen, Linien, Punktmengen]\
@@ -108,7 +157,15 @@ Block structure
     \begin{align*}
         \univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
     \end{align*}
-    ist das Universum der Blockstruktur.
+    ist das Universum der \strukt.
+\end{dfn}
+
+
+\begin{dfn}[Ausweitung der euklidischen Projektion auf $\univ$]
+    Für $x = \bigcup_{i=1}^n A_i$ ist
+    \begin{align*}
+        \eukl(x) = \bigcup_{i=1}^n \eukl(A_i)
+    \end{align*}
 \end{dfn}
 
 
@@ -118,11 +175,12 @@ Block structure
 \end{dfn}
 
 
+
 \begin{dfn}[Die $\vor$-Relation]\ 
     \begin{itemize}
         \item Für $d_1,d_2 \in \udset$ gilt $d_1 \vor d_2$ falls $d_1 = \downa$ und $d_2 = \upa$ ist. 
         \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ gilt $r_1^{d_1} \vor r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$ und $d_1 \vor d_2$.
-        \item Für $[a_1,b_1], [a_2,b_2] \in \einf^3$ gilt $[a_1,b_1] \vor [a_2,b_2]$ falls $b_1 < a_2$ ist.
+        \item Für $[a_1,b_1), [a_2,b_2) \in \einf^3$ gilt $[a_1,b_1) \vor [a_2,b_2)$ falls $b_1 < a_2$ ist.
         \item Für $(A_1,B_1), (A_2,B_2) \in \einf^2$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2$ und $B_1 \vor B_2$.
         \item Für $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \einf^1 \cup \einf^0$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2 \land B_1 \vor B_2$ oder $A_1 = A_2 \land B_1 = B_2 \land C_1 \vor C_2$.
     \end{itemize}
@@ -146,34 +204,37 @@ Block structure
         (3^\downa,0.5^\upa,1^\downa) &\vor (5^\downa,0^\upa,1^\downa)\\
         (3^\downa,0.5^\upa,1^\downa) &\vor (3^\upa,0^\upa,1^\downa)\\
         (3^\downa,0.5^\upa,1^\downa) &\vor (3^\downa,1^\downa,1^\downa)\\
-        (3^\downa,0.5^\upa,1^\downa) &\vor (3^\downa,0.5^\upa,1^upa)
+        (3^\downa,0.5^\upa,1^\downa) &\vor (3^\downa,0.5^\upa,1^\upa)
     \end{align*}
 \end{bsp}
 
 
-Wir definieren eine Abbildung $\can: \univ \to (\einf^3)* \cup (\einf^2)* \cup (\einf^1)* \cup (\einf^0)*$, die eine eindeutige Darstellung jeder Raumentität entspricht.
+Für jede komplexe Entität $x$ gibt es eindeutig bestimmte einfache Entitäten $y_1, ..., y_n \in \einf^d$ mit
+\begin{enumerate}
+    \item $x = \bigcup_{i=1}^n y_i$.
+    \item $y_1 \vor ... \vor y_n$
+\end{enumerate}
+\todo[inline]{beweisen}
+Damit können wir die kanonische Darstellung definieren.
 
 \begin{dfn}[Kanonische Darstellung]\ \\
-    Für $x \in \univ$ mit $\dim(x) = d$ gibt es eindeutig bestimmte einfache Entitäten $y_1, ..., y_n \in \einf^d$ mit
+    Wir definieren eine Abbildung $\can: \univ \to (\einf^3)^* \cup (\einf^2)^* \cup (\einf^1)^* \cup (\einf^0)^*$ durch $\can(x) = y_1 ... y_n$ falls
     \begin{enumerate}
-        \item $x = \bigcup_{i=1}_n y_i$.
+        %\item $y_1, ..., y_n \in \B^d$
+        \item $x = \bigcup_{i=1}^n y_i$.
         \item $y_1 \vor ... \vor y_n$
     \end{enumerate}
-    Damit können wir die kanonische Darstellung von $x$ definieren als
-    \begin{align*}
-        \can(x) = (y_1, ... , y_n).
-    \end{align*}
 \end{dfn}
 
 
-\begin{dfn}[Ordinärität]\ 
-    \begin{itemize}
-        \item Ein komplexer Körper ist immer ordinär.
-        \item Eine komplexe Fläche mit kanonischer Darstellung $((p_1^{d_1}, \alpha_1), ..., (p_n^{d_n}, \alpha_n))$ heißt ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $p_i = p_j \to \alpha_i \cap \alpha_j = \varnothing$.
-        \item Eine komplexe Linie mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, \alpha_1), ... , (p_n^{d_n}, q_n^{e_n}, \alpha_n))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i,q_i) = (p_j,q_j) \to \alpha_i \cap \alpha_j = \varnothing$.
-        \item Ein komplexer Punkt mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, r_1^{f_1}), ... , (p_n^{d_n}, q_n^{e_n}, r_n^{f_n}))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i, q_i,r_i) \neq (p_j,q_j,r_j)$.
-    \end{itemize}
-\end{dfn}
+% \begin{dfn}[Ordinärität]\ 
+%     \begin{itemize}
+%         \item Ein komplexer Körper ist immer ordinär.
+%         \item Eine komplexe Fläche mit kanonischer Darstellung $((p_1^{d_1}, \alpha_1), ..., (p_n^{d_n}, \alpha_n))$ heißt ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $p_i = p_j \to \alpha_i \cap \alpha_j = \varnothing$.
+%         \item Eine komplexe Linie mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, \alpha_1), ... , (p_n^{d_n}, q_n^{e_n}, \alpha_n))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i,q_i) = (p_j,q_j) \to \alpha_i \cap \alpha_j = \varnothing$.
+%         \item Ein komplexer Punkt mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, r_1^{f_1}), ... , (p_n^{d_n}, q_n^{e_n}, r_n^{f_n}))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i, q_i,r_i) \neq (p_j,q_j,r_j)$.
+%     \end{itemize}
+% \end{dfn}
 
 
 \begin{dfn}[$\GSReg$]
@@ -181,68 +242,122 @@ Wir definieren eine Abbildung $\can: \univ \to (\einf^3)* \cup (\einf^2)* \cup (
 \end{dfn}
 
 
+% \begin{dfn}[$\Gsb^\einf$]\ 
+%     \begin{itemize}
+%         \item Für $x = (r^d,\alpha) \in \einf^2$, $y = [s,t) \in \einf^3$ gilt
+%             \begin{align*}
+%                 \Gsb^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 r=s \land d=\upa \lor r=t \land d=\downa.
+%             \end{align*}
+%         \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, [u,v)) \in \einf^3$ gilt
+%             \begin{align*}
+%                 \Gsb^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 r^d = t^f \land ( s=u \land e=\upa \lor s=v \land e=\downa ).
+%             \end{align*}
+%         \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, [u,v)) \in \einf^3$ gilt
+%             \begin{align*}
+%                 \Gsb^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 p^d = s^g \land q^e = t^h \land ( r=u \land f=\upa \lor r=v \land f=\downa ).
+%             \end{align*}
+%     \end{itemize}
+% \end{dfn}
+
+
 \begin{dfn}[$\Gsb^\einf$]\ 
     \begin{itemize}
-        \item Für $x = (r^d,\alpha) \in \einf^2$, $y = [s,t) \in \einf^3$ gilt
+        \item Für $x = (r^d, \alpha) \in \einf^2$, $y = \beta \in \einf^3$ gilt
             \begin{align*}
                 \Gsb^\einf(x,y) 
                 \quad \Leftrightarrow \quad 
-                r=s \land d=\upa \lor r=t \land d=\downa.
+                \bnd(r^d,\beta).
             \end{align*}
-        \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, [u,v)) \in \einf^3$ gilt
+        \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, \beta) \in \einf^3$ gilt
             \begin{align*}
                 \Gsb^\einf(x,y) 
                 \quad \Leftrightarrow \quad 
-                r^d = t^f \land ( s=u \land e=\upa \lor s=v \land e=\downa ).
+                r^d = t^f \land ( \bnd(s^e,\beta) ).
             \end{align*}
-        \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, [u,v)) \in \einf^3$ gilt
+        \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, \beta) \in \einf^3$ gilt
             \begin{align*}
                 \Gsb^\einf(x,y) 
                 \quad \Leftrightarrow \quad 
-                p^d = s^g \land q^e = t^h \land ( r=u \land f=\upa \lor r=v \land f=\downa ).
+                p^d = s^g \land q^e = t^h \land ( \bnd(r^f,\beta)).
             \end{align*}
     \end{itemize}
 \end{dfn}
 
 
 \begin{dfn}[$\Gsb$]\ \\
-    Für $d \in \{0,1,2\}$, $m,n \in \N$, $x \in \univ^d$, $y \in \univ^{d+1}$ mit $\can(x) = (A_1, ..., A_n) \in \univ^d$, $\can(y) = (B_1, ..., B_m) \in \univ^{d+1}$ gilt:
+    Für $d \in \{0,1,2\}$, $m,n \in \N$, $x \in \univ^d$, $y \in \univ^{d+1}$ mit $\can(x) = A_1 ... A_n) \in \univ^d$, $\can(y) = B_1 ... B_m \in \univ^{d+1}$ gilt:
     \begin{align*}
         \Gsb(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gsb^\einf(A_i,B_j).
     \end{align*}
 \end{dfn}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{dfn}[$\Gscoinc^\einf$]\ 
-    \begin{itemize}
-        \item Für $x = (p_1^{d_1},\alpha_2), y = (p_2^{d_2},\alpha_2) \in \einf^2$ gilt
+% \begin{dfn}[$\Gscoinc^\einf$]\ 
+%     \begin{itemize}
+%         \item Für $x = (p_1^{d_1},\alpha_2), y = (p_2^{d_2},\alpha_2) \in \einf^2$ gilt
+%             \begin{align*}
+%                 \Gscoinc^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 p_1 = p_2 \land \alpha_1 = \alpha_2.
+%             \end{align*}
+%         \item Für $x = (p_1^{d_1},q_1^{e_1},\alpha_1), y = (p_2^{d_2},q_2^{e_2},alpha_2) \in \einf^1$ gilt
+%             \begin{align*}
+%                 \Gscoinc^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 (p_1, q_1) = (p_2,q_2) \land \alpha_1 = \alpha_2.
+%             \end{align*}
+%         \item Für $x = (p_1^{d_1},q_1^{e_1},r_1^{f_1}), y = (p_2^{d_2},q_2^{e_2},r_2^{f_2}) \in \einf^0$ gilt
+%             \begin{align*}
+%                 \Gscoinc^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 (p_1,q_1,r_1) = (p_1,q_1,r_1).
+%             \end{align*}
+%     \end{itemize}
+% \end{dfn}
+
+
+% \begin{dfn}[$\Gscoinc^\einf$]\ 
+%     Für $x,y \in \einf^2 \cup \einf^1 \cup \einf^0$ gilt
+%     \begin{align*}
+%         \Gscoinc^\einf(x,y) 
+%         \quad \Leftrightarrow \quad 
+%         \eukl(x) = \eukl(y)
+%     \end{align*}
+% \end{dfn}
+
+
+
+\begin{dfn}[Grenzentität]\
+    \begin{enumerate}
+        \item Sei $x \in \univ^2$ mit $\can(x) = A_1 ... A_n$ und $A_i = (r_i^{d_i},I_i)$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls gilt
             \begin{align*}
-                \Gscoinc^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                p_1 = p_2 \land \alpha_1 = \alpha_2.
+                \forall i,j \in \{1, ..., n\}: r_i = r_j \to d_i = d_j
             \end{align*}
-        \item Für $x = (p_1^{d_1},q_1^{e_1},\alpha_1), y = (p_2^{d_2},q_2^{e_2},alpha_2) \in \einf^1$ gilt
+        \item Sei $x \in \univ^1$ mit $\can(x) = A_1 ... A_n$ und $A_i = (r_i^{d_i},s_i^{e_i},I_i)$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls gilt
             \begin{align*}
-                \Gscoinc^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                (p_1, q_1) = (p_2,q_2) \land \alpha_1 = \alpha_2.
+                \forall i,j \in \{1, ..., n\}: r_i^{d_i} = r_j^{d_j} \land s_i = s_j \to e_i = e_j
             \end{align*}
-        \item Für $x = (p_1^{d_1},q_1^{e_1},r_1^{f_1}), y = (p_2^{d_2},q_2^{e_2},r_2^{f_2}) \in \einf^0$ gilt
+        \item Sei $x \in \univ^0$ mit $\can(x) = A_1 ... A_n$ und $A_i = (r_i^{d_i},s_i^{e_i},t_i^{f_i})$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls gilt
             \begin{align*}
-                \Gscoinc^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                (p_1,q_1,r_1) = (p_1,q_1,r_1).
+                \forall i,j \in \{1, ..., n\}: (r_i^{d_i}, s_i^{e_i}) = (r_j^{d_j},s_j^{e_j}) \land t_i = t_j \to f_i = f_j
             \end{align*}
-    \end{itemize}
+    \end{enumerate}
 \end{dfn}
+\todo[inline]{untersuchen ob $\GSB(x)$ gdw $x$ Grenzentität ist}
 
 
 \begin{dfn}[$\Gscoinc$]\ \\
-    Für $d \in \{1,2,3\}$, $n \in \N$, $x=(A_1, ... , A_n), y=(B_1, ..., B_n) \in \univ^d$ gilt $\Gscoinc(x,y)$ falls
+    Für $x,y \in \univ^d$ gilt $\Gscoinc(x,y)$ falls
     \begin{enumerate}
-     \item $x$ und $y$ ordinär sind und
-     \item $\forall i \in \{1, ..., n\} \exists! j \in \{1, ..., n\} : \Gscoinc^\einf(A_i,B_j).$
+        \item $d \neq 3$ ist
+        \item $x$ und $y$ Grenzentitäten sind und
+        \item $\eukl(x) = \eukl(y)$.
     \end{enumerate}
 \end{dfn}
 
@@ -277,54 +392,9 @@ Wir definieren eine Abbildung $\can: \univ \to (\einf^3)* \cup (\einf^2)* \cup (
 \end{dfn}
 
 
-\begin{dfn}[$\Gspart$]
+\begin{dfn}[$\Gspart$]\ \\
     Für $d \in \{0,1,2,2\}$, $m,n \in \N$, $x=(A_1, ..., A_n), y=(B_1, ..., B_m) \in \univ^d$ gilt:
     $$\Gspart(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gspart^\einf(A_i,B_j). $$
-\end{dfn}
-
-
-
-
-
-
-
-
-
-%$\vor, \precnsim \strictif \closedsucc, \rightfishtail, \prurel$
-
-
-% \begin{dfn}[Gerichtetes Intervall]\ \\
-%     Ein gerichtetes Intervall ist ein Tripel $(a,b,d)$ mit $a,b \in \R$, $a < b$ und $d \in \udset$.\\
-%     Statt $(a,b,d)$ schreiben wir auch $[a,b]^d$.\\
-%     Die Menge der gerichteten Intervalle bezeichen wir mit $I^\ud$.
-% \end{dfn}
-% 
-% \begin{dfn}[Beschränkte gerichtete Zahl]\ \\
-%     Für $a,b \in \R$ mit $a<b$ bezeichnet definieren wir die Menge $I_{[a,b]}^\ud \subseteq I^\ud$ folgendermaßen: $[r,s]^d \in I_{[a,b]}^\ud$ falls:
-%     $$[r,s] \in [a,b] \land (r = a \to d=\upa) \land (r=b \to d=\downa)$$.
-% \end{dfn}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{dfn}[Gerichtete Ordnung $\R^\ud$]
-    Wir definieren ein strenge Ordnungsrelation $\triangleleft$ auf der Menge der gerichteten Zahlen durch
-    \begin{align*}
-        r_1^{d_1} \triangleleft r_2^{d_2} \quad \Leftrightarrow \quad r_1 < r_2 \lor r_1 = r_2 \land d_1 = \downa \land \ d_2 = \upa
-    \end{align*}
-\end{dfn}
-
-\begin{dfn}[Beschränkte gerichtete Zahl]\ \\
-    Eine gerichtete Zahl $r^d$ heißt beschränkt, wenn $r \in [0,1]$ ist.\\
-    Die Menge der beschränkten gerichteten Zahlen notieren wir mit $\R_[0,1]^\ud$.
-\end{dfn}
-
-
-
-\begin{dfn}[Gerichtete Ordnung $I^\ud$]
-    Wir erweitern die Relation $\triangleleft$ auf die Menge der gerichteten Intervalle durch
-    \begin{align*}
-        [a_1,b_1]^{d_1} \triangleleft [a_2,b_2]^{d_2} \quad \Leftrightarrow \quad b_1 < a_2 \lor b_1 = a_2 \land d_1 = \downa \land \ d_2 = \upa
-    \end{align*}
 \end{dfn}
 
 
