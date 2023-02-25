@@ -409,56 +409,59 @@ Damit können wir die kanonische Darstellung definieren.
 \end{satz}
 
 \begin{bew}
-    Sei $\can(x) = A_1 ... A_m$ mit $A_i = (r_i^{d_i}, I_i)$ für $i \in \{1, ..., m\}$.\\
+    Sei $\can(x) =: A_1 ... A_m$ mit $A_i =: (r_i^{d_i}, I_i)$ für $i \in \{1, ..., m\}$.\\ \ \\
     $\boldsymbol{\Rightarrow}$: 
     Es gelte $\Gsb(x,y)$.
     Dann ist $y \in \univ^3$.
-    Sei $\can(y) = B_1 ... B_n$ mit $B_k = [a_k,b_k)$ für $k \in \{1, ..., n\}$.
+    Sei $\can(y) =: B_1 ... B_n$ mit $B_k =: [a_k,b_k)$ für $k \in \{1, ..., n\}$.
     Für $i \in \{1, ..., m\}$ sei $k(i) \in \{1, ..., n\}$ s.d. $\Gsb^\einf(A_i,B_{k(i)})$ gilt.
     Angenommen $x$ ist keine Grenzentität.
     Dann gibt es $i,j \in \{1, ..., m\}$ mit $r_i = r_j$ und $d_i \neq d_j$. O.B.d.A: sei $i<j$. Dann ist $A_i \vor A_j$ und somit $d_i = \downa$, $d_j = \upa$.
     Also ist $b_{k(i)} = r_i = r_j = a_{k(j)}$ und somit $B_{k(i)} \neq B_{k(j)}$. Gleichzeitig gilt weder $B_{k(i)} \vor B_{k(j)}$ noch $B_{k(j)} \vor B_{k(i)}$. 
-    Somit ist $B_1 ... B_n$ keine kanonische Darstellung. $\lightning$\\
+    Somit ist $B_1 ... B_n$ keine kanonische Darstellung. $\lightning$\\ \ \\
     $\boldsymbol{\Leftarrow}$:
-    Falls $m=1$ seien
-    \begin{align*}
-        a_1 := 
-            \begin{cases}
-                r_1 & \text{falls $d_1 = \upa$}\\
-                r_1-1 & \text{falls $d_1 = \downa$}
-            \end{cases}\\
-        b_1 := 
-            \begin{cases}
-                r_1+1 & \text{falls $d_1 = \upa$}\\
-                r_1 & \text{falls $d_1 = \downa$}
-            \end{cases}\\
-    \end{align*}
+%     Falls $m=1$ seien
+%     \begin{align*}
+%         a_1 := 
+%             \begin{cases}
+%                 r_1 & \text{falls $d_1 = \upa$}\\
+%                 r_1-1 & \text{falls $d_1 = \downa$}
+%             \end{cases}\\
+%         b_1 := 
+%             \begin{cases}
+%                 r_1+1 & \text{falls $d_1 = \upa$}\\
+%                 r_1 & \text{falls $d_1 = \downa$}
+%             \end{cases}\\
+%     \end{align*}
+%     
+%     Falls $m \geq 2$ seien
+%     \begin{align*}
+%         a_1 := 
+%             \begin{cases}
+%                 r_1 & \text{falls $d_1 = \upa$}\\
+%                 r_1-1 & \text{falls $d_1 = \downa$}
+%             \end{cases}\\
+%         b_1 := 
+%             \begin{cases}
+%                 \frac{2r_2 + r_2}{3} & \text{falls $d_1 = \upa$}\\
+%                 r_1 & \text{falls $d_1 = \downa$}
+%             \end{cases}\\
+%         a_m := 
+%             \begin{cases}
+%                 r_m & \text{falls $d_m = \upa$}\\
+%                 \frac{2r_m + r_{m-1}}{3} & \text{falls $d_m = \downa$}
+%             \end{cases}\\
+%         b_m := 
+%             \begin{cases}
+%                 r_m+1 & \text{falls $d_m = \upa$}\\
+%                 r_m & \text{falls $d_m = \downa$}
+%             \end{cases}
+%     \end{align*}
+%     
+%     Und falls $m \geq 3$ seien für $i \in \{2, ..., m-1\}$
     %
-    Falls $m \geq 2$ seien
-    \begin{align*}
-        a_1 := 
-            \begin{cases}
-                r_1 & \text{falls $d_1 = \upa$}\\
-                r_1-1 & \text{falls $d_1 = \downa$}
-            \end{cases}\\
-        b_1 := 
-            \begin{cases}
-                \frac{2r_2 + r_2}{3} & \text{falls $d_1 = \upa$}\\
-                r_1 & \text{falls $d_1 = \downa$}
-            \end{cases}\\
-        a_m := 
-            \begin{cases}
-                r_m & \text{falls $d_m = \upa$}\\
-                \frac{2r_m + r_{m-1}}{3} & \text{falls $d_m = \downa$}
-            \end{cases}\\
-        b_m := 
-            \begin{cases}
-                r_m+1 & \text{falls $d_m = \upa$}\\
-                r_m & \text{falls $d_m = \downa$}
-            \end{cases}
-    \end{align*}
+    Mit $r_0 := r_1-1$ und $r_{m+1} := r_m+1$ definieren wir für $i \in \{1, ..., m\}$
     %
-    Und falls $m \geq 3$ seien für $i \in \{2, ..., m-1\}$
     \begin{align*}
         a_i := 
             \begin{cases}
@@ -471,9 +474,9 @@ Damit können wir die kanonische Darstellung definieren.
                 r_i & \text{falls $d_i = \downa$}
             \end{cases}
     \end{align*}
-    Für $i \in \{1, ..., m\}$ setze nun $B_i = [a_i, b_i)$.
-    Sei $y := \bigcup_{i=1}^m B_i$.
-    Dann gilt $\Gsb(x,y)$.
+    Setze nun $B_i := [a_i, b_i)$ und $y := \bigcup_{i=1}^m B_i$.
+    Nach Konstruktion gelten $B_i \vor B_{i+1}$ und $\Gsb^\einf(A_i, B_i)$.
+    Somit ist $\can(y) = B_1 ... B_m$ und es gilt $\Gsb(x,y)$.
 \end{bew}
 
 
