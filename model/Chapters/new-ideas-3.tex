@@ -112,35 +112,43 @@
 
 \begin{dfn}[Base, Core, euklidische Projektion]\ \\
     Wir definieren die Funktionen 
-    $$\base: \einf \to (\R^\ud)^*,\ \intv: \einf \to \B \cup {\varnothing},\ \eukl: \einf \to 2^{\R^3}$$
+    $$\base: \einf \to (\R^\ud)^*,\ \core: \einf \to \B \cup {\varnothing},\ \eukl: \einf \to 2^{\R^3}$$
     folgendermaßen:
     \begin{enumerate}
         \item Für $x \in \einf^3$ sind
             \begin{align*}
                 \eukl(x) &= x \times [0,1]^2\\
                 \base(x) &= \varepsilon\\
-                \intv(x) &= x
+                \core(x) &= x
             \end{align*}
         \item Für $x = (r^d, I) \in \einf^2$ sind
             \begin{align*}
                 \eukl(x) &= \{r\} \times I \times [0,1]\\
                 \base(x) &= r^d\\
-                \intv(x) &= I
+                \core(x) &= I
             \end{align*}
         \item Für $x = (r^d, s^e, I) \in \einf^1$ sind
             \begin{align*}
                 \eukl(x) &= \{r\} \times \{s\} \times I\\
                 \base(x) &= r^d s^e\\
-                \intv(x) &= I
+                \core(x) &= I
             \end{align*}
         \item Für $x = (r^d, s^e, t^f) \in \einf^0$ sind
             \begin{align*}
                 \eukl(x) &= \{(r,s,t)\}\\
                 \base(x) &= r^d s^e t^f\\
-                \intv(x) &= \varnothing
+                \core(x) &= \varnothing
             \end{align*}
     \end{enumerate}
 \end{dfn}
+
+\begin{satz}\label{satz:base-intv-ident}
+    Für einfache Entitäten $x,y$ gilt
+    \begin{align*}
+        x = y \quad \Leftrightarrow \quad \base(x) = \base(y) \land \core(x) = \core(y).
+    \end{align*}
+\end{satz}
+Beweis trivial.
 
 
 \begin{dfn}[Komplexe Körper, Flächen, Linien, Punktmengen]\
@@ -163,6 +171,15 @@
     \end{align*}
     ist das Universum der \strukt.
 \end{dfn}
+
+\begin{dfn}\ \\
+    Eine Raumentität $x \in \univ^d$ heißt
+    \begin{itemize}
+        \item \emph{höherdimensional}, wenn $d \in \{1,2,3\}$ ist und
+        \item \emph{niederdimensional}, wenn $d \in \{0,1,2\}$ ist.
+    \end{itemize}
+\end{dfn}
+
 
 
 \begin{dfn}[Ausweitung der euklidischen Projektion auf $\univ$]
@@ -211,6 +228,13 @@
         (3^\downa,0.5^\upa,1^\downa) &\vor (3^\downa,0.5^\upa,1^\upa)
     \end{align*}
 \end{bsp}
+
+
+\begin{satz}\label{satz:teil-nicht-vor}
+    Für einfache Entitäten $x,y$ mit $\base(x) = \base(y)$ und $\core(x) \subseteq
+    \core(y)$ gilt weder $x \vor y$ noch $y \vor x$.
+\end{satz}
+Beweis trivial.
 
 
 Für jede komplexe Entität $x$ gibt es eindeutig bestimmte einfache Entitäten $y_1, ..., y_n \in \einf^d$ mit
@@ -355,6 +379,11 @@ Damit können wir die kanonische Darstellung definieren.
 \end{dfn}
 \todo[inline]{untersuchen ob $\GSB(x)$ gdw $x$ Grenzentität ist}
 
+\begin{satz}\label{satz:einfachgrenze}
+    Alle niederdimensionale einfache Entitäten sind Grenzentitäten.
+\end{satz}
+Beweis trivial.
+
 
 \begin{dfn}[$\Gscoinc$]\ \\
     Für $x,y \in \univ^d$ gilt $\Gscoinc(x,y)$ falls
@@ -366,49 +395,60 @@ Damit können wir die kanonische Darstellung definieren.
 \end{dfn}
 
 
-\begin{dfn}[$\Gspart^\einf$]\ 
-    \begin{itemize}
-        \item Für $x,y \in \univ^3$ gilt
-            \begin{align*}
-                \Gspart^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                x \subseteq y.
-            \end{align*}
-        \item Für $x = (A_1,\alpha_2), y = (A_2,\alpha_2) \in \einf^2$ gilt
-            \begin{align*}
-                \Gspart^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                A_1 = A_2 \land \alpha_1 \subseteq \alpha_2.
-            \end{align*}
-        \item Für $x = (A_1,B_1,\alpha_1), y = (A_2,B_2,\alpha_2) \in \einf^1$ gilt
-            \begin{align*}
-                \Gspart^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                (A_1, B_1) = (A_2,B_2) \land \alpha_1 \subseteq \alpha_2.
-            \end{align*}
-        \item Für $x, y \in \einf^0$ gilt
-            \begin{align*}
-                \Gspart^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                x=y.
-            \end{align*}
-    \end{itemize}
+% \begin{dfn}[$\Gspart^\einf$]\ 
+%     \begin{itemize}
+%         \item Für $x,y \in \univ^3$ gilt
+%             \begin{align*}
+%                 \Gspart^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 x \subseteq y.
+%             \end{align*}
+%         \item Für $x = (A_1,\alpha_2), y = (A_2,\alpha_2) \in \einf^2$ gilt
+%             \begin{align*}
+%                 \Gspart^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 A_1 = A_2 \land \alpha_1 \subseteq \alpha_2.
+%             \end{align*}
+%         \item Für $x = (A_1,B_1,\alpha_1), y = (A_2,B_2,\alpha_2) \in \einf^1$ gilt
+%             \begin{align*}
+%                 \Gspart^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 (A_1, B_1) = (A_2,B_2) \land \alpha_1 \subseteq \alpha_2.
+%             \end{align*}
+%         \item Für $x, y \in \einf^0$ gilt
+%             \begin{align*}
+%                 \Gspart^\einf(x,y) 
+%                 \quad \Leftrightarrow \quad 
+%                 x=y.
+%             \end{align*}
+%     \end{itemize}
+% \end{dfn}
+
+\begin{dfn}[$\Gspart^\einf$]\ \\ 
+    Für $x,y \in \univ$ gilt $\Gspart^\einf(x,y)$, gdw.
+    \begin{enumerate}
+        \item $\base(x) = \base(y)$ und
+        \item $\core(x) \subseteq \core(y)$
+    \end{enumerate}
+    sind.
 \end{dfn}
 
 
 \begin{dfn}[$\Gspart$]\ \\
-    Für $d \in \{0,1,2,2\}$, $m,n \in \N$, $x,y \in \univ^d$ mit $\can(x) = A_1 ... A_n$, $\can(y) = B_1 ... B_m$ gilt:
+    Für $d \in \{0,1,2,3\}$, $m,n \in \N$, $x,y \in \univ^d$ mit $\can(x) = A_1 ... A_n$, $\can(y) = B_1 ... B_m$ gilt:
     $$\Gspart(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gspart^\einf(A_i,B_j). $$
 \end{dfn}
 
 
 \subsection{Untersuchung ausgewählter definierter Relationen}
 
+\subsubsection{$\GSB$}
+
 \begin{satz}
-    Für $x \in \univ^2$ gilt $\GSB(x)$ gdw. $x$ eine Grenzentität ist.
+    Für $x \in \univ$ gilt $\GSB(x)$ gdw. $x$ eine Grenzentität ist.
 \end{satz}
 
-\begin{bew}
+\begin{bew} (für $x \in \univ^2$)\\
     Sei $\can(x) =: A_1 ... A_m$ mit $A_i =: (r_i^{d_i}, I_i)$ für $i \in \{1, ..., m\}$.\\ \ \\
     $\boldsymbol{\Rightarrow}$: 
     Es gelte $\Gsb(x,y)$.
@@ -475,9 +515,72 @@ Damit können wir die kanonische Darstellung definieren.
             \end{cases}
     \end{align*}
     Setze nun $B_i := [a_i, b_i)$ und $y := \bigcup_{i=1}^m B_i$.
-    Nach Konstruktion gelten $B_i \vor B_{i+1}$ und $\Gsb^\einf(A_i, B_i)$.
-    Somit ist $\can(y) = B_1 ... B_m$ und es gilt $\Gsb(x,y)$.
+    Nach Konstruktion gilt $\Gsb^\einf(A_i, B_i)$.
+    Da $x$ Grenzentität ist, ist $r_{i}^{d_i} = r_{i+1}^{d_{i+1}}$ oder $r_i < r_{i+1}$ und somit   $B_i \vor B_{i+1} \lor B_i = B_{i+1}$.
+    Also ist $B_1 ... B_m$ bis auf eventuelle Dopplungen kanonische Darstellung von $y$ und es gilt $\Gsb(x,y)$.
 \end{bew}
+
+\subsubsection{$\GLDE$}
+
+\begin{erin}[$GLDE$]
+    $\GLDE(x) := \exists y ( \GSB(y) \land \Gspart(y,x) )$
+\end{erin}
+
+\begin{satz}[$\GLDE$]\label{satz:lde}
+    Es gilt $\GLDE(x)$ gdw. $x$ niederdimensional ist.
+\end{satz}
+
+\begin{bew}
+    $\boldsymbol{\Rightarrow}$:
+    Sei $y \in \univ$ mit $\GSB(y)$ und $\Gspart(y,x)$. Dann gelten $\dim(y) < 3$ und $\dim(x) = \dim(y)$ also ist $x$ niederdimensional.\\
+    $\boldsymbol{\Leftarrow}$: Sei $x \in \univ^d$ mit $d \in \{0,1,2\}$.
+    Sein $\can(x) = A_1 ... A_n$. Sei $y := A_1$. Dann ist nach Satz \ref{satz:einfachgrenze} $y$ eine Grenzentität und somit gilt $\GSB(y)$.
+    Außerdem ist nach Definition $\Gspart(y,x)$.
+\end{bew}
+
+
+
+\subsection{Axiome}
+A1. $\GSReg([0,1))$\\
+A2. $\GLDE \leftrightarrow \neg \GSReg(x)(x)$ folgt aus Satz \ref{satz:lde} und der Definition von $\GSReg$.\\
+A3.\\
+A4. Folgt aus Definition von $\Gspart$.
+
+\subsubsection{A5.}
+Seien $x,y \in \univ$ mit $\Gspart(x,y)$ und $\Gspart(y,x)$.
+Seien $\can(x) = A_1 ... A_m$, $\can(y) = B_1 ... B_n$.
+Angenommen $x \neq y$. Dann gibt es entweder ein $u \in \{1, ..., m\}$ mit $A_u \notin \{B_1, ..., B_n\}$ oder ein $v \in \{1, ..., n\}$ mit $B_v \notin \{A_1, ..., A_m\}$.
+O.B.d.A.: sei ersteres der Fall.
+Sei $u \in \{1, ..., m\}$ mit $A_u \notin \{B_1, ..., B_n\}$.
+Wegen $\Gspart(x,y)$ gibt es ein $v$ in $\{1, ..., n\}$ mit $\Gspart^\einf(A_u,B_v)$ und wegen $\Gspart(y,x)$ ein $w$ in $\{1, ..., m\}$ mit $\Gspart^\einf(B_v,A_w)$.
+Dann gelten
+\begin{align*}
+    \base(A_u) = \base(B_v) = \base(A_w)\\
+    \core(A_u) \subsetneq \core(B_v) \subseteq \core(A_w)
+\end{align*}
+Also ist weder $A_u = A_w$ noch $A_u \vor A_w$ noch $A_w \vor A_u$. 
+Somit ist $A_1 ... A_m$ \textit{keine} kanonische Darstellung.
+
+
+
+
+
+\section{Future Work}
+Die Block-Struktur hat viele Eigenschaften, die wir intuitiv im Brentanoraum erwarten. 
+Es gibt jedoch einen Satz, der nicht von ihr erfüllt wird, den wir intuitiv haben wollen.
+\begin{align}\label{satz:neu}
+    \GSB(x) \land \neg \Gspart(x,y) \to \exists u (\Gsb(x,u) \land \neg \Gsb(y,u))
+\end{align}
+Das liegt in der Blockstruktur daran, dass Grenzentitäten mit der selben Basis exakt die gleichen Raumentitäten begrenzen.
+Man nehme z.B. $x= (0^\upa, [0,\frac{1}{2})), y = (0^\upa, [\frac{1}{2},1))$. Dann ist $\neg \Gspart(x,y)$ aber jeder komplexe Körper, der von $x$ begrenzt wird, wird auch von $y$ begrenzt.
+Es ist anzunehmen, dass \ref{satz:neu} unabhängig von $\theoryBS$ ist. Man könnte überlegen, diesen Satz als Axiom zur Theorie dazuzunehmen und müsste dann erneut ihre Konsistenz beweisen.
+
+Mögliche zusätzliche Axiome:
+\begin{align*}
+    \Ggrsb(x,y) \land \Ggrsb(x,z) \to y=z
+\end{align*}
+
+
 
 
 
