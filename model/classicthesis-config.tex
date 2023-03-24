@@ -316,6 +316,7 @@
 \theoremstyle{definition}
 
 \newtheorem{dfn}{Def.}[section]
+\newtheorem{satzdef}[dfn]{Satz und Def.}
 \newtheorem{nota}[dfn]{Notation}
 \newtheorem{konv}[dfn]{Konvention}
 
@@ -384,6 +385,7 @@
 \surroundwithmdframed[style=grey]{nota}
 \surroundwithmdframed[style=grey]{konv}
 \surroundwithmdframed[style=grey]{satz}
+\surroundwithmdframed[style=grey]{satzdef}
 \surroundwithmdframed[style=grey]{kor}
 \surroundwithmdframed[style=grey]{hyp}
 \surroundwithmdframed[style=white]{bsp}
@@ -740,10 +742,13 @@
 \newcommand{\downa}{\ensuremath{\downarrow}}
 \newcommand{\ud}{\ensuremath{{\uparrow \downarrow}}}
 \newcommand{\udset}{\ensuremath{\{\uparrow, \downarrow\}}}
+\newcommand{\ol}{\ensuremath{\overline}}
 \renewcommand{\emph}{\spacedlowsmallcaps}
 %\renewcommand{\emph}{\textbf}
 %\newcommand{\vor}{\ensuremath{\leftslice}}
+\newcommand{\kleiner}{\ensuremath{\prec}}
 \newcommand{\vor}{\ensuremath{\prec}}
+\newcommand{\ivor}{\ensuremath{<}}
 \newcommand{\nvor}{\ensuremath{\nprec}}
 
 \newcommand{\B}{\ensuremath{\mathcal{B}}}
@@ -754,4 +759,4 @@
 \newcommand{\eukl}{\ensuremath{\text{eukl}}}
 \newcommand{\core}{\ensuremath{\text{core}}}
 \newcommand{\bnd}{\ensuremath{\GSymbolFont{bnd}}}
-
+\newcommand{\treewidth}{\ensuremath{\text{width}}}

@@ -1,0 +1,42 @@
+\section{Theorems of $\theoryBS$}
+
+\subsection{Uniqueness theorems}
+The following theorems allow the introduction of partial functions based on the uniqueness of certain relations in certain arguments.
+
+\begin{erin}[Greatest spatial boundary]
+    $\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))$
+\end{erin}
+
+\begin{satz}
+    The $\Ggrsb$-relation is unique in its first argument. I.e.
+    \begin{align*}
+        \Ggrsb(x_1,y) \land \Ggrsb(x_2,y) \to x_1 = x_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Ggrsb(x_1,y)$\\
+        & & 2. & $\Ggrsb(x_2,y)$ \\
+        & & 3. & $x_1 \neq x_2$ \\
+        1 & $\deshalb$ & 4. & $\Gsb(x_1,y)$ \\
+        2 & $\deshalb$ & 5. & $\forall z (\Gsb(z,y) \to \Gspart(z,x_2)$ \\
+        3, A5 & $\deshalb$ & 6. & $\neg \Gspart(x_1,x_2) \lor \neg \Gspart(x_2,x_1)$ \\
+        6, o.B.d.A. & $\deshalb$ & 7. & $\neg \Gspart(x_1,x_2)$ \\
+        7, A8 & $\deshalb$ & 8. & $\exists z (\Gspart(z,x_1) \land \neg \Gsov(z,x_2))$\\
+        8 & $\deshalb$ & 9. & Sei $z$ eine Raumentität mit $\Gspart(z,x_1)$ und $\neg \Gsov(z,x_2)$\\
+        9, D11 & $\deshalb$ & 10. & $\neg \exists u (\Gspart(u,z) \land \Gspart(u,x_2)$ \\
+        10 & $\deshalb$ & 11. & $\forall u (\Gspart(u,x_2) \to \neg \Gspart(u,z))$\\
+        4, 9, A24 & $\deshalb$ & 12. & $\Gsb(z,x_2)$\\
+        5,12 & $\deshalb$ & 13. & $\Gspart(z,x_2)$\\
+        11,13 & $\deshalb$ & 14. & $\neg \Gspart(z,z)$\\
+        14, A4 & $\deshalb$ & 15. & $\lightning$\\
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[The $\Ggrsb$-function]
+    By $\Ggrsb(x)$ we denote the space entity $y$ with $\Ggrsb(y,x)$ (if existing).
+\end{konv}
+
+
+

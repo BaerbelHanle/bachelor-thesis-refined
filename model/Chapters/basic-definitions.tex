@@ -1,0 +1,224 @@
+\section{Grundlegende Definitionen}
+
+\begin{dfn}[Gerichtete Zahl]\ \\
+    Eine gerichtete Zahl ist ein Paar $(r,d)$ mit $r \in \R$, $d \in \udset$.\\
+    Statt $(r,d)$ schreiben wir auch $r^d$.\\
+    $\R^\ud$ bezeichnet die Menge der gerichteten Zahlen.
+\end{dfn}
+
+\begin{nota}
+    \begin{align*}
+        -\upa = \downa\\
+        -\downa = \upa
+    \end{align*}
+    Für $p = u^d \in \R^\ud$ ist
+    \begin{align*}
+        \ol{p} := u^{-d}
+    \end{align*}
+\end{nota}
+
+\begin{dfn}[Eine lineare strenge Ordung auf $\R^\ud$]\ \\
+    \begin{enumerate}
+        \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ schreiben wir $r_1^{d_1} < r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$, $d_1 = \downa$ und $d_2 = \upa$.
+    \end{enumerate}
+\end{dfn}
+Es ist leicht zu sehen, dass diese Relation in der Tat eine strenge lineare Ordungsrelation auf $\R^\ud$ ist
+
+Wir benutzen die üblichen Notationen $x \leq y$ für $x < y \lor x = y$ und $x \nless y$ für $\neq x < y$.
+
+Die Festlegung eine linearen Ordung erlaubt uns die Nutzung der Intervallschreibweise auf $\R^\ud$ sowie der Operatoren $\min, \max, \sup$ und $\inf$ auf Teilmengen des $\R^\ud$. 
+Auf dieser Notation können wir die Menge der Basisintervalle einführen.
+
+\begin{dfn}[Basisintervalle]\ \\
+    Die Menge $\B$ der Basisintervalle ist definiert durch
+    \begin{align*}
+        \B = \{[r^\upa, s^\downa] \subset \R^\ud \mid r,s \in \R, r<s\}.
+    \end{align*}
+\end{dfn}
+
+\begin{satz}
+    Der Schnitt zweier Basisintervalle ist leer oder wieder ein Basisintervall.
+\end{satz}
+Beweis trivial.
+
+\begin{satz}\label{satz:strong-sup-1}
+    Für zwei Basisintervalle $I_1, I_2$ und eine gerichtete Zahl $p \in I_1 \setminus I_2$ gibt es immer ein Basisintervall $J$ mit
+    \begin{enumerate}
+        \item $p \in J$
+        \item $J \subseteq I_1$
+        \item $J \cap I_2 = \varnothing$
+    \end{enumerate}
+\end{satz}
+
+\begin{bew}
+    Seien $I_1 =: [u_1^\upa, v_1^\downa], I_2 =: [u_2^\upa, v_2^\downa]$.\\
+    Fall 1: $p < u_2^\upa$. Setze $J := [u_1^\upa , (\min\{v_1,u_2\})^\downa]$.\\
+    Fall 2: $p > v_2^\downa$. Setze $J := [(\max\{u_1,v_2\})^\upa, v_1^\downa]$.\\
+    Die geforderten Eigenschaften für $J$ sind leicht nachzuprüfen.
+\end{bew}
+
+\begin{dfn}[Projektionen]\ \\
+    Für $k,n \in \N$ mit $k \leq n$ definieren wir die Projektionen $\pi_k^n : 2^{(\R^\ud)^n} \to \R^\ud$ durch
+    \begin{align*}
+        \pi_k^n (A) = \{x_k \in \R^\ud \mid (x_1, ..., x_n) \in A\}
+    \end{align*}
+\end{dfn}
+
+\begin{dfn}[Euklidische Projektion]\ \\
+    Für eine Menge $M \subseteq (\R^\ud)^d$ ist
+    \begin{align*}
+        \eukl^d(M) := \{(x_1,...,x_n) \in \R^n \mid \exists\, d_1 ... d_n \in \{\upa, \downa\}: (x_1^{d_1}, ..., x_n^{d_n}) \in M\}
+    \end{align*}
+    die \emph{euklidische Projektion} von $M$.
+\end{dfn}
+
+\begin{nota}
+    Statt $\pi_k^3$ und $\eukl^3$ schreiben wir auch $\pi_k$ und $\eukl$.
+\end{nota}
+
+
+
+
+\begin{dfn}[Einfache Entitäten]\ \\
+    Wir definieren
+    \begin{align*}
+        \einf^3 &:= \{I_1 \times I_2 \times I_3 \subset (\R^\ud)^3 \mid I_1, I_2, I_3 \in \B\}\\
+        \einf^2 &:= \{I_1 \times I_2 \times \{p_3\} \subset (\R^\ud)^3 \mid I_1, I_2 \in \B, p_3 \in \R^\ud\}\\
+        \einf^1 &:= \{I_1 \times \{p_2\} \times \{p_3\} \subset (\R^\ud)^3 \mid I_1 \in \B, p_2, p_3 \in \R^\ud\}\\
+        \einf^0 &:= (\R^\ud)^3\\
+        \einf &:= \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0
+    \end{align*}
+    Dabei nennen wir
+    \begin{itemize}
+        \item $\einf^3$ die Menge der \emph{einfachen Körper}
+        \item $\einf^2$ die Menge der \emph{einfachen Flächen}
+        \item $\einf^1$ die Menge der \emph{einfachen Linien}
+        \item $\einf^0$ die Menge der \emph{einfachen Punkte}
+        \item $\einf$ die Menge der \emph{einfachen Entitäten}.
+    \end{itemize}
+\end{dfn}
+
+\begin{satz}
+    Für $x,y \in \einf^d$ ist $x \cap y$ leer oder wieder in $\in \einf^d$.
+\end{satz}
+Beweis trivial.
+
+\begin{dfn}\ \\
+    Für $k \in \{0,1,2,3\}$ definieren wir $\univ^k$ induktiv über
+    \begin{align*}
+        \univ_1^k &:= \einf^k\\
+        \univ_{n+1}^k &:= \{A \cup B \mid A \in \einf^k, B \in \univ_n^k\}\\
+        \univ^k &:= \bigcup_{n \in \N} \univ_n^k
+    \end{align*}
+    Und damit
+    \begin{align*}
+        \univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0.
+    \end{align*}
+    Dabei heißt ein Element $x \in \univ^k$
+    \begin{itemize}
+        \item \emph{komlexer Körper} falls $k = 3$ ist
+        \item \emph{komlexe Fläche} falls $k = 2$ ist
+        \item \emph{komlexe Linie} falls $k = 1$ ist
+        \item \emph{komlexe Punktmenge} falls $k = 0$ ist.
+    \end{itemize}
+    $\univ$ ist die Menge der komplexen Entitäten.
+\end{dfn}
+
+\begin{satz}
+    Für alle $A \in \einf^3$, $B \in \univ^3$, $p \in A \setminus B$ gibt es ein $C \in \einf^3$ mit
+    \begin{itemize}
+        \item $p \in C$
+        \item $C \subseteq A$
+        \item $C \cap B = \varnothing$
+    \end{itemize}
+\end{satz}
+
+\begin{bew}
+    \textbf{I.A.}: Seien $A = I_1 \times I_2 \times I_3, B = J_1 \times J_2 \times J_3 \in \einf^3$, $p = (p_1,p_2,p_3) \in A \setminus B$.\\
+    Dann gibt es ein $k \in \{1,2,3\}$ mit $p_k \notin J_k$. 
+    Gleichzeitig ist $p_k \in I_k$. 
+    Also gibt es nach Satz \ref{satz:strong-sup-1} ein $K \in \B$ mit $p_k \in K$, $K \subseteq I_k$ und $K \cap J_k = \varnothing$.
+    Setze
+    \begin{align*}
+        L_i :=
+        \begin{cases}
+            K & \text{falls $i=k$}\\
+            I_i & \text{sonst}
+        \end{cases}\\
+        C := L_1 \times L_2 \times L_3
+    \end{align*}
+    Es ist leicht nachzuprüfen, dass $C$ die geforderten Eigenschaften besitzt.\\
+    \textbf{I.V.}: Sei $n \in \N$ s.d. es für alle $A \in \einf^3$, $B \in \univ_n^3$, $p \in A \setminus B$ ein $C \in \einf^3$ mit $p \in C \subseteq A$ und $C \cap B = \varnothing$.\\
+    \textbf{I.S.}: Seien $A \in \einf^3$, $B \in \univ_{n+1}^3$, $p \in A \setminus B$.\\
+    Seien $B_1 \in \einf^3 \subset \univ_n^3$ und $B_2 \in \univ_n^3$ mit $B = B_1 \cup B_2$.
+    Dann gibt es nach I.V. $C_1$ und $C_2 \in \einf^3$ mit $p \in C_1 \subseteq A$, $C_1 \cap B_1 = \varnothing$, $p \in C_2 \subseteq A$ und $C_2 \cap B_2 = \varnothing$.\\
+    Setze $C := C_1 \cap C_2$. Die geforderten Eigenschaften für $C$ sind leicht nachzuprüfen.
+\end{bew}
+
+
+\begin{satz}\ \\
+    Für alle $A \in \einf^d$, $B \in \univ^d$, $p \in A \setminus B$ gibt es ein $C \in \einf^d$ mit
+    \begin{itemize}
+        \item $p \in C$
+        \item $C \subseteq A$
+        \item $C \cap B = \varnothing$
+    \end{itemize}
+\end{satz}
+
+\begin{bew}\ \\
+    \textbf{I.A.}: Seien $A = I_1 \times I_2 \times I_3, B = J_1 \times J_2 \times J_3 \in \einf^d$, $p = (p_1,p_2,p_3) \in A \setminus B$.\\
+    Dann gibt es ein $k \in \{1,2,3\}$ mit $p_k \notin J_k$. 
+    Gleichzeitig ist $p_k \in I_k$.\\
+    Fall 1: $J_k = \{r\}$ für ein $r \in \R^\ud$. Dann gibt es ein $q \in \R^\ud$ mit $I_k = \{q\}$ und $q \neq r$. Setze in diesem Fall $K := I_k$.\\
+    Fall 2: $J_k \in \B$. 
+    Dann ist auch $I_k \in \B$ und es gibt nach Satz \ref{satz:strong-sup-1} ein $K \in \B$ mit $p_k \in K$, $K \subseteq I_k$ und $K \cap J_k = \varnothing$.\\
+    Setze in beiden Fällen
+    \begin{align*}
+        L_i :=
+        \begin{cases}
+            K & \text{falls $i=k$}\\
+            I_i & \text{sonst}
+        \end{cases}\\
+        C := L_1 \times L_2 \times L_3
+    \end{align*}
+    Es ist leicht nachzuprüfen, dass $C$ die geforderten Eigenschaften besitzt.\\
+    \textbf{I.V.}: Sei $n \in \N$ s.d. es für alle $A \in \einf^d$, $B \in \univ_n^d$, $p \in A \setminus B$ ein $C \in \einf^d$ mit $p \in C \subseteq A$ und $C \cap B = \varnothing$.\\
+    \textbf{I.S.}: Seien $A \in \einf^d$, $B \in \univ_{n+1}^d$, $p \in A \setminus B$.\\
+    Seien $B_1 \in \einf^d \subset \univ_n^d$ und $B_2 \in \univ_n^d$ mit $B = B_1 \cup B_2$.
+    Dann gibt es nach I.V. $C_1$ und $C_2 \in \einf^d$ mit $p \in C_1 \subseteq A$, $C_1 \cap B_1 = \varnothing$, $p \in C_2 \subseteq A$ und $C_2 \cap B_2 = \varnothing$.\\
+    Setze $C := C_1 \cap C_2$. 
+    Die geforderten Eigenschaften für $C$ sind leicht nachzuprüfen.
+\end{bew}
+
+
+\begin{dfn}[Rand einer komplexen Entität]\ 
+    \begin{enumerate}
+        \item Für einen komplexen Körper $A \in \univ^3$ ist
+            \begin{align*}
+                \partial A := \{(p,q,r) \in A \mid (p,q,\ol{r}) \notin A\}
+            \end{align*}
+        \item Für eine komplexe Fläche $A \in \univ^2$ ist
+            \begin{align*}
+                \partial A := \{(p,q,r) \in A \mid (p,\ol{q},r) \notin A\}
+            \end{align*}
+        \item Für einen komplexe Linie $A \in \univ^1$ ist
+            \begin{align*}
+                \partial A := \{(p,q,r) \in A \mid (\ol{p},q,r) \notin A\}
+            \end{align*}
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}[Randentität]\ 
+    \begin{itemize}
+        \item Eine komplexe Fläche $A \in \univ^2$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,q,\ol{r}) \notin A$.
+        \item Eine komplexe Linie $A \in \univ^1$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,\ol{q},r) \notin A$.
+        \item Eine komplexe Punktmenge $A \in \univ^0$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(\ol{p},q,r) \notin A$.
+    \end{itemize}
+\end{dfn}
+
+
+
+
+
+
+

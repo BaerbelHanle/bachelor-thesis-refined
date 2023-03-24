@@ -1,146 +1,154 @@
+verletzt A32'
+
 \chapter{New Ideas}
 
 
-\section{Block structure}
 
 
-\subsection{Struktur}
-
-\begin{nota}[(Beschränkte) Basisintervalle]\ \\
-    \begin{align*}
-      \B := \{[p,q) \subseteq \R \mid p,q \in \R\}
-    \end{align*}
-    ist die Menge der Basisintervalle in $\R$.
-    %Wir bezeichnen die Menge der abgeschlossenen beschränkten Intervalle in $\R$ mit $I$.\\
-    Für $\alpha \subseteq \R$ ist
-    \begin{align*}
-        \B_{\alpha} := \{ \beta \in \B \mid \beta \subseteq \alpha\}
-    \end{align*}
-    die Menge der und durch $\alpha$ beschränkten Basisintervalle.
-\end{nota}
-
-
-
-\begin{bsp}
- \begin{align*}
-  [-5.78,14\pi) &\in \B\\
-  [6,4) &\notin \B\\
-  [1,1) &\notin \B\\
-  [-5.78,14\pi) &\in \B_{[-10,100]}\\
-  [-5.78,14\pi) &\notin \B_{[0,1]}
- \end{align*}
-\end{bsp}
-
-
-
-% \begin{dfn}
-%     Für $a,b \in I$ bezeichnet
-%     \begin{align*}
-%         I_{[a,b]} := \{[r,s] \mid r,s \in \R, a \leq r < s \leq b\}\\
-%     \end{align*}
-% \end{dfn}
+\section{Grundlegende Definitionen}
 
 \begin{dfn}[Gerichtete Zahl]\ \\
     Eine gerichtete Zahl ist ein Paar $(r,d)$ mit $r \in \R$, $d \in \udset$.\\
     Statt $(r,d)$ schreiben wir auch $r^d$.\\
     $\R^\ud$ bezeichnet die Menge der gerichteten Zahlen.
-%     \\Für $[a,b] \subseteq \R$ definieren wir die Menge
-%         \begin{align*}
-%             [a,b]^\ud := \{r^d \in \R^\ud \mid r \in [a,b] \land (r=a \to d =\upa) \land (r=b \to d=\downa)\}
-%         \end{align*}
 \end{dfn}
 
 
-\begin{dfn}[Beschränkte gerichtete Zahl]\ \\
-    Für $[a,b] \subseteq \R$ definieren wir die Menge $[a,b]^\ud \subseteq \R^\ud$ folgendermaßen: $r^d \in [a,b]^\ud$ falls:
-    $$r \in [a,b] \land (r = a \to d=\upa) \land (r=b \to d=\downa)$$.
-\end{dfn}
+% \begin{dfn}[Beschränkte gerichtete Zahl]\ \\
+%     Für $[a,b] \subseteq \R$ ist
+%     \begin{align*}
+%         [a,b]^\ud := \{r^d \in \R^\ud \mid r \in [a,b] \land (r = a \to d=\upa) \land (r=b \to d=\downa)\}
+%     \end{align*}
+% \end{dfn}
+% 
+% 
+% \begin{bsp}
+%     \begin{align*}
+%         7\pi^\upa &\in \R^\ud \\
+%         2^\downa &\in [0,7]^\ud \\
+%         2^\downa &\in [0,2]^\ud \\
+%         2^\upa &\notin [0,2]^\ud
+%     \end{align*}
+% \end{bsp}
 
 
-\begin{bsp}
-    \begin{align*}
-        7\pi^\upa &\in \R^\ud \\
-        2^\downa &\in [0,7]^\ud \\
-        2^\downa &\in [0,2]^\ud \\
-        2^\upa &\notin [0,2]^\ud
-    \end{align*}
-\end{bsp}
-
-
-\begin{dfn}[Untere und obere Grenzen]\ \\
-    Wir definieren die Funktionen $\lb, \ub: \B \to \R^\ud$ folgendermaßen:\\
-    Für $[a,b) \in \B$ sind
-    \begin{align*}
-        \lb([a,b)) = a^\upa,\ \ub([a,b)) = b^\downa
-    \end{align*}
-    Das Prädikat $\bnd \subseteq \R^\ud \times \B$ wird definiert durch
-    \begin{align*}
-        \bnd(x,y) \quad \Leftrightarrow \quad \lb(y)=x \lor \ub(y)=x
-    \end{align*}
-\end{dfn}
-
-
-\begin{dfn}[Einfache Entitäten]\ %\\
+\begin{dfn}[Die $<$-Relation auf $\{\upa, \downa\}$ und $\R^\ud$]\ \\
     \begin{enumerate}
-        \item Ein \emph{einfacher Körper} ist ein Basisintervall.\\ 
-            Die Menge der einfachen Körper bezeichnen wir auch mit $\einf^3$.
-        \item Eine \emph{einfache Fläche} ist ein Paar $(A,B) \in \R^\ud \times \B_{[0,1]}$.\\
-            Die Menge der einfachen Flächen bezeichnen wir mit $\einf^2$.
-        \item Eine \emph{einfache Linie} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times \B_{[0,1]}$.\\
-            Die Menge der einfachen Linien bezeichnen wir mit $\einf^1$.
-        \item Ein \emph{einfacher Punkt} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times [0,1]^\ud$.\\
-            Die Menge der einfachen Punkte bezeichnen wir mit $\einf^0$.
-        \item $\einf : \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0$ ist die \emph{Menge der einfachen Entitäten}
+        \item Für $d_1,d_2 \in \udset$ schreiben wir $d_1 < d_2$ falls $d_1 = \downa$ und $d_2 = \upa$ ist. 
+        \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ schreiben wir $r_1^{d_1} < r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$ und $d_1 < d_2$.
     \end{enumerate}
 \end{dfn}
 
+Wir benutzen die üblichen Notationen $x \leq y$ für $x < y \lor x = y$ und $x \nless y$ für $\neq x < y$.
+
+Folgender Satz rechtfertigt die Nutzung des $<$-Symbols.
+%
+\begin{satz}
+    Die $<$-Relation ist eine strenge lineare Ordung auf $\{\upa, \downa\}$ und $\R^\ud$, d.h. für $x,y,z \in \{\upa, \downa\}$ bzw. $x,y,z \in \R^\ud$ gelten
+    \begin{itemize}
+        \item $x = y \lor x < y \lor y < x$
+        \item $x < y \to x \neq y \land y \nless x$
+        \item $x < y \land y < z \to x < z$
+    \end{itemize}
+\end{satz}
+Beweis trivial.
+
+
+Die Festlegung eine linearen Ordung erlaubt uns die Nutzung der Intervallschreibweise auf $\R^\ud$ sowie der Operatoren $\min, \max, \sup$ und $\inf$ auf Teilmengen des $\R^\ud$ analog zu $\R$. 
+Auf dieser Notation können wir die Menge der Basisintervalle einführen.
+%
+\begin{dfn}[Basisintervalle]\ \\
+    Die Menge $\B$ der Basisintervalle ist definiert durch
+    \begin{align*}
+        \B = \{[r^\upa, s^\downa] \mid r,s \in \R, r<s\}.
+    \end{align*}
+    Für $\alpha \subseteq \R^\ud$ ist
+    \begin{align*}
+        \B_{\alpha} := \{ \beta \in \B \mid \beta \subseteq \alpha\}
+    \end{align*}
+    die Menge der und durch $\alpha$ beschränkten Basisintervalle.
+\end{dfn}
+
 
 \begin{bsp}
-    \begin{align*}
-        [3,5) &\in \einf^3\\
-        (2^\upa, [0.2,1)) &\in \einf^2\\
-        (2^\upa, [0,2)) &\notin \einf^2\\
-        (2^\upa,0.7\downa, [0.2,1)) &\in \einf^1\\
-        (2^\upa,1\downa, [0.2,1)) &\in \einf^1\\
-        (2^\upa,0\downa, [0.2,1)) &\notin \einf^1\\
-        (2^\upa,0.7\downa, 0.5\upa) &\in \einf^0\\
-        (2^\upa,0.7\downa, 2\upa) &\notin \einf^0\\
-        (2^\upa,0.7\downa, 1\upa) &\notin \einf^0
-    \end{align*}
+ \begin{align*}
+  [-3^\upa, 2^\downa] &\in \B\\
+  [6^\downa,9^\upa] &\notin \B\\
+  [0.2^\upa, 0.7^\downa] &\in \B_{[0^\upa, 1^\downa]}\\
+  [0^\upa, 1^\downa] &\in \B_{[0^\upa, 1^\downa]}\\
+  [-1^\upa,1^\downa] &\notin \B_{[0^\upa, 1^\downa]}
+ \end{align*}
 \end{bsp}
 
+\begin{dfn}[Grenzen]\ \\
+    Die Funktion $\bnd \B: \to 2^{\R^\ud}$ wird definiert durch
+    \begin{align*}
+        \bnd([p,q])=\{p,q\}.
+    \end{align*}
+\end{dfn}
 
-\begin{dfn}[Base, Core, euklidische Projektion]\ \\
+\begin{dfn}[Einfache Entitäten]\ %\\
+    \begin{enumerate}
+        \item Für $I \in \B$ ist die Menge
+            \begin{align*}
+                \langle I \rangle := I \times [0^\upa, 1^\downa]^2 \subseteq (\R^\ud)^3
+            \end{align*}
+            ein \emph{einfacher Körper}.\\ 
+            Die Menge der einfachen Körper bezeichnen wir auch mit $\einf^3$.
+        \item Für $p \in \R^\ud$, $I \in \B_{[0^\upa, 1^\downa]}$ ist die Menge
+            \begin{align*}
+                \langle p,I \rangle := \{p\} \times I \times [0^\upa, 1^\downa] \subseteq (\R^\ud)^3
+            \end{align*}
+            eine \emph{einfache Fläche}.\\
+            Die Menge der einfachen Flächen bezeichnen wir mit $\einf^2$.
+        \item Für $p \in \R^\ud$, $q \in [0^\upa,1^\downa]$, $I \in \B_{[0^\upa, 1^\downa]}$ ist die Menge
+            \begin{align*}
+                \langle p,q,I \rangle := \{p\} \times \{q\} \times I \times \subseteq (\R^\ud)^3
+            \end{align*}
+            eine \emph{einfache Linie}.\\
+            Die Menge der einfachen Linien bezeichnen wir mit $\einf^1$.
+        \item Für $p \in \R^\ud$, $q,r \in [0,1]^\ud$ ist die Menge
+            \begin{align*}
+                \langle p,q,r \rangle := \{(p,q,r)\} \subseteq (\R^\ud)^3
+            \end{align*}
+            ein \emph{einfacher Punkt}.\\
+            Die Menge der einfachen Punkte bezeichnen wir mit $\einf^0$.
+        %\item $\einf : \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0$ ist die \emph{Menge der einfachen Entitäten}
+    \end{enumerate}
+    $\einf : \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0$ ist die \emph{Menge der einfachen Entitäten}
+\end{dfn}
+
+\begin{dfn}[Base, Core]\ \\
     Wir definieren die Funktionen 
-    $$\base: \einf \to (\R^\ud)^*,\ \core: \einf \to \B \cup {\varnothing},\ \eukl: \einf \to 2^{\R^3}$$
+    \begin{align*}
+        \base &: \einf \to (\R^\ud)^3\\ 
+        \core &: \einf \to \B \cup \{\varnothing\}
+    \end{align*}
     folgendermaßen:
     \begin{enumerate}
-        \item Für $x \in \einf^3$ sind
+        \item Für $x = \langle I \rangle \in \einf^3$ sind
             \begin{align*}
-                \eukl(x) &= x \times [0,1]^2\\
-                \base(x) &= \varepsilon\\
-                \core(x) &= x
+                \base(x) &= \R^\ud \times [0^\upa, 1^\downa]^2\\
+                \core(x) &= I.
             \end{align*}
-        \item Für $x = (r^d, I) \in \einf^2$ sind
+        \item Für $x = \langle p, I \rangle \in \einf^2$ sind
             \begin{align*}
-                \eukl(x) &= \{r\} \times I \times [0,1]\\
-                \base(x) &= r^d\\
+                \base(x) &= \{p\} \times [0^\upa, 1^\downa]^2\\
                 \core(x) &= I
             \end{align*}
-        \item Für $x = (r^d, s^e, I) \in \einf^1$ sind
+        \item Für $x = \langle p,q,I \rangle \in \einf^1$ sind
             \begin{align*}
-                \eukl(x) &= \{r\} \times \{s\} \times I\\
-                \base(x) &= r^d s^e\\
+                \base(x) &= \{p\} \times \{q\} \times [0^\upa, 1^\downa]^2\\
                 \core(x) &= I
             \end{align*}
-        \item Für $x = (r^d, s^e, t^f) \in \einf^0$ sind
+        \item Für $x = \langle p,q,r \rangle \in \einf^0$ sind
             \begin{align*}
-                \eukl(x) &= \{(r,s,t)\}\\
-                \base(x) &= r^d s^e t^f\\
+                \base(x) &= \{(p,q,r)\}\\
                 \core(x) &= \varnothing
             \end{align*}
     \end{enumerate}
 \end{dfn}
+
 
 \begin{satz}\label{satz:base-intv-ident}
     Für einfache Entitäten $x,y$ gilt
@@ -151,7 +159,16 @@
 Beweis trivial.
 
 
-\begin{dfn}[Komplexe Körper, Flächen, Linien, Punktmengen]\
+\begin{dfn}[Euklidische Projektion]\ \\
+    Für eine Menge $M \subseteq (\R^\ud)^3$ ist
+    \begin{align*}
+        \eukl(M) := \{(x,y,z) \in \R^3 \mid \exists\, def \in \{\upa, \downa\}: (x^d, y^e, z^f) \in M\}
+    \end{align*}
+    die \emph{euklidische Projektion} von $M$.
+\end{dfn}
+
+
+\begin{dfn}[Komplexe Entitäten]\
     \begin{enumerate}
         \item Ein komplexer Körper ist eine endliche Vereinigung einfacher Körper.\\
             Die \emph{Menge der komplexen Körper} bezeichnen wir mit $\univ^3$.
@@ -162,31 +179,7 @@ Beweis trivial.
         \item Eine komplexe Punktmenge ist eine endliche Vereinigung einfacher Punkte.\\
             Die \emph{Menge der komplexen Punktmengen} bezeichnen wir mit $\univ^0$.
     \end{enumerate}
-\end{dfn}
-
-
-\begin{dfn}[Universum]\ 
-    \begin{align*}
-        \univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0
-    \end{align*}
-    ist das Universum der \strukt.
-\end{dfn}
-
-\begin{dfn}\ \\
-    Eine Raumentität $x \in \univ^d$ heißt
-    \begin{itemize}
-        \item \emph{höherdimensional}, wenn $d \in \{1,2,3\}$ ist und
-        \item \emph{niederdimensional}, wenn $d \in \{0,1,2\}$ ist.
-    \end{itemize}
-\end{dfn}
-
-
-
-\begin{dfn}[Ausweitung der euklidischen Projektion auf $\univ$]
-    Für $x = \bigcup_{i=1}^n A_i$ ist
-    \begin{align*}
-        \eukl(x) = \bigcup_{i=1}^n \eukl(A_i)
-    \end{align*}
+    $\univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0$ ist die \emph{Menge der komplexen Entitäten}.
 \end{dfn}
 
 
@@ -196,38 +189,31 @@ Beweis trivial.
 \end{dfn}
 
 
-
-\begin{dfn}[Die $\vor$-Relation]\ 
+\begin{dfn}[Höher- und niederdimensionale Entitäten]\ \\
+    Eine komplexe Entität $x \in \univ$ heißt
     \begin{itemize}
-        \item Für $d_1,d_2 \in \udset$ gilt $d_1 \vor d_2$ falls $d_1 = \downa$ und $d_2 = \upa$ ist. 
-        \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ gilt $r_1^{d_1} \vor r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$ und $d_1 \vor d_2$.
-        \item Für $[a_1,b_1), [a_2,b_2) \in \einf^3$ gilt $[a_1,b_1) \vor [a_2,b_2)$ falls $b_1 < a_2$ ist.
-        \item Für $(A_1,B_1), (A_2,B_2) \in \einf^2$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2$ und $B_1 \vor B_2$.
-        \item Für $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \einf^1 \cup \einf^0$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2 \land B_1 \vor B_2$ oder $A_1 = A_2 \land B_1 = B_2 \land C_1 \vor C_2$.
+        \item \emph{höherdimensional}, wenn $\Gdim(x) \neq 0$ ist und
+        \item \emph{niederdimensional}, wenn $\Gdim(x) \neq 3$ ist.
     \end{itemize}
 \end{dfn}
 
-\begin{bsp}
-    \begin{align*}
-        3^\upa &\vor 5^\downa\\
-        3^\downa &\vor 3^\upa\\
-        [-1,2] &\vor [5,7]\\
-        [-1,2] &\nvor [2,3]\\
-        [-1,2] &\nvor [0,100]\\
-        (3^\upa, [0,0.5]) &\vor (5^\downa, [0,0.2])\\
-        (3^\downa, [0,0.5]) &\vor (3^\upa, [\frac{1}{3}, 0.7]\\
-        (3^\upa, [0,0.5]) &\vor (3^\upa, [0.6,0.7])\\
-        (3^\downa,0.5^\upa,[0.2, 0.7]) &\vor (4^\downa,0.5^\upa,[0, 0.7])\\
-        (3^\downa,0.5^\upa,[0.2, 0.7]) &\vor (3^\upa,0^\upa,[0.2, 0.7])\\
-        (3^\downa,0.5^\upa,[0.2, 0.7]) &\vor (3^\downa,0.6^\downa,[0, 0.7])\\
-        (3^\downa,0.5^\downa,[0.2, 1]) &\vor (3^\downa,0.5^\upa,[0, 0.7])\\
-        (3^\downa,0.5^\upa,[0.2, 0.7]) &\vor (3^\downa,0.5^\upa,[0.8, 1])\\
-        (3^\downa,0.5^\upa,1^\downa) &\vor (5^\downa,0^\upa,1^\downa)\\
-        (3^\downa,0.5^\upa,1^\downa) &\vor (3^\upa,0^\upa,1^\downa)\\
-        (3^\downa,0.5^\upa,1^\downa) &\vor (3^\downa,1^\downa,1^\downa)\\
-        (3^\downa,0.5^\upa,1^\downa) &\vor (3^\downa,0.5^\upa,1^\upa)
-    \end{align*}
-\end{bsp}
+\begin{dfn}[Die $\ivor$-Relation]
+    Für $I_1, I_2 \in \B$ gilt $I_1 \ivor I_2$ falls $\max(I_1) < \min(I_2)$ ist.
+\end{dfn}
+\todo{anderes Symbol einführen}
+
+
+\begin{dfn}[Die $\vor$-Relation]\ 
+    \begin{itemize}
+%         \item Für $d_1,d_2 \in \udset$ gilt $d_1 \vor d_2$ falls $d_1 = \downa$ und $d_2 = \upa$ ist. 
+%         \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ gilt $r_1^{d_1} \vor r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$ und $d_1 \vor d_2$.
+%        \item Für $I_1, I_2 \in \B$ gilt $I_1 \vor I_2$ falls $\max(I_1) < \min(I_2)$ ist.
+        \item Für $x = \langle I_1 \rangle, y = \langle I_2 \rangle \in \einf^3$ gilt $x \vor y$ falls $I_1 \ivor I_2$ ist.
+        \item Für $x = \langle p_1, I_1 \rangle, y = \langle p_2 I_2 \rangle \in \einf^2$ gilt $x \vor y$, falls $p_1 < p_2$ gilt oder $p_1 = p=2$ und $I_1 \ivor I_2$.
+        \item Für $x = \langle p_1, q_1, I_1 \rangle, y = \langle p_2, q_2, I_2 \rangle \in \einf^1$ gilt $x \vor y$, falls $p_1 < p_2$ gilt oder $p_1 = p_2 \land  q_1 < q_2$ oder $p_1 = p_2 \land q_1 = q_2 \land I_1 \ivor I_2$.
+        \item Für $x = \langle p_1, q_1, r_1 \rangle, y = \langle p_2, q_2, r_2 \rangle \in \einf^0$ gilt $x \vor y$, falls $p_1 < p_2$ gilt oder $p_1 = p_2 \land  q_1 < q_2$ oder $p_1 = p_2 \land q_1 = q_2 \land r_1 < r_2$.
+    \end{itemize}
+\end{dfn}
 
 
 \begin{satz}\label{satz:teil-nicht-vor}
@@ -237,143 +223,123 @@ Beweis trivial.
 Beweis trivial.
 
 
-Für jede komplexe Entität $x$ gibt es eindeutig bestimmte einfache Entitäten $y_1, ..., y_n \in \einf^d$ mit
+Für jede komplexe Entität $x$ gibt es eindeutig bestimmte einfache Entitäten $A_1, ..., A_n \in \einf^d$ mit
 \begin{enumerate}
     \item $x = \bigcup_{i=1}^n y_i$.
-    \item $y_1 \vor ... \vor y_n$
+    \item $y_A \vor ... \vor A_n$
 \end{enumerate}
 \todo[inline]{beweisen}
 Damit können wir die kanonische Darstellung definieren.
 
+
 \begin{dfn}[Kanonische Darstellung]\ \\
-    Wir definieren eine Abbildung $\can: \univ \to (\einf^3)^* \cup (\einf^2)^* \cup (\einf^1)^* \cup (\einf^0)^*$ durch $\can(x) = y_1 ... y_n$ falls
+    Wir definieren eine Abbildung $\can: \univ \to \einf^*$ durch $\can(x) = A_1 ... A_n$ falls
     \begin{enumerate}
-        %\item $y_1, ..., y_n \in \B^d$
-        \item $x = \bigcup_{i=1}^n y_i$.
-        \item $y_1 \vor ... \vor y_n$
+        \item $x = \bigcup_{i=1}^n A_i$.
+        \item $A_1 \vor ... \vor A_n$
     \end{enumerate}
 \end{dfn}
 
-
-% \begin{dfn}[Ordinärität]\ 
-%     \begin{itemize}
-%         \item Ein komplexer Körper ist immer ordinär.
-%         \item Eine komplexe Fläche mit kanonischer Darstellung $((p_1^{d_1}, \alpha_1), ..., (p_n^{d_n}, \alpha_n))$ heißt ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $p_i = p_j \to \alpha_i \cap \alpha_j = \varnothing$.
-%         \item Eine komplexe Linie mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, \alpha_1), ... , (p_n^{d_n}, q_n^{e_n}, \alpha_n))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i,q_i) = (p_j,q_j) \to \alpha_i \cap \alpha_j = \varnothing$.
-%         \item Ein komplexer Punkt mit kanonischer Darstellung $((p_1^{d_1}, q_1^{e_1}, r_1^{f_1}), ... , (p_n^{d_n}, q_n^{e_n}, r_n^{f_n}))$ ist ordinär, wenn für alle $i,j \in \{1, ..., n\}$ mit $i \neq j$ gilt: $(p_i, q_i,r_i) \neq (p_j,q_j,r_j)$.
-%     \end{itemize}
-% \end{dfn}
+\begin{nota}[Konkatenation]\ \\
+    Statt $x = A_1 ... A_n$ schreiben wir auch $x = \prod\limits_{i=1}^n A_i$.
+\end{nota}
 
 
-\begin{dfn}[$\GSReg$]
-    $\GSReg^B := \univ^3$
-\end{dfn}
-
-
-% \begin{dfn}[$\Gsb^\einf$]\ 
-%     \begin{itemize}
-%         \item Für $x = (r^d,\alpha) \in \einf^2$, $y = [s,t) \in \einf^3$ gilt
-%             \begin{align*}
-%                 \Gsb^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 r=s \land d=\upa \lor r=t \land d=\downa.
-%             \end{align*}
-%         \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, [u,v)) \in \einf^3$ gilt
-%             \begin{align*}
-%                 \Gsb^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 r^d = t^f \land ( s=u \land e=\upa \lor s=v \land e=\downa ).
-%             \end{align*}
-%         \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, [u,v)) \in \einf^3$ gilt
-%             \begin{align*}
-%                 \Gsb^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 p^d = s^g \land q^e = t^h \land ( r=u \land f=\upa \lor r=v \land f=\downa ).
-%             \end{align*}
-%     \end{itemize}
-% \end{dfn}
-
-
-\begin{dfn}[$\Gsb^\einf$]\ 
-    \begin{itemize}
-        \item Für $x = (r^d, \alpha) \in \einf^2$, $y = \beta \in \einf^3$ gilt
-            \begin{align*}
-                \Gsb^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                \bnd(r^d,\beta).
-            \end{align*}
-        \item Für $x = (r^d,s^e,\alpha) \in \einf^1$, $y = (t^f, \beta) \in \einf^3$ gilt
-            \begin{align*}
-                \Gsb^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                r^d = t^f \land ( \bnd(s^e,\beta) ).
-            \end{align*}
-        \item Für $x = (p^d,q^e,r^f) \in \einf^0$, $y = (s^g, t^h, \beta) \in \einf^3$ gilt
-            \begin{align*}
-                \Gsb^\einf(x,y) 
-                \quad \Leftrightarrow \quad 
-                p^d = s^g \land q^e = t^h \land ( \bnd(r^f,\beta)).
-            \end{align*}
-    \end{itemize}
-\end{dfn}
-
-
-\begin{dfn}[$\Gsb$]\ \\
-    Für $d \in \{0,1,2\}$, $m,n \in \N$, $x \in \univ^d$, $y \in \univ^{d+1}$ mit $\can(x) = A_1 ... A_n \in \univ^d$, $\can(y) = B_1 ... B_m \in \univ^{d+1}$ gilt:
+\begin{satzdef}\ \\
+    Für $x \in \univ^3$ gibt es ein eindeutig bestimmtes $l \in \N$ und $l$ Basisintervalle $I_1, ..., I_n \in \B$ mit $I_1 < ... < I_l$ s.d.
     \begin{align*}
-        \Gsb(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gsb^\einf(A_i,B_j).
+        x = \bigcup_{i=1}^l \langle I_i \rangle
     \end{align*}
-\end{dfn}
+    ist.\\ \ \\
+    Wir definiere dann für $i \in \{1, ..., l\}$
+    \begin{align*}
+        \treewidth(x) &= l\\
+        (x)_i &= I_i.
+    \end{align*}
+\end{satzdef}
+
+\begin{satzdef}
+    Für $x \in \univ^2$ gibt es
+    \begin{enumerate}
+        \item ein eindeutig bestimmtes $l \in \N$ und $l$ eindeutig bestimmte gerichtete Zahlen $p_1, ..., p_l \in \R^\ud$ mit $p_1 < ... < p_l$
+        \item für jedes $i \in \{1, ..., l\}$ eine eindeutig bestimmte Zahl $m_i$ und $m_i$ eindeutig bestimmte beschränkte Basisintervalle $I_{i1}, ..., I_{im_i} \in \B_{[0^\upa, 1^\downa]}$ mit $I_{i1} < ... < I_{im_i}$
+    \end{enumerate}
+    so dass
+    \begin{align*}
+        x = \bigcup_{i=1}^l \bigcup_{j=1}^{m_i} \langle p_i, I_{ij} \rangle
+    \end{align*}
+    ist.\\ \ \\
+    Wir definiere dann für $i \in \{1, ..., l\}$, $j \in \{1, ..., m_i\}$
+    \begin{align*}
+        \treewidth(x) &= l\\
+        \treewidth_i(x) &= m_i\\
+        (x)_i &= p_i\\
+        (x)_{ij} &= I_{ij}.
+    \end{align*}
+\end{satzdef}
+
+\begin{satzdef}
+    Für $x \in \univ^1$ gibt es
+    \begin{enumerate}
+        \item ein eindeutig bestimmtes $l \in \N$ und $l$ eindeutig bestimmte gerichtete Zahlen $p_1, ..., p_l \in \R^\ud$ mit $p_1 < ... < p_l$
+        \item für jedes $i \in \{1, ..., l\}$ eine eindeutig bestimmte Zahl $m_i$ und $m_i$ eindeutig bestimmte gerichtete Zahlen $q_{i1}, ..., q_{im_i} \in [0^\upa, 1^\downa]$ mit $q_{i1} < ... < q_{im_i}$
+        \item für jedes $i \in \{1, ..., l\}$, $j \in \{1, ..., m_i\}$ eine eindeutig bestimmte Zahl $n_{ij}$ und $n_{ij}$ eindeutig bestimmte beschränkte Basisintervalle $I_{ij1}, ..., I_{ijm_{ij}} \in \B_{[0^\upa, 1^\downa]}$ mit $I_{ij1} < ... < I_{ijm_{ij}}$
+    \end{enumerate}
+    so dass
+    \begin{align*}
+        x = \bigcup_{i=1}^l \bigcup_{j=1}^{m_i} \bigcup_{k=1}^{n_{ij}} \langle p_i, q_{ij}, I_{ijk} \rangle
+    \end{align*}
+    ist.\\ \ \\
+    Wir definiere dann für $i \in \{1, ..., l\}$, $j \in \{1, ..., m_i\}$ und $k \in \{1, ..., n_{ij}\}$
+    \begin{align*}
+        \treewidth(x) &= l\\
+        \treewidth_i(x) &= m_i\\
+        \treewidth_{ij}(x) &= n_{ij}\\
+        (x)_i &= p_i\\
+        (x)_{ij} &= q_{ij}\\
+        (x)_{ijk} &= I_{ijk}.
+    \end{align*}
+\end{satzdef}
 
 
-% \begin{dfn}[$\Gscoinc^\einf$]\ 
-%     \begin{itemize}
-%         \item Für $x = (p_1^{d_1},\alpha_2), y = (p_2^{d_2},\alpha_2) \in \einf^2$ gilt
-%             \begin{align*}
-%                 \Gscoinc^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 p_1 = p_2 \land \alpha_1 = \alpha_2.
-%             \end{align*}
-%         \item Für $x = (p_1^{d_1},q_1^{e_1},\alpha_1), y = (p_2^{d_2},q_2^{e_2},alpha_2) \in \einf^1$ gilt
-%             \begin{align*}
-%                 \Gscoinc^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 (p_1, q_1) = (p_2,q_2) \land \alpha_1 = \alpha_2.
-%             \end{align*}
-%         \item Für $x = (p_1^{d_1},q_1^{e_1},r_1^{f_1}), y = (p_2^{d_2},q_2^{e_2},r_2^{f_2}) \in \einf^0$ gilt
-%             \begin{align*}
-%                 \Gscoinc^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 (p_1,q_1,r_1) = (p_1,q_1,r_1).
-%             \end{align*}
-%     \end{itemize}
-% \end{dfn}
-
-
-% \begin{dfn}[$\Gscoinc^\einf$]\ 
-%     Für $x,y \in \einf^2 \cup \einf^1 \cup \einf^0$ gilt
-%     \begin{align*}
-%         \Gscoinc^\einf(x,y) 
-%         \quad \Leftrightarrow \quad 
-%         \eukl(x) = \eukl(y)
-%     \end{align*}
-% \end{dfn}
+\begin{satzdef}
+    Für $x \in \univ^0$ gibt es
+    \begin{enumerate}
+        \item ein eindeutig bestimmtes $l \in \N$ und $l$ eindeutig bestimmte gerichtete Zahlen $p_1, ..., p_l \in \R^\ud$ mit $p_1 < ... < p_l$
+        \item für jedes $i \in \{1, ..., l\}$ eine eindeutig bestimmte Zahl $m_i$ und $m_i$ eindeutig bestimmte gerichtete Zahlen $q_{i1}, ..., q_{im_i} \in [0^\upa, 1^\downa]$ mit $q_{i1} < ... < q_{im_i}$
+        \item für jedes $i \in \{1, ..., l\}$, $j \in \{1, ..., m_i\}$ eine eindeutig bestimmte Zahl $n_{ij}$ und $n_{ij}$ eindeutig bestimmte gerichtete Zahlen $r_{ij1}, ..., r_{ijm_{ij}} \in [0^\upa, 1^\downa]$ mit $r_{ij1} < ... < r_{ijm_{ij}}$
+    \end{enumerate}
+    so dass
+    \begin{align*}
+        x = \bigcup_{i=1}^l \bigcup_{j=1}^{m_i} \bigcup_{k=1}^{n_{ij}} \langle p_i, q_{ij}, r_{ijk} \rangle
+    \end{align*}
+    ist.\\ \ \\
+    Wir definiere dann für $i \in \{1, ..., l\}$, $j \in \{1, ..., m_i\}$ und $k \in \{1, ..., n_{ij}\}$
+    \begin{align*}
+        \treewidth(x) &= l\\
+        \treewidth_i(x) &= m_i\\
+        \treewidth_{ij}(x) &= n_{ij}\\
+        (x)_i &= p_i\\
+        (x)_{ij} &= q_{ij}\\
+        (x)_{ijk} &= r_{ijk}.
+    \end{align*}
+\end{satzdef}
 
 
 
 \begin{dfn}[Grenzentität]\
     \begin{enumerate}
-        \item Sei $x \in \univ^2$ mit $\can(x) = A_1 ... A_n$ und $A_i = (r_i^{d_i},I_i)$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls gilt
+        \item Sei $x \in \univ^2$ mit $\can(x) = A_1 ... A_n$ und $A_i = \langle u_i^{d_i},I_i \rangle$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls für alle $i,j \in \{1, ..., n\}$ gilt
             \begin{align*}
-                \forall i,j \in \{1, ..., n\}: r_i = r_j \to d_i = d_j
+                u_i = u_j \to d_i = d_j
             \end{align*}
-        \item Sei $x \in \univ^1$ mit $\can(x) = A_1 ... A_n$ und $A_i = (r_i^{d_i},s_i^{e_i},I_i)$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls gilt
+        \item Sei $x \in \univ^1$ mit $\can(x) = A_1 ... A_n$ und $A_i = \langle p_i,u_i^{d_i},I_i \rangle$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls für alle $i,j \in \{1, ..., n\}$ gilt
             \begin{align*}
-                \forall i,j \in \{1, ..., n\}: r_i^{d_i} = r_j^{d_j} \land s_i = s_j \to e_i = e_j
+                p_i = p_j \land u_i = u_j \to d_i = d_j
             \end{align*}
-        \item Sei $x \in \univ^0$ mit $\can(x) = A_1 ... A_n$ und $A_i = (r_i^{d_i},s_i^{e_i},t_i^{f_i})$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls gilt
+        \item Sei $x \in \univ^0$ mit $\can(x) = A_1 ... A_n$ und $A_i = \langle p_i,q_i,u_i^{d_i} \rangle$ für $i \{1, ..., n\}$. Dann ist $x$ Grenzentität, falls für alle $i,j \in \{1, ..., n\}$ gilt
             \begin{align*}
-                \forall i,j \in \{1, ..., n\}: (r_i^{d_i}, s_i^{e_i}) = (r_j^{d_j},s_j^{e_j}) \land t_i = t_j \to f_i = f_j
+                (p_i, q_i) = (p_j,q_j) \land u_i = u_j \to d_i = d_j
             \end{align*}
     \end{enumerate}
 \end{dfn}
@@ -385,6 +351,124 @@ Damit können wir die kanonische Darstellung definieren.
 Beweis trivial.
 
 
+%%%% nicht drin (oder anders) %%%%
+
+% \begin{dfn}[Untere und obere Grenzen]\ \\
+%     Wir definieren die Funktionen $\lb, \ub: \B \to \R^\ud$ folgendermaßen:\\
+%     Für $[a,b) \in \B$ sind
+%     \begin{align*}
+%         \lb([a,b)) = a^\upa,\ \ub([a,b)) = b^\downa
+%     \end{align*}
+%     Das Prädikat $\bnd \subseteq \R^\ud \times \B$ wird definiert durch
+%     \begin{align*}
+%         \bnd(x,y) \quad \Leftrightarrow \quad \lb(y)=x \lor \ub(y)=x
+%     \end{align*}
+% \end{dfn}
+% 
+% \begin{dfn}[Einfache Entitäten]\ %\\
+%     \begin{enumerate}
+%         \item Ein \emph{einfacher Körper} ist ein Basisintervall.\\ 
+%             Die Menge der einfachen Körper bezeichnen wir auch mit $\einf^3$.
+%         \item Eine \emph{einfache Fläche} ist ein Paar $(A,B) \in \R^\ud \times \B_{[0,1]}$.\\
+%             Die Menge der einfachen Flächen bezeichnen wir mit $\einf^2$.
+%         \item Eine \emph{einfache Linie} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times \B_{[0,1]}$.\\
+%             Die Menge der einfachen Linien bezeichnen wir mit $\einf^1$.
+%         \item Ein \emph{einfacher Punkt} ist ein Tripel $(A,B,C) \in \R^\ud \times [0,1]^\ud \times [0,1]^\ud$.\\
+%             Die Menge der einfachen Punkte bezeichnen wir mit $\einf^0$.
+%         \item $\einf : \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0$ ist die \emph{Menge der einfachen Entitäten}
+%     \end{enumerate}
+% \end{dfn}
+% 
+% \begin{dfn}[Base, Core, euklidische Projektion]\ \\
+%     Wir definieren die Funktionen 
+%     $$\base: \einf \to (\R^\ud)^*,\ \core: \einf \to \B \cup {\varnothing},\ \eukl: \einf \to 2^{\R^3}$$
+%     folgendermaßen:
+%     \begin{enumerate}
+%         \item Für $x \in \einf^3$ sind
+%             \begin{align*}
+%                 \eukl(x) &= x \times [0,1]^2\\
+%                 \base(x) &= \varepsilon\\
+%                 \core(x) &= x
+%             \end{align*}
+%         \item Für $x = (r^d, I) \in \einf^2$ sind
+%             \begin{align*}
+%                 \eukl(x) &= \{r\} \times I \times [0,1]\\
+%                 \base(x) &= r^d\\
+%                 \core(x) &= I
+%             \end{align*}
+%         \item Für $x = (r^d, s^e, I) \in \einf^1$ sind
+%             \begin{align*}
+%                 \eukl(x) &= \{r\} \times \{s\} \times I\\
+%                 \base(x) &= r^d s^e\\
+%                 \core(x) &= I
+%             \end{align*}
+%         \item Für $x = (r^d, s^e, t^f) \in \einf^0$ sind
+%             \begin{align*}
+%                 \eukl(x) &= \{(r,s,t)\}\\
+%                 \base(x) &= r^d s^e t^f\\
+%                 \core(x) &= \varnothing
+%             \end{align*}
+%     \end{enumerate}
+% \end{dfn}
+% 
+% \begin{dfn}[Ausweitung der euklidischen Projektion auf $\univ$]
+%     Für $x = \bigcup_{i=1}^n A_i$ ist
+%     \begin{align*}
+%         \eukl(x) = \bigcup_{i=1}^n \eukl(A_i)
+%     \end{align*}
+% \end{dfn}
+% 
+% \begin{dfn}[Die $\vor$-Relation]\ 
+%     \begin{itemize}
+%         \item Für $d_1,d_2 \in \udset$ gilt $d_1 \vor d_2$ falls $d_1 = \downa$ und $d_2 = \upa$ ist. 
+%         \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ gilt $r_1^{d_1} \vor r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$ und $d_1 \vor d_2$.
+%         \item Für $[a_1,b_1), [a_2,b_2) \in \einf^3$ gilt $[a_1,b_1) \vor [a_2,b_2)$ falls $b_1 < a_2$ ist.
+%         \item Für $(A_1,B_1), (A_2,B_2) \in \einf^2$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2$ und $B_1 \vor B_2$.
+%         \item Für $(A_1,B_1,C_1), (A_2,B_2,C_2) \in \einf^1 \cup \einf^0$ gilt $(A_1,B_1) \vor (A_2,B_2)$, falls $A_1 \vor A_2$ gilt oder $A_1 = A_2 \land B_1 \vor B_2$ oder $A_1 = A_2 \land B_1 = B_2 \land C_1 \vor C_2$.
+%     \end{itemize}
+% \end{dfn}
+
+
+\section{Die Blockstruktur}
+
+
+\begin{dfn}[$\GSReg$]
+    $\GSReg^B := \univ^3$
+\end{dfn}
+
+
+\begin{dfn}[$\Gsb^\einf$]\ 
+    \begin{itemize}
+        \item Für $x = \langle p_1, I_1 \rangle \in \einf^2$, $y = \langle I_2 \rangle \einf^3$ gilt
+            \begin{align*}
+                \Gsb^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                \bnd(p_1,I_2).
+            \end{align*}
+        \item Für $x = \langle p_1,q_1,I_1 \alpha \rangle \in \einf^1$, $y = \langle p_2,I_2 \rangle \in \einf^2$ gilt
+            \begin{align*}
+                \Gsb^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                p_1 = p_2 \land \bnd(q_1,I_2).
+            \end{align*}
+        \item Für $x = \langle p_1,q_1,r_1 \rangle \in \einf^0$, $y = \langle p_2,q_2,I_2 \rangle \in \einf^1$ gilt
+            \begin{align*}
+                \Gsb^\einf(x,y) 
+                \quad \Leftrightarrow \quad 
+                p_1 = p_2 \land q_1 = q_2 \land \bnd(r_1,I_2).
+            \end{align*}
+    \end{itemize}
+\end{dfn}
+
+
+\begin{dfn}[$\Gsb$]\ \\
+    Für $d \in \{0,1,2\}$, $x \in \univ^d$, $y \in \univ^{d+1}$ mit $\can(x) = A_1 ... A_n \in \univ^d$, $\can(y) = B_1 ... B_m \in \univ^{d+1}$ gilt:
+    \begin{align*}
+        \Gsb(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gsb^\einf(A_i,B_j).
+    \end{align*}
+\end{dfn}
+
+
 \begin{dfn}[$\Gscoinc$]\ \\
     Für $x,y \in \univ^d$ gilt $\Gscoinc(x,y)$ falls
     \begin{enumerate}
@@ -394,35 +478,6 @@ Beweis trivial.
     \end{enumerate}
 \end{dfn}
 
-
-% \begin{dfn}[$\Gspart^\einf$]\ 
-%     \begin{itemize}
-%         \item Für $x,y \in \univ^3$ gilt
-%             \begin{align*}
-%                 \Gspart^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 x \subseteq y.
-%             \end{align*}
-%         \item Für $x = (A_1,\alpha_2), y = (A_2,\alpha_2) \in \einf^2$ gilt
-%             \begin{align*}
-%                 \Gspart^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 A_1 = A_2 \land \alpha_1 \subseteq \alpha_2.
-%             \end{align*}
-%         \item Für $x = (A_1,B_1,\alpha_1), y = (A_2,B_2,\alpha_2) \in \einf^1$ gilt
-%             \begin{align*}
-%                 \Gspart^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 (A_1, B_1) = (A_2,B_2) \land \alpha_1 \subseteq \alpha_2.
-%             \end{align*}
-%         \item Für $x, y \in \einf^0$ gilt
-%             \begin{align*}
-%                 \Gspart^\einf(x,y) 
-%                 \quad \Leftrightarrow \quad 
-%                 x=y.
-%             \end{align*}
-%     \end{itemize}
-% \end{dfn}
 
 \begin{dfn}[$\Gspart^\einf$]\ \\ 
     Für $x,y \in \univ$ gilt $\Gspart^\einf(x,y)$, gdw.
@@ -438,6 +493,330 @@ Beweis trivial.
     Für $d \in \{0,1,2,3\}$, $m,n \in \N$, $x,y \in \univ^d$ mit $\can(x) = A_1 ... A_n$, $\can(y) = B_1 ... B_m$ gilt:
     $$\Gspart(x,y) \quad \Leftrightarrow \quad \forall i \in \{1, ..., n\}\ \exists j \in \{1, .., m\}: \Gspart^\einf(A_i,B_j). $$
 \end{dfn}
+
+
+\subsection{Defined Relations and Concepts}
+In this section we investigate the intensions of the defined $\strukt$ relations (including unary relations i.e. concepts)
+
+\begin{erin}[Two dimensional boundary]\ \\
+    $\Gtwodb(x,y) := \GSReg(y) \wedge \Gsb(x,y)$
+\end{erin}
+
+\begin{hyp}[Two dimensional boundary]
+    \begin{align*}
+        &\Gtwodb(x,y)\\
+        \Leftrightarrow \quad &x \in \univ^2 \land \Gsb(x,y)\\
+        \Leftrightarrow \quad &x \in \univ^2 \land y \in \univ^3 \land \Gsb(x,y)\\
+        \Leftrightarrow \quad &x = \langle p, I \rangle \in \univ^2 \land y = \langle J \rangle \in \univ^3 \land \bnd(p, J)\\
+        \Leftrightarrow \quad &x = \langle p, I \rangle \in \univ^2 \land y = \langle [q, r] \rangle \in \univ^3 \land p \in \{q,r\}
+    \end{align*}
+\end{hyp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[One dimensional boundary]\ \\
+    $\Gonedb(x,y) := \GtwoDB(y) \wedge \Gsb(x,y)$
+\end{erin}
+
+\begin{hyp}[One dimensional boundary]
+    \begin{align*}
+        &\Gonedb(x,y)\\
+        \Leftrightarrow \quad &x \in \univ^1 \land \Gsb(x,y)\\
+        \Leftrightarrow \quad &x \in \univ^1 \land y \in \univ^2 \land \Gsb(x,y)\\
+        \Leftrightarrow \quad &x = \langle r^d, s^e, I \rangle \in \univ^1 \land y \in \univ^2 \land r^d = \base(y) \land \bnd(s^e, \core(y))\\
+        \Leftrightarrow \quad &x = \langle r^d, s^e, I \rangle \in \univ^1 \land y = \langle r^d,J \rangle \in \univ^2 \land \bnd(s^e, J)\\
+        \Leftrightarrow \quad &x = \langle r^d, s^e, I \rangle \in \univ^1 \land y = \langle r^d,[a^\upa,b^\downa] \rangle \in \univ^2 \land (e = \upa \ \to\ s = a) \land (e = \downa \ \to\ s = b)
+    \end{align*}
+\end{hyp}
+
+
+\begin{erin}[Zero dimensional boundary]\ \\
+    $\Gonedb(x,y) := \GtwoDB(y) \wedge \Gsb(x,y)$
+\end{erin}
+
+\begin{hyp}[One dimensional boundary]
+    \begin{align*}
+        &\Gzerodb(x,y)\\
+        \Leftrightarrow \quad &x \in \univ^0 \land \Gsb(x,y)\\
+        \Leftrightarrow \quad &x \in \univ^0 \land y \in \univ^1 \land \Gsb(x,y)\\
+        \Leftrightarrow \quad &x = \langle r^d, s^e, t^f \rangle \in \univ^0 \land y \in \univ^1 \land (r^d,s^e) = \base(y) \land \bnd(t^f, \core(y))\\
+        \Leftrightarrow \quad &x = \langle r^d, s^e, t^f \rangle \in \univ^1 \land y = \langle r^d, s^e, J \rangle \in \univ^2 \land \bnd(t^f,J)\\
+        \Leftrightarrow \quad &x = \langle r^d, s^e, t^f \rangle \in \univ^1 \land y = \langle r^d, s^e, [a^\upa,b^\downa] \rangle \in \univ^2 \land (f = \upa \ \to\ t = a) \land (f = \downa \ \to\ t = b)
+    \end{align*}
+\end{hyp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Spatial boundary]\ \\
+    $\GSB(x) := \exists y\ \Gsb(x,y)$
+\end{erin}
+
+\begin{satz}[Spatial boundary]\ \\
+    Es gilt $\GSB(x)$ gdw. $x$ eine Grenzentität ist.
+\end{satz}
+
+\begin{bew}
+    Klar ist: wenn $x \in \univ^3$ ist, gibt es kein $y \in \univ$ mit $\Gsb(x,y)$ und $x$ ist auch keine Grenzentität.\\
+    %
+    Wir zeigen den Satz nun für $x \in \univ^2$\\
+    Sei $\can(x) =: A_1 ... A_m$ mit $A_i =: \langle u_i^{d_i}, I_i \rangle$ für $i \in \{1, ..., m\}$.\\ \ \\
+    $\boldsymbol{\Rightarrow}$: 
+    Es gelte $\Gsb(x,y)$.
+    Dann ist $y \in \univ^3$.
+    Sei $\can(y) =: B_1 ... B_n$ mit $B_k =: \langle [a_k^\upa,b_k^\downa] \rangle$ für $k \in \{1, ..., n\}$.
+    Für $i \in \{1, ..., m\}$ sei $k(i) \in \{1, ..., n\}$ s.d. $\Gsb^\einf(A_i,B_{k(i)})$ gilt.
+    Angenommen $x$ ist keine Grenzentität.
+    Dann gibt es $i,j \in \{1, ..., m\}$ mit $u_i = u_j$ und $d_i \neq d_j$. O.B.d.A: sei $i<j$. Dann ist $A_i \vor A_j$ und somit $d_i = \downa$, $d_j = \upa$.
+    Also ist $b_{k(i)} = u_i = u_j = a_{k(j)}$ und somit $B_{k(i)} \neq B_{k(j)}$. Gleichzeitig gilt weder $B_{k(i)} \vor B_{k(j)}$ noch $B_{k(j)} \vor B_{k(i)}$. 
+    Somit ist $B_1 ... B_n$ keine kanonische Darstellung. $\lightning$\\ \ \\
+    $\boldsymbol{\Leftarrow}$:
+    Mit $u_0 := u_1-1$ und $u_{m+1} := u_m+1$ definieren wir für $i \in \{1, ..., m\}$
+    %
+    \begin{align*}
+        a_i := 
+            \begin{cases}
+                u_i & \text{falls $d_i = \upa$}\\
+                \frac{2u_i + u_{i-1}}{3} & \text{falls $d_i = \downa$}
+            \end{cases}\\
+        b_i := 
+            \begin{cases}
+                \frac{2u_i + u_{i+1}}{3} & \text{falls $d_i = \upa$}\\
+                u_i & \text{falls $d_i = \downa$}
+            \end{cases}
+    \end{align*}
+    Setze nun $B_i := \langle [a_i^\upa, b_i^\downa] \rangle$ und $y := \bigcup_{i=1}^m B_i$.
+    Nach Konstruktion gilt $\Gsb^\einf(A_i, B_i)$.
+    Da $x$ Grenzentität ist, ist $u_{i}^{d_i} = u_{i+1}^{d_{i+1}}$ oder $u_i < u_{i+1}$ und somit   $B_i \vor B_{i+1} \lor B_i = B_{i+1}$.
+    Also ist $B_1 ... B_m$ bis auf eventuelle Dopplungen kanonische Darstellung von $y$ und es gilt $\Gsb(x,y)$.\\ \ \\
+    %
+    Für $x \in \univ^1 \cup \univ^0$ funktionieren die Hinrichtungen analog. Für die Rückrichtungen ist die Baumdarstellung von $x$ hilfreich. Wir führen hier lediglich beispielhaft die Konstruktion von $y$ für $x \in \univ^1$ an:\\
+    Sei $\treewidth(x) =: l$.
+    Für $i \in \{1, ..., l\}$ seien $\treewidth_i(x) =: m_i$, $(x)_i =: p_i$, $u_{i0} := 0$ und $u_{im_i+1} := 1$.
+    Für $j \in \{1, ..., m_i\}$ sei $(x)_{ij} =: u_{ij}^{d_{ij}}$.
+    Definiere nun
+    \begin{align*}
+        a_{ij} := 
+            \begin{cases}
+                u_{ij} & \text{falls $d_{ij} = \upa$}\\
+                \frac{2u_{ij} + u_{ij-1}}{3} & \text{falls $d_{ij} = \downa$}
+            \end{cases}\\
+        b_{ij} := 
+            \begin{cases}
+                \frac{2u_{ij} + u_{ij+1}}{3} & \text{falls $d_{ij} = \upa$}\\
+                u_{ij} & \text{falls $d_i = \downa$}
+            \end{cases}
+    \end{align*}
+    Setze nun $J_{ij} := [a_{ij}^\upa, b_{ij}^\downa]$ und $y := \bigcup_{i=1}^{l} \bigcup_{j=1}^{m_i} \langle p_i,J_{ij} \rangle$.
+\end{bew}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[$\Gd$-dimensional boundary]\ \\
+    $\GdDB(x) := \exists y\ \Gddb(x,y)$
+\end{erin}
+
+\begin{hyp}[$\Gd$-dimensional boundary]\ \\
+    Es gilt $\GdDB(x)$ gdw. $x \in \univ^{\Gd}$ und eine Grenzentität ist.
+    %Es gilt $\GdDB(x)$ gdw. $x \in \univ^d$ und eine Grenzentität ist.
+\end{hyp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Greatest spatial boundary]
+    \begin{align*}
+        &\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))\\
+        &\Ggrsb(y) = x \quad \Leftrightarrow \quad \Ggrsb(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{hyp}[Greatest spatial boundaries of simple entities]\ 
+    \begin{itemize}
+        \item Für $x = [a,b) \in \einf^3$ gilt
+            \begin{align*}
+                \Ggrsb(x) = (a^\upa, [0,1)) \cup (b^\downa, [0,1))
+            \end{align*}
+        \item Für $x = (r^d,[a,b)) \in \einf^2$ gilt
+            \begin{align*}
+                \Ggrsb(x) = (r^d, a^\upa, [0,1)) \cup (r^d, b^\downa, [0,1))
+            \end{align*}
+        \item Für $x = (r^d,e^f,[a,b)) \in \einf^1$ gilt
+            \begin{align*}
+                \Ggrsb(x) = (r^d,e^f, a^\upa) \cup (r^d, e^f, b^\downa)
+            \end{align*}
+    \end{itemize}
+\end{hyp}
+
+\begin{hyp}[Greatest spatial boundary]\ \\
+    Für $x \in \univ$ mit $\can(x) = A_1 ... A_n$ ist
+    \begin{align*}
+        \Ggrsb(x) = \bigcup_{i=1}^n \Ggrsb(A_i)
+    \end{align*}
+\end{hyp}
+
+
+
+
+%         \itemT[D7.]{\GLDE(x) := \exists y\ (\GSB(y) \wedge \Gspart(y, x))}
+%                 {$x$ ist eine niederdimensionale Raumentität}
+% 
+%         \itemT[D8.]{\GdDE(x) := \exists y\ (\GdDB(y) \wedge \Gspart(y, x))}
+%                 {$x$ ist ein Flächen-/Linien-/Punktregion}
+%                                                                                                 
+%         \itemTP[D9.]{$\Geqdim(x,y) := (\GSReg(x) \wedge \GSReg(y)) \vee \mbox{}$\hfill ($x$ und $y$ haben die selbe Dimension)\\
+%                 \mbox{}\hphantom{$\Geqdim(x,y) :=$}
+%                 $(\GtwoDE(x) \wedge \GtwoDE(y)) \vee
+%                             (\GoneDE(x) \wedge \GoneDE(y)) \vee
+%                             (\GzeroDE(x) \wedge \GzeroDE(y))$}{}
+% 
+%         \itemT[D10.]{\Gsppart(x, y) := \Gspart(x, y) \land  x \neq y}
+%                 {$x$ ist ein echter Teil von $y$}
+% 
+%         
+%         \itemT[D11.]{\Gsov(x, y) := \exists z\  (\Gspart(z, x) \wedge \Gspart(z, y))}
+%                 {$x$ und $y$ überlappen}
+% 
+%         
+%         \itemTP[D12.]{$\Gsumn(x_{1},\ldots,x_{n},x) := \forall y\ (\Gsov(y,x) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(y,x_{i}))$\\ \mbox{}}
+%                 {$x$ ist die mereologische Summe von $x_{1}$,\ldots,$x_{n}, n \ge 2$}
+%                 
+%         \itemTP[D13.]{$\Gintersectn(x_{1},\ldots,x_{n},x)  := \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(y,x_{i}))$\\ \mbox{}}
+%                 {$x$ ist der mereologische Schnitt von $x_{1}$,\ldots,$x_{n}, n \ge 2$}
+%                 
+%         \itemTP[D14.]{$\Grelcompln(x_{1},\ldots,x_{n},x) := \mbox{}$\hfill
+%                             ($x$ ist das rel. Kompl. von $x_{n}$ und $x_{1}$,\ldots,$x_{n-1}, n \ge 2$)\\
+%                 $\hspace*{1em}\bigwedge_{1\leq i < j \leq n} \Geqdim(x_i, x) \wedge
+%                 \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(y,x_{i}) \wedge \Gspart(y, x_{n}))$}
+%                 {}  
+% 
+%                         
+%         \itemTP[D15.]{$\Gpartitionn(x_{1},\ldots,x_{n},x) := \Gsumn(x_{1},\ldots,x_{n},x) \wedge \bigwedge_{1 \leq i < j \leq n} \neg\Gsov(x_i,x_j)$\\ \mbox{} \label{D_partitionn}}
+%         {$x_{1}$,\ldots,$x_{n}$ zerlegen $x$, $n \ge 2$}			
+% 
+%         \itemT[D16.]{\Gtwodhypp(x,y) := \exists z\ (\Gspart(z,y) \wedge \Gtwodb(x,z))}
+%                 {$x$ ist ein 2-dim.\ Hyperteil von $y$}
+%         
+%         \itemTP[D17.]{$\Gonedhypp(x,y) := \exists z\ ((\Gspart(z,y) \vee \Gtwodhypp(z,y)) \wedge  \Gonedb(x,z)) $\\ \mbox{}}
+%                 {$x$ ist ein 1-dim.\ Hyperteil von $y$} 
+%         
+%         \itemTP[D18.]{$\Gzerodhypp(x,y) := \exists z\ ((\Gspart(z,y) \vee \Gonedhypp(z,y)) \wedge  \Gzerodb(x,z)) $\\ \mbox{}}
+%                 {$x$ ist ein 0-dim.\ Hyperteil von $y$}                  
+%                 
+%         \itemT[D19.]{\Ghypp(x,y) := \Gtwodhypp(x,y) \vee \Gonedhypp(x,y) \vee \Gzerodhypp(x,y)}
+%                 {$x$ ist ein Hyperteil von $y$}    
+% 
+%         \itemTP[D20.]{$\Gtangpart(x,y) := (\Gspart(x,y) \vee \Ghypp(x,y))\ \ \wedge\ \ \mbox{}$
+%                                         \hfill ($x$ ist ein tangentialer Teil von $y$)\\
+%                         \hspace*{1em}$\exists x'zz'\ ((\Gspart(x',x) \vee \Ghypp(x',x)) \wedge \mbox{}$\\
+%                                 \hspace*{5.2em}$\Gsb(z,y) \wedge (\Gspart(z',z) \vee \Ghypp(z',z)) \wedge \Gscoinc(x',z'))$}
+%                 {}  
+% 
+%         \itemT[D21.]{\Ginpart(x, y) := (\Gspart(x,y) \vee \Ghypp(x,y)) \land \neg \Gtangpart(x, y)}
+%                 {\mbox{$x$ ist ein innerer Teil von $y$}}
+% 
+%         \itemTP[D22.]{$\GExOrd(x) := 
+%                         \exists yz\ (\Gspart(y,x) \wedge \Gspart(z,x) \wedge
+%                                                 \neg\Gsov(y,z) \wedge \Gscoinc(y,z))$\\ \mbox{}}
+%                 {$x$ ist eine extraordinäre Raumentität}
+%                 
+%         \itemT[D23.]{\GOrd(x) := \neg\GExOrd(x)}
+%                     {$x$ ist eine ordinäre Raumentität}	
+% 
+%         \itemTP[D24.]{$\GdDC(x) := \exists uv\ (\Gpartition(u,v,x)) \wedge  \mbox{}$
+%                     \hfill($x$ ist $\Gd$-dim.\ zusammenhängend)
+%                 \hspace*{1em}$\forall yz\ (\Gpartition(y,z,x) \to 
+%                         \exists y'z'(\Gddhypp(y',y) \wedge \Gddhypp(z',z) \wedge \Gscoinc(y',z')))$
+%                         \label{D:dDC}}
+%                     {}
+% 
+%         \itemT[D25.]{\GC(x) := \GtwoDC(x) \vee \GoneDC(x) \vee \GzeroDC(x)}
+%                     {$x$ ist zusammenhängend} 
+%                     
+%         \itemT[D26.]{\Gc(x,y) := \exists z\ (\Gsum(x,y,z) \wedge \GC(z))}
+%                     {$x$ und $y$ sind zusammenhängend} 
+% 
+%         \itemT[D27.]{\Gexc(x,y) := \Gc(x,y) \wedge \neg\Gsov(x,y)}
+%                     {$x$ und $y$ sind extern zusammenhängend}
+% 
+%         \itemT[D28.]{\GoneCCDd(x) := \GdDC(x)}
+%                 {$x$ hat eine $\Gd$-dim.\ zusammenhängende Komponente}
+% 
+%         \itemTP[D29.]{$\GnCCDd(x) := \bigwedge_{i=1}^{n-1} \neg\GiCCDd(x) \wedge
+%                     \exists x_{1}...x_{n}(\Gpartitionn(x_{1},...,x_{n},x) \wedge \bigwedge_{i=1}^{n} \GoneCCDd(x_{i}))$\\ \mbox{}
+%                                 \label{D:nCCDd}}
+%                 {$x$ hat $n$ $\Gd$-dim.\ zusammenhängende Komponenten}
+% 
+%         \itemT[D30.]{\GTop(x) := \GSReg(x) \wedge \GOrd(x) \wedge \GtwoDC(x)}
+%                     {$x$ ist ein Topoid} 
+%                     
+%         \itemT[D31.]{\GtwoD(x) := \GtwoDE(x) \wedge \GOrd(x) \wedge \GoneDC(x)}
+%                     {$x$ ist eine Fläche}  
+%                                 
+%         \itemT[D32.]{\GoneD(x) := \GoneDE(x) \wedge \GOrd(x) \wedge \GzeroDC(x)}
+%                     {$x$ ist eine Linie}
+%                                 
+%         \itemT[D33.]{\GzeroD(x) := \GzeroDE(x) \wedge \GOrd(x) \wedge \neg\exists y\ \Gsppart(y,x)}
+%             {$x$ ist ein Punkt} 
+%             
+%         \itemTP[D34.]{$\Gstrictsb(x,y) \Ldef 
+%            \Gsb(x,y) \wedge 
+% 					 \forall x' (\Ghypp(x',y) \wedge \Gscoinc(x,x') \to x=x')$
+% 					\\ \mbox{} \label{def:strictboundary}}
+%        {$x$ is a strict spatial boundary}
+%        
+%        \itemT[D35.]{\Gweaksb(x,y) \Ldef \Gsb(x,y) \wedge \neg\Gstrictsb(x,y) }
+%             {$x$ is a weak spatial boundary}
+%     \end{enumAx}
+%     
+%     &\Gonedircomp(x,y) := \GzeroD(x) \wedge \GzeroD(y) \wedge \Gscoinc(x,y) \wedge \mbox{}
+%         \\ &\hspace{1em}
+%         \exists x',y',x'',y''\ (\Gsb(x,x') \wedge \Gsb(x',x'') \wedge \Gsb(y,y') \wedge \Gsb(y',y'') \wedge
+%         \\ &\hspace{2em}
+%         \neg \Gsov(x',y') \wedge \neg \Gsov(x'', y'') \wedge \mbox{}
+%         \\ &\hspace{2em}
+%         \forall z\ (\Gscoinc(x,z) \wedge \Ghypp(z, \Ggrsb_f(\Gsum_f(x'',y''))) \to z=x \vee z=y))
+%     
+%     \begin{enumAx}[D]
+% \itemTP{$\Gonedircomp(x,y) \Ldef \Gscoinc(x, y) \wedge \mbox{}$\\
+% \hspace*{1em}
+% 	$\exists x' y' z'\: 
+% 	 (\:\GOrd(x') \wedge
+% 	    \GOrd(y') \wedge
+% 		  \Gsb(x, x') \wedge
+% 			\Gsb(y, y') \wedge
+%       \neg \Gsov(x', y') \wedge	\mbox{}$\\
+%   \hspace*{2.5em}
+%     $ ( \GSB(x') \wedge \GSB(y') \Limp \mbox{}$\\
+% 	\hspace*{4em}
+% 			 $\exists x'' y'' z'' g' \:
+% 			  (\:\Gsb(x', x'') \wedge
+% 					 \Gsb(y', y'') \wedge
+%            \neg \Gsov(x'', y'') \wedge \mbox{}$\\
+% 	\hspace*{6em}
+% 	     $	 \Gsum(x'', y'', z'') \wedge
+% 					 \Ggrsb(g', z'') \wedge
+% 					 \Gzerodhypp(x, g') \wedge 
+% 					 \Gzerodhypp(y, g') \wedge \mbox{}$\\
+% 	\hspace*{6em}
+% 				 $ \forall z (  \Gzerodhypp(z, g') \Limp \mbox{}$\\
+% 	\hspace*{8em}		
+% 					  $((\Gscoinc(x, z) \wedge \neg\Gsov(x,z) \Limp y=z ) \wedge \mbox{}$\\
+% 	\hspace*{8em}\hphantom{$($}		
+% 						$(\Gscoinc(y, z) \wedge \neg\Gsov(y,z) \Limp x=z ) 
+% 					\ )))))$\\ \mbox{} \label{def:npodircomp}}
+%   {$x$ and $y$ are 1-directionally compatible}
+% 						
+% \itemTP{$\Gonecont(x) \Ldef \GoneDE(x) \wedge \mbox{}$\\
+% \hspace*{1em}
+%   $\forall y\:(\:(\Gzerodhypp(y,x) \wedge
+% 	                \forall y' ( \Gspart(y',y) \to \neg\Gstrictsb(y',x))) \Limp \mbox{} $\\
+% 	\hspace*{2.5em}	
+% 	  $\exists z ( \Gzerodhypp(z,x) \wedge
+% 		             \neg\Gsov(z,y) \wedge 
+%                  \Gonedircomp(y,z)))$\\ \mbox{} \label{def:Gdcont}}
+%              {$x$ is 1-continuous}	
+% \end{enumAx}
+
 
 
 \subsection{Untersuchung ausgewählter definierter Relationen}
@@ -460,46 +839,6 @@ Beweis trivial.
     Also ist $b_{k(i)} = r_i = r_j = a_{k(j)}$ und somit $B_{k(i)} \neq B_{k(j)}$. Gleichzeitig gilt weder $B_{k(i)} \vor B_{k(j)}$ noch $B_{k(j)} \vor B_{k(i)}$. 
     Somit ist $B_1 ... B_n$ keine kanonische Darstellung. $\lightning$\\ \ \\
     $\boldsymbol{\Leftarrow}$:
-%     Falls $m=1$ seien
-%     \begin{align*}
-%         a_1 := 
-%             \begin{cases}
-%                 r_1 & \text{falls $d_1 = \upa$}\\
-%                 r_1-1 & \text{falls $d_1 = \downa$}
-%             \end{cases}\\
-%         b_1 := 
-%             \begin{cases}
-%                 r_1+1 & \text{falls $d_1 = \upa$}\\
-%                 r_1 & \text{falls $d_1 = \downa$}
-%             \end{cases}\\
-%     \end{align*}
-%     
-%     Falls $m \geq 2$ seien
-%     \begin{align*}
-%         a_1 := 
-%             \begin{cases}
-%                 r_1 & \text{falls $d_1 = \upa$}\\
-%                 r_1-1 & \text{falls $d_1 = \downa$}
-%             \end{cases}\\
-%         b_1 := 
-%             \begin{cases}
-%                 \frac{2r_2 + r_2}{3} & \text{falls $d_1 = \upa$}\\
-%                 r_1 & \text{falls $d_1 = \downa$}
-%             \end{cases}\\
-%         a_m := 
-%             \begin{cases}
-%                 r_m & \text{falls $d_m = \upa$}\\
-%                 \frac{2r_m + r_{m-1}}{3} & \text{falls $d_m = \downa$}
-%             \end{cases}\\
-%         b_m := 
-%             \begin{cases}
-%                 r_m+1 & \text{falls $d_m = \upa$}\\
-%                 r_m & \text{falls $d_m = \downa$}
-%             \end{cases}
-%     \end{align*}
-%     
-%     Und falls $m \geq 3$ seien für $i \in \{2, ..., m-1\}$
-    %
     Mit $r_0 := r_1-1$ und $r_{m+1} := r_m+1$ definieren wir für $i \in \{1, ..., m\}$
     %
     \begin{align*}
@@ -539,7 +878,6 @@ Beweis trivial.
 \end{bew}
 
 
-
 \subsection{Axiome}
 A1. $\GSReg([0,1))$\\
 A2. $\GLDE \leftrightarrow \neg \GSReg(x)(x)$ folgt aus Satz \ref{satz:lde} und der Definition von $\GSReg$.\\
@@ -562,9 +900,6 @@ Also ist weder $A_u = A_w$ noch $A_u \vor A_w$ noch $A_w \vor A_u$.
 Somit ist $A_1 ... A_m$ \textit{keine} kanonische Darstellung.
 
 
-
-
-
 \section{Future Work}
 Die Block-Struktur hat viele Eigenschaften, die wir intuitiv im Brentanoraum erwarten. 
 Es gibt jedoch einen Satz, der nicht von ihr erfüllt wird, den wir intuitiv haben wollen.
@@ -572,20 +907,10 @@ Es gibt jedoch einen Satz, der nicht von ihr erfüllt wird, den wir intuitiv hab
     \GSB(x) \land \neg \Gspart(x,y) \to \exists u (\Gsb(x,u) \land \neg \Gsb(y,u))
 \end{align}
 Das liegt in der Blockstruktur daran, dass Grenzentitäten mit der selben Basis exakt die gleichen Raumentitäten begrenzen.
-Man nehme z.B. $x= (0^\upa, [0,\frac{1}{2})), y = (0^\upa, [\frac{1}{2},1))$. Dann ist $\neg \Gspart(x,y)$ aber jeder komplexe Körper, der von $x$ begrenzt wird, wird auch von $y$ begrenzt.
+Man nehme z.B. $x= \langle 0^\upa, [0,\frac{1}{2}) \rangle , y = \langle 0^\upa, [\frac{1}{2},1) \rangle$. Dann ist $\neg \Gspart(x,y)$ aber jeder komplexe Körper, der von $x$ begrenzt wird, wird auch von $y$ begrenzt.
 Es ist anzunehmen, dass \ref{satz:neu} unabhängig von $\theoryBS$ ist. Man könnte überlegen, diesen Satz als Axiom zur Theorie dazuzunehmen und müsste dann erneut ihre Konsistenz beweisen.
 
 Mögliche zusätzliche Axiome:
 \begin{align*}
     \Ggrsb(x,y) \land \Ggrsb(x,z) \to y=z
 \end{align*}
-
-
-
-
-
-
-
-
-
-
