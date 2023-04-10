@@ -1,5 +1,19 @@
 \section{Theorems of $\theoryBS$}
 
+\begin{satz}[T23.]\label{satz:t23}
+    $\forall z\ (\Gsov(z,x) \leftrightarrow \Gsov(z,y)) \to x = y$
+\end{satz}
+
+\begin{bew}
+    Sei $x \neq y$.
+    O.B.d.A. gelte $\neg \Gspart(x,y)$. 
+    Dann gibt es nach dem starken Supplementationsprinzip (A8) ein $z$ mit $\Gspart(z,x)$ und $\neg \Gsov(z,y)$. 
+    Wegen der Reflexivität der $\Gspart$-Relation (A4) folgt damit $\Gsov(z,x)$.
+    Somit gilt $\neg \forall z\ (\Gsov(z,x) \leftrightarrow \Gsov(z,y))$.
+\end{bew}
+
+
+
 \subsection{Uniqueness theorems}
 The following theorems allow the introduction of partial functions based on the uniqueness of certain relations in certain arguments.
 
@@ -18,24 +32,77 @@ The following theorems allow the introduction of partial functions based on the 
     \begin{longtable}{r c c l}
         & & 1. & $\Ggrsb(x_1,y)$\\
         & & 2. & $\Ggrsb(x_2,y)$ \\
-        & & 3. & $x_1 \neq x_2$ \\
-        1 & $\deshalb$ & 4. & $\Gsb(x_1,y)$ \\
-        2 & $\deshalb$ & 5. & $\forall z (\Gsb(z,y) \to \Gspart(z,x_2)$ \\
-        3, A5 & $\deshalb$ & 6. & $\neg \Gspart(x_1,x_2) \lor \neg \Gspart(x_2,x_1)$ \\
-        6, o.B.d.A. & $\deshalb$ & 7. & $\neg \Gspart(x_1,x_2)$ \\
-        7, A8 & $\deshalb$ & 8. & $\exists z (\Gspart(z,x_1) \land \neg \Gsov(z,x_2))$\\
-        8 & $\deshalb$ & 9. & Sei $z$ eine Raumentität mit $\Gspart(z,x_1)$ und $\neg \Gsov(z,x_2)$\\
-        9, D11 & $\deshalb$ & 10. & $\neg \exists u (\Gspart(u,z) \land \Gspart(u,x_2)$ \\
-        10 & $\deshalb$ & 11. & $\forall u (\Gspart(u,x_2) \to \neg \Gspart(u,z))$\\
-        4, 9, A24 & $\deshalb$ & 12. & $\Gsb(z,x_2)$\\
-        5,12 & $\deshalb$ & 13. & $\Gspart(z,x_2)$\\
-        11,13 & $\deshalb$ & 14. & $\neg \Gspart(z,z)$\\
-        14, A4 & $\deshalb$ & 15. & $\lightning$\\
+        1 & $\deshalb$ & 3. & $\Gsb(x_1,y)$ \\
+        2 & $\deshalb$ & 4. & $\Gsb(x_2,y)$ \\
+        1 & $\deshalb$ & 5. & $\forall z (\Gsb(z,y) \to \Gspart(z,x_1))$ \\
+        2 & $\deshalb$ & 6. & $\forall z (\Gsb(z,y) \to \Gspart(z,x_2))$ \\
+        3,6 & $\deshalb$ & 7. & $\Gspart(x_1,x_2)$ \\
+        4,5 & $\deshalb$ & 8. & $\Gspart(x_1,x_2)$\\
+        7,8,A5 & $\deshalb$ & 9. & $x_1 = x_2$
     \end{longtable}
 \end{bew}
 
 \begin{konv}[The $\Ggrsb$-function]
     By $\Ggrsb(x)$ we denote the space entity $y$ with $\Ggrsb(y,x)$ (if existing).
+\end{konv}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Mereologische Summe]\ \\
+    $\Gsumn(x_{1},\ldots,x_{n},x) := \forall y\ (\Gsov(y,x) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(y,x_{i}))$
+\end{erin}
+
+\begin{satz}\ \\
+    Die mereologische Summe ist in ihrem letzten Argument eindeutig, d.h.
+    \begin{align*}
+        \Gsumn(x_{1},\ldots,x_{n},y_1) \land \Gsumn(x_{1},\ldots,x_{n},y_2) \to y_1 = y_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Gsumn(x_{1},\ldots,x_{n},y_1)$\\
+        & & 2. & $\Gsumn(x_{1},\ldots,x_{n},y_2)$\\
+        1 & $\deshalb$ & 3. & $\forall z\ (\Gsov(z,y_1) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(z,x_{i}))$ \\
+        2 & $\deshalb$ & 4. & $\forall z\ (\Gsov(z,y_2) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(z,x_{i}))$ \\
+        3,4 & $\deshalb$ & 5. & $\forall z\ (\Gsov(z,y_1) \leftrightarrow \Gsov(z,y_2))$ \\
+        5, T23. & $\deshalb$ & 6. & $y_1 = y_2$
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[Die $\Gsumn^f$-Funktion]\ \\
+    Wir schreiben $\Gsumn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gsumn(x_{1},\ldots,x_{n},y)$ gilt.
+\end{konv}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Mereologischer Schnitt]\ \\
+    \begin{align*}
+        \Gintersectn(x_{1},\ldots,x_{n},x)  := \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(y,x_{i}))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Der mereologische Schnitt ist im letzten Argument eindeutig, d.h.
+    \begin{align*}
+        \Gintersectn(x_{1},\ldots,x_{n},y_1) \land \Gintersectn(x_{1},\ldots,x_{n},y_2) \to y_1 = y_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Gintersectn(x_{1},\ldots,x_{n},y_1)$\\
+        & & 2. & $\Gintersectn(x_{1},\ldots,x_{n},y_2)$\\
+        1 & $\deshalb$ & 3. & $\forall z\ (\Gspart(z,y_1) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(z,x_{i}))$\\
+        2 & $\deshalb$ & 4. & $\forall z\ (\Gspart(z,y_2) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(z,x_{i}))$ \\
+        3,4 & $\deshalb$ & 5. & $\forall z\ (\Gspart(z,y_1) \leftrightarrow \Gspart(z,y_2))$ \\
+        5, T1. & $\deshalb$ & 6. & $y_1 = y_2$
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[Die $\Gintersectn^f$-Funktion]\ \\
+    Wir schreiben $\Gintersectn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gintersectn(x_{1},\ldots,x_{n},y)$ gilt.
 \end{konv}
 
 

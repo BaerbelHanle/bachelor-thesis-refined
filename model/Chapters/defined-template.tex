@@ -1,22 +1,22 @@
 \section{Definierte Relationen}
 
-% \begin{erin}[D1. $x$ ist eine 2-dim.\ Grenze von $y$]
-%     \begin{align*}
-%         \Gtwodb(x,y) := \GSReg(y) \wedge \Gsb(x,y)
-%     \end{align*}
-% \end{erin}
-% 
-% \begin{erin}[D2. $x$ ist eine 1-dim.\ Grenze von $y$]
-%     \begin{align*}
-%         \Gonedb(x,y) := \GtwoDB(y) \wedge \Gsb(x,y)
-%     \end{align*}
-% \end{erin}
-% 
-% \begin{erin}[D3. $x$ ist eine 0-dim.\ Grenze von $y$]
-%     \begin{align*}
-%         \Gzerodb(x,y) := \GoneDB(y) \wedge \Gsb(x,y)
-%     \end{align*}
-% \end{erin}
+\begin{erin}[D1. $x$ ist eine 2-dim.\ Grenze von $y$]
+    \begin{align*}
+        \Gtwodb(x,y) := \GSReg(y) \wedge \Gsb(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D2. $x$ ist eine 1-dim.\ Grenze von $y$]
+    \begin{align*}
+        \Gonedb(x,y) := \GtwoDB(y) \wedge \Gsb(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D3. $x$ ist eine 0-dim.\ Grenze von $y$]
+    \begin{align*}
+        \Gzerodb(x,y) := \GoneDB(y) \wedge \Gsb(x,y)
+    \end{align*}
+\end{erin}
 
 \begin{erin}[D4. $x$ ist eine räumliche Grenze]
     \begin{align*}
@@ -24,33 +24,17 @@
     \end{align*}
 \end{erin}
 
-\begin{hyp}
-    Für eine komplexe Entität $x$ gilt $\GSB(x)$ gdw. $x$ eine Randentität ist.
-\end{hyp}
-
-
-% \begin{erin}[D5. $x$ ist eine $\Gd$-dim.\ Grenze]
-%     \begin{align*}
-%         \GdDB(x) := \exists y\ \Gddb(x, y)
-%     \end{align*}
-% \end{erin}
+\begin{erin}[D5. $x$ ist eine $\Gd$-dim.\ Grenze]
+    \begin{align*}
+        \GdDB(x) := \exists y\ \Gddb(x, y)
+    \end{align*}
+\end{erin}
 
 \begin{erin}[D6. $x$ ist die größte Grenze von $y$]
     \begin{align*}
         \Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))
     \end{align*}
 \end{erin}
-
-\begin{erin}[D6. Die $\Ggrsb$-Funktion]
-    \begin{align*}
-        \Ggrsb(x) = y \quad \Leftrightarrow \quad \Ggrsb(y,x)
-    \end{align*}
-\end{erin}
-
-\begin{hyp}
-    Für eine höherdimensionale komplexe Entität $x$ ist $\Ggrsb(x) = \partial x$.
-\end{hyp}
-
  
 \begin{erin}[D7. $x$ ist eine niederdimensionale Raumentität]
     \begin{align*}
@@ -58,23 +42,11 @@
     \end{align*}
 \end{erin}
 
-\begin{satz}\ \\
-    Für eine komplexe Entität $x$ gilt $\GLDE(x)$ gdw. $\dim(x) \neq 3$ (d.h. $x$ ist niederdimensional).
-\end{satz}
-Beweis trivial.
-
-
 \begin{erin}[D8. $x$ ist ein Flächen-/Linien-/Punktregion]
     \begin{align*}
         \GdDE(x) := \exists y\ (\GdDB(y) \wedge \Gspart(y, x))
     \end{align*}
 \end{erin}
-
-\begin{satz}\ \\
-    Für eine komplexe Entität $x$ gilt $\GdDE(x)$ gdw. $\dim(x) = \Gd$ ist.
-\end{satz}
-Beweis trivial.
-
 
 \begin{erin}[D9. $x$ und $y$ haben die selbe Dimension]
     \begin{align*}
@@ -82,23 +54,11 @@ Beweis trivial.
     \end{align*}
 \end{erin}
 
-\begin{satz}\ \\
-    Für komplexe Entitäten $x,y$ gilt $\Geqdim(x,y)$ gdw. $\dim(x) = \dim(y)$ ist.
-\end{satz}
-Beweis trivial.
-
-
 \begin{erin}[D10. $x$ ist ein echter Teil von $y$]
     \begin{align*}
         \Gsppart(x, y) := \Gspart(x, y) \land  x \neq y
     \end{align*}
 \end{erin}
-
-\begin{satz}\ \\
-    Für komplexe Entitäten $x,y$ gilt $\Gsppart(x,y)$ gdw. $x \subsetneq y$ ist.
-\end{satz}
-Beweis trivial.
-
 
 \begin{erin}[D11. $x$ und $y$ überlappen]
     \begin{align*}
@@ -106,43 +66,17 @@ Beweis trivial.
     \end{align*}
 \end{erin}
 
-\begin{satz}\ \\
-    Für komplexe Entitäten $x,y$ gilt $\Gsov(x,y)$ gdw. $\dim(x) = \dim(y)$ und $x \cap y \neq \varnothing$ ist.
-\end{satz}
-Beweis trivial.
-
-
 \begin{erin}[D12. $x$ ist die mereologische Summe von $x_{1}$,\ldots,$x_{n}$]
     \begin{align*}
         \Gsumn(x_{1},\ldots,x_{n},x) := \forall y\ (\Gsov(y,x) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(y,x_{i}))
     \end{align*}
 \end{erin}
 
-\begin{erin}[Die $\Gsumn^f$-Funktion]
-    \begin{align*}
-        \Gsumn^f(x_{1},\ldots,x_{n}) = x \quad \Leftrightarrow \quad \Gsumn(x_{1},\ldots,x_{n},x)
-    \end{align*}
-\end{erin}
-
-\begin{hyp}\ \\
-    Für $x_1, ..., x_n \in \univ^d$ ist $\Gsumn^f(x_1, ..., x_n) = \bigcup_{i=1}^n x_i$
-\end{hyp}
-
-
 \begin{erin}[D13. $x$ ist der mereologische Schnitt von $x_{1}$,\ldots,$x_{n}$]
     \begin{align*}
         \Gintersectn(x_{1},\ldots,x_{n},x)  := \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(y,x_{i}))
     \end{align*}
 \end{erin}
-
-\begin{erin}[Die $\Gintersectn^f$-Funktion]\ \\
-    Wir schreiben $\Gintersectn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gintersectn(x_{1},\ldots,x_{n},y)$ gilt.
-\end{erin}
-
-\begin{hyp}\ \\
-    Für $x_1, ..., x_n \in \univ^d$ mit $\bigcap_{i=1}^n x_i \neq \varnothing$ ist $\Gintersectn^f(x_1, ..., x_n) = \bigcap_{i=1}^n x_i$
-\end{hyp}
-
 
 \begin{erin}[D14. $x$ ist das rel. Kompl. von $x_{n}$ und $x_{1}$,\ldots,$x_{n-1}$]
     \begin{align*}
@@ -184,8 +118,6 @@ Beweis trivial.
     \end{align*}
 \end{erin}
   
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{erin}[D20. $x$ ist ein tangentialer Teil von $y$]
     \begin{align*}
         \Gtangpart(x,y) := (\Gspart(x,y) \vee \Ghypp(x,y))\ \ \wedge\\
@@ -195,55 +127,11 @@ Beweis trivial.
     \end{align*}
 \end{erin}
 
-\begin{hyp}\label{satz:tangpart}
-    \begin{itemize}\ 
-        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ gilt $\Gtangpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y \land \exists (p,q,r) \in x : (p,q,\ol{r}) \notin y.
-            \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ gilt $\Gtangpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y \land \exists (p,q,r) \in x : (p,\ol{q},r) \notin y.
-            \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ gilt $\Gtangpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y \land \exists (p,q,r) \in x : (\ol{p},q,r) \notin y.
-            \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 0$ gilt nie $\Gtangpart(x,y)$.
-    \end{itemize}
-\end{hyp}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \begin{erin}[D21. $x$ ist ein innerer Teil von $y$]
     \begin{align*}
         \Ginpart(x, y) := (\Gspart(x,y) \vee \Ghypp(x,y)) \land \neg \Gtangpart(x, y)
     \end{align*}
 \end{erin}
-
-\begin{hyp}\label{satz:inpart}
-    \begin{itemize}\ 
-        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ gilt $\Ginpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y \land \forall (p,q,r) \in x : (p,q,\ol{r}) \in y.
-            \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ gilt $\Ginpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y \land \forall (p,q,r) \in x : (p,\ol{q},r) \in y.
-            \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ gilt $\Ginpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y \land \forall (p,q,r) \in x : (\ol{p},q,r) \in y.
-            \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 0$ gilt $\Ginpart(x,y)$ gdw.
-            \begin{align*}
-                x \subseteq y.
-            \end{align*}
-    \end{itemize}
-\end{hyp}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{erin}[D22. $x$ ist eine extraordinäre Raumentität]
     \begin{align*}
@@ -321,13 +209,6 @@ Beweis trivial.
         \GzeroD(x) := \GzeroDE(x) \wedge \GOrd(x) \wedge \neg\exists y\ \Gsppart(y,x)
     \end{align*}
 \end{erin}
-
-\begin{hyp}\label{satz:zerod}
-    \begin{align*}
-        \GzeroD(x) \quad \Leftrightarrow \quad \exists p \in (\R^\ud)^3 : x = \{p\}
-    \end{align*}
-\end{hyp}
-
 
 \begin{erin}[D34. $x$ ist eine strikte räumliche Grenze]
     \begin{align*}

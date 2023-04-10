@@ -347,6 +347,22 @@
     aftersingleframe={\noindent},
 }
 
+\mdfdefinestyle{red}{
+    skipabove=5pt,
+    skipbelow=5pt,
+    innerbottommargin=12pt,
+    %innerleftmargin=20pt
+    innerrightmargin=20pt
+    leftmargin=5pt,
+    rightmargin=5pt,
+    %linewidth=0.2pt,
+    roundcorner=2pt,
+    backgroundcolor=red!5,
+    hidealllines=true,
+    %needspace=60pt,
+    aftersingleframe={\noindent},
+}
+
 \mdfdefinestyle{white}{
     skipabove=5pt,
     skipbelow=5pt,
@@ -387,7 +403,7 @@
 \surroundwithmdframed[style=grey]{satz}
 \surroundwithmdframed[style=grey]{satzdef}
 \surroundwithmdframed[style=grey]{kor}
-\surroundwithmdframed[style=grey]{hyp}
+\surroundwithmdframed[style=red]{hyp}
 \surroundwithmdframed[style=white]{bsp}
 \surroundwithmdframed[style=white]{gegenbsp}
 \surroundwithmdframed[style=white]{bem}

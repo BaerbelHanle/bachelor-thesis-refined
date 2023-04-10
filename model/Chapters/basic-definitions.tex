@@ -124,7 +124,20 @@ Beweis trivial.
     $\univ$ ist die Menge der komplexen Entitäten.
 \end{dfn}
 
-\begin{satz}
+\begin{dfn}[Die Dimensionsfunktion]\ \\
+    Wir definieren die Funktion $\dim : \univ \to \{0,1,2,3\}$ durch
+    $$\dim(x) = d \quad \Leftrightarrow \quad x \in \univ^d.$$
+\end{dfn}
+
+\begin{dfn}[Höher- und niederdimensionale Entitäten]\ \\
+    Eine komplexe Entität $x \in \univ$ heißt
+    \begin{itemize}
+        \item \emph{höherdimensional}, wenn $\dim(x) \neq 0$ ist und
+        \item \emph{niederdimensional}, wenn $\dim(x) \neq 3$ ist.
+    \end{itemize}
+\end{dfn}
+
+\begin{satz}\label{satz:strong-sup-pre}
     Für alle $A \in \einf^3$, $B \in \univ^3$, $p \in A \setminus B$ gibt es ein $C \in \einf^3$ mit
     \begin{itemize}
         \item $p \in C$
