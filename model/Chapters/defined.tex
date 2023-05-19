@@ -24,8 +24,12 @@
     \end{align*}
 \end{erin}
 
-\begin{hyp}
-    Für eine komplexe Entität $x$ gilt $\GSB(x)$ gdw. $x$ eine Randentität ist.
+\begin{hyp}\ 
+    \begin{itemize}
+        \item Für eine komplexe Fläche $A \in \univ^2$ gilt $\GSB(x)$ gdw. für alle $(p,q,r) \in A$ gilt $(p,q,\ol{r}) \notin A$.
+        \item Für eine komplexe Linie $A \in \univ^1$ gilt $\GSB(x)$ gdw. für alle $(p,q,r) \in A$ gilt $(p,\ol{q},r) \notin A$.
+        \item Für eine komplexe Punktmenge $A \in \univ^0$ gilt $\GSB(x)$ gdw. für alle $(p,q,r) \in A$ gilt $(\ol{p},q,r) \notin A$.
+    \end{itemize}
 \end{hyp}
 
 
@@ -146,11 +150,24 @@ Beweis trivial.
 
 \begin{erin}[D14. $x$ ist das rel. Kompl. von $x_{n}$ und $x_{1}$,\ldots,$x_{n-1}$]
     \begin{align*}
-        \Grelcompln(x_{1},\ldots,x_{n},x) := \hspace*{1em}\bigwedge_{1\leq i < j \leq n} \Geqdim(x_i, x) \wedge\\
+        \Grelcompln(x_{1},\ldots,x_{n},x) := \hspace*{1em}\bigwedge_{1\leq i \leq n} \Geqdim(x_i, x) \wedge\\
         \forall y\ (\Gspart(y,x)
         \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(y,x_{i}) \wedge \Gspart(y, x_{n}))
     \end{align*}
 \end{erin}
+
+\begin{erin}[Die $\Grelcompln^f$-Funktion]\ \\
+    Wir schreiben $\Grelcompln^f(x_{1},\ldots,x_{n}) = y$ falls $\Grelcompln(x_{1},\ldots,x_{n},y)$ gilt.
+\end{erin}
+
+\begin{hyp}\ \\
+    Für $x_1, ..., x_n \in \univ^d$ mit $x_n \setminus \bigcup_{i=1}^{n-1} x_i \neq \varnothing$ ist 
+    \begin{align*}
+        \Grelcompln^f(x_1, ..., x_n) = x_n \setminus \bigcup_{i=1}^{n-1} x_i
+    \end{align*}
+\end{hyp}
+
+
 
 \begin{erin}[D15. $x_{1}$,\ldots,$x_{n}$ zerlegen $x$]
     \begin{align*}
@@ -158,11 +175,44 @@ Beweis trivial.
     \end{align*}
 \end{erin}
 
+\begin{hyp}\ \\
+    Für $x, x_1, ..., x_n \in \univ^d$ gilt $\Gpartitionn(x_{1},\ldots,x_{n},x)$ falls
+    \begin{enumerate}
+        \item $ x = \bigcup_{i=1}^{n} x_i$ und
+        \item $x_i \cap x_j = \varnothing$ für alle $i,j \in \{1, ..., n\}$ mit $ i \neq j$
+    \end{enumerate}
+    gelten.
+\end{hyp}
+
+
+
 \begin{erin}[D16. $x$ ist ein 2-dim.\ Hyperteil von $y$]
     \begin{align*}
         \Gtwodhypp(x,y) := \exists z\ (\Gspart(z,y) \wedge \Gtwodb(x,z))
     \end{align*}
 \end{erin}
+
+\begin{satz}\ \\
+    Für $x \in \univ^2$ und $y \in \univ^3$ gilt $\Gtwodhypp(x,y)$ gdw. 
+    \begin{enumerate}
+        \item $x \subset y$ und
+        \item $\GSB(x)$
+    \end{enumerate}
+    gelten.
+\end{satz}
+
+\begin{bew}
+    ``$\Rightarrow$'': Sei $z \in \univ$ mit $\Gspart(z,y)$ und $\Gtwodb(x,z)$.
+    Also gilt $\Gsb(x,z)$ und somit auch $\GSB(x)$ und nach Satz \ref{satz:sb-teil} $x \subset z \subseteq y$.
+    \\
+    ``$\Leftarrow$'': Sei $u \in \univ^3$ mit $\Gsb(u,x)$. 
+    Setze $z := u \cap y$.
+    Wegen $x \subset u$ und $x \subset y$ ist $x \subset z$ und damit $z$ als nichtleerer Schnitt von mengen aus $\univ^3$ wieder in $\univ^3$.
+    Klar ist damit $\Gspart(z,y)$.
+    Außerdem gilt für alle $(p,q,r) \in x$ dass $(p,q,\ol{r}) \notin u$ ist und somit auch nicht in $z$. 
+    Also ist $x \subset \partial z$ und wegen $\dim(x) = 2$ und $\dim(z) = 3$ gilt $\Gtwodb(x,z)$.
+\end{bew}
+
 
 \begin{erin}[D17. $x$ ist ein 1-dim.\ Hyperteil von $y$]
     \begin{align*}
@@ -171,18 +221,46 @@ Beweis trivial.
     \end{align*}
 \end{erin}
 
+\begin{satz}\ \\
+    Für $x \in \univ^1$ und $y \in \univ^3 \cup \univ^2$ gilt $\Gonedhypp(x,y)$ gdw. 
+    \begin{enumerate}
+        \item $x \subset y$ und
+        \item $\GSB(x)$
+    \end{enumerate}
+    gelten.
+\end{satz}
+
 \begin{erin}[D18. $x$ ist ein 0-dim.\ Hyperteil von $y$]
     \begin{align*}
         \Gzerodhypp(x,y) := \exists z\ ((&\Gspart(z,y) \vee \Gonedhypp(z,y))\\ 
         \wedge  &\Gzerodb(x,z))
     \end{align*}
 \end{erin}
+
+\begin{satz}\ \\
+    Für $x \in \univ^0$ und $y \in \univ^3 \cup \univ^2 \cup \univ^1$ gilt $\Gzerodhypp(x,y)$ gdw. 
+    \begin{enumerate}
+        \item $x \subset y$ und
+        \item $\GSB(x)$
+    \end{enumerate}
+    gelten.
+\end{satz}
                
 \begin{erin}[D19. $x$ ist ein Hyperteil von $y$]
     \begin{align*}
         \Ghypp(x,y) := \Gtwodhypp(x,y) \vee \Gonedhypp(x,y) \vee \Gzerodhypp(x,y)
     \end{align*}
 \end{erin}
+
+\begin{satz}\ \\
+    Für $x,y \in \univ$ gilt $\Ghypp(x,y)$ gdw. 
+    \begin{enumerate}
+        \item $\dim(x) < \dim(y)$,
+        \item $x \subset y$ und
+        \item $\GSB(x)$
+    \end{enumerate}
+    gelten.
+\end{satz}
   
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -197,15 +275,15 @@ Beweis trivial.
 
 \begin{hyp}\label{satz:tangpart}
     \begin{itemize}\ 
-        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ gilt $\Gtangpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ und $\Gtangpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y \land \exists (p,q,r) \in x : (p,q,\ol{r}) \notin y.
             \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ gilt $\Gtangpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ und $\Gtangpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y \land \exists (p,q,r) \in x : (p,\ol{q},r) \notin y.
             \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ gilt $\Gtangpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ und $\Gtangpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y \land \exists (p,q,r) \in x : (\ol{p},q,r) \notin y.
             \end{align*}
@@ -224,19 +302,19 @@ Beweis trivial.
 
 \begin{hyp}\label{satz:inpart}
     \begin{itemize}\ 
-        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ gilt $\Ginpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ und $\Ginpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y \land \forall (p,q,r) \in x : (p,q,\ol{r}) \in y.
             \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ gilt $\Ginpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ und $\Ginpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y \land \forall (p,q,r) \in x : (p,\ol{q},r) \in y.
             \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ gilt $\Ginpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ und $\Ginpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y \land \forall (p,q,r) \in x : (\ol{p},q,r) \in y.
             \end{align*}
-        \item Für $x,y \in \univ$ mit $\dim(y) = 0$ gilt $\Ginpart(x,y)$ gdw.
+        \item Für $x,y \in \univ$ mit $\dim(y) = 0$ und $\Ginpart(x,y)$ gilt
             \begin{align*}
                 x \subseteq y.
             \end{align*}
@@ -251,6 +329,27 @@ Beweis trivial.
         \wedge \neg&\Gsov(y,z) \wedge \Gscoinc(y,z))
     \end{align*}
 \end{erin}
+
+\begin{hyp}\
+    \begin{enumerate}
+        \item Für $x \in \univ^3$ gilt nie $\GExOrd(x)$.
+        \item Für $x \in \univ^2$ gilt $\GExOrd(x)$ gdw.
+            \begin{align*}
+                \exists (p,q,r) \in x : (p,q,\ol{r})
+            \end{align*}
+        \item Für $x \in \univ^1$ gilt $\GExOrd(x)$ gdw.
+            \begin{align*}
+                \exists (p,q,r) \in x : ((p,q,\ol{r}) \in x \lor (p,\ol{q},r) \in x \lor (p,\ol{q},\ol{r}) \in x)
+            \end{align*}
+        \item Für $x \in \univ^0$ gilt $\GExOrd(x)$ gdw.
+            \begin{align*}
+                \exists (p,q,r) \in x : (&(p,q,\ol{r}) \in x \lor (p,\ol{q},r) \in x \lor (p,\ol{q},\ol{r}) \in x\\
+                \lor &(\ol{p},q,r) \in x \lor (\ol{p},q,\ol{r}) \in x \lor (\ol{p},\ol{q},r) \lor (\ol{p},\ol{q},\ol{r}))
+            \end{align*}   
+    \end{enumerate}
+
+\end{hyp}
+
 
 \begin{erin}[D23. $x$ ist eine ordinäre Raumentität]
     \begin{align*}

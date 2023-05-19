@@ -98,8 +98,8 @@ Beweis trivial.
     \end{itemize}
 \end{dfn}
 
-\begin{satz}
-    Für $x,y \in \einf^d$ ist $x \cap y$ leer oder wieder in $\in \einf^d$.
+\begin{satz}\label{satz:einf-schnitt}
+    Für $x,y \in \einf^d$ ist $x \cap y$ leer oder wieder in $\einf^d$.
 \end{satz}
 Beweis trivial.
 
@@ -136,6 +136,11 @@ Beweis trivial.
         \item \emph{niederdimensional}, wenn $\dim(x) \neq 3$ ist.
     \end{itemize}
 \end{dfn}
+
+\begin{satz}\label{satz:univ-schnitt}
+    Für $x,y \in \univ^d$ ist $x \cap y$ leer oder wieder in $\univ^d$.
+\end{satz}
+Beweis Folgerung aus Satz \ref{satz:einf-schnitt}.
 
 \begin{satz}\label{satz:strong-sup-pre}
     Für alle $A \in \einf^3$, $B \in \univ^3$, $p \in A \setminus B$ gibt es ein $C \in \einf^3$ mit
@@ -221,13 +226,29 @@ Beweis trivial.
     \end{enumerate}
 \end{dfn}
 
-\begin{dfn}[Randentität]\ 
-    \begin{itemize}
-        \item Eine komplexe Fläche $A \in \univ^2$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,q,\ol{r}) \notin A$.
-        \item Eine komplexe Linie $A \in \univ^1$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,\ol{q},r) \notin A$.
-        \item Eine komplexe Punktmenge $A \in \univ^0$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(\ol{p},q,r) \notin A$.
-    \end{itemize}
-\end{dfn}
+\begin{satz}\label{satz:rand-teil}
+    Für eine höherdimensionale komplexe Entität $A$ gilt $\partial A \subsetneq A$
+\end{satz}
+
+\begin{bew}
+    Klar ist: $\partial A \subseteq A$.
+    Seien $B_1, ..., B_n \in \einf^d$ mit $A = \bigcup_{i=1}^{n}B_i$.
+    Wir führen den Beweis für $d=3$. Für alle anderen Dimensionen funktioniert er auf ähnliche Weise.
+    Sei $B_1 =: I \times J \times [a^\upa, b^\downa]$.
+    Seien $p \in I$ und $q \in J$. Sei $c := \frac{a+b}{2}$. 
+    Dann ist sowohl $(p,q,c^\upa)$ als auch $(p,q,c^\downa)$ in $A$ und somit nicht in $\partial A$.
+    Also muss $\partial A \neq A$ sein.
+\end{bew}
+
+
+
+% \begin{dfn}[Randentität]\ 
+%     \begin{itemize}
+%         \item Eine komplexe Fläche $A \in \univ^2$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,q,\ol{r}) \notin A$.
+%         \item Eine komplexe Linie $A \in \univ^1$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,\ol{q},r) \notin A$.
+%         \item Eine komplexe Punktmenge $A \in \univ^0$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(\ol{p},q,r) \notin A$.
+%     \end{itemize}
+% \end{dfn}
 
 
 

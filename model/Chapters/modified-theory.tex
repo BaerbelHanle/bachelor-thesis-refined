@@ -1,4 +1,10 @@
-\section{Axiome}
+\section{Modifizierte BS-Theorie}
+Unterschied: scoinc wird als Äquivalenzrelation auf den Raumentitäten betrachtet.
+Grund: Modellbau einfacher
+alter Koinzidenzbegriff lässt sich rekonstruieren durch
+\begin{align*}
+  \Gscoinc^{alt}(x,y) := \Gscoinc(x,y) \land \GSB(x) \land \GSB(y)
+\end{align*}
 
 
 \begin{erin}[A1. Existenz einer Raumregion]
@@ -109,11 +115,11 @@
     \end{align*}
 \end{erin}
 
-\begin{erin}[A19. Reflexivität von $\Gscoinc$]
+\begin{dfn}[A19'. Reflexivität von $\Gscoinc$]
     \begin{align*}
-        \GSB(x) \to \Gscoinc(x,x)
+        \Gscoinc(x,x)
     \end{align*}
-\end{erin}
+\end{dfn}
 
 \begin{erin}[A20. Symmetrie von $\Gscoinc$]
     \begin{align*}
@@ -127,11 +133,11 @@
     \end{align*}
 \end{erin}
 
-\begin{erin}[A22. Definitionsbereich von $\Gscoinc$]
+\begin{dfn}[A22'. Definitionsbereich von $\Gscoinc$]
     \begin{align*}
-        \Gscoinc(x,y) \to \Geqdim(x,y) \wedge \GSB(x) \wedge \GSB(y)
+        \Gscoinc(x,y) \to \Geqdim(x,y) \wedge (\GSReg(x) \to x=y)
     \end{align*}
-\end{erin}
+\end{dfn}
 
 \begin{erin}[A23. Ordinarität und Grenzen]
     \begin{align*}
@@ -198,3 +204,8 @@
         \GLDE(x) \land \GOrd(x) \leftrightarrow \GSB(x)
     \end{align*}
 \end{erin}
+
+
+
+
+

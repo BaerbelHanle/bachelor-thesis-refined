@@ -105,5 +105,39 @@ The following theorems allow the introduction of partial functions based on the 
     Wir schreiben $\Gintersectn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gintersectn(x_{1},\ldots,x_{n},y)$ gilt.
 \end{konv}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Relatives Komplement]\ \\
+    \begin{align*}
+        \Grelcompln(x_{1},\ldots,x_{n},x) := \hspace*{1em}\bigwedge_{1\leq i \leq n} \Geqdim(x_i, x) \wedge\\
+        \forall y\ (\Gspart(y,x)
+        \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(y,x_{i}) \wedge \Gspart(y, x_{n}))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Das relative Komplement ist im letzten Argument eindeutig, d.h.
+    \begin{align*}
+        \Grelcompln(x_{1},\ldots,x_{n},y_1) \land \Grelcompln(x_{1},\ldots,x_{n},y_2) \to y_1 = y_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Grelcompln(x_{1},\ldots,x_{n},y_1)$\\
+        & & 2. & $\Grelcompln(x_{1},\ldots,x_{n},y_2)$\\
+        1 & $\deshalb$ & 3. & $\forall z\ (\Gspart(z,y_1)
+        \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(z,x_{i}) \wedge \Gspart(z, x_{n}))$\\
+        2 & $\deshalb$ & 4. & $\forall z\ (\Gspart(z,y_2)
+        \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(z,x_{i}) \wedge \Gspart(z, x_{n}))$ \\
+        3,4 & $\deshalb$ & 5. & $\forall z\ (\Gspart(z,y_1) \leftrightarrow \Gspart(z,y_2))$ \\
+        5, T1. & $\deshalb$ & 6. & $y_1 = y_2$
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[Die $\Grelcompln^f$-Funktion]\ \\
+    Wir schreiben $\Grelcompln^f(x_{1},\ldots,x_{n}) = y$ falls $\Grelcompln(x_{1},\ldots,x_{n},y)$ gilt.
+\end{konv}
+
 
 

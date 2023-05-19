@@ -1,0 +1,891 @@
+\section{Theorems of $\theoryBS$}
+
+\begin{satz}[T23.]\label{satz:t23}
+    $\forall z\ (\Gsov(z,x) \leftrightarrow \Gsov(z,y)) \to x = y$
+\end{satz}
+
+\begin{bew}
+    Sei $x \neq y$.
+    O.B.d.A. gelte $\neg \Gspart(x,y)$. 
+    Dann gibt es nach dem starken Supplementationsprinzip (A8) ein $z$ mit $\Gspart(z,x)$ und $\neg \Gsov(z,y)$. 
+    Wegen der Reflexivität der $\Gspart$-Relation (A4) folgt damit $\Gsov(z,x)$.
+    Somit gilt $\neg \forall z\ (\Gsov(z,x) \leftrightarrow \Gsov(z,y))$.
+\end{bew}
+
+
+
+\subsection{Uniqueness theorems}
+The following theorems allow the introduction of partial functions based on the uniqueness of certain relations in certain arguments.
+
+\begin{erin}[Greatest spatial boundary]
+    $\Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))$
+\end{erin}
+
+\begin{satz}
+    The $\Ggrsb$-relation is unique in its first argument. I.e.
+    \begin{align*}
+        \Ggrsb(x_1,y) \land \Ggrsb(x_2,y) \to x_1 = x_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Ggrsb(x_1,y)$\\
+        & & 2. & $\Ggrsb(x_2,y)$ \\
+        1 & $\deshalb$ & 3. & $\Gsb(x_1,y)$ \\
+        2 & $\deshalb$ & 4. & $\Gsb(x_2,y)$ \\
+        1 & $\deshalb$ & 5. & $\forall z (\Gsb(z,y) \to \Gspart(z,x_1))$ \\
+        2 & $\deshalb$ & 6. & $\forall z (\Gsb(z,y) \to \Gspart(z,x_2))$ \\
+        3,6 & $\deshalb$ & 7. & $\Gspart(x_1,x_2)$ \\
+        4,5 & $\deshalb$ & 8. & $\Gspart(x_1,x_2)$\\
+        7,8,A5 & $\deshalb$ & 9. & $x_1 = x_2$
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[The $\Ggrsb$-function]
+    By $\Ggrsb(x)$ we denote the space entity $y$ with $\Ggrsb(y,x)$ (if existing).
+\end{konv}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Mereologische Summe]\ \\
+    $\Gsumn(x_{1},\ldots,x_{n},x) := \forall y\ (\Gsov(y,x) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(y,x_{i}))$
+\end{erin}
+
+\begin{satz}\ \\
+    Die mereologische Summe ist in ihrem letzten Argument eindeutig, d.h.
+    \begin{align*}
+        \Gsumn(x_{1},\ldots,x_{n},y_1) \land \Gsumn(x_{1},\ldots,x_{n},y_2) \to y_1 = y_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Gsumn(x_{1},\ldots,x_{n},y_1)$\\
+        & & 2. & $\Gsumn(x_{1},\ldots,x_{n},y_2)$\\
+        1 & $\deshalb$ & 3. & $\forall z\ (\Gsov(z,y_1) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(z,x_{i}))$ \\
+        2 & $\deshalb$ & 4. & $\forall z\ (\Gsov(z,y_2) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(z,x_{i}))$ \\
+        3,4 & $\deshalb$ & 5. & $\forall z\ (\Gsov(z,y_1) \leftrightarrow \Gsov(z,y_2))$ \\
+        5, T23. & $\deshalb$ & 6. & $y_1 = y_2$
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[Die $\Gsumn^f$-Funktion]\ \\
+    Wir schreiben $\Gsumn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gsumn(x_{1},\ldots,x_{n},y)$ gilt.
+\end{konv}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[Mereologischer Schnitt]\ \\
+    \begin{align*}
+        \Gintersectn(x_{1},\ldots,x_{n},x)  := \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(y,x_{i}))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Der mereologische Schnitt ist im letzten Argument eindeutig, d.h.
+    \begin{align*}
+        \Gintersectn(x_{1},\ldots,x_{n},y_1) \land \Gintersectn(x_{1},\ldots,x_{n},y_2) \to y_1 = y_2
+    \end{align*}
+\end{satz}
+
+\begin{bew}\ \\
+    \begin{longtable}{r c c l}
+        & & 1. & $\Gintersectn(x_{1},\ldots,x_{n},y_1)$\\
+        & & 2. & $\Gintersectn(x_{1},\ldots,x_{n},y_2)$\\
+        1 & $\deshalb$ & 3. & $\forall z\ (\Gspart(z,y_1) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(z,x_{i}))$\\
+        2 & $\deshalb$ & 4. & $\forall z\ (\Gspart(z,y_2) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(z,x_{i}))$ \\
+        3,4 & $\deshalb$ & 5. & $\forall z\ (\Gspart(z,y_1) \leftrightarrow \Gspart(z,y_2))$ \\
+        5, T1. & $\deshalb$ & 6. & $y_1 = y_2$
+    \end{longtable}
+\end{bew}
+
+\begin{konv}[Die $\Gintersectn^f$-Funktion]\ \\
+    Wir schreiben $\Gintersectn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gintersectn(x_{1},\ldots,x_{n},y)$ gilt.
+\end{konv}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Grundlegende Definitionen}
+
+\begin{dfn}[Gerichtete Zahl]\ \\
+    Eine gerichtete Zahl ist ein Paar $(r,d)$ mit $r \in \R$, $d \in \udset$.\\
+    Statt $(r,d)$ schreiben wir auch $r^d$.\\
+    $\R^\ud$ bezeichnet die Menge der gerichteten Zahlen.
+\end{dfn}
+
+\begin{nota}
+    \begin{align*}
+        -\upa = \downa\\
+        -\downa = \upa
+    \end{align*}
+    Für $p = u^d \in \R^\ud$ ist
+    \begin{align*}
+        \ol{p} := u^{-d}
+    \end{align*}
+\end{nota}
+
+\begin{dfn}[Eine lineare strenge Ordung auf $\R^\ud$]\ \\
+    \begin{enumerate}
+        \item Für $r_1^{d_1},r_2^{d_2} \in \R^\ud$ schreiben wir $r_1^{d_1} < r_2^{d_2}$ falls $r_1 < r_2$ ist oder $r_1 = r_2$, $d_1 = \downa$ und $d_2 = \upa$.
+    \end{enumerate}
+\end{dfn}
+Es ist leicht zu sehen, dass diese Relation in der Tat eine strenge lineare Ordungsrelation auf $\R^\ud$ ist
+
+Wir benutzen die üblichen Notationen $x \leq y$ für $x < y \lor x = y$ und $x \nless y$ für $\neq x < y$.
+
+Die Festlegung eine linearen Ordung erlaubt uns die Nutzung der Intervallschreibweise auf $\R^\ud$ sowie der Operatoren $\min, \max, \sup$ und $\inf$ auf Teilmengen des $\R^\ud$. 
+Auf dieser Notation können wir die Menge der Basisintervalle einführen.
+
+\begin{dfn}[Basisintervalle]\ \\
+    Die Menge $\B$ der Basisintervalle ist definiert durch
+    \begin{align*}
+        \B = \{[r^\upa, s^\downa] \subset \R^\ud \mid r,s \in \R, r<s\}.
+    \end{align*}
+\end{dfn}
+
+\begin{satz}
+    Der Schnitt zweier Basisintervalle ist leer oder wieder ein Basisintervall.
+\end{satz}
+Beweis trivial.
+
+\begin{satz}\label{satz:strong-sup-1}
+    Für zwei Basisintervalle $I_1, I_2$ und eine gerichtete Zahl $p \in I_1 \setminus I_2$ gibt es immer ein Basisintervall $J$ mit
+    \begin{enumerate}
+        \item $p \in J$
+        \item $J \subseteq I_1$
+        \item $J \cap I_2 = \varnothing$
+    \end{enumerate}
+\end{satz}
+
+\begin{bew}
+    Seien $I_1 =: [u_1^\upa, v_1^\downa], I_2 =: [u_2^\upa, v_2^\downa]$.\\
+    Fall 1: $p < u_2^\upa$. Setze $J := [u_1^\upa , (\min\{v_1,u_2\})^\downa]$.\\
+    Fall 2: $p > v_2^\downa$. Setze $J := [(\max\{u_1,v_2\})^\upa, v_1^\downa]$.\\
+    Die geforderten Eigenschaften für $J$ sind leicht nachzuprüfen.
+\end{bew}
+
+\begin{dfn}[Projektionen]\ \\
+    Für $k,n \in \N$ mit $k \leq n$ definieren wir die Projektionen $\pi_k^n : 2^{(\R^\ud)^n} \to \R^\ud$ durch
+    \begin{align*}
+        \pi_k^n (A) = \{x_k \in \R^\ud \mid (x_1, ..., x_n) \in A\}
+    \end{align*}
+\end{dfn}
+
+\begin{dfn}[Euklidische Projektion]\ \\
+    Für eine Menge $M \subseteq (\R^\ud)^d$ ist
+    \begin{align*}
+        \eukl^d(M) := \{(x_1,...,x_n) \in \R^n \mid \exists\, d_1 ... d_n \in \{\upa, \downa\}: (x_1^{d_1}, ..., x_n^{d_n}) \in M\}
+    \end{align*}
+    die \emph{euklidische Projektion} von $M$.
+\end{dfn}
+
+\begin{nota}
+    Statt $\pi_k^3$ und $\eukl^3$ schreiben wir auch $\pi_k$ und $\eukl$.
+\end{nota}
+
+
+
+
+\begin{dfn}[Einfache Entitäten]\ \\
+    Wir definieren
+    \begin{align*}
+        \einf^3 &:= \{I_1 \times I_2 \times I_3 \subset (\R^\ud)^3 \mid I_1, I_2, I_3 \in \B\}\\
+        \einf^2 &:= \{I_1 \times I_2 \times \{p_3\} \subset (\R^\ud)^3 \mid I_1, I_2 \in \B, p_3 \in \R^\ud\}\\
+        \einf^1 &:= \{I_1 \times \{p_2\} \times \{p_3\} \subset (\R^\ud)^3 \mid I_1 \in \B, p_2, p_3 \in \R^\ud\}\\
+        \einf^0 &:= (\R^\ud)^3\\
+        \einf &:= \einf^3 \cup \einf^2 \cup \einf^1 \cup \einf^0
+    \end{align*}
+    Dabei nennen wir
+    \begin{itemize}
+        \item $\einf^3$ die Menge der \emph{einfachen Körper}
+        \item $\einf^2$ die Menge der \emph{einfachen Flächen}
+        \item $\einf^1$ die Menge der \emph{einfachen Linien}
+        \item $\einf^0$ die Menge der \emph{einfachen Punkte}
+        \item $\einf$ die Menge der \emph{einfachen Entitäten}.
+    \end{itemize}
+\end{dfn}
+
+\begin{satz}
+    Für $x,y \in \einf^d$ ist $x \cap y$ leer oder wieder in $\in \einf^d$.
+\end{satz}
+Beweis trivial.
+
+\begin{dfn}\ \\
+    Für $k \in \{0,1,2,3\}$ definieren wir $\univ^k$ induktiv über
+    \begin{align*}
+        \univ_1^k &:= \einf^k\\
+        \univ_{n+1}^k &:= \{A \cup B \mid A \in \einf^k, B \in \univ_n^k\}\\
+        \univ^k &:= \bigcup_{n \in \N} \univ_n^k
+    \end{align*}
+    Und damit
+    \begin{align*}
+        \univ := \univ^3 \cup \univ^2 \cup \univ^1 \cup \univ^0.
+    \end{align*}
+    Dabei heißt ein Element $x \in \univ^k$
+    \begin{itemize}
+        \item \emph{komlexer Körper} falls $k = 3$ ist
+        \item \emph{komlexe Fläche} falls $k = 2$ ist
+        \item \emph{komlexe Linie} falls $k = 1$ ist
+        \item \emph{komlexe Punktmenge} falls $k = 0$ ist.
+    \end{itemize}
+    $\univ$ ist die Menge der komplexen Entitäten.
+\end{dfn}
+
+\begin{dfn}[Die Dimensionsfunktion]\ \\
+    Wir definieren die Funktion $\dim : \univ \to \{0,1,2,3\}$ durch
+    $$\dim(x) = d \quad \Leftrightarrow \quad x \in \univ^d.$$
+\end{dfn}
+
+\begin{dfn}[Höher- und niederdimensionale Entitäten]\ \\
+    Eine komplexe Entität $x \in \univ$ heißt
+    \begin{itemize}
+        \item \emph{höherdimensional}, wenn $\dim(x) \neq 0$ ist und
+        \item \emph{niederdimensional}, wenn $\dim(x) \neq 3$ ist.
+    \end{itemize}
+\end{dfn}
+
+\begin{satz}\label{satz:strong-sup-pre}
+    Für alle $A \in \einf^3$, $B \in \univ^3$, $p \in A \setminus B$ gibt es ein $C \in \einf^3$ mit
+    \begin{itemize}
+        \item $p \in C$
+        \item $C \subseteq A$
+        \item $C \cap B = \varnothing$
+    \end{itemize}
+\end{satz}
+
+\begin{bew}
+    \textbf{I.A.}: Seien $A = I_1 \times I_2 \times I_3, B = J_1 \times J_2 \times J_3 \in \einf^3$, $p = (p_1,p_2,p_3) \in A \setminus B$.\\
+    Dann gibt es ein $k \in \{1,2,3\}$ mit $p_k \notin J_k$. 
+    Gleichzeitig ist $p_k \in I_k$. 
+    Also gibt es nach Satz \ref{satz:strong-sup-1} ein $K \in \B$ mit $p_k \in K$, $K \subseteq I_k$ und $K \cap J_k = \varnothing$.
+    Setze
+    \begin{align*}
+        L_i :=
+        \begin{cases}
+            K & \text{falls $i=k$}\\
+            I_i & \text{sonst}
+        \end{cases}\\
+        C := L_1 \times L_2 \times L_3
+    \end{align*}
+    Es ist leicht nachzuprüfen, dass $C$ die geforderten Eigenschaften besitzt.\\
+    \textbf{I.V.}: Sei $n \in \N$ s.d. es für alle $A \in \einf^3$, $B \in \univ_n^3$, $p \in A \setminus B$ ein $C \in \einf^3$ mit $p \in C \subseteq A$ und $C \cap B = \varnothing$.\\
+    \textbf{I.S.}: Seien $A \in \einf^3$, $B \in \univ_{n+1}^3$, $p \in A \setminus B$.\\
+    Seien $B_1 \in \einf^3 \subset \univ_n^3$ und $B_2 \in \univ_n^3$ mit $B = B_1 \cup B_2$.
+    Dann gibt es nach I.V. $C_1$ und $C_2 \in \einf^3$ mit $p \in C_1 \subseteq A$, $C_1 \cap B_1 = \varnothing$, $p \in C_2 \subseteq A$ und $C_2 \cap B_2 = \varnothing$.\\
+    Setze $C := C_1 \cap C_2$. Die geforderten Eigenschaften für $C$ sind leicht nachzuprüfen.
+\end{bew}
+
+
+\begin{satz}\ \\
+    Für alle $A \in \einf^d$, $B \in \univ^d$, $p \in A \setminus B$ gibt es ein $C \in \einf^d$ mit
+    \begin{itemize}
+        \item $p \in C$
+        \item $C \subseteq A$
+        \item $C \cap B = \varnothing$
+    \end{itemize}
+\end{satz}
+
+\begin{bew}\ \\
+    \textbf{I.A.}: Seien $A = I_1 \times I_2 \times I_3, B = J_1 \times J_2 \times J_3 \in \einf^d$, $p = (p_1,p_2,p_3) \in A \setminus B$.\\
+    Dann gibt es ein $k \in \{1,2,3\}$ mit $p_k \notin J_k$. 
+    Gleichzeitig ist $p_k \in I_k$.\\
+    Fall 1: $J_k = \{r\}$ für ein $r \in \R^\ud$. Dann gibt es ein $q \in \R^\ud$ mit $I_k = \{q\}$ und $q \neq r$. Setze in diesem Fall $K := I_k$.\\
+    Fall 2: $J_k \in \B$. 
+    Dann ist auch $I_k \in \B$ und es gibt nach Satz \ref{satz:strong-sup-1} ein $K \in \B$ mit $p_k \in K$, $K \subseteq I_k$ und $K \cap J_k = \varnothing$.\\
+    Setze in beiden Fällen
+    \begin{align*}
+        L_i :=
+        \begin{cases}
+            K & \text{falls $i=k$}\\
+            I_i & \text{sonst}
+        \end{cases}\\
+        C := L_1 \times L_2 \times L_3
+    \end{align*}
+    Es ist leicht nachzuprüfen, dass $C$ die geforderten Eigenschaften besitzt.\\
+    \textbf{I.V.}: Sei $n \in \N$ s.d. es für alle $A \in \einf^d$, $B \in \univ_n^d$, $p \in A \setminus B$ ein $C \in \einf^d$ mit $p \in C \subseteq A$ und $C \cap B = \varnothing$.\\
+    \textbf{I.S.}: Seien $A \in \einf^d$, $B \in \univ_{n+1}^d$, $p \in A \setminus B$.\\
+    Seien $B_1 \in \einf^d \subset \univ_n^d$ und $B_2 \in \univ_n^d$ mit $B = B_1 \cup B_2$.
+    Dann gibt es nach I.V. $C_1$ und $C_2 \in \einf^d$ mit $p \in C_1 \subseteq A$, $C_1 \cap B_1 = \varnothing$, $p \in C_2 \subseteq A$ und $C_2 \cap B_2 = \varnothing$.\\
+    Setze $C := C_1 \cap C_2$. 
+    Die geforderten Eigenschaften für $C$ sind leicht nachzuprüfen.
+\end{bew}
+
+
+\begin{dfn}[Rand einer komplexen Entität]\ 
+    \begin{enumerate}
+        \item Für einen komplexen Körper $A \in \univ^3$ ist
+            \begin{align*}
+                \partial A := \{(p,q,r) \in A \mid (p,q,\ol{r}) \notin A\}
+            \end{align*}
+        \item Für eine komplexe Fläche $A \in \univ^2$ ist
+            \begin{align*}
+                \partial A := \{(p,q,r) \in A \mid (p,\ol{q},r) \notin A\}
+            \end{align*}
+        \item Für einen komplexe Linie $A \in \univ^1$ ist
+            \begin{align*}
+                \partial A := \{(p,q,r) \in A \mid (\ol{p},q,r) \notin A\}
+            \end{align*}
+    \end{enumerate}
+\end{dfn}
+
+\begin{dfn}[Randentität]\ 
+    \begin{itemize}
+        \item Eine komplexe Fläche $A \in \univ^2$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,q,\ol{r}) \notin A$.
+        \item Eine komplexe Linie $A \in \univ^1$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(p,\ol{q},r) \notin A$.
+        \item Eine komplexe Punktmenge $A \in \univ^0$ ist eine Randentität, wenn für alle $(p,q,r) \in A$ gilt $(\ol{p},q,r) \notin A$.
+    \end{itemize}
+\end{dfn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Die Blockstruktur}
+
+\begin{dfn}
+    $\GSReg(x) \quad \Leftrightarrow \quad x \in \univ^3$ 
+\end{dfn}
+
+\begin{dfn}
+    $\Gsb(x,y) \quad \Leftrightarrow \quad \dim(x)+1 = \dim(y) \land x \subseteq \partial y$
+\end{dfn}
+
+\begin{dfn}
+    $\Gscoinc(x,y)$ gdw.
+    \begin{itemize}
+        \item $x$ und $y$ sind Randentitäten
+        \item $\eukl(x) = \eukl(y)$
+    \end{itemize}
+\end{dfn}
+
+\begin{dfn}
+    $\Gspart(x,y)$ gdw. $\dim(x) = \dim(y)$ und $x \subseteq y$.
+\end{dfn}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Definierte Relationen}
+
+
+\begin{erin}[D4. $x$ ist eine räumliche Grenze]
+    \begin{align*}
+        \GSB(x) := \exists y\ \Gsb(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{hyp}
+    Für eine komplexe Entität $x$ gilt $\GSB(x)$ gdw. $x$ eine Randentität ist.
+\end{hyp}
+
+\begin{erin}[D6. $x$ ist die größte Grenze von $y$]
+    \begin{align*}
+        \Ggrsb(x,y) := \Gsb(x,y) \wedge \forall z\ (\Gsb(z,y) \to \Gspart(z,x))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D6. Die $\Ggrsb$-Funktion]
+    \begin{align*}
+        \Ggrsb(x) = y \quad \Leftrightarrow \quad \Ggrsb(y,x)
+    \end{align*}
+\end{erin}
+
+\begin{hyp}
+    Für eine höherdimensionale komplexe Entität $x$ ist $\Ggrsb(x) = \partial x$.
+\end{hyp}
+
+ 
+\begin{erin}[D7. $x$ ist eine niederdimensionale Raumentität]
+    \begin{align*}
+        \GLDE(x) := \exists y\ (\GSB(y) \wedge \Gspart(y, x))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Für eine komplexe Entität $x$ gilt $\GLDE(x)$ gdw. $\dim(x) \neq 3$ (d.h. $x$ ist niederdimensional).
+\end{satz}
+Beweis trivial.
+
+
+\begin{erin}[D8. $x$ ist ein Flächen-/Linien-/Punktregion]
+    \begin{align*}
+        \GdDE(x) := \exists y\ (\GdDB(y) \wedge \Gspart(y, x))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Für eine komplexe Entität $x$ gilt $\GdDE(x)$ gdw. $\dim(x) = \Gd$ ist.
+\end{satz}
+Beweis trivial.
+
+
+\begin{erin}[D9. $x$ und $y$ haben die selbe Dimension]
+    \begin{align*}
+        \Geqdim(x,y) := (&\GSReg(x) \wedge \GSReg(y)) \vee \GtwoDE(x) \wedge \GtwoDE(y))\\ \vee (&\GoneDE(x) \wedge \GoneDE(y)) \vee (\GzeroDE(x) \wedge \GzeroDE(y))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Für komplexe Entitäten $x,y$ gilt $\Geqdim(x,y)$ gdw. $\dim(x) = \dim(y)$ ist.
+\end{satz}
+Beweis trivial.
+
+
+\begin{erin}[D10. $x$ ist ein echter Teil von $y$]
+    \begin{align*}
+        \Gsppart(x, y) := \Gspart(x, y) \land  x \neq y
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Für komplexe Entitäten $x,y$ gilt $\Gsppart(x,y)$ gdw. $x \subsetneq y$ ist.
+\end{satz}
+Beweis trivial.
+
+
+\begin{erin}[D11. $x$ und $y$ überlappen]
+    \begin{align*}
+        \Gsov(x, y) := \exists z\  (\Gspart(z, x) \wedge \Gspart(z, y))
+    \end{align*}
+\end{erin}
+
+\begin{satz}\ \\
+    Für komplexe Entitäten $x,y$ gilt $\Gsov(x,y)$ gdw. $\dim(x) = \dim(y)$ und $x \cap y \neq \varnothing$ ist.
+\end{satz}
+Beweis trivial.
+
+
+\begin{erin}[D12. $x$ ist die mereologische Summe von $x_{1}$,\ldots,$x_{n}$]
+    \begin{align*}
+        \Gsumn(x_{1},\ldots,x_{n},x) := \forall y\ (\Gsov(y,x) \leftrightarrow \bigvee^{n}_{i=1} \Gsov(y,x_{i}))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[Die $\Gsumn^f$-Funktion]
+    \begin{align*}
+        \Gsumn^f(x_{1},\ldots,x_{n}) = x \quad \Leftrightarrow \quad \Gsumn(x_{1},\ldots,x_{n},x)
+    \end{align*}
+\end{erin}
+
+\begin{hyp}\ \\
+    Für $x_1, ..., x_n \in \univ^d$ ist $\Gsumn^f(x_1, ..., x_n) = \bigcup_{i=1}^n x_i$
+\end{hyp}
+
+
+\begin{erin}[D13. $x$ ist der mereologische Schnitt von $x_{1}$,\ldots,$x_{n}$]
+    \begin{align*}
+        \Gintersectn(x_{1},\ldots,x_{n},x)  := \forall y\ (\Gspart(y,x) \leftrightarrow \bigwedge^{n}_{i=1} \Gspart(y,x_{i}))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[Die $\Gintersectn^f$-Funktion]\ \\
+    Wir schreiben $\Gintersectn^f(x_{1},\ldots,x_{n}) = y$ falls $\Gintersectn(x_{1},\ldots,x_{n},y)$ gilt.
+\end{erin}
+
+\begin{hyp}\ \\
+    Für $x_1, ..., x_n \in \univ^d$ mit $\bigcap_{i=1}^n x_i \neq \varnothing$ ist $\Gintersectn^f(x_1, ..., x_n) = \bigcap_{i=1}^n x_i$
+\end{hyp}
+
+
+\begin{erin}[D14. $x$ ist das rel. Kompl. von $x_{n}$ und $x_{1}$,\ldots,$x_{n-1}$]
+    \begin{align*}
+        \Grelcompln(x_{1},\ldots,x_{n},x) := \hspace*{1em}\bigwedge_{1\leq i < j \leq n} \Geqdim(x_i, x) \wedge\\
+        \forall y\ (\Gspart(y,x)
+        \leftrightarrow \bigwedge^{n-1}_{i=1} \neg\Gsov(y,x_{i}) \wedge \Gspart(y, x_{n}))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D15. $x_{1}$,\ldots,$x_{n}$ zerlegen $x$]
+    \begin{align*}
+        \Gpartitionn(x_{1},\ldots,x_{n},x) := &\Gsumn(x_{1},\ldots,x_{n},x) \wedge\\ &\bigwedge_{1 \leq i < j \leq n} \neg\Gsov(x_i,x_j)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D16. $x$ ist ein 2-dim.\ Hyperteil von $y$]
+    \begin{align*}
+        \Gtwodhypp(x,y) := \exists z\ (\Gspart(z,y) \wedge \Gtwodb(x,z))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D17. $x$ ist ein 1-dim.\ Hyperteil von $y$]
+    \begin{align*}
+        \Gonedhypp(x,y) := \exists z\ ((&\Gspart(z,y) \vee \Gtwodhypp(z,y))\\
+        \wedge  &\Gonedb(x,z))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D18. $x$ ist ein 0-dim.\ Hyperteil von $y$]
+    \begin{align*}
+        \Gzerodhypp(x,y) := \exists z\ ((&\Gspart(z,y) \vee \Gonedhypp(z,y))\\ 
+        \wedge  &\Gzerodb(x,z))
+    \end{align*}
+\end{erin}
+               
+\begin{erin}[D19. $x$ ist ein Hyperteil von $y$]
+    \begin{align*}
+        \Ghypp(x,y) := \Gtwodhypp(x,y) \vee \Gonedhypp(x,y) \vee \Gzerodhypp(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D20. $x$ ist ein tangentialer Teil von $y$]
+    \begin{align*}
+        \Gtangpart(x,y) := (\Gspart(x,y) \vee \Ghypp(x,y))\ \ \wedge\\
+        \exists x'zz'\ ((\Gspart(x',x) \vee \Ghypp(x',x)) \wedge 
+        \Gsb(z,y) \\
+        \wedge (\Gspart(z',z) \vee \Ghypp(z',z)) \wedge \Gscoinc(x',z'))
+    \end{align*}
+\end{erin}
+
+\begin{hyp}\label{satz:tangpart}
+    \begin{itemize}\ 
+        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ gilt $\Gtangpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y \land \exists (p,q,r) \in x : (p,q,\ol{r}) \notin y.
+            \end{align*}
+        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ gilt $\Gtangpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y \land \exists (p,q,r) \in x : (p,\ol{q},r) \notin y.
+            \end{align*}
+        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ gilt $\Gtangpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y \land \exists (p,q,r) \in x : (\ol{p},q,r) \notin y.
+            \end{align*}
+        \item Für $x,y \in \univ$ mit $\dim(y) = 0$ gilt nie $\Gtangpart(x,y)$.
+    \end{itemize}
+\end{hyp}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[D21. $x$ ist ein innerer Teil von $y$]
+    \begin{align*}
+        \Ginpart(x, y) := (\Gspart(x,y) \vee \Ghypp(x,y)) \land \neg \Gtangpart(x, y)
+    \end{align*}
+\end{erin}
+
+\begin{hyp}\label{satz:inpart}
+    \begin{itemize}\ 
+        \item Für $x,y \in \univ$ mit $\dim(y) = 3$ gilt $\Ginpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y \land \forall (p,q,r) \in x : (p,q,\ol{r}) \in y.
+            \end{align*}
+        \item Für $x,y \in \univ$ mit $\dim(y) = 2$ gilt $\Ginpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y \land \forall (p,q,r) \in x : (p,\ol{q},r) \in y.
+            \end{align*}
+        \item Für $x,y \in \univ$ mit $\dim(y) = 1$ gilt $\Ginpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y \land \forall (p,q,r) \in x : (\ol{p},q,r) \in y.
+            \end{align*}
+        \item Für $x,y \in \univ$ mit $\dim(y) = 0$ gilt $\Ginpart(x,y)$ gdw.
+            \begin{align*}
+                x \subseteq y.
+            \end{align*}
+    \end{itemize}
+\end{hyp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[D22. $x$ ist eine extraordinäre Raumentität]
+    \begin{align*}
+        \GExOrd(x) := \exists yz\ (&\Gspart(y,x) \wedge \Gspart(z,x) \\
+        \wedge \neg&\Gsov(y,z) \wedge \Gscoinc(y,z))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D23. $x$ ist eine ordinäre Raumentität]
+    \begin{align*}
+        \GOrd(x) := \neg\GExOrd(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D24. $x$ ist $\Gd$-dim.\ zusammenhängend]
+    \begin{align*}
+        \GdDC(x) := \exists uv\ (\Gpartition(u,v,x)) \wedge \forall yz\ (\Gpartition(y,z,x)\\ 
+        \to 
+        \exists y'z'(\Gddhypp(y',y) \wedge \Gddhypp(z',z) \wedge \Gscoinc(y',z')))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D25. $x$ ist zusammenhängend]
+    \begin{align*}
+        \GC(x) := \GtwoDC(x) \vee \GoneDC(x) \vee \GzeroDC(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D26. $x$ und $y$ sind zusammenhängend]
+    \begin{align*}
+        \Gc(x,y) := \exists z\ (\Gsum(x,y,z) \wedge \GC(z))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D27. $x$ und $y$ sind extern zusammenhängend]
+    \begin{align*}
+        \Gexc(x,y) := \Gc(x,y) \wedge \neg\Gsov(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D28. $x$ hat eine $\Gd$-dim.\ zusammenhängende Komponente]
+    \begin{align*}
+        \GoneCCDd(x) := \GdDC(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D29. $x$ hat $n$ $\Gd$-dim.\ zusammenhängende Komp.]
+    \begin{align*}
+        \GnCCDd(x) := &\bigwedge_{i=1}^{n-1} \neg\GiCCDd(x) \wedge\\
+                    &\exists x_{1}...x_{n}(\Gpartitionn(x_{1},...,x_{n},x)
+                    \wedge \bigwedge_{i=1}^{n} \GoneCCDd(x_{i}))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D30. $x$ ist ein Topoid]
+    \begin{align*}
+        \GTop(x) := \GSReg(x) \wedge \GOrd(x) \wedge \GtwoDC(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D31. $x$ ist eine Fläche]
+    \begin{align*}
+        \GtwoD(x) := \GtwoDE(x) \wedge \GOrd(x) \wedge \GoneDC(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D32. $x$ ist eine Linie]
+    \begin{align*}
+        \GoneD(x) := \GoneDE(x) \wedge \GOrd(x) \wedge \GzeroDC(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D33. $x$ ist ein Punkt]
+    \begin{align*}
+        \GzeroD(x) := \GzeroDE(x) \wedge \GOrd(x) \wedge \neg\exists y\ \Gsppart(y,x)
+    \end{align*}
+\end{erin}
+
+\begin{hyp}\label{satz:zerod}
+    \begin{align*}
+        \GzeroD(x) \quad \Leftrightarrow \quad \exists p \in (\R^\ud)^3 : x = \{p\}
+    \end{align*}
+\end{hyp}
+
+
+\begin{erin}[D34. $x$ ist eine strikte räumliche Grenze]
+    \begin{align*}
+        \Gstrictsb(x,y) :=
+        &\Gsb(x,y) \wedge \\
+        &\forall x' (\Ghypp(x',y) \wedge \Gscoinc(x,x') \to x=x')
+    \end{align*}
+\end{erin}
+
+\begin{erin}[D35. $x$ ist eine schwache räumliche Grenze]
+    \begin{align*}
+        \Gweaksb(x,y) := \Gsb(x,y) \wedge \neg\Gstrictsb(x,y)
+    \end{align*}
+\end{erin}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Axiome}
+
+A1 - A7 sind trivial zu beweisen oder folgen durch einfaches Einsetzen der Definitionen
+
+%\paragraph{A8.} (Strong supplementation principle)
+
+\begin{erin}[A8. Starkes Ergänzungsprinzip]
+    $\neg\Gspart(x,y) \to \exists z\ (\Gspart(z,x) \wedge \neg\Gsov(z,y))$
+\end{erin}
+
+\begin{bew}
+    Für $\dim(x) \neq \dim(y)$ setze $z=x$.\\
+    Sei nun $\dim(x) = \dim(y) =: d$, $x = \bigcup_{i=1}^m A_i$, $y = \bigcup_{i=1}^n B_i$ mit $A_1, ..., A_m, B_1, ..., B_n \in \einf^d$.
+    Wegen $\neg \Gspart(x,y)$ und $\dim(x) = \dim(y)$ gilt $x \nsubseteq y$ und somit $x \setminus y \neq \varnothing$.
+    Sei $p$ in $x \setminus y$.
+    Sei $i \in \{1, ..., m\}$ mit $p \in A_i$. 
+    Dann gibt es nach Satz \ref{satz:strong-sup-pre} ein $C \in \einf^d$ mit $C \subseteq A_i$ und $C \cap y = \varnothing$.
+    Setze $z = C$.
+\end{bew}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{erin}[A9. Nur Punkte sind atomar]
+    \begin{align*}
+        \neg\GzeroD(x) \to \exists y\ (\Gsppart(y,x) \wedge \Ginpart(y,x))
+    \end{align*}
+\end{erin}
+
+\begin{bew}
+    Sei $x \in \univ$ mit $\neg \GzeroD(x)$, $x =: \bigcup_{i=1}^n A_i$, $A_i \in \einf^d$.\\
+    \textbf{Fall 1: $d=3$.} Sei $A_1 =: I \times J \times [a^\upa, b^\downa]$. 
+    Setze 
+    \begin{align*}
+        \hat{a} &:= \frac{2a+b}{3}\\
+        \hat{b} &:= \frac{a+2b}{3}\\
+        \hat{K} &:= [\hat{a}^\upa, \hat{b}^\downa]\\
+        y &:= I \times J \times \hat{K}
+    \end{align*}
+    Klar ist$\dim(y) = \dim(x)$ und $y \subsetneq x$ also $\Gsppart(y,x)$.
+    Außerdem gilt $\forall r \in \hat(K) : \ol{r} \in K$ und somit $\forall (p,q,r) \in y : (p,q,r) \in x$.
+    Also ist nach Satz \ref{satz:inpart} $\Ginpart(y,x)$.\\
+    Für $d=1,2$ funktioniert die Konstruktion für $y$ ähnlich.\\
+    \textbf{Fall 2: $d=0$.} 
+    Dann gibt es wegen Satz \ref{satz:zerod} $i,j \in \{1, ..., n\}$ mit $A_i \neq A_j$.
+    Setze $y := A_i$. 
+    Dann ist $\Gsppart(y,x)$ und nach Satz \ref{satz:inpart} $\Ginpart(y,x)$
+\end{bew}
+
+        
+\begin{erin}[A10. Erweiterbarkeit von Raumentitäten]
+    \begin{align*}
+        \exists y\ \Gsppart(x,y)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A11. Einbettendes Topoid für Raumregionen]
+    \begin{align*}
+        \GSReg(x) \to \exists y\ (\GTop(y) \wedge \Gspart(x,y))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A12. Existenz von Grenzen für Raumregionen]
+    \begin{align*}
+        \GSReg(x) \to \exists y\ \Gsb(y,x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A13. Existenz von Grenzen für Teile von Flächenregionen]
+    \begin{align*}
+        \GtwoDE(x) \to \exists y z\ (\Gsppart(y,x) \wedge \Gsb(z,y))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A14. Existenz von Grenzen für Teile von Linienregionen]
+    \begin{align*}
+        \GoneDE(x) \to \exists y z\ ( \Gsppart(y,x) \wedge \Gsb(z,y))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A15. Existenz von größten Grenzen]
+    \begin{align*}
+        \GOrd(x) \wedge \exists y\ \Gsb(y,x) \to \exists z\ \Ggrsb(z,x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A16. Existenz der mereologischen Summe]
+    \begin{align*}
+        \Geqdim(x,y) \to \exists z\ \Gsum(x,y,z)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A17. Existenz des mereoloischen Schnitts]
+    \begin{align*}
+        \Gsov(x,y) \to \exists z\ \Gintersect(x,y,z)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A18. Existenz des relativen Komplements]
+    \begin{align*}
+        \Geqdim(x,y) \wedge \neg\Gspart(y,x) \to \exists z\ \Grelcompl(x,y,z)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A19. Reflexivität von $\Gscoinc$]
+    \begin{align*}
+        \GSB(x) \to \Gscoinc(x,x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A20. Symmetrie von $\Gscoinc$]
+    \begin{align*}
+        \Gscoinc(x,y) \to \Gscoinc(y,x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A21. Transitivität von $\Gscoinc$]
+    \begin{align*}
+        \Gscoinc(x,y) \wedge \Gscoinc(y,z) \to \Gscoinc(x,z)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A22. Definitionsbereich von $\Gscoinc$]
+    \begin{align*}
+        \Gscoinc(x,y) \to \Geqdim(x,y) \wedge \GSB(x) \wedge \GSB(y)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A23. Ordinarität und Grenzen]
+    \begin{align*}
+        \Gsb(x,y) \wedge \GOrd(y) \to \GOrd(x)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A24. Teile von Grenzen sind Grenzen]
+    \begin{align*}
+        \Gsb(y,z) \wedge \Gspart(x,y) \to \Gsb(x,z)
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A25. Es gibt keine neuen Grenzen]
+    \begin{align*}
+        \Gtangpart(x,y) \wedge \Gsb(x',x) \wedge \Gsb(y',y) \wedge \Gscoinc(x',y') \to \Gsb(x',y)
+    \end{align*}
+\end{erin}
+                
+\begin{erin}[A26. Definitionsbereich von $\Gsb$]
+    \begin{align*}
+        \Gsb(x,y) \to (\GtwoDB(x) \wedge \GSReg(y)) \vee (\GoneDB(x) \wedge \GtwoDE(y)) \vee (\GzeroDB(x) \wedge \GoneDE(y))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A27. Existenz koinzidierender Teile]
+    \begin{align*}
+        \Gscoinc(x,y) \wedge \Gspart(x',x) \to \exists y' \ (\Gspart(y',y) \wedge \Gscoinc(x',y'))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A28. Existenz koinzidierender Hyperteile]
+    \begin{align*}
+        \Gscoinc(x,y) \wedge \Ghypp(x',x) \to \exists y' \ (\Ghypp(y',y) \wedge \Gscoinc(x',y'))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A29. Existenz koinzidierender Grenzen]
+    \begin{align*}
+        \Gscoinc(x,y) \wedge \Gsb(x',x) \to \exists y' \ (\Gsb(y',y) \wedge \Gscoinc(x',y'))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A30.]
+    \begin{align*}
+        \Geqdim(x,y) \wedge \neg\Gsov(x,y) \wedge \Ghypp(x',x) \wedge \Ghypp(y',y) \to x' \neq y'
+    \end{align*}
+\end{erin}
+                
+\begin{erin}[A31. Entitäten mit einer gemeinsamen Grenze besitzen einen gemeinsamen Teil an dieser Grenze]
+    \begin{align*}
+        \Gsb(x,y) \wedge \Gsb(x,z) \leftrightarrow \exists u (\Gsb(x,u) \land \Gsppart(u,y) \land \Gsppart(u,z))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A32'.]
+    \begin{align*}
+        \Gsb(x,y) \land \Gsb(u,v) \land \neg \Gsov(x,u) \leftrightarrow \exists y'v'\:(\: \Gspart(y',y) \land \Gsb(x,y') \land \Gspart(v',v) \land \Gsb(u,v') \land \neg \Gsov(y',v'))
+    \end{align*}
+\end{erin}
+
+\begin{erin}[A33. Ordinäre niederdimensionale Raumentitäten sind Grenzen]
+    \begin{align*}
+        \GLDE(x) \land \GOrd(x) \leftrightarrow \GSB(x)
+    \end{align*}
+\end{erin}
